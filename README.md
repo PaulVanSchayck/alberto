@@ -1,4 +1,4 @@
-alberto
+AlBERTO
 =======
 
 AraBidopsis EmbRyonic Transcriptome brOwser 
@@ -23,43 +23,44 @@ DIRECTORY STRUCTURE
 REQUIREMENTS
 ------------
 
-The minimum requirement by this application template that your Web server supports PHP 5.4.0.
+The minimum requirement by this application template that your Web server supports PHP 5.4.0, and MySQL 5.x.
 
 
 INSTALLATION
 ------------
 
-### Install from an Archive File
+### Download or clone the code
 
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
-
-You can then access the application through the following URL:
+Download the latest version of the code [directly](https://github.com/PaulVanSchayck/alberto/archive/master.zip) or clone
+it using git:
 
 ~~~
-http://localhost/basic/web/
+git clone https://github.com/PaulVanSchayck/alberto.git
 ~~~
 
-
-### Install via Composer
+### Install dependencies via Composer
 
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
 at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
-You can then install this application template using the following command:
+You need to install the composer-asset-plugin that Yii2 requires:
 
 ~~~
 php composer.phar global require "fxp/composer-asset-plugin:1.0.0-beta2"
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
 ~~~
 
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
+Then install the dependencies as they are specified in the composer.lock file:
+
+~~~
+php composer.phar install
+~~~
+
+Now you should be able to access the application through the following URL, assuming `alberto` is the directory
 directly under the Web root.
 
 ~~~
-http://localhost/basic/web/
+http://localhost/alberto
 ~~~
-
 
 CONFIGURATION
 -------------
@@ -81,3 +82,8 @@ return [
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 
 Also check and edit the other files in the `config/` directory to customize your application.
+
+Copyright and licence
+---------------------
+
+Code is copyright of (c) 2014 Wageningen University and released under the GNU GPL v2 license.
