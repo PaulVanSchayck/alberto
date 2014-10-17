@@ -15,14 +15,13 @@ $this->title = 'AlBERTO';
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Late globular</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>
+                    <svg id="lg"><?= file_get_contents(Yii::getAlias('@webroot') . '/svg/lg-plain.svg'); ?> ></svg>
+                </p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                <p><button class="btn btn-default" id="change">Change &raquo;</button></p>
             </div>
             <div class="col-lg-4">
                 <h2>Heading</h2>

@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\assets\AppAsset;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -49,6 +50,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        AppAsset::register($this->view);
         return $this->render('index');
     }
 
