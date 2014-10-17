@@ -59,7 +59,7 @@ Now you should be able to access the application through the following URL, assu
 directly under the Web root.
 
 ~~~
-http://localhost/alberto
+http://localhost/alberto/web
 ~~~
 
 CONFIGURATION
@@ -67,7 +67,7 @@ CONFIGURATION
 
 ### Database
 
-Edit the file `config/db.php` with real data, for example:
+Copy the file `config/db.sample.php` to `config/db.php` and fill it with real data, for example:
 
 ```php
 return [
@@ -80,8 +80,6 @@ return [
 ```
 
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
-
-Also check and edit the other files in the `config/` directory to customize your application.
 
 Copyright and licence
 ---------------------
