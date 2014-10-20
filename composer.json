@@ -16,7 +16,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "datatables/datatables": "1.10.3",
-        "mbostock/d3": "v3.4.13"
+        "bower-asset/d3": "3.4.*",
+        "bower-asset/d3-tip": "v0.6.5"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

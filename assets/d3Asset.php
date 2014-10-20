@@ -5,9 +5,10 @@ use yii\web\AssetBundle;
 
 class d3Asset extends AssetBundle
 {
-    public $sourcePath = '@vendor/mbostock/d3';
+    public $sourcePath = '@vendor/bower';
 
     public $js = [
-        'd3.js'
+        'd3/d3.js',
+        'd3-tip/index.js'
     ];
 }

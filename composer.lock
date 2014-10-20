@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "503c7d56ec9c08115881de309537ee84",
+    "hash": "567dea877df416a37dee95a74db11da6",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -56,6 +56,72 @@
                 "responsive",
                 "web"
             ]
+        },
+        {
+            "name": "bower-asset/d3",
+            "version": "v3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mbostock/d3.git",
+                "reference": "ceee009ae1a04a57f0a252764cac0f66bd439f0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mbostock/d3/zipball/ceee009ae1a04a57f0a252764cac0f66bd439f0d",
+                "reference": "ceee009ae1a04a57f0a252764cac0f66bd439f0d",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "d3.js",
+                "bower-asset-ignore": [
+                    ".DS_Store",
+                    ".git",
+                    ".gitignore",
+                    ".npmignore",
+                    ".travis.yml",
+                    "Makefile",
+                    "bin",
+                    "component.json",
+                    "index.js",
+                    "lib",
+                    "node_modules",
+                    "package.json",
+                    "src",
+                    "test"
+                ]
+            }
+        },
+        {
+            "name": "bower-asset/d3-tip",
+            "version": "v0.6.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Caged/d3-tip.git",
+                "reference": "9e40c3c406e88453a383cb0402799fcd1689dc40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Caged/d3-tip/zipball/9e40c3c406e88453a383cb0402799fcd1689dc40",
+                "reference": "9e40c3c406e88453a383cb0402799fcd1689dc40",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/d3": "3.4"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "index.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "components",
+                    "bower_components",
+                    "examples",
+                    "Makefile",
+                    "docs"
+                ]
+            }
         },
         {
             "name": "bower-asset/jquery",
@@ -333,42 +399,6 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
-        },
-        {
-            "name": "mbostock/d3",
-            "version": "v3.4.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mbostock/d3.git",
-                "reference": "9364923ee2b35ec2eb80ffc4bdac12a7930097fc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mbostock/d3/zipball/9364923ee2b35ec2eb80ffc4bdac12a7930097fc",
-                "reference": "9364923ee2b35ec2eb80ffc4bdac12a7930097fc",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Mike Bostock",
-                    "homepage": "http://bost.ocks.org/mike"
-                }
-            ],
-            "description": "A small, free JavaScript library for manipulating documents based on data.",
-            "homepage": "http://d3js.org/",
-            "keywords": [
-                "JS",
-                "canvas",
-                "dom",
-                "svg",
-                "visualization"
-            ],
-            "time": "2014-10-17 12:01:43"
         },
         {
             "name": "swiftmailer/swiftmailer",

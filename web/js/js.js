@@ -33,7 +33,11 @@ $(document).ready(function(){
         colorCellTypes(lg, baseColors.lg);
         colorCellTypes(eg, baseColors.eg);
         colorCellTypes(hs, baseColors.hs)
-    })
+    });
+
+    setupTooltip(eg);
+
+    assignData(eg);
 });
 
 function colorCellTypes(ele, color) {
@@ -53,4 +57,27 @@ function retrieveFillColor(ele) {
     });
 
     return d3.scale.ordinal().range(color);
+}
+
+function setupTooltip(ele) {
+    var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .direction('e')
+        .offset([0, 20])
+        .html( function(d) { return "Expression value: " + d; } );
+
+    ele.call(tip);
+
+    /*$.each(tissues, function(i, tissue) {
+        ele.selectAll('.' + tissue)
+            .on('mouseover', tip.show)
+            .on('mouseout', tip.hide)
+    });*/
+    ele.select('#g12932')
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
+}
+
+function assignData(ele) {
+    ele.select('#g12932').data([Math.round(Math.random() * 100)])
 }
