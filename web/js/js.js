@@ -4,7 +4,7 @@ $(document).ready(function(){
 
         testCellTypes($("#eg"));
 
-
+        testCellTypes($("#hs"));
 
     })
 });

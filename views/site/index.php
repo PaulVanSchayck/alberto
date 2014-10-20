@@ -30,6 +30,13 @@ $this->title = 'AlBERTO';
                     <svg id="lg" height="600"><?= file_get_contents(Yii::getAlias('@webroot') . '/svg/lg-plain.svg'); ?> ></svg>
                 </p>
             </div>
+            <div class="col-lg-4">
+                <h2>Heart stage</h2>
+
+                <p>
+                    <svg id="hs" height="600"><?= file_get_contents(Yii::getAlias('@webroot') . '/svg/hs-plain.svg'); ?> ></svg>
+                </p>
+            </div>
         </div>
 
     </div>
