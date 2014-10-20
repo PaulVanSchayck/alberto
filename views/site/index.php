@@ -18,7 +18,7 @@ $this->title = 'AlBERTO';
                 <h2>Early globular</h2>
 
                 <p>
-                    <svg id="eg" height="600"><?= file_get_contents(Yii::getAlias('@webroot') . '/svg/eg-plain.svg'); ?> ></svg>
+                    <svg id="eg" height="400"><?= file_get_contents(Yii::getAlias('@webroot') . '/svg/eg-plain.svg'); ?> ></svg>
                 </p>
 
                 <p><button class="btn btn-default" id="change">Change &raquo;</button></p>
@@ -27,7 +27,7 @@ $this->title = 'AlBERTO';
                 <h2>Late globular</h2>
 
                 <p>
-                    <svg id="lg" height="600"><?= file_get_contents(Yii::getAlias('@webroot') . '/svg/lg-plain.svg'); ?> ></svg>
+                    <svg id="lg" height="400"><?= file_get_contents(Yii::getAlias('@webroot') . '/svg/lg-plain.svg'); ?> ></svg>
                 </p>
 
                 <p><button class="btn btn-default" id="original">Original &raquo;</button></p>
