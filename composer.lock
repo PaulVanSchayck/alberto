@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "420c9137ff130bc74ede082097c187e4",
+    "hash": "503c7d56ec9c08115881de309537ee84",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -333,6 +333,42 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
+        },
+        {
+            "name": "mbostock/d3",
+            "version": "v3.4.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mbostock/d3.git",
+                "reference": "9364923ee2b35ec2eb80ffc4bdac12a7930097fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mbostock/d3/zipball/9364923ee2b35ec2eb80ffc4bdac12a7930097fc",
+                "reference": "9364923ee2b35ec2eb80ffc4bdac12a7930097fc",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Bostock",
+                    "homepage": "http://bost.ocks.org/mike"
+                }
+            ],
+            "description": "A small, free JavaScript library for manipulating documents based on data.",
+            "homepage": "http://d3js.org/",
+            "keywords": [
+                "JS",
+                "canvas",
+                "dom",
+                "svg",
+                "visualization"
+            ],
+            "time": "2014-10-17 12:01:43"
         },
         {
             "name": "swiftmailer/swiftmailer",
