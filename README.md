@@ -85,3 +85,6 @@ Copyright and licence
 ---------------------
 
 Code is copyright of (c) 2014 Wageningen University and released under the GNU GPL v2 license.
+
+SVG images are copyright of (c) 2014 Wageningen University and licensed under the [Creative Commons 
+Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
