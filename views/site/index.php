@@ -28,6 +28,7 @@ $this->title = 'AlBERTO';
         <li data-toggle="tab" class="disabled">
             <a href="#" data-toggle="tooltip" data-original-title="FACS gradient of root">Root gradients</a>
         </li>
+        <li class="pull-right" id="spinner"><img src="/images/spinner.gif" alt="Loading" />Loading...</li>
     </ul>
 
     <div class="tab-content">

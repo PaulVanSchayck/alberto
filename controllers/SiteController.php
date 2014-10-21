@@ -101,6 +101,7 @@ class SiteController extends Controller
         if( $exp == 'intact' ) {
             return $this->renderPartial('_tab');
         } else {
+            sleep(2);
             return 'Not implemented';
         }
 

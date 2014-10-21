@@ -12,6 +12,18 @@ var tissues = [
 ];
 
 $(document).ready(function(){
+
+    /* Show or hide spinner */
+    var $loading = $('#spinner').hide();
+
+    $(document)
+        .ajaxStart(function () {
+            $loading.show();
+        })
+        .ajaxStop(function () {
+            $loading.hide();
+        });
+
     $("#experiments a").tooltip({'placement': 'bottom'});
 
     $('#experiments a').click(function (e) {
