@@ -95,4 +95,14 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    public function actionTab($exp = 'intact')
+    {
+        if( $exp == 'intact' ) {
+            return $this->renderPartial('_tab');
+        } else {
+            return 'Not implemented';
+        }
+
+    }
 }

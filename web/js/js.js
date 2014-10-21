@@ -12,6 +12,34 @@ var tissues = [
 ];
 
 $(document).ready(function(){
+    $("#experiments a").tooltip({'placement': 'bottom'});
+
+    $('#experiments a').click(function (e) {
+        e.preventDefault();
+
+        var exp = $(this).attr("data-exp"),
+            $content = $(this.hash),
+            $tab = $(this);
+
+        if ( $content.is(':empty') ) {
+            // ajax load of tab
+            $(this.hash).load("/index.php?r=site/tab&exp=" + exp, function() {
+                loadExperiment();
+            });
+        }
+
+        $tab.tab('show');
+
+        return false;
+    });
+
+    // load first tab content
+    $('#experiments li:first a').click();
+
+    //
+});
+
+function loadExperiment() {
     var lg = d3.select('#lg');
     var eg = d3.select('#eg');
     var hs = d3.select('#hs');
@@ -43,10 +71,8 @@ $(document).ready(function(){
     assignData(lg);
     assignData(hs);
 
-    $(".experiments a").tooltip({'placement': 'bottom'});
-
     $('#example').DataTable();
-});
+}
 
 function colorCellTypes(ele, color) {
     $.each(tissues, function(i, tissue) {
