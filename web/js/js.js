@@ -36,13 +36,17 @@ $(document).ready(function(){
     });
 
     setupTooltip(eg);
+    setupTooltip(lg);
+    setupTooltip(hs);
 
     assignData(eg);
+    assignData(lg);
+    assignData(hs);
 });
 
 function colorCellTypes(ele, color) {
     $.each(tissues, function(i, tissue) {
-        ele.selectAll('.' + tissue).transition().duration(1000).attr('fill',color(i))
+        ele.select('#' + tissue).transition().duration(1000).attr('fill',color(i))
     });
 
 }
@@ -51,8 +55,8 @@ function retrieveFillColor(ele) {
     var color = [];
 
     $.each(tissues, function(i, tissue) {
-        if ( ! ele.select('.' + tissue).empty() ) {
-            color[i] = ele.select('.' + tissue).attr('fill');
+        if ( ! ele.select('#' + tissue).empty() ) {
+            color[i] = ele.select('#' + tissue).attr('fill');
         }
     });
 
@@ -64,20 +68,30 @@ function setupTooltip(ele) {
         .attr('class', 'd3-tip')
         .direction('e')
         .offset([0, 20])
-        .html( function(d) { return "Expression value: " + d; } );
+        .html( function(d) {
+            return d.tissue + "<br /> Expression value: " + d.value;
+        } );
 
     ele.call(tip);
 
-    /*$.each(tissues, function(i, tissue) {
-        ele.selectAll('.' + tissue)
-            .on('mouseover', tip.show)
-            .on('mouseout', tip.hide)
-    });*/
-    ele.select('#g12932')
-        .on('mouseover', tip.show)
-        .on('mouseout', tip.hide)
+    $.each(tissues, function(i, tissue) {
+        ele.select('#' + tissue)
+            //.on('mouseover', tip.show)
+            .on('mouseover', function(d, i){
+                tip.show(d, i);
+                d3.select(this).transition().style("opacity",0.5);
+            })
+            .on('mouseout', function(d, i) {
+                tip.hide(d, i);
+                d3.select(this).transition().style("opacity", 1);
+            })
+    });
 }
 
 function assignData(ele) {
-    ele.select('#g12932').data([Math.round(Math.random() * 100)])
+
+    $.each(tissues, function(i, tissue) {
+        ele.select('#' + tissue)
+            .data([{'tissue' : tissue, 'value' : Math.round(Math.random() * 100)}])
+    });
 }

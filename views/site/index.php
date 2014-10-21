@@ -36,7 +36,7 @@ $this->title = 'AlBERTO';
                 <h2>Heart stage</h2>
 
                 <p>
-                    <svg id="hs" height="600"><?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?> ></svg>
+                    <svg id="hs" height="400"><?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?> ></svg>
                 </p>
             </div>
         </div>
