@@ -12,7 +12,8 @@ class AppAsset extends AssetBundle
         'css/d3-tip.css'
     ];
     public $js = [
-        'js/js.js'
+        'js/experiment.js',
+        'js/navigation.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
