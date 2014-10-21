@@ -79,7 +79,7 @@ function setupTooltip(ele) {
             //.on('mouseover', tip.show)
             .on('mouseover', function(d, i){
                 tip.show(d, i);
-                d3.select(this).transition().style("opacity",0.5);
+                d3.select(this).transition().style("opacity", 0.5);
             })
             .on('mouseout', function(d, i) {
                 tip.hide(d, i);

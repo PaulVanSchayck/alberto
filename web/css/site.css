@@ -21,16 +21,6 @@ body {
     padding-top: 20px;
 }
 
-.jumbotron {
-    text-align: center;
-    background-color: transparent;
-}
-
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-}
-
 .not-set {
     color: #c55;
     font-style: italic;
@@ -88,4 +78,18 @@ a.desc:after {
     border-left: 3px solid #eed3d7;
     padding: 10px 20px;
     margin: 0 0 15px 0;
+}
+
+/* Navigation */
+.navbar-inverse {
+}
+
+
+/*****************************************************/
+.at-input {
+    margin-bottom: 20px;
+}
+
+.thumbnail {
+    text-align: center;
 }
