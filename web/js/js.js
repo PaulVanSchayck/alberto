@@ -42,6 +42,10 @@ $(document).ready(function(){
     assignData(eg);
     assignData(lg);
     assignData(hs);
+
+    $(".experiments a").tooltip({'placement': 'bottom'});
+
+    $('#example').DataTable();
 });
 
 function colorCellTypes(ele, color) {

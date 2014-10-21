@@ -11,7 +11,7 @@ body {
 }
 
 .wrap > .container {
-    padding: 70px 15px 20px;
+    padding: 0px 15px 20px;
 }
 
 .footer {
@@ -84,7 +84,13 @@ a.desc:after {
 .navbar-inverse {
 }
 
-
+/*.tab-content {
+    overflow-y: scroll;
+    max-height: 500px;
+}
+.tab-pane {
+    width: 95%;
+}*/
 /*****************************************************/
 .at-input {
     margin-bottom: 20px;
@@ -92,4 +98,8 @@ a.desc:after {
 
 .thumbnail {
     text-align: center;
+}
+
+.thumbnail svg {
+    height: 300px;
 }
