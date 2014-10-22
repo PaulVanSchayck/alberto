@@ -5,7 +5,7 @@ use yii\web\AssetBundle;
 
 class DatatablesAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/datatables/datatables/media';
+    public $sourcePath = '@vendor/bower/datatables/media';
 
     public $css = [
         'css/jquery.dataTables.min.css',

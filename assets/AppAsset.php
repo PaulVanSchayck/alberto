@@ -20,5 +20,6 @@ class AppAsset extends AssetBundle
         'yii\bootstrap\BootstrapAsset',
         'app\assets\d3Asset',
         'app\assets\DatatablesAsset',
+        'app\assets\DatatablesScrollerAsset',
     ];
 }
