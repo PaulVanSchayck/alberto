@@ -44,15 +44,21 @@ function loadExperiment() {
     assignData(hs);
 
     $('#example').dataTable({
+        serverSide: true,
         ajax: {
             url: "http://bic-hp-z400/index.php?r=gene/index",
             method: "get",
-            "dataSrc": ""
+            "dataSrc": "data"
         },
         columns: [
             { data: 'agi' },
             { data: 'gene' }
-        ]
+        ],
+        dom: "rtiS",
+        scrollY: 500,
+        scroller: {
+            loadingIndicator: true
+        }
     } );
 }
 
