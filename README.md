@@ -81,10 +81,16 @@ return [
 
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 
+Author
+------
+
+AlBERTO has been written by Paul van Schayck
+
+
 Copyright and licence
 ---------------------
 
-Code is copyright of (c) 2014 Wageningen University and released under the GNU GPL v2 license.
+Code is copyright of (c) 2014 Wageningen University and licensed under the GNU GPL v2 license.
 
 SVG images are copyright of (c) 2014 Wageningen University and licensed under the [Creative Commons 
 Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
