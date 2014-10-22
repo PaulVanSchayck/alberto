@@ -43,7 +43,17 @@ function loadExperiment() {
     assignData(lg);
     assignData(hs);
 
-    $('#example').DataTable();
+    $('#example').dataTable({
+        ajax: {
+            url: "http://bic-hp-z400/index.php?r=gene/index",
+            method: "get",
+            "dataSrc": ""
+        },
+        columns: [
+            { data: 'agi' },
+            { data: 'gene' }
+        ]
+    } );
 }
 
 function colorCellTypes(ele, color) {
