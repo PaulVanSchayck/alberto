@@ -10,10 +10,10 @@ class Serializer extends \yii\rest\Serializer {
      * @param \yii\data\Pagination $pagination
      * @return array
      */
-    public function serializePagination() {
+    public function serializePagination($pagination) {
         return [
-            'recordsTotal' => 25000,
-            'recordsFiltered' => 25000,
+            'recordsTotal' => $pagination->totalCount,
+            'recordsFiltered' => $pagination->totalCount,
             'draw' => $this->draw
         ];
     }
@@ -23,7 +23,7 @@ class Serializer extends \yii\rest\Serializer {
      * @param DataProviderInterface $dataProvider
      * @return array the array representation of the data provider.
      */
-    protected function serializeDataProvider($dataProvider)
+    /*protected function serializeDataProvider($dataProvider)
     {
         $models = $this->serializeModels($dataProvider->getModels());
 
@@ -37,5 +37,5 @@ class Serializer extends \yii\rest\Serializer {
             ];
             return array_merge($result, $this->serializePagination());
         }
-    }
+    }*/
 }

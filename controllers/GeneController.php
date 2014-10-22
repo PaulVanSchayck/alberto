@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+use app\components\Scroller;
 use Yii;
 use app\models\GeneRequest;
 use yii\data\ActiveDataProvider;
@@ -35,9 +36,9 @@ class GeneController extends Controller {
         if( $GeneRequest->load(Yii::$app->request->get()) && $GeneRequest->validate()) {
 
             $dataProvider = new ActiveDataProvider([
-                'query' => Gene::find()->orderBy('agi')->offset($GeneRequest->start)->limit($GeneRequest->length),
+                'query' => Gene::find()->orderBy('agi'),
                 'sort' => ['defaultOrder' => 'agi'],
-                'pagination' => false
+                'pagination' => new Scroller(['pageSize' => $GeneRequest->length, 'offset' => $GeneRequest->start])
             ]);
 
             $serializer = new Serializer();
