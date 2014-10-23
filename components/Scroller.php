@@ -19,6 +19,11 @@ class Scroller extends Pagination {
     public $draw;
 
     /**
+     * @var integer
+     */
+    public $unfilteredTotalCount;
+
+    /**
      * @return int
      */
     public function getOffset() {

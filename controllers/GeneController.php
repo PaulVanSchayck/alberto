@@ -4,7 +4,7 @@ namespace app\controllers;
 use app\components\Scroller;
 use Yii;
 use app\models\GeneRequest;
-use yii\data\ActiveDataProvider;
+use app\components\ActiveDataProvider;
 use app\components\Serializer;
 use yii\web\Controller;
 use app\models\Gene;

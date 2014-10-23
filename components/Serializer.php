@@ -8,7 +8,7 @@ class Serializer extends \yii\rest\Serializer {
      */
     public function serializePagination($pagination) {
         return [
-            'recordsTotal' => $pagination->totalCount,
+            'recordsTotal' => $pagination->unfilteredTotalCount,
             'recordsFiltered' => $pagination->totalCount,
             'draw' => $pagination->draw
         ];
