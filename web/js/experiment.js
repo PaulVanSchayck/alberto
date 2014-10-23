@@ -60,7 +60,14 @@ function loadExperiment() {
         scroller: {
             loadingIndicator: true
         }
-    } ).columnFilter();
+    } ).columnFilter( {
+        sPlaceHolder: "tfoot",
+        aoColumns: [
+            { type: 'text' },
+            { type: 'text' },
+            { type: 'text' }
+        ]
+    })
 }
 
 function colorCellTypes(ele, color) {

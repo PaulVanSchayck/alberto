@@ -125,15 +125,17 @@
             asInitVals[i] = label;
             var index = i;
 
-            if (bIsNumber && !oTable.fnSettings().oFeatures.bServerSide) {
+            if (bIsNumber && !oTable.api().settings().context[0].bAjaxDataGet) {
                 input.keyup(function () {
                     /* Filter on the column all numbers that starts with the entered value */
                     oTable.fnFilter('^' + this.value, _fnColumnIndex(index), true, false); //Issue 37
                     fnOnFiltered();
                 });
             } else {
+                var sPreviousSearch;
+                var oTimerId;
                 input.keyup(function () {
-                    if (oTable.fnSettings().oFeatures.bServerSide && iFilterLength != 0) {
+                    if (oTable.api().settings().context[0].bAjaxDataGet && iFilterLength != 0) {
                         //If filter length is set in the server-side processing mode
                         //Check has the user entered at least iFilterLength new characters
 
@@ -153,6 +155,20 @@
                             $(this).data("dt-iLastFilterLength", iCurrentFilterLength);
                         }
                     }
+
+                    /* Delay searches for AJAX requests */
+                    if (oTable.api().settings().context[0].bAjaxDataGet) {
+                        if (sPreviousSearch === null || sPreviousSearch != this.value) {
+                            window.clearTimeout(oTimerId);
+                            sPreviousSearch = this.value;
+                            var that = this;
+                            oTimerId = window.setTimeout(function () {
+                                oTable.fnFilter(that.value, _fnColumnIndex(index), regex, smart);
+                            }, 500);
+                        }
+                        return;
+                    }
+
                     /* Filter on the column (the index) of this element */
                     oTable.fnFilter(this.value, _fnColumnIndex(index), regex, smart); //Issue 37
                     fnOnFiltered();
