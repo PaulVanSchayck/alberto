@@ -6,13 +6,16 @@ use Yii;
 use yii\base\Model;
 
 /**
- * GeneRequest is the model behind the requests of DataTables
+ * GeneRequest is the model behind the requests of DataTables.
+ * See https://datatables.net/manual/server-side for an explanation of these requests
  */
 class GeneRequest extends Model {
 
     public $start;
     public $draw;
     public $length = 10;
+    public $columns;
+    public $order;
 
     /**
      * The form name is set to be empty, as the request is not placed in a a scope
@@ -29,9 +32,12 @@ class GeneRequest extends Model {
     public function rules()
     {
         return [
-            // draw and page are required
+            [['_','r','search'], 'unsafe'],
             [['start'], 'required'],
-            [['draw', 'length'], 'integer']
+            // TODO: improve length validation
+            [['draw', 'length'], 'integer'],
+            ['columns', 'validateColumns'],
+            ['order', 'validateOrder']
         ];
     }
 
@@ -43,4 +49,56 @@ class GeneRequest extends Model {
         ];
     }
 
+    /**
+     * Validate the contents of the columns array
+     *
+     * @param $attribute
+     * @internal param $params
+     */
+    public function validateColumns($attribute)
+    {
+        // TODO: improve this validator!
+        if (!is_array($this->$attribute)) {
+            $this->addError($attribute, "Columns is not specified as an array");
+        }
+    }
+
+    /**
+     * Validate the contents of the columns array
+     *
+     * @param $attribute
+     * @internal param $params
+     */
+    public function validateOrder($attribute)
+    {
+        // TODO: improve this validator!
+        if (!is_array($this->$attribute)) {
+            $this->addError($attribute, "Order is not specified as an array");
+        }
+
+        foreach ( $this->$attribute as $order ) {
+            if( ! array_key_exists($order['column'], $this->columns) ) {
+                $this->addError($attribute, "Order has an unspecified column as order target");
+            }
+        }
+    }
+
+    public function getOrder()
+    {
+        $order = [];
+
+        foreach( $this->order as $o ) {
+            $columnName = $this->columns[$o['column']]['data'];
+
+            if( $o['dir'] == 'asc' ) {
+                $dir = SORT_ASC;
+            } else {
+                $dir = SORT_DESC;
+            }
+
+            $order[$columnName] = $dir;
+        }
+
+        return $order;
+    }
 }
