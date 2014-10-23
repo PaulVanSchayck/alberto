@@ -107,3 +107,10 @@ a.desc:after {
 #spinner {
     display: none;
 }
+
+
+/* DataTables */
+.filter_number_range input {
+    width: 50px;
+    display: inline;
+}
