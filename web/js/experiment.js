@@ -52,14 +52,15 @@ function loadExperiment() {
         },
         columns: [
             { data: 'agi' },
-            { data: 'gene' }
+            { data: 'gene' },
+            { data: 'int17_eg' }
         ],
         dom: "rtiS",
         scrollY: 500,
         scroller: {
             loadingIndicator: true
         }
-    } );
+    } ).columnFilter();
 }
 
 function colorCellTypes(ele, color) {

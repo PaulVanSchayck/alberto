@@ -31,9 +31,17 @@
     <tr>
         <th>agi</th>
         <th>Gene</th>
+        <th>INT17 EG</th>
     </tr>
     </thead>
     <tbody>
 
     </tbody>
+    <tfoot>
+    <tr>
+        <th>agi</th>
+        <th>Gene</th>
+        <th>INT17 EG</th>
+    </tr>
+    </tfoot>
 </table>

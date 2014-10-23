@@ -36,7 +36,7 @@ class GeneController extends Controller {
         if( $GeneRequest->load(Yii::$app->request->get()) && $GeneRequest->validate()) {
 
             $dataProvider = new ActiveDataProvider([
-                'query' => Gene::find()->orderBy($GeneRequest->getOrder()),
+                'query' => Gene::find()->filterWhere($GeneRequest->getFilter())->orderBy($GeneRequest->getOrder()),
                 'pagination' => new Scroller($GeneRequest->getPaginationConfig())
             ]);
 

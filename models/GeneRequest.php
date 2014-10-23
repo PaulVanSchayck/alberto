@@ -82,6 +82,23 @@ class GeneRequest extends Model {
         }
     }
 
+    /**
+     * Builds the conditionals as being specified in the filters
+     *
+     * @return array
+     */
+    public function getFilter()
+    {
+        // Join all filters with AND
+        $filter = ['and'];
+
+        foreach( $this->columns as $column ) {
+            $filter[] = ['like', $column['data'], $column['search']['value'] ];
+        }
+
+        return $filter;
+    }
+
     public function getOrder()
     {
         $order = [];
