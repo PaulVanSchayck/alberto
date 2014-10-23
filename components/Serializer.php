@@ -4,17 +4,15 @@ namespace app\components;
 use yii\data\DataProviderInterface;
 
 class Serializer extends \yii\rest\Serializer {
-    public $draw = "";
-
     /**
-     * @param \yii\data\Pagination $pagination
+     * @param Scroller $pagination
      * @return array
      */
     public function serializePagination($pagination) {
         return [
             'recordsTotal' => $pagination->totalCount,
             'recordsFiltered' => $pagination->totalCount,
-            'draw' => $this->draw
+            'draw' => $pagination->draw
         ];
     }
 

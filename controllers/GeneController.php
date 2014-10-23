@@ -37,13 +37,10 @@ class GeneController extends Controller {
 
             $dataProvider = new ActiveDataProvider([
                 'query' => Gene::find()->orderBy('agi'),
-                'sort' => ['defaultOrder' => 'agi'],
-                'pagination' => new Scroller(['pageSize' => $GeneRequest->length, 'offset' => $GeneRequest->start])
+                'pagination' => new Scroller($GeneRequest->getPaginationConfig())
             ]);
 
-            $serializer = new Serializer();
-            $serializer->collectionEnvelope = "data";
-            $serializer->draw = $GeneRequest->draw;
+            $serializer = new Serializer(['collectionEnvelope' => "data"]);
 
             return $serializer->serialize($dataProvider);
         } else {

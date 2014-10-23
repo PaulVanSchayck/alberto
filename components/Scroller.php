@@ -9,8 +9,18 @@ use yii\data\Pagination;
  *
  */
 class Scroller extends Pagination {
+    /**
+     * @var integer start of the request
+     */
     public $offset;
+    /**
+     * @var integer a incremented counter of the request, in order to respond to asynchronous request
+     */
+    public $draw;
 
+    /**
+     * @return int
+     */
     public function getOffset() {
         return $this->offset;
     }
