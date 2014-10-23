@@ -13,7 +13,8 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/experiment.js',
-        'js/navigation.js'
+        'js/navigation.js',
+        'js/datatables.columnfilter.plugin.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
