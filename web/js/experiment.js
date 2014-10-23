@@ -57,6 +57,7 @@ function loadExperiment() {
         ],
         dom: "rtiS",
         scrollY: 500,
+        bProcessing: true,
         scroller: {
             loadingIndicator: true
         }
