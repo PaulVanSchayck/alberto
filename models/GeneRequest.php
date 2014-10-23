@@ -32,7 +32,6 @@ class GeneRequest extends Model {
     public function rules()
     {
         return [
-            [['_','r','search'], 'unsafe'],
             [['start'], 'required'],
             // TODO: improve length validation
             [['draw', 'length'], 'integer'],
