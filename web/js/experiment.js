@@ -70,7 +70,14 @@ function loadExperiment() {
             { type: 'number-range' },
             { type: 'number-range' }
         ]
-    })
+    }).on( 'search.dt', function () {
+        $(".filter_column input").removeClass('filtered')
+        $(".filter_column input").each(function() {
+            if( $(this).val() != '' ) {
+                $(this).addClass('filtered');
+            }
+        });
+    } );
 }
 
 function colorCellTypes(ele, color) {

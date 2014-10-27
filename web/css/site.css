@@ -166,3 +166,7 @@ a.desc:after {
     width: 50px;
     display: inline;
 }
+
+.filter_column .filtered {
+    background-color: #ccf4ff;
+}
