@@ -38,4 +38,11 @@ $(document).ready(function(){
 
     // load first tab content
     $('#experiments li:first a').click();
+
+    // Handle gene input
+    $('#gene-show').submit( function() {
+        showGene($("#gene").val());
+
+        return false;
+    })
 });

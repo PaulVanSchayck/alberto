@@ -14,28 +14,31 @@ $this->title = 'AlBERTO';
         <div class="col-lg-6">
             <div class="input-group at-input">
                 <span class="input-group-addon">Gene</span>
-                <?php
-                $template = '<p>{{agi}} - {{gene}}</p>';
-                echo Typeahead::widget([
-                    'name' => 'gene',
-                    'options' => ['placeholder' => 'AT1G01010 or WOX'],
-                    'pluginOptions' => ['highlight' => true],
-                    'dataset' => [
-                        [
-                            'remote' => Url::to(['gene/autocomplete']) . '&q=%QUERY',
-                            'limit' => 10,
-                            'templates' => [
-                                'empty' => '<p>Unable to find a matching gene.</p>',
-                                'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
-                            ],
-                            'displayKey' => 'agi'
+                <form action="#" method="get" id="gene-show">
+                    <?php
+                    $template = '<p>{{agi}} - {{gene}}</p>';
+                    echo Typeahead::widget([
+                        'name' => 'gene',
+                        'id' => 'gene',
+                        'options' => ['placeholder' => 'AT1G01010 or WOX'],
+                        'pluginOptions' => ['highlight' => true],
+                        'dataset' => [
+                            [
+                                'remote' => Url::to(['gene/autocomplete']) . '&q=%QUERY',
+                                'limit' => 10,
+                                'templates' => [
+                                    'empty' => '<p>Unable to find a matching gene.</p>',
+                                    'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                                ],
+                                'displayKey' => 'agi'
+                            ]
                         ]
-                    ]
-                ]);
-                ?>
-                <span class="input-group-btn">
-                    <button class="btn btn-default btn-info" type="button">Show</button>
-              </span>
+                    ]);
+                    ?>
+                    <span class="input-group-btn">
+                        <input type="submit" class="btn btn-default btn-info" value="Show" />
+                  </span>
+                </form>
             </div>
         </div>
     </div>

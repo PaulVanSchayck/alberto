@@ -71,7 +71,7 @@ function loadExperiment() {
             { type: 'number-range' }
         ]
     }).on( 'search.dt', function () {
-        $(".filter_column input").removeClass('filtered')
+        $(".filter_column input").removeClass('filtered');
         $(".filter_column input").each(function() {
             if( $(this).val() != '' ) {
                 $(this).addClass('filtered');
@@ -130,4 +130,8 @@ function assignData(ele) {
         ele.select('#' + tissue)
             .data([{'tissue' : tissue, 'value' : Math.round(Math.random() * 100)}])
     });
+}
+
+function showGene(gene) {
+    $('.filter_column input').first().val(gene).keyup()
 }
