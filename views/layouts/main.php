@@ -29,7 +29,7 @@ AppAsset::register($this);
                 'brandLabel' => 'AlBERTO - AraBidopsis EmbRyonic Transcriptome brOwser',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
-                    'class' => 'navbar-inverse',
+                    'class' => 'navbar-default',
                 ],
             ]);
             echo Nav::widget([
