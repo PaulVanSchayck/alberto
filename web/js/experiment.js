@@ -53,7 +53,8 @@ function loadExperiment() {
         columns: [
             { data: 'agi' },
             { data: 'gene' },
-            { data: 'int17_eg' }
+            { data: 'int17_eg', 'name': 'range' },
+            { data: 'wox5_hs', 'name': 'range' }
         ],
         dom: "rtiS",
         scrollY: 500,
@@ -62,10 +63,11 @@ function loadExperiment() {
             loadingIndicator: true
         }
     } ).columnFilter( {
-        sPlaceHolder: "tfoot",
+        sPlaceHolder: "head:after",
         aoColumns: [
             { type: 'text' },
             { type: 'text' },
+            { type: 'number-range' },
             { type: 'number-range' }
         ]
     })

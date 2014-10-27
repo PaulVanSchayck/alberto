@@ -32,16 +32,16 @@
         <th>agi</th>
         <th>Gene</th>
         <th>INT17 EG</th>
+        <th>WOX5 HS</th>
+    </tr>
+    <tr>
+        <th>agi</th>
+        <th>Gene</th>
+        <th>INT17 EG</th>
+        <th>WOX5 HS</th>
     </tr>
     </thead>
     <tbody>
 
     </tbody>
-    <tfoot>
-    <tr>
-        <th>agi</th>
-        <th>Gene</th>
-        <th>INT17 EG</th>
-    </tr>
-    </tfoot>
 </table>
