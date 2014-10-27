@@ -23,7 +23,7 @@
 
     $.fn.columnFilter = function (options) {
 
-        var asInitVals, i, label, th;
+        var i, label, th;
 
         //var sTableId = "table";
         var sRangeFormat = "From {from} to {to}";
@@ -112,7 +112,7 @@
                 search_init = '';
             }
 
-            var input = $('<input type="text" class="' + search_init + sCSSClass + '" value="' + inputvalue + '" rel="' + i + '"/>');
+            var input = $('<input type="text" class="' + search_init + sCSSClass + '" placeholder="' + inputvalue + '" rel="' + i + '"/>');
             if (iMaxLenght != undefined && iMaxLenght != -1) {
                 input.attr('maxlength', iMaxLenght);
             }
@@ -122,7 +122,6 @@
             else
                 th.wrapInner('<span class="filter_column filter_text" />');
 
-            asInitVals[i] = label;
             var index = i;
 
             if (bIsNumber && !oTable.api().settings().context[0].bAjaxDataGet) {
@@ -174,19 +173,6 @@
                     fnOnFiltered();
                 });
             }
-
-            input.focus(function () {
-                if ($(this).hasClass("search_init")) {
-                    $(this).removeClass("search_init");
-                    this.value = "";
-                }
-            });
-            input.blur(function () {
-                if (this.value == "") {
-                    $(this).addClass("search_init");
-                    this.value = asInitVals[index];
-                }
-            });
         }
 
         function fnCreateRangeInput(oTable) {
@@ -693,7 +679,6 @@
 
             if (!oTable.fnSettings().oFeatures.bFilter)
                 return;
-            asInitVals = new Array();
 
             var aoFilterCells = oTable.fnSettings().aoFooter[0];
 
