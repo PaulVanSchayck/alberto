@@ -242,16 +242,26 @@
             //------------end range filtering function
 
 
-
+            var sPreviousSearch;
+            var oTimerId;
             $('#' + sFromId + ',#' + sToId, th).keyup(function () {
 
-                var iMin = document.getElementById(sFromId).value * 1;
-                var iMax = document.getElementById(sToId).value * 1;
-                if (iMin != 0 && iMax != 0 && iMin > iMax)
-                    return;
-
-                oTable.fnDraw();
-                fnOnFiltered();
+                /* Delay searches for AJAX requests */
+                if (oTable.api().settings().context[0].bAjaxDataGet) {
+                    if (sPreviousSearch === null || sPreviousSearch != this.value) {
+                        window.clearTimeout(oTimerId);
+                        sPreviousSearch = this.value;
+                        var that = this;
+                        oTimerId = window.setTimeout(function () {
+                            oTable.fnDraw();
+                            fnOnFiltered();
+                        }, 500);
+                    }
+                    return false;
+                } else {
+                    oTable.fnDraw();
+                    fnOnFiltered();
+                }
             });
 
 
