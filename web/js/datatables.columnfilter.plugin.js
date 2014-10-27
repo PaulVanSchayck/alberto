@@ -804,35 +804,15 @@
             }
 
             if (oTable.api().settings().context[0].bAjaxDataGet) {
-                var fnServerDataOriginal = oTable.api().settings().ajax;
 
-                oTable.api().settings().ajax = function (data, callback, settings) {
-
+                $(oTable[0]).on('preXhr.dt', function ( e, settings, data ) {
                     for (j = 0; j < aiCustomSearch_Indexes.length; j++) {
                         var index = aiCustomSearch_Indexes[j];
 
-
-                        for (k = 0; k < data.length; k++) {
-                            if (data[k][searchable] === true)
-                                data[k][search][value] = afnSearch_[j]();
+                        if (data.columns[index].searchable === true && data.columns[index].name == 'range')
+                            data.columns[index].search.value = afnSearch_[j]();
                         }
-                    }
-                    // We don't need because we don't trust the user input ;)
-                    //aoData.push({ "name": "sRangeSeparator", "value": properties.sRangeSeparator });
-
-                    if (fnServerDataOriginal != null) {
-                        try {
-                            fnServerDataOriginal(data, callback, settings, oTable.fnSettings()); //TODO: See  Issue 18
-                        } catch (ex) {
-                            fnServerDataOriginal(data, callback, settings);
-                        }
-                    }
-                    else {
-                        $.getJSON(sSource, aoData, function (json) {
-                            fnCallback(json)
-                        });
-                    }
-                };
+                } );
 
             }
 
