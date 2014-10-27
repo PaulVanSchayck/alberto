@@ -6,6 +6,7 @@ use Yii;
 use app\models\GeneRequest;
 use app\components\ActiveDataProvider;
 use app\components\Serializer;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use app\models\Gene;
 use yii\web\Response;
@@ -46,5 +47,14 @@ class GeneController extends Controller {
         } else {
             return $GeneRequest->getErrors();
         }
+    }
+
+    function actionAutocomplete($q)
+    {
+        $results = Gene::find()->select(['agi','gene'])->where(
+            ['or',['like','agi', $q], ['like','gene', $q]]
+        )->limit(10)->all();
+
+        return ArrayHelper::toArray($results);
     }
 } 
