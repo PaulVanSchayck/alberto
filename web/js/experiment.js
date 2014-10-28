@@ -19,11 +19,11 @@ function loadExperiment() {
     baseColors = retrieveFillColor(hs);
 
     $('#change').click(function() {
-        updateColors(d3.scale.category20());
+        updateColors(d3.scale.category20(), false);
     });
 
     $('#original').click(function() {
-        updateColors(baseColors);
+        updateColors(baseColors, false);
     });
 
     setupTooltip(eg);
@@ -79,10 +79,10 @@ function loadExperiment() {
     } );
 }
 
-function updateColors(colorScale) {
+function updateColors(colorScale, useData = true) {
     $.each(tissues, function(i, tissue) {
         d3.selectAll('#' + tissue).transition().duration(1000).attr('fill', function(d) {
-            if( d ) {
+            if( useData ) {
                 return colorScale(d.value)
             } else {
                 return colorScale(i)
