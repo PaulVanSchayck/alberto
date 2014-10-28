@@ -41,6 +41,10 @@ function loadExperiment() {
             { data: 'agi' },
             { data: 'gene' },
             { data: 'int17_eg', 'name': 'range' },
+            { data: 'iqd15_eg', 'name': 'range' },
+            { data: 'rps5a_eg', 'name': 'range' },
+            { data: 'iqd15_lg', 'name': 'range' },
+            { data: 'rps5a_lg', 'name': 'range' },
             { data: 'wox5_hs', 'name': 'range' }
         ],
         dom: "rtiS",
@@ -57,6 +61,10 @@ function loadExperiment() {
         aoColumns: [
             { type: 'text' },
             { type: 'text' },
+            { type: 'number-range' },
+            { type: 'number-range' },
+            { type: 'number-range' },
+            { type: 'number-range' },
             { type: 'number-range' },
             { type: 'number-range' }
         ]
@@ -94,7 +102,7 @@ function updateColors(colorScale, useData = true) {
 function loadINTACT(data) {
     var color = d3.scale.linear()
         .domain([0, 100, 1000])
-        .range(["white", "green", "red"]);
+        .range(["white", "yellow", "red"]);
 
     var int17_eg = ['suspensor'];
     var iqd15_eg = ['vascular', 'vascular-initials'];

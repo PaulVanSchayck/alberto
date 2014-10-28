@@ -31,14 +31,22 @@
     <tr>
         <th>agi</th>
         <th>Gene</th>
-        <th>INT17 EG</th>
-        <th>WOX5 HS</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
     </tr>
     <tr>
         <th>agi</th>
         <th>Gene</th>
-        <th>INT17 EG</th>
-        <th>WOX5 HS</th>
+        <th>Suspensor EG</th>
+        <th>Vascular EG</th>
+        <th>Whole embryo EG</th>
+        <th>Vascular LG</th>
+        <th>Whole embryo LG</th>
+        <th>Hypophysis HS</th>
     </tr>
     </thead>
     <tbody>
