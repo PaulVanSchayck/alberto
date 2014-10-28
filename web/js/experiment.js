@@ -16,23 +16,14 @@ function loadExperiment() {
     var eg = d3.select('#eg');
     var hs = d3.select('#hs');
 
-    baseColors = {
-        'eg' : retrieveFillColor(eg),
-        'lg' : retrieveFillColor(lg),
-        'hs' : retrieveFillColor(hs)
-    };
+    baseColors = retrieveFillColor(hs);
 
     $('#change').click(function() {
-        var color = d3.scale.category20();
-        colorCellTypes(lg, color);
-        colorCellTypes(eg, color);
-        colorCellTypes(hs, color)
+        updateColors(d3.scale.category20());
     });
 
     $('#original').click(function() {
-        colorCellTypes(lg, baseColors.lg);
-        colorCellTypes(eg, baseColors.eg);
-        colorCellTypes(hs, baseColors.hs)
+        updateColors(baseColors);
     });
 
     setupTooltip(eg);
@@ -88,18 +79,15 @@ function loadExperiment() {
     } );
 }
 
-function colorCellTypes(ele, color, data = []) {
-    var j;
-
+function updateColors(colorScale) {
     $.each(tissues, function(i, tissue) {
-
-        if( data.length > 0 ) {
-            j = data[i];
-        } else {
-            j = i;
-        }
-
-        ele.select('#' + tissue).transition().duration(1000).attr('fill',color(j))
+        d3.selectAll('#' + tissue).transition().duration(1000).attr('fill', function(d) {
+            if( d ) {
+                return colorScale(d.value)
+            } else {
+                return colorScale(i)
+            }
+        })
     });
 }
 
@@ -145,13 +133,11 @@ function loadINTACT(data) {
 
     var eg = d3.select('#eg'), lg = d3.select('#lg'), hs = d3.select('#hs');
 
-    colorCellTypes(lg, color, dataLG);
-    colorCellTypes(eg, color, dataEG);
-    colorCellTypes(hs, color, dataHS);
-
     assignData(lg, dataLG);
     assignData(eg, dataEG);
     assignData(hs, dataHS);
+
+    updateColors(color);
 }
 
 function retrieveFillColor(ele) {
@@ -183,7 +169,6 @@ function setupTooltip(ele) {
 
     $.each(tissues, function(i, tissue) {
         ele.select('#' + tissue)
-            //.on('mouseover', tip.show)
             .on('mouseover', function(d, i){
                 tip.show(d, i);
                 d3.select(this).transition().style("opacity", 0.5);
