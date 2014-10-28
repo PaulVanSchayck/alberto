@@ -11,6 +11,10 @@ var tissues = [
     'columella'
 ];
 
+var scale = d3.scale.linear()
+    .domain([0, 100, 1000])
+    .range(["white", "yellow", "red"]);
+
 function loadExperiment() {
     var lg = d3.select('#lg');
     var eg = d3.select('#eg');
@@ -85,6 +89,8 @@ function loadExperiment() {
         var data = table.row(this).data();
         loadINTACT(data);
     } );
+
+    showScale(scale);
 }
 
 function updateColors(colorScale, useData = true) {
@@ -99,11 +105,16 @@ function updateColors(colorScale, useData = true) {
     });
 }
 
-function loadINTACT(data) {
-    var color = d3.scale.linear()
-        .domain([0, 100, 1000])
-        .range(["white", "yellow", "red"]);
+function showScale(colorScale) {
+    d3.select("#scale").selectAll('div')
+        .data(d3.range(1, 1000, 50))
+        .enter()
+        .append('div')
+        .attr('style','display:inline-block;width:10px;height:20px;')
+        .style('background-color',function(d) { return colorScale(d) });
+}
 
+function loadINTACT(data) {
     var int17_eg = ['suspensor'];
     var iqd15_eg = ['vascular', 'vascular-initials'];
     var rps5a_eg = ['ground-initials', 'ground', 'inner-upper','protoderm', 'hypophysis', 'qc','columella'];
@@ -145,7 +156,7 @@ function loadINTACT(data) {
     assignData(eg, dataEG);
     assignData(hs, dataHS);
 
-    updateColors(color);
+    updateColors(scale);
 }
 
 function retrieveFillColor(ele) {

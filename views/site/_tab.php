@@ -5,8 +5,6 @@
         <div class="thumbnail">
             <svg id="eg"><?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/eg-plain.svg'); ?> ></svg>
         </div>
-
-        <p><button class="btn btn-default" id="change">Change &raquo;</button></p>
     </div>
     <div class="col-lg-4">
         <h3>Late globular</h3>
@@ -15,13 +13,46 @@
             <svg id="lg"><?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?> ></svg>
         </div>
 
-        <p><button class="btn btn-default" id="original">Original &raquo;</button></p>
     </div>
     <div class="col-lg-4">
         <h3>Heart stage</h3>
 
         <div class="thumbnail">
             <svg id="hs"><?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?> ></svg>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Scale</h3>
+            </div>
+            <div class="panel-body" id="scale">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Mode</h3>
+            </div>
+            <div class="panel-body" id="scale">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Tools</h3>
+            </div>
+            <div class="panel-body" id="scale">
+                <p><button class="btn btn-default" id="change">Test coloring &raquo;</button></p>
+                <p><button class="btn btn-default" id="original">Original coloring &raquo;</button></p>
+            </div>
         </div>
     </div>
 </div>
