@@ -34,8 +34,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="7.2407734"
-     inkscape:cx="20.366555"
-     inkscape:cy="84.427162"
+     inkscape:cx="11.182453"
+     inkscape:cy="70.202162"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -125,10 +125,10 @@
           <g
              transform="translate(452.2148,279.2695)"
              id="qc"
-             inkscape:label="#g92">
+             inkscape:label="#g92"
+             style="fill:#337abe;fill-opacity:1;fill-rule:nonzero;stroke:none">
             <path
                d="m 0,0 c 1.474,0.32 2.853,0.729 4.222,1.151 l 0,0.193 C 6.605,0.978 9.556,1.18 11.32,0.192 c 0.284,-1.44 1.428,-2.023 2.109,-3.07 -1.241,-0.493 -3.068,-0.033 -4.41,0 -1.97,0.333 -3.434,1.175 -5.949,0.96 l -0.383,0 C 1.935,-1.583 0.732,-1.698 0,-1.343 L 0,0 Z"
-               style="fill:#337abe;fill-opacity:1;fill-rule:nonzero;stroke:none"
                id="path94"
                inkscape:connector-curvature="0"
                class="qc" />
@@ -187,10 +187,10 @@
           <g
              transform="translate(461.2334,276.3916)"
              id="columella"
-             inkscape:label="#g140">
+             inkscape:label="#g140"
+             style="fill:#3c4896;fill-opacity:1;fill-rule:nonzero;stroke:none">
             <path
                d="m 0,0 c 1.343,-0.033 3.17,-0.493 4.41,0 0.284,-0.1 0.484,-0.283 0.768,-0.386 0.044,0.154 0.161,0.228 0.384,0.195 C 5.479,-0.977 5.74,-1.42 5.945,-1.918 6.048,-3.374 7.396,-2.597 8.632,-2.684 8.335,-5.584 6.585,-7.032 4.603,-8.247 0.368,-8.9 -5.34,-6.871 -8.826,-8.056 c -1.605,1.85 -3.615,3.29 -3.838,6.522 0.194,0.959 0.189,2.115 0.768,2.685 0.78,0.308 2.064,0.111 2.877,0.384 0.733,-0.355 1.935,-0.24 2.687,-0.575 l 0.384,0 C -3.434,1.175 -1.97,0.333 0,0"
-               style="fill:#3c4896;fill-opacity:1;fill-rule:nonzero;stroke:none"
                id="path142"
                inkscape:connector-curvature="0"
                class="columella" />

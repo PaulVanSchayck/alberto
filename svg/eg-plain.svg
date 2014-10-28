@@ -35,8 +35,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="7.9195959"
-     inkscape:cx="-10.255297"
-     inkscape:cy="78.15279"
+     inkscape:cx="5.2126639"
+     inkscape:cy="57.82347"
      inkscape:document-units="px"
      inkscape:current-layer="g12934"
      showgrid="false"
@@ -97,10 +97,10 @@
           <g
              transform="translate(344.4458,283.4893)"
              id="hypophysis"
-             inkscape:label="#g12960">
+             inkscape:label="#g12960"
+             style="fill:#1baaa1;fill-opacity:1;fill-rule:nonzero;stroke:none">
             <path
                d="m 0,0 1.717,0 c -0.469,-1.244 -1.122,-2.312 -1.932,-3.219 -0.852,-0.363 -1.393,-1.039 -2.573,-1.073 -2.226,0.707 -4.152,1.717 -7.297,1.502 -1.597,0.166 -2.349,-0.512 -3.648,-0.644 -0.974,1.125 -2.536,2.725 -2.361,4.293 0.555,0.733 1.198,1.376 1.931,1.932 1.148,0.209 2.126,0.592 2.79,1.287 1.188,-0.283 2.885,0.655 3.864,1.288 C -7.06,4.521 -5.667,3.984 -4.719,4.293 -4.055,3.346 -2.447,2.324 -1.285,2.576 -1.19,1.383 -0.406,0.879 0,0"
-               style="fill:#1baaa1;fill-opacity:1;fill-rule:nonzero;stroke:none"
                id="path12962"
                inkscape:connector-curvature="0"
                class="hypophysis" />
