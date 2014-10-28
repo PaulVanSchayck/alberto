@@ -178,3 +178,12 @@ div.svg svg {
 tr.selected td {
     background-color: #b0bed9;
 }
+#example_wrapper {
+    font-size: 10px;
+}
+.yadcf-filter-range-number-seperator {
+    margin: 0;
+}
+.yadcf-filter-reset-button {
+    display: none;
+}

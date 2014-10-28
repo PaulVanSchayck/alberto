@@ -14,7 +14,7 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/experiment.js',
         'js/navigation.js',
-        'js/datatables.columnfilter.plugin.js'
+        'js/jquery.dataTables.yadcf.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
@@ -22,5 +22,6 @@ class AppAsset extends AssetBundle
         'app\assets\d3Asset',
         'app\assets\DatatablesAsset',
         'app\assets\DatatablesScrollerAsset',
+        'app\assets\DatatablesYadcfAsset',
     ];
 }

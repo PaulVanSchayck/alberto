@@ -93,8 +93,8 @@ class GeneRequest extends Model {
         $filter = ['and'];
 
         foreach( $this->columns as $column ) {
-            if ( $column['name'] == 'range' && strstr($column['search']['value'], '~')) {
-                $range = explode('~', $column['search']['value']);
+            if ( $column['name'] == 'range' && strstr($column['search']['value'], '-yadcf_delim-')) {
+                $range = explode('-yadcf_delim-', $column['search']['value']);
 
                 if ( is_numeric($range[0]) && is_numeric($range[1]) ) {
                     $filter[] = ['between', $column['data'], $range[0], $range[1] ];

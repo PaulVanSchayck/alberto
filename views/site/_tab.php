@@ -74,8 +74,8 @@
 <table id="example" class="display">
     <thead>
     <tr>
-        <th>agi</th>
-        <th>Gene</th>
+        <th></th>
+        <th></th>
         <th></th>
         <th></th>
         <th></th>

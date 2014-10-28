@@ -60,19 +60,32 @@ function loadExperiment() {
     });
 
     // Take note of the lowercase dataTable, this is the old API
-    $("#example").dataTable().columnFilter( {
-        sPlaceHolder: "head:after",
-        aoColumns: [
-            { type: 'text' },
-            { type: 'text' },
-            { type: 'number-range' },
-            { type: 'number-range' },
-            { type: 'number-range' },
-            { type: 'number-range' },
-            { type: 'number-range' },
-            { type: 'number-range' }
-        ]
-    });
+    yadcf.init(table, [{
+            column_number: 0,
+            filter_type: "text"
+        }, {
+            column_number: 1,
+            filter_type: "text"
+        }, {
+            column_number: 2,
+            filter_type: "range_number"
+        }, {
+            column_number: 3,
+            filter_type: "range_number"
+        }, {
+            column_number: 4,
+            filter_type: "range_number"
+        }, {
+            column_number: 5,
+            filter_type: "range_number"
+        }, {
+            column_number: 6,
+            filter_type: "range_number"
+        }, {
+            column_number: 7,
+            filter_type: "range_number"
+        }], 'header');
+
     $('#example').on( 'search.dt', function () {
         $(".filter_column input").removeClass('filtered');
         $(".filter_column input").each(function() {

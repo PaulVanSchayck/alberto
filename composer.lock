@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4e55bddf8cf6ae01b8b86c5e47edacd0",
+    "hash": "066316574e77ed6580cd1c954ae0542d",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -672,6 +672,16 @@
                 "mailer"
             ],
             "time": "2014-10-04 05:53:18"
+        },
+        {
+            "name": "vedmack/yadcf",
+            "version": "0.8.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vedmack/yadcf.git",
+                "reference": "0.8.4"
+            },
+            "type": "library"
         },
         {
             "name": "yiisoft/yii2",
