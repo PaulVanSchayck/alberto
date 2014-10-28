@@ -20,7 +20,7 @@ function loadExperiment() {
     var eg = d3.select('#eg');
     var hs = d3.select('#hs');
 
-    baseColors = retrieveFillColor(hs);
+    var baseColors = retrieveFillColor(hs);
 
     $('#change').click(function() {
         updateColors(d3.scale.category20(), false);

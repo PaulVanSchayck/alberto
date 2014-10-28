@@ -170,3 +170,7 @@ a.desc:after {
 .filter_column .filtered {
     background-color: #ccf4ff;
 }
+
+tr.selected td {
+    background-color: #b0bed9;
+}
