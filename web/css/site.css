@@ -148,11 +148,15 @@ a.desc:after {
     margin-bottom: 20px;
 }
 
-.thumbnail {
+div.svg-images {
+    margin-top: 25px;
+}
+
+div.svg {
     text-align: center;
 }
 
-.thumbnail svg {
+div.svg svg {
     height: 300px;
 }
 
