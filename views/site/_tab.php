@@ -74,16 +74,6 @@
 <table id="example" class="display">
     <thead>
     <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr>
         <th>agi</th>
         <th>Gene</th>
         <th>Suspensor EG</th>

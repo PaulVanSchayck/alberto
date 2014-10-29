@@ -68,22 +68,28 @@ function loadExperiment() {
             filter_type: "text"
         }, {
             column_number: 2,
-            filter_type: "range_number"
+            filter_type: "range_number",
+            filter_default_label : ["0", "&infin;"]
         }, {
             column_number: 3,
-            filter_type: "range_number"
+            filter_type: "range_number",
+            filter_default_label : ["0", "&infin;"]
         }, {
             column_number: 4,
-            filter_type: "range_number"
+            filter_type: "range_number",
+            filter_default_label : ["0", "&infin;"]
         }, {
             column_number: 5,
-            filter_type: "range_number"
+            filter_type: "range_number",
+            filter_default_label : ["0", "&infin;"]
         }, {
             column_number: 6,
-            filter_type: "range_number"
+            filter_type: "range_number",
+            filter_default_label : ["0", "&infin;"]
         }, {
             column_number: 7,
-            filter_type: "range_number"
+            filter_type: "range_number",
+            filter_default_label : ["0", "&infin;"]
         }], 'header');
 
     $('#example').on( 'search.dt', function () {

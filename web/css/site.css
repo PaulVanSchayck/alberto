@@ -178,12 +178,20 @@ div.svg svg {
 tr.selected td {
     background-color: #b0bed9;
 }
+
 #example_wrapper {
     font-size: 10px;
+    white-space: nowrap;
 }
 .yadcf-filter-range-number-seperator {
     margin: 0;
 }
 .yadcf-filter-reset-button {
     display: none;
+}
+.yadcf-filter-wrapper {
+    display: block;
+}
+.yadcf-filter-wrapper-inner {
+    border: 0;
 }
