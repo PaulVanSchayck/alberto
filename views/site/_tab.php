@@ -53,8 +53,12 @@
             <div class="panel-heading">
                 <h3 class="panel-title">Mode</h3>
             </div>
-            <div class="panel-body" id="scale">
-
+            <div class="panel-body" id="mode">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" title="View the absolute expression of genes.">Absolute</button>
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" title="View the fold changes of the same gene between tissues.">Fold changes</button>
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Relative</button>
+                </div>
             </div>
         </div>
     </div>
@@ -63,7 +67,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title">Tools</h3>
             </div>
-            <div class="panel-body" id="scale">
+            <div class="panel-body">
                 <p><button class="btn btn-default" id="change">Test coloring &raquo;</button></p>
                 <p><button class="btn btn-default" id="original">Original coloring &raquo;</button></p>
             </div>

@@ -111,6 +111,8 @@ function loadExperiment() {
         loadINTACT(data);
     } );
 
+    $("#mode button").tooltip({'placement': 'bottom'});
+
     showScale(scale);
 }
 
