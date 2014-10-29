@@ -44,7 +44,9 @@
                 <h3 class="panel-title">Scale</h3>
             </div>
             <div class="panel-body" id="scale">
-
+                <b class="badge">0</b>
+                <input type="text" id="scale-slider" class="form-control" name="scale" data-slider-min="0" data-slider-max="2000" data-slider-step="1" data-slider-value="[30,1000]" data-plugin-name="slider">
+                <b class="badge">2000</b>
             </div>
         </div>
     </div>

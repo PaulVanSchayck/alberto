@@ -8,7 +8,7 @@ class Gene extends ActiveRecord {
 
     public static function tableName()
     {
-        return 'gene';
+        return 'gene_old';
     }
 
 }

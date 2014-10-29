@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "066316574e77ed6580cd1c954ae0542d",
+    "hash": "0e76ac9040cea0fff3016c557bc3d91e",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -990,6 +990,53 @@
                 "fixtures"
             ],
             "time": "2014-06-04 14:43:02"
+        },
+        {
+            "name": "kartik-v/yii2-slider",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-slider.git",
+                "reference": "3bd164746cefdd9f61775a9af7b2696b9ada1839"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-slider/zipball/3bd164746cefdd9f61775a9af7b2696b9ada1839",
+                "reference": "3bd164746cefdd9f61775a9af7b2696b9ada1839",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-widgets": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\slider\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An advanced slider input for Yii Framework 2 for both touch enabled and desktop devices based on bootstrap-slider.",
+            "homepage": "https://github.com/kartik-v/yii2-slider",
+            "keywords": [
+                "bootstrap",
+                "bootstrap 3",
+                "extension",
+                "range",
+                "slider",
+                "widget",
+                "yii2"
+            ],
+            "time": "2014-10-27 06:30:41"
         },
         {
             "name": "phpspec/php-diff",

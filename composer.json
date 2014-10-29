@@ -20,6 +20,7 @@
         "bower-asset/d3": "3.4.*",
         "bower-asset/d3-tip": "v0.6.5",
         "kartik-v/yii2-widgets": "3.1.*",
+        "kartik-v/yii2-slider": "*",
         "vedmack/yadcf": "0.8.4"
     },
     "require-dev": {

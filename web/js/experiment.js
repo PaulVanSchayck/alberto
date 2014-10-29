@@ -11,13 +11,25 @@ var tissues = [
     'columella'
 ];
 
-var scale = d3.scale.linear()
-    .domain([0, 100, 1000])
-    .range(["white", "yellow", "red"]);
+var scale = d3.scale.linear().clamp(true)
+    .domain([0, 1000])
+    .range(["yellow", "red"]);
 
 var table;
 
 function loadExperiment() {
+
+    var slider = $("#scale-slider")
+        .slider({tooltip: 'always'})
+        .on('slide', function() {
+            var domain = eval( '[' + slider.getValue() + ']');
+            scale = scale.domain([domain[0], domain[1]]);
+            updateColors(scale);
+            updateTableColors();
+        }).data('slider');
+
+    showScale(scale);
+
     var lg = d3.select('#lg');
     var eg = d3.select('#eg');
     var hs = d3.select('#hs');
@@ -114,13 +126,13 @@ function loadExperiment() {
 
     $("#mode button").tooltip({'placement': 'bottom'});
 
-    showScale(scale);
+    $('#example').on( 'draw.dt', updateTableColors );
+}
 
-    $('#example').on( 'draw.dt', function () {
-        $("#example tbody td").css('color', function() {
-            return scale($(this).html())
-        })
-    } );
+function updateTableColors() {
+    $("#example tbody td").css('color', function() {
+        return scale($(this).html())
+    })
 }
 
 function updateColors(colorScale, useIndex) {
@@ -136,11 +148,11 @@ function updateColors(colorScale, useIndex) {
 }
 
 function showScale(colorScale) {
-    d3.select("#scale").selectAll('div')
+    d3.select(".slider-selection").selectAll('div')
         .data(d3.range(1, 1000, 50))
         .enter()
         .append('div')
-        .attr('style','display:inline-block;width:10px;height:20px;')
+        .attr('style','float: left;width:5%;height:10px;')
         .style('background-color',function(d) { return colorScale(d) });
 }
 

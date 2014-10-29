@@ -23,5 +23,6 @@ class AppAsset extends AssetBundle
         'app\assets\DatatablesAsset',
         'app\assets\DatatablesScrollerAsset',
         'app\assets\DatatablesYadcfAsset',
+        'kartik\slider\SliderAsset',
     ];
 }
