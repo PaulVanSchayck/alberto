@@ -15,6 +15,8 @@ var scale = d3.scale.linear()
     .domain([0, 100, 1000])
     .range(["white", "yellow", "red"]);
 
+var table;
+
 function loadExperiment() {
     var lg = d3.select('#lg');
     var eg = d3.select('#eg');
@@ -34,7 +36,7 @@ function loadExperiment() {
     setupTooltip(lg);
     setupTooltip(hs);
 
-    var table = $('#example').DataTable({
+    table = $('#example').DataTable({
         serverSide: true,
         ajax: {
             url: "http://bic-hp-z400/index.php?r=gene/index",
@@ -112,7 +114,7 @@ function loadExperiment() {
     showScale(scale);
 }
 
-function updateColors(colorScale, useData = true) {
+function updateColors(colorScale, useData) {
     $.each(tissues, function(i, tissue) {
         d3.selectAll('#' + tissue).transition().duration(1000).attr('fill', function(d) {
             if( useData ) {
@@ -227,5 +229,5 @@ function assignData(ele, data) {
 }
 
 function showGene(gene) {
-    $('.filter_column input').first().val(gene).keyup()
+    yadcf.exFilterColumn(table, [[0, gene]], true);
 }
