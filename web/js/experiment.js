@@ -115,6 +115,12 @@ function loadExperiment() {
     $("#mode button").tooltip({'placement': 'bottom'});
 
     showScale(scale);
+
+    $('#example').on( 'draw.dt', function () {
+        $("#example tbody td").css('color', function() {
+            return scale($(this).html())
+        })
+    } );
 }
 
 function updateColors(colorScale, useIndex) {
