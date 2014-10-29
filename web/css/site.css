@@ -174,7 +174,7 @@ tr.selected td {
     white-space: nowrap;
 }
 .yadcf-filter-range-number-seperator {
-    margin: 0;
+    margin: 1px;
 }
 .yadcf-filter-reset-button {
     display: none;
@@ -184,4 +184,10 @@ tr.selected td {
 }
 .yadcf-filter-wrapper-inner {
     border: 0;
+}
+#yadcf-filter--example-0 {
+    width: 80px;
+}
+table.dataTable thead th {
+    padding: 0 0 2px 0;
 }
