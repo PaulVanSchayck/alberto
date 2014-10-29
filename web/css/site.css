@@ -166,19 +166,9 @@ div.svg svg {
 
 
 /* DataTables */
-.filter_number_range input {
-    width: 50px;
-    display: inline;
-}
-
-.filter_column .filtered {
-    background-color: #ccf4ff;
-}
-
 tr.selected td {
     background-color: #b0bed9;
 }
-
 #example_wrapper {
     font-size: 10px;
     white-space: nowrap;
