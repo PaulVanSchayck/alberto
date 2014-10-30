@@ -181,11 +181,12 @@ tr.selected td {
 }
 .yadcf-filter-wrapper {
     display: block;
+    width: 80px;
 }
 .yadcf-filter-wrapper-inner {
     border: 0;
 }
-#yadcf-filter--example-0 {
+#yadcf-filter--example-0, #yadcf-filter--example-1 {
     width: 80px;
 }
 table.dataTable thead th {

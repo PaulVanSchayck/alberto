@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0e76ac9040cea0fff3016c557bc3d91e",
+    "hash": "9c06997d985e7542866429cfb3bd9f19",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -165,6 +165,32 @@
                 "library",
                 "table"
             ]
+        },
+        {
+            "name": "bower-asset/datatables-colvis",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DataTables/ColVis.git",
+                "reference": "8d069a5b39b5aa7e928593971afe3502dedbc9ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DataTables/ColVis/zipball/8d069a5b39b5aa7e928593971afe3502dedbc9ef",
+                "reference": "8d069a5b39b5aa7e928593971afe3502dedbc9ef",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/datatables": ">=1.7.0",
+                "bower-asset/jquery": ">=1.7.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "js/dataTables.colVis.js",
+                    "css/dataTables.colVis.css"
+                ]
+            }
         },
         {
             "name": "bower-asset/datatables-scroller",
@@ -573,6 +599,53 @@
                 "select"
             ],
             "time": "2014-05-12 11:40:04"
+        },
+        {
+            "name": "kartik-v/yii2-slider",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-slider.git",
+                "reference": "3bd164746cefdd9f61775a9af7b2696b9ada1839"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-slider/zipball/3bd164746cefdd9f61775a9af7b2696b9ada1839",
+                "reference": "3bd164746cefdd9f61775a9af7b2696b9ada1839",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-widgets": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\slider\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An advanced slider input for Yii Framework 2 for both touch enabled and desktop devices based on bootstrap-slider.",
+            "homepage": "https://github.com/kartik-v/yii2-slider",
+            "keywords": [
+                "bootstrap",
+                "bootstrap 3",
+                "extension",
+                "range",
+                "slider",
+                "widget",
+                "yii2"
+            ],
+            "time": "2014-10-27 06:30:41"
         },
         {
             "name": "kartik-v/yii2-widgets",
@@ -990,53 +1063,6 @@
                 "fixtures"
             ],
             "time": "2014-06-04 14:43:02"
-        },
-        {
-            "name": "kartik-v/yii2-slider",
-            "version": "v1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-slider.git",
-                "reference": "3bd164746cefdd9f61775a9af7b2696b9ada1839"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-slider/zipball/3bd164746cefdd9f61775a9af7b2696b9ada1839",
-                "reference": "3bd164746cefdd9f61775a9af7b2696b9ada1839",
-                "shasum": ""
-            },
-            "require": {
-                "kartik-v/yii2-widgets": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "kartik\\slider\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD 3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "An advanced slider input for Yii Framework 2 for both touch enabled and desktop devices based on bootstrap-slider.",
-            "homepage": "https://github.com/kartik-v/yii2-slider",
-            "keywords": [
-                "bootstrap",
-                "bootstrap 3",
-                "extension",
-                "range",
-                "slider",
-                "widget",
-                "yii2"
-            ],
-            "time": "2014-10-27 06:30:41"
         },
         {
             "name": "phpspec/php-diff",

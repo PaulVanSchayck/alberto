@@ -17,6 +17,7 @@
         "yiisoft/yii2-swiftmailer": "*",
         "bower-asset/datatables": "1.10.*",
         "bower-asset/datatables-scroller" : "1.2.*",
+        "bower-asset/datatables-colvis" : "1.1.*",
         "bower-asset/d3": "3.4.*",
         "bower-asset/d3-tip": "v0.6.5",
         "kartik-v/yii2-widgets": "3.1.*",
