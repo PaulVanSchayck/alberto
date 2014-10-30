@@ -52,6 +52,9 @@ function loadExperiment() {
     table = $('#example').DataTable({
         serverSide: true,
         stateSave: true,
+        stateLoadCallback: function () {
+            return false;
+        },
         ajax: {
             url: "http://bic-hp-z400/index.php?r=gene/index",
             method: "get",

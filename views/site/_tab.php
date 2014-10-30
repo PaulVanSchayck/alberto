@@ -72,6 +72,7 @@
             <div class="panel-body">
                 <p><button class="btn btn-default" id="change">Test coloring &raquo;</button></p>
                 <p><button class="btn btn-default" id="original">Original coloring &raquo;</button></p>
+                <p><button class="btn btn-default" id="original">Permalink &raquo;</button></p>
             </div>
         </div>
     </div>
