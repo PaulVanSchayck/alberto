@@ -1,36 +1,36 @@
 <div class="row svg-images">
-    <div class="col-lg-4">
+    <div class="col-lg-3">
 
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">Early globular</h3>
             </div>
             <div class="panel-body svg">
-                <svg id="eg"><?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/eg-plain.svg'); ?> ></svg>
+                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/eg-plain.svg'); ?>
             </div>
         </div>
 
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-3">
 
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">Late globular</h3>
             </div>
             <div class="panel-body svg">
-                <svg id="lg"><?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?> ></svg>
+                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?>
             </div>
         </div>
 
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-3">
 
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">Heart stage</h3>
             </div>
             <div class="panel-body svg">
-                <svg id="hs"><?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?> ></svg>
+                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?>
             </div>
         </div>
 
