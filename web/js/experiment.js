@@ -64,7 +64,8 @@ function loadExperiment() {
             { data: 'rps5a_eg', 'name': 'range' },
             { data: 'iqd15_lg', 'name': 'range' },
             { data: 'rps5a_lg', 'name': 'range' },
-            { data: 'wox5_hs', 'name': 'range' }
+            { data: 'wox5_hs', 'name': 'range' },
+            { data: 'fc', 'name': 'range' }
         ],
         dom: "rtiS",
         scrollY: 500,
@@ -106,6 +107,10 @@ function loadExperiment() {
             column_number: 7,
             filter_type: "range_number",
             filter_default_label : ["0", "&infin;"]
+        }, {
+            column_number: 8,
+            filter_type: "range_number",
+            filter_default_label : ["0", "&infin;"]
         }], 'header');
 
     $('#example').on( 'search.dt', function () {
@@ -139,7 +144,7 @@ function updateTableColors() {
 function updateColors(colorScale, useIndex) {
     $.each(tissues, function(i, tissue) {
         d3.selectAll('#' + tissue).transition().duration(1000).attr('fill', function(d) {
-            if( ! useIndex ) {
+            if( ! useIndex && d.value) {
                 return colorScale(d.value)
             } else {
                 return colorScale(i)

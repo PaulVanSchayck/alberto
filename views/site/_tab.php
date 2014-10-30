@@ -88,6 +88,8 @@
         <th>Vascular LG</th>
         <th>Whole embryo LG</th>
         <th>Hypophysis HS</th>
+        <th>FC Vascular LG</th>
+
     </tr>
     </thead>
     <tbody>
