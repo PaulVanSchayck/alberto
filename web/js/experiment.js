@@ -22,8 +22,9 @@ function loadExperiment() {
     var slider = $("#scale-slider")
         .slider({tooltip: 'always'})
         .on('slide', function() {
+            // Eval is evil??
             var domain = eval( '[' + slider.getValue() + ']');
-            scale = scale.domain([domain[0], domain[1]]);
+            scale = scale.domain(domain);
             updateColors(scale);
             updateTableColors();
         }).data('slider');
