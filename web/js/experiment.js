@@ -67,7 +67,7 @@ function loadExperiment() {
             { data: 'wox5_hs', 'name': 'range' },
             { data: 'fc', 'name': 'range' }
         ],
-        dom: "rtiS",
+        dom: 'C<"clear">rtiS',
         scrollY: 500,
         scrollX: "100%",
         processing: true,
