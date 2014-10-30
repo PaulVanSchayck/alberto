@@ -51,6 +51,7 @@ function loadExperiment() {
 
     table = $('#example').DataTable({
         serverSide: true,
+        stateSave: true,
         ajax: {
             url: "http://bic-hp-z400/index.php?r=gene/index",
             method: "get",
@@ -79,38 +80,48 @@ function loadExperiment() {
     // Take note of the lowercase dataTable, this is the old API
     yadcf.init(table, [{
             column_number: 0,
-            filter_type: "text"
+            filter_type: "text",
+            filter_delay: 500
         }, {
             column_number: 1,
-            filter_type: "text"
+            filter_type: "text",
+            filter_delay: 500
         }, {
             column_number: 2,
             filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"]
+            filter_default_label : ["0", "&infin;"],
+            filter_delay: 500
+
         }, {
             column_number: 3,
             filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"]
+            filter_default_label : ["0", "&infin;"],
+            filter_delay: 500
         }, {
             column_number: 4,
             filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"]
+            filter_default_label : ["0", "&infin;"],
+            filter_delay: 500
         }, {
             column_number: 5,
             filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"]
+            filter_default_label : ["0", "&infin;"],
+            filter_delay: 500
         }, {
             column_number: 6,
             filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"]
+            filter_default_label : ["0", "&infin;"],
+            filter_delay: 500
         }, {
             column_number: 7,
             filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"]
+            filter_default_label : ["0", "&infin;"],
+            filter_delay: 500
         }, {
             column_number: 8,
             filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"]
+            filter_default_label : ["0", "&infin;"],
+            filter_delay: 500
         }], 'header');
 
     $('#example').on( 'search.dt', function () {
