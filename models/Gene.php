@@ -23,7 +23,7 @@ class Gene extends ActiveRecord {
     {
         return array_merge(
             parent::fields(),
-            ['fc']
+            ['fc','geneShort']
         );
     }
 
@@ -33,5 +33,10 @@ class Gene extends ActiveRecord {
     public static function findFc()
     {
         return static::find()->select(['*','ROUND(iqd15_lg / rps5a_lg,3) as fc']);
+    }
+
+    public function getGeneShort()
+    {
+        return substr($this->gene,0,10);
     }
 }

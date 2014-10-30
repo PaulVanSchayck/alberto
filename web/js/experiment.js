@@ -58,7 +58,7 @@ function loadExperiment() {
         },
         columns: [
             { data: 'agi' },
-            { data: 'gene' },
+            { data: 'geneShort' },
             { data: 'int17_eg', 'name': 'range' },
             { data: 'iqd15_eg', 'name': 'range' },
             { data: 'rps5a_eg', 'name': 'range' },
