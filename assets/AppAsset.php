@@ -17,6 +17,7 @@ class AppAsset extends AssetBundle
         'js/jquery.dataTables.yadcf.js'
     ];
     public $depends = [
+        'app\assets\ModernizrAsset',
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
         'app\assets\d3Asset',

@@ -8,6 +8,10 @@ $this->title = 'AlBERTO';
 ?>
 <div class="site-index">
 
+    <div id="compability" style="display:none" class="alert alert-danger" role="alert">
+        Your browser does not support all the features that this website requires, it will not function properly! Please update to a more modern browser.
+    </div>
+
     <p>Enter an AT number or gene name and press show.</p>
 
     <form action="#" method="get" id="gene-show">
