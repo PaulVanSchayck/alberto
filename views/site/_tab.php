@@ -7,6 +7,7 @@
             </div>
             <div class="panel-body svg">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/eg-plain.svg'); ?>
+                <a href="#" class="download-svg" title="EG - gene"><span class="glyphicon glyphicon-floppy-disk"></span></a>
             </div>
         </div>
 
@@ -35,7 +36,12 @@
         </div>
 
     </div>
+    <div class="col-lg-3">
+
+    </div>
 </div>
+
+<a id="image-download" href="" title="A hidden element that contains the SVG-to-PNG data for download"></a>
 
 <div class="row">
     <div class="col-lg-4">
@@ -72,7 +78,7 @@
             <div class="panel-body">
                 <p><button class="btn btn-default" id="change">Test coloring &raquo;</button></p>
                 <p><button class="btn btn-default" id="original">Original coloring &raquo;</button></p>
-                <p><button class="btn btn-default" id="original">Permalink &raquo;</button></p>
+                <p><button class="btn btn-default" id="permalink">Permalink &raquo;</button></p>
             </div>
         </div>
     </div>

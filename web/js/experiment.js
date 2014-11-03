@@ -26,7 +26,7 @@ function loadExperiment() {
             var domain = eval( '[' + slider.getValue() + ']');
             scale = scale.domain(domain);
             updateColors(scale);
-            updateTableColors();
+            //updateTableColors();
         }).data('slider');
 
     showScale(scale);
@@ -147,12 +147,36 @@ function loadExperiment() {
     $("#mode button").tooltip({'placement': 'bottom'});
 
     $('#example').on( 'draw.dt', updateTableColors );
+
+    $(".download-svg").click(function(e) {
+        e.preventDefault();
+        var svg = $(this).prev("svg")[0],
+            title = $(this).attr('title'),
+            svgStr =  (new XMLSerializer()).serializeToString(svg),
+            can      = document.createElement('canvas'),
+            ctx      = can.getContext('2d'),
+            loader = new Image();
+
+        can.width = loader.height = 300;
+        can.height = loader.height = 300;
+
+        loader.onload = function() {
+            ctx.drawImage( loader, 0, 0 );
+            var link = document.querySelector("#image-download");
+            link.download = title;
+            link.href = can.toDataURL();
+            link.click();
+        };
+
+        loader.src = 'data:image/svg+xml,' + encodeURIComponent( svgStr );
+
+    })
 }
 
 function updateTableColors() {
-    $("#example tbody td").css('color', function() {
+    /*$("#example tbody td").css('color', function() {
         return scale($(this).html())
-    })
+    })*/
 }
 
 function updateColors(colorScale, useIndex) {
