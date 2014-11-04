@@ -2,7 +2,7 @@
  * This file handles navigation through the tabs
  */
 
-var isFileSaverSupported;
+var isFileSaverSupported = false;
 
 $(document).ready(function(){
 
@@ -66,8 +66,8 @@ function saveAsSVG(svg, title) {
 
 function saveAsPNG(svg, title) {
     var svgStr =  (new XMLSerializer()).serializeToString(svg),
-        can      = document.createElement('canvas'),
-        ctx      = can.getContext('2d'),
+        can    = document.createElement('canvas'),
+        ctx    = can.getContext('2d'),
         loader = new Image();
 
     can.width = loader.height = 300;
