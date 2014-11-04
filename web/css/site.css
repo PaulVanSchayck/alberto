@@ -165,6 +165,12 @@ div.svg svg {
     display: none;
 }
 
+.input-group-addon.danger {
+    color: rgb(255, 255, 255);
+    background-color: rgb(217, 83, 79);
+    border-color: rgb(212, 63, 58);
+}
+
 /* DataTables */
 tr.selected td {
     background-color: #b0bed9;
@@ -191,4 +197,9 @@ tr.selected td {
 }
 table.dataTable thead th {
     padding: 0 0 2px 0;
+}
+
+/* Gene information */
+#gene-information .selected {
+    display: none;
 }

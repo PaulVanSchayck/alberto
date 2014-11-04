@@ -142,9 +142,14 @@ function loadExperiment() {
         $(this).addClass("selected");
         var data = table.row(this).data();
         loadINTACT(data);
+        showGeneInformation(data);
     } );
 
     $("#mode button").tooltip({'placement': 'bottom'});
+
+    $("#gene-information .non-selected").tooltip({'placement': 'bottom'});
+
+    $('#tools').button();
 
     $('#example').on( 'draw.dt', updateTableColors );
 
@@ -184,6 +189,16 @@ function showScale(colorScale) {
         .append('div')
         .attr('style','float: left;width:5%;height:10px;')
         .style('background-color',function(d) { return colorScale(d) });
+}
+
+function showGeneInformation(data) {
+    $('#gene-information .non-selected').hide();
+    $gene = $('#gene-information .selected').show();
+
+
+    $gene.find('.agi').html(data.agi);
+    $gene.find('.annotation').html(data.annotation);
+    $gene.find('.gene').html(data.gene);
 }
 
 function loadINTACT(data) {

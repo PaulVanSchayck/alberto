@@ -18,7 +18,7 @@ $this->title = 'AlBERTO';
     <div class="row">
         <div class="col-lg-6">
             <div class="input-group at-input">
-                <span class="input-group-addon">Gene</span>
+                <span class="input-group-addon danger">Gene</span>
                 <?php
                 $template = '<p>{{agi}} - {{gene}}</p>';
                 echo Typeahead::widget([
