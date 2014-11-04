@@ -150,30 +150,12 @@ function loadExperiment() {
 
     $(".download-svg").click(function(e) {
         e.preventDefault();
-        var svg = $(this).prev("svg")[0],
-            title = $(this).attr('title'),
-            svgStr =  (new XMLSerializer()).serializeToString(svg),
-            can      = document.createElement('canvas'),
-            ctx      = can.getContext('2d'),
-            loader = new Image();
+        saveAsSVG($(this).parents('.panel').find('svg')[0],$(this).attr('title'));
+    })
 
-        can.width = loader.height = 300;
-        can.height = loader.height = 300;
-
-        loader.onload = function() {
-            ctx.drawImage( loader, 0, 0 );
-            var link = document.querySelector("#image-download");
-            link.download = title;
-            try {
-                link.href = can.toDataURL();
-                link.click();
-            } catch ( e ) {
-                alert("This browser does not support this feature, please use either Chrome or Firefox");
-            }
-        };
-
-        loader.src = 'data:image/svg+xml,' + encodeURIComponent( svgStr );
-
+    $(".download-png").click(function(e) {
+        e.preventDefault();
+        saveAsPNG($(this).parents('.panel').find('svg')[0],$(this).attr('title'));
     })
 }
 

@@ -26,5 +26,6 @@ class AppAsset extends AssetBundle
         'app\assets\DatatablesYadcfAsset',
         'app\assets\DatatablesColVisAsset',
         'kartik\slider\SliderAsset',
+        'app\assets\FilesaverAsset',
     ];
 }

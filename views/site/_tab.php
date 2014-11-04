@@ -3,11 +3,14 @@
 
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h3 class="panel-title">Early globular</h3>
+                <h3 class="panel-title">
+                    Early globular
+                    <a href="#" class="pull-right download-svg" title="Export as SVG"><span class="glyphicon glyphicon-save"></span></a>
+                    <a href="#" class="pull-right download-png" title="Export as PNG"><span class="glyphicon glyphicon-saved"></span></a>
+                </h3>
             </div>
             <div class="panel-body svg">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/eg-plain.svg'); ?>
-                <a href="#" class="download-svg" title="EG - gene"><span class="glyphicon glyphicon-floppy-disk"></span></a>
             </div>
         </div>
 
@@ -16,7 +19,11 @@
 
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h3 class="panel-title">Late globular</h3>
+                <h3 class="panel-title">
+                    Late globular
+                    <a href="#" class="pull-right download-svg" title="Export as SVG"><span class="glyphicon glyphicon-save"></span></a>
+                    <a href="#" class="pull-right download-png" title="Export as PNG"><span class="glyphicon glyphicon-saved"></span></a>
+                </h3>
             </div>
             <div class="panel-body svg">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?>
@@ -28,7 +35,11 @@
 
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h3 class="panel-title">Heart stage</h3>
+                <h3 class="panel-title">
+                    Heart stage
+                    <a href="#" class="pull-right download-svg" title="Export as SVG"><span class="glyphicon glyphicon-save"></span></a>
+                    <a href="#" class="pull-right download-png" title="Export as PNG"><span class="glyphicon glyphicon-saved"></span></a>
+                </h3>
             </div>
             <div class="panel-body svg">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?>
@@ -40,8 +51,6 @@
 
     </div>
 </div>
-
-<a id="image-download" href="" title="A hidden element that contains the SVG-to-PNG data for download"></a>
 
 <div class="row">
     <div class="col-lg-4">
