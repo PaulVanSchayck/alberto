@@ -151,12 +151,12 @@ function loadExperiment() {
     $(".download-svg").click(function(e) {
         e.preventDefault();
         saveAsSVG($(this).parents('.panel').find('svg')[0],$(this).attr('title'));
-    })
+    });
 
     $(".download-png").click(function(e) {
         e.preventDefault();
         saveAsPNG($(this).parents('.panel').find('svg')[0],$(this).attr('title'));
-    })
+    });
 }
 
 function updateTableColors() {
@@ -167,8 +167,8 @@ function updateTableColors() {
 
 function updateColors(colorScale, useIndex) {
     $.each(tissues, function(i, tissue) {
-        d3.selectAll('#' + tissue).transition().duration(1000).attr('fill', function(d) {
-            if( ! useIndex && d.value) {
+        d3.selectAll('.' + tissue).transition().duration(1000).attr('fill', function(d) {
+            if( ! useIndex && d && d.value) {
                 return colorScale(d.value)
             } else {
                 return colorScale(i)
@@ -235,8 +235,8 @@ function retrieveFillColor(ele) {
     var color = [];
 
     $.each(tissues, function(i, tissue) {
-        if ( ! ele.select('#' + tissue).empty() ) {
-            color[i] = ele.select('#' + tissue).attr('fill');
+        if ( ! ele.select('.' + tissue).empty() ) {
+            color[i] = ele.select('.' + tissue).attr('fill');
         }
     });
 
@@ -259,7 +259,7 @@ function setupTooltip(ele) {
     ele.call(tip);
 
     $.each(tissues, function(i, tissue) {
-        ele.select('#' + tissue)
+        ele.select('.' + tissue)
             .on('mouseover', function(d, i){
                 tip.show(d, i);
                 d3.select(this).transition().style("opacity", 0.5);
@@ -274,7 +274,7 @@ function setupTooltip(ele) {
 function assignData(ele, data) {
 
     $.each(tissues, function(i, tissue) {
-        ele.select('#' + tissue)
+        ele.select('.' + tissue)
             .data([{'tissue' : tissue, 'value' : data[i]}])
     });
 }
