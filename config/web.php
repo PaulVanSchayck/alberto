@@ -38,6 +38,13 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'js' => ['jquery.min.js']
+                ],
+            ],
+        ],
     ],
     'params' => $params,
 ];
