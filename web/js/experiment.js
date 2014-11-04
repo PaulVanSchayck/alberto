@@ -164,8 +164,12 @@ function loadExperiment() {
             ctx.drawImage( loader, 0, 0 );
             var link = document.querySelector("#image-download");
             link.download = title;
-            link.href = can.toDataURL();
-            link.click();
+            try {
+                link.href = can.toDataURL();
+                link.click();
+            } catch ( e ) {
+                alert("This browser does not support this feature, please use either Chrome or Firefox");
+            }
         };
 
         loader.src = 'data:image/svg+xml,' + encodeURIComponent( svgStr );

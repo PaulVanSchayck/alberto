@@ -158,7 +158,7 @@ div.svg {
 
 div.svg svg {
     width: 100%;
-    max-height: 300px;
+    height: 300px;
 }
 
 #spinner {
