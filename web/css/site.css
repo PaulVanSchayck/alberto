@@ -161,6 +161,10 @@ div.svg svg {
     height: 300px;
 }
 
+.download-drop {
+    color: inherit;
+}
+
 #spinner {
     display: none;
 }
