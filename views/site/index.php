@@ -20,7 +20,6 @@ $this->title = 'AlBERTO';
             <div class="input-group at-input">
                 <span class="input-group-addon danger">Gene</span>
                 <?php
-                $template = '<p>{{agi}} - {{gene}}</p>';
                 echo Typeahead::widget([
                     'name' => 'gene',
                     'id' => 'gene',
@@ -32,12 +31,14 @@ $this->title = 'AlBERTO';
                             'limit' => 10,
                             'templates' => [
                                 'empty' => '<p>Unable to find a matching gene.</p>',
-                                'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                                'suggestion' => new JsExpression("function(o){ return '<p>'+o.agi+' '+o.gene+'</p>'; }")
                             ],
                             'displayKey' => 'agi'
                         ]
                     ]
                 ]);
+                // Remove the handlebars.js library from the asset, as we do not use it
+                unset($this->getAssetManager()->getBundle('kartik\widgets\TypeaheadAsset')->js[1]);
                 ?>
                 <span class="input-group-btn">
                     <input type="submit" class="btn btn-default btn-info" value="Show" />
