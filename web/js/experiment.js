@@ -52,6 +52,8 @@ function loadExperiment() {
     table = $('#example').DataTable({
         serverSide: true,
         stateSave: true,
+        // experiment.loaded is responsible for loading the table
+        deferLoading: 0,
         stateLoadCallback: function () {
             return false;
         },

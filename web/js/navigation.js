@@ -19,7 +19,7 @@ $(document).ready(function(){
 
     $("#experiments a").tooltip({'placement': 'bottom'});
 
-    $('#experiments a').click(function (e) {
+    $('#experiments a').click(function () {
         navInfo.setExperiment($(this).data('exp'));
 
         return false;
@@ -27,12 +27,17 @@ $(document).ready(function(){
 
     $(window).on('alberto.gene.changed', function() {
         $('.at-input input').val(navInfo.getGene());
-
-        // Only when the experiment is loaded do we also execute showGene
-        $(window).one('experiment.loaded', function(){
-            showGene(navInfo.getGene());
-        })
     });
+
+    // Only when the experiment is loaded do we also execute showGene
+    $(window).on('experiment.loaded', function(){
+        if ( navInfo.getGene() ) {
+            showGene(navInfo.getGene());
+        } else {
+            table.ajax.reload();
+        }
+    });
+
 
     $(window).on('alberto.experiment.changed', function() {
         var exp = navInfo.getExperiment(),
@@ -92,7 +97,7 @@ var navInfo = {
             this.setExperiment("start");
         }
 
-        if ( hash[1].trim() != '' ) {
+        if ( hash[1] && hash[1].trim() != '' ) {
             this.setGene(hash[1]);
         }
 
