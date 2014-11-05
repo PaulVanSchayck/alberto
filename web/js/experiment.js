@@ -141,6 +141,7 @@ function loadExperiment() {
         $("tbody tr.selected").removeClass("selected");
         $(this).addClass("selected");
         var data = table.row(this).data();
+        navInfo.setGene(data.agi);
         loadINTACT(data);
         showGeneInformation(data);
     } );
@@ -160,6 +161,8 @@ function loadExperiment() {
         e.preventDefault();
         saveAsPNG($(this).parents('.panel').find('svg')[0],$(this).attr('title'));
     });
+
+    $(window).trigger('experiment.loaded');
 }
 
 function updateTableColors() {
@@ -300,4 +303,8 @@ function assignData(ele, data) {
 
 function showGene(gene) {
     yadcf.exFilterColumn(table, [[0, gene]], true);
+
+    $('#example').one( 'draw.dt', function(){
+        $('#example tbody tr:eq(0)').click();
+    } );
 }

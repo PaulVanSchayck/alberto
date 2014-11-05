@@ -20,40 +20,90 @@ $(document).ready(function(){
     $("#experiments a").tooltip({'placement': 'bottom'});
 
     $('#experiments a').click(function (e) {
-
-        var exp = $(this).attr("data-exp"),
-            $content = $(this.hash),
-            $tab = $(this);
-
-        if ( $content.is(':empty') ) {
-            // ajax load of tab
-            $(this.hash).load("/index.php?r=site/tab&exp=" + exp);
-        }
-
-        window.location.hash = this.hash;
-
-        $tab.tab('show');
+        navInfo.setExperiment($(this).data('exp'));
 
         return false;
     });
 
-    var hash = window.location.hash;
-    if ( hash && $('#experiments a[href="' + hash + '"]').length > 0 ) {
-        $('#experiments a[href="' + hash + '"]').click();
-    } else {
-        // load first tab content
-        $('#experiments li:first a').click();
-    }
+    $(window).on('alberto.gene.changed', function() {
+        $('.at-input input').val(navInfo.getGene());
+
+        // Only when the experiment is loaded do we also execute showGene
+        $(window).one('experiment.loaded', function(){
+            showGene(navInfo.getGene());
+        })
+    });
+
+    $(window).on('alberto.experiment.changed', function() {
+        var exp = navInfo.getExperiment(),
+            $content = $("#" + exp);
+
+        if ( $content.is(':empty') ) {
+            // ajax load of tab
+            $content.load("/index.php?r=site/tab&exp=" + exp);
+        }
+
+        $('a[data-exp="' + navInfo.getExperiment() + '"]').tab('show');
+
+    });
+
+    // Load from hash the gene and experiment, this will also trigger the events responsible for handling this
+    navInfo.setFromHash();
 
     // Handle gene input
     $('.at-input input').on('typeahead:selected', function(event, selection) {
         showGene(selection.agi);
+        navInfo.setGene(selection.agi);
     });
 
     try {
         isFileSaverSupported = !!new Blob;
     } catch (e) {}
 });
+
+var navInfo = {
+    exp: "",
+    gene: "",
+
+    getExperiment: function() {
+        return this.exp;
+    },
+    setExperiment: function(exp) {
+        this.exp = exp;
+        $(window).trigger('alberto.experiment.changed');
+        this.buildHash();
+    },
+
+    getGene: function() {
+        return this.gene;
+    },
+    setGene: function(gene) {
+        this.gene = gene;
+        $(window).trigger('alberto.gene.changed');
+        this.buildHash();
+    },
+
+    setFromHash: function() {
+        var hash = window.location.hash.split('-');
+
+        if ( hash[0].trim() != '' ) {
+            this.setExperiment(hash[0].replace('#',''));
+        } else {
+            this.setExperiment("start");
+        }
+
+        if ( hash[1].trim() != '' ) {
+            this.setGene(hash[1]);
+        }
+
+        return this;
+    },
+
+    buildHash: function() {
+        window.location.hash = $.grep([this.exp,this.gene], Boolean).join('-')
+    }
+
+};
 
 function saveAsSVG(svg, title) {
     if (! isFileSaverSupported ) {
