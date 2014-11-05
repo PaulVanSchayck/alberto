@@ -149,8 +149,6 @@ function loadExperiment() {
 
     $("#gene-information .non-selected").tooltip({'placement': 'bottom'});
 
-    $('#tools').button();
-
     $('#example').on( 'draw.dt', updateTableColors );
 
     $(".download-svg").click(function(e) {
@@ -199,6 +197,12 @@ function showGeneInformation(data) {
     $gene.find('.agi').html(data.agi);
     $gene.find('.annotation').html(data.annotation);
     $gene.find('.gene').html(data.gene);
+
+    $gene.find('#tools li a').each(function(i,e){
+       $(e).attr('href', function() {
+           return $(this).data('template').replace('#AGI#', data.agi);
+       });
+    });
 }
 
 function loadINTACT(data) {

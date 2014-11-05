@@ -76,13 +76,13 @@
                     <p><span class="label label-primary">Gene</span> <span class="gene"></span></p>
 
                     <pre class="annotation"></pre>
-                    <div class="btn-group">
-                        <button id="tools" type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                    <div class="btn-group" id="tools">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
                             External tools <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">eFP</a></li>
-                            <li><a href="">TAIR</a></li>
+                            <li><a href="#" target="_blank" data-template="http://bar.utoronto.ca/efp/cgi-bin/efpWeb.cgi?dataSource=Developmental_Map&modeInput=Absolute&primaryGene=#AGI#">eFP</a></li>
+                            <li><a href="#"  target="_blank" data-template="http://www.arabidopsis.org/servlets/TairObject?type=locus&name=#AGI#">TAIR</a></li>
                         </ul>
                     </div>
                 </div>
