@@ -176,6 +176,9 @@ div.svg svg {
 }
 
 /* DataTables */
+#example tbody tr {
+    cursor: pointer;
+}
 tr.selected td {
     background-color: #b0bed9;
 }

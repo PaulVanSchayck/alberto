@@ -25,19 +25,29 @@ $(document).ready(function(){
         return false;
     });
 
-    $(window).on('alberto.gene.changed', function() {
+    $(window).on('alberto.gene.changed', function(e, silent) {
         $('.at-input input').val(navInfo.getGene());
-    });
 
-    // Only when the experiment is loaded do we also execute showGene
-    $(window).on('experiment.loaded', function(){
-        if ( navInfo.getGene() ) {
+        // Only show a gene, if the table is available, and this is not requested as a silent gene change
+        if ( table && !silent) {
             showGene(navInfo.getGene());
-        } else {
-            table.ajax.reload();
+
+        } else if ( !table && !silent ) {
+
+            // Experiment has not loaded yet, wait for it, then show the gene
+            $(window).one('experiment.loaded', function () {
+                showGene(navInfo.getGene());
+            });
         }
     });
 
+    $(window).on('experiment.loaded', function () {
+
+        // If there is no gene selected, load the default table
+        if (! navInfo.getGene()) {
+            table.ajax.reload();
+        }
+    });
 
     $(window).on('alberto.experiment.changed', function() {
         var exp = navInfo.getExperiment(),
@@ -55,9 +65,8 @@ $(document).ready(function(){
     // Load from hash the gene and experiment, this will also trigger the events responsible for handling this
     navInfo.setFromHash();
 
-    // Handle gene input
+    // Handle gene input from typeahead dropdown
     $('.at-input input').on('typeahead:selected', function(event, selection) {
-        showGene(selection.agi);
         navInfo.setGene(selection.agi);
     });
 
@@ -82,16 +91,18 @@ var navInfo = {
     getGene: function() {
         return this.gene;
     },
-    setGene: function(gene) {
+    setGene: function(gene, silent) {
         this.gene = gene;
-        $(window).trigger('alberto.gene.changed');
+
+        $(window).trigger('alberto.gene.changed', silent);
+
         this.buildHash();
     },
 
     setFromHash: function() {
         var hash = window.location.hash.split('-');
 
-        if ( hash[0].trim() != '' ) {
+        if ( hash[0] && hash[0].trim() != '' ) {
             this.setExperiment(hash[0].replace('#',''));
         } else {
             this.setExperiment("start");

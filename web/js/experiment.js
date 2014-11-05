@@ -139,13 +139,11 @@ function loadExperiment() {
         return true;
     });
 
+    // Handle table clicks
     $('tbody').on( 'click', 'tr', function () {
-        $("tbody tr.selected").removeClass("selected");
-        $(this).addClass("selected");
         var data = table.row(this).data();
-        navInfo.setGene(data.agi);
-        loadINTACT(data);
-        showGeneInformation(data);
+        //navInfo.setGene(data.agi, true);
+        loadGeneFromRow(this);
     } );
 
     $("#mode button").tooltip({'placement': 'bottom'});
@@ -306,7 +304,16 @@ function assignData(ele, data) {
 function showGene(gene) {
     yadcf.exFilterColumn(table, [[0, gene]], true);
 
-    $('#example').one( 'draw.dt', function(){
-        $('#example tbody tr:eq(0)').click();
+    table.one( 'draw.dt', function(){
+        loadGeneFromRow('#example tbody tr:eq(0)');
     } );
+}
+
+function loadGeneFromRow(row) {
+    $("tbody tr.selected").removeClass("selected");
+    $(row).addClass("selected");
+    var data = table.row(row).data();
+
+    loadINTACT(data);
+    showGeneInformation(data);
 }
