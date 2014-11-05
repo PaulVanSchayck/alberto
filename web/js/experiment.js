@@ -142,7 +142,7 @@ function loadExperiment() {
     // Handle table clicks
     $('tbody').on( 'click', 'tr', function () {
         var data = table.row(this).data();
-        //navInfo.setGene(data.agi, true);
+        navInfo.setGene(data.agi, true);
         loadGeneFromRow(this);
     } );
 
