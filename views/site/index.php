@@ -14,7 +14,6 @@ $this->title = 'AlBERTO';
 
     <p>Enter an AT number or gene name and press show.</p>
 
-    <form action="#" method="get" id="gene-show">
     <div class="row">
         <div class="col-lg-6">
             <div class="input-group at-input">
@@ -41,12 +40,11 @@ $this->title = 'AlBERTO';
                 unset($this->getAssetManager()->getBundle('kartik\widgets\TypeaheadAsset')->js[1]);
                 ?>
                 <span class="input-group-btn">
-                    <input type="submit" class="btn btn-default btn-info" value="Show" />
+                    <button type="button" class="btn btn-default btn-info">Show</button>
                 </span>
             </div>
         </div>
     </div>
-    </form>
 
     <ul class="nav nav-tabs" id="experiments" role="tablist">
         <li data-toggle="tab">

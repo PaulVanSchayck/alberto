@@ -207,3 +207,6 @@ table.dataTable thead th {
 #gene-information .selected {
     display: none;
 }
+pre.annotation {
+    white-space: pre-wrap;
+}

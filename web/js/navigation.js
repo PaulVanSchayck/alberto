@@ -46,10 +46,8 @@ $(document).ready(function(){
     }
 
     // Handle gene input
-    $('#gene-show').submit( function() {
-        showGene($("#gene").val());
-
-        return false;
+    $('.at-input input').on('typeahead:selected', function(event, selection) {
+        showGene(selection.agi);
     });
 
     try {
