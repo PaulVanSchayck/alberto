@@ -151,3 +151,7 @@
 
     </tbody>
 </table>
+
+<script type="text/javascript">
+    loadExperiment();
+</script>

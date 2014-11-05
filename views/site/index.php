@@ -49,6 +49,9 @@ $this->title = 'AlBERTO';
 
     <ul class="nav nav-tabs" id="experiments" role="tablist">
         <li data-toggle="tab">
+            <a href="#start" data-exp="start" data-toggle="tooltip" data-original-title="Start here">#</a>
+        </li>
+        <li data-toggle="tab">
             <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Transcriptome of individual cell types">Embryonic cell types</a>
         </li>
         <li data-toggle="tab">
@@ -61,6 +64,7 @@ $this->title = 'AlBERTO';
     </ul>
 
     <div class="tab-content">
+        <div class="tab-pane active" id="start"></div>
         <div class="tab-pane active" id="intact"></div>
         <div class="tab-pane active" id="mp"></div>
     </div>

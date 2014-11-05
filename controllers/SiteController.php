@@ -98,10 +98,11 @@ class SiteController extends Controller
 
     public function actionTab($exp = 'intact')
     {
-        if( $exp == 'intact' ) {
-            return $this->renderPartial('_tab');
+        $experiments = Yii::$app->params['experiments'];
+
+        if( isset($experiments[$exp]) ) {
+            return $this->renderPartial('/experiments/' . $experiments[$exp]['template']);
         } else {
-            sleep(2);
             return 'Not implemented';
         }
 

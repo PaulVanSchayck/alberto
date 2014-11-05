@@ -20,7 +20,6 @@ $(document).ready(function(){
     $("#experiments a").tooltip({'placement': 'bottom'});
 
     $('#experiments a').click(function (e) {
-        e.preventDefault();
 
         var exp = $(this).attr("data-exp"),
             $content = $(this.hash),
@@ -28,18 +27,23 @@ $(document).ready(function(){
 
         if ( $content.is(':empty') ) {
             // ajax load of tab
-            $(this.hash).load("/index.php?r=site/tab&exp=" + exp, function() {
-                loadExperiment();
-            });
+            $(this.hash).load("/index.php?r=site/tab&exp=" + exp);
         }
+
+        window.location.hash = this.hash;
 
         $tab.tab('show');
 
         return false;
     });
 
-    // load first tab content
-    $('#experiments li:first a').click();
+    var hash = window.location.hash;
+    if ( hash && $('#experiments a[href="' + hash + '"]').length > 0 ) {
+        $('#experiments a[href="' + hash + '"]').click();
+    } else {
+        // load first tab content
+        $('#experiments li:first a').click();
+    }
 
     // Handle gene input
     $('#gene-show').submit( function() {
