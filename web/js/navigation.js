@@ -133,7 +133,7 @@ function saveAsPNG(svg, title) {
     if (! Modernizr.blobconstructor ) {
         $("#download-compability").fadeIn();
         return false;
-    } else if( Modernizr.adownload ) {
+    } else if( ! Modernizr.adownload ) {
         $("#download-compability").fadeIn();
     }
 
