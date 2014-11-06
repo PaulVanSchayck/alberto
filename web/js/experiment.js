@@ -26,7 +26,7 @@ function loadExperiment() {
             var domain = eval( '[' + slider.getValue() + ']');
             scale = scale.domain(domain);
             updateColors(scale);
-            //updateTableColors();
+            updateTableColors();
         }).data('slider');
 
     showScale(scale);
@@ -150,8 +150,6 @@ function loadExperiment() {
 
     $("#gene-information .non-selected").tooltip({'placement': 'bottom'});
 
-    $('#example').on( 'draw.dt', updateTableColors );
-
     $(".download-svg").click(function(e) {
         e.preventDefault();
         saveAsSVG($(this).parents('.panel').find('svg')[0],$(this).attr('title'));
@@ -166,9 +164,9 @@ function loadExperiment() {
 }
 
 function updateTableColors() {
-    /*$("#example tbody td").css('color', function() {
+    $("#example tbody tr.selected td").css('background-color', function() {
         return scale($(this).html())
-    })*/
+    })
 }
 
 function updateColors(colorScale, useIndex) {
@@ -310,8 +308,10 @@ function showGene(gene) {
 }
 
 function loadGeneFromRow(row) {
-    $("tbody tr.selected").removeClass("selected");
+    $("tbody tr.selected").removeClass("selected").find('td').css('background-color','');
     $(row).addClass("selected");
+    updateTableColors();
+
     var data = table.row(row).data();
 
     loadINTACT(data);
