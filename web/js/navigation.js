@@ -128,7 +128,7 @@ function saveAsSVG(svg, title) {
     }
 
     var svgStr =  (new XMLSerializer()).serializeToString(svg);
-    var blob = new Blob([svgStr], {type: "image/svg+xml;charset=utf-8"});
+    var blob = new Blob([svgStr], {type: "image/svg+xml"});
     saveAs(blob, title + ".svg");
 }
 
