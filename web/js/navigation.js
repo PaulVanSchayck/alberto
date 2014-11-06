@@ -2,8 +2,6 @@
  * This file handles navigation through the tabs
  */
 
-var isFileSaverSupported = false;
-
 $(document).ready(function(){
 
     /* Show or hide spinner */
@@ -70,9 +68,6 @@ $(document).ready(function(){
         navInfo.setGene(selection.agi);
     });
 
-    try {
-        isFileSaverSupported = !!new Blob;
-    } catch (e) {}
 });
 
 var navInfo = {
@@ -122,9 +117,11 @@ var navInfo = {
 };
 
 function saveAsSVG(svg, title) {
-    if (! isFileSaverSupported ) {
-        alert("This browser does not support this feature, please use a modern version of either Chrome or Firefox");
+    if (! Modernizr.blobconstructor ) {
+        $("#download-compability").show();
         return false;
+    } else if( ! Modernizr.adownload ) {
+        $("#download-compability").show();
     }
 
     var svgStr =  (new XMLSerializer()).serializeToString(svg);
@@ -133,6 +130,13 @@ function saveAsSVG(svg, title) {
 }
 
 function saveAsPNG(svg, title) {
+    if (! Modernizr.blobconstructor ) {
+        $("#download-compability").fadeIn();
+        return false;
+    } else if( Modernizr.adownload ) {
+        $("#download-compability").fadeIn();
+    }
+
     var svgStr =  (new XMLSerializer()).serializeToString(svg),
         can    = document.createElement('canvas'),
         ctx    = can.getContext('2d'),
@@ -145,16 +149,12 @@ function saveAsPNG(svg, title) {
         ctx.drawImage( loader, 0, 0 );
 
         try {
-            if ( ! isFileSaverSupported ) {
-                throw "Not supported";
-            }
-
             can.toBlob(function(blob) {
                 saveAs(blob, title + ".png");
             });
         } catch ( e ) {
             // Notably IE9 - IE11 do not support this
-            alert("This browser does not support this feature, please use a modern version of either Chrome or Firefox");
+            $("#download-compability").fadeIn();
         }
     };
 

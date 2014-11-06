@@ -9,7 +9,11 @@ $this->title = 'AlBERTO';
 <div class="site-index">
 
     <div id="compability" style="display:none" class="alert alert-danger" role="alert">
-        Your browser does not support all the features that this website requires, it will not function properly! Please update to a more modern browser.
+        Your browser does not support all the features that this website requires, it will not function properly! Please use a more modern browser.
+    </div>
+
+    <div id="download-compability" style="display:none" class="alert alert-danger" role="alert">
+        The download feature is not completely supported in your browser. Please use a modern version of either Chrome or Firefox.
     </div>
 
     <p>Enter an AT number or gene name and press show.</p>
