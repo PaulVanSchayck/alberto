@@ -18,7 +18,6 @@ var scale = d3.scale.linear().clamp(true)
 var table;
 
 function loadExperiment() {
-
     var slider = $("#scale-slider")
         .slider({tooltip: 'always'})
         .on('slide', function() {
@@ -62,26 +61,7 @@ function loadExperiment() {
             method: "get",
             dataSrc: "data"
         },
-        columns: [
-            { data: 'gene_agi' },
-            {
-                data: 'gene.gene',
-                render: function(data) {
-                    if ( data ) {
-                        return "<span class='gene-tooltip' data-toggle='tooltip' title='" + data + "'>" + data.split(',')[0] + "</span>";
-                    } else {
-                        return "";
-                    }
-                }
-            },
-            { data: 'suspensor_eg', 'name': 'range' },
-            { data: 'vascular_eg', 'name': 'range' },
-            { data: 'embryo_eg', 'name': 'range' },
-            { data: 'vascular_lg', 'name': 'range' },
-            { data: 'embryo_lg', 'name': 'range' },
-            { data: 'qc_hs', 'name': 'range' },
-            { data: 'fc_vascular_lg_embryo_eg', 'name': 'range' }
-        ],
+        columns: buildDTColumns(intactColumns),
         dom: 'C<"clear">rtiS',
         scrollY: 500,
         scrollX: "100%",
@@ -92,51 +72,7 @@ function loadExperiment() {
     });
 
     // Take note of the lowercase dataTable, this is the old API
-    yadcf.init(table, [{
-            column_number: 0,
-            filter_type: "text",
-            filter_delay: 500
-        }, {
-            column_number: 1,
-            filter_type: "text",
-            filter_delay: 500
-        }, {
-            column_number: 2,
-            filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"],
-            filter_delay: 500
-
-        }, {
-            column_number: 3,
-            filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"],
-            filter_delay: 500
-        }, {
-            column_number: 4,
-            filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"],
-            filter_delay: 500
-        }, {
-            column_number: 5,
-            filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"],
-            filter_delay: 500
-        }, {
-            column_number: 6,
-            filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"],
-            filter_delay: 500
-        }, {
-            column_number: 7,
-            filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"],
-            filter_delay: 500
-        }, {
-            column_number: 8,
-            filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"],
-            filter_delay: 500
-        }], 'header');
+    yadcf.init(table, buildFilterColumns(intactColumns), 'header');
 
     $('#example').on( 'search.dt', function () {
         $(".filter_column input").removeClass('filtered');
@@ -333,4 +269,59 @@ function loadGeneFromRow(row) {
 
     loadINTACT(data);
     showGeneInformation(data);
+}
+
+function buildDTColumns(columns) {
+    var r = [
+        { data: 'gene_agi' },
+        {
+            data: 'gene.gene',
+            render: function (data, type, row) {
+                if (data) {
+                    return "<span class='gene-tooltip' data-toggle='tooltip' title='" + data + row.gene.annotation + "'>" + data.split(',')[0] + " </span>";
+                } else {
+                    return "";
+                }
+            }
+        }
+    ];
+
+    for( var i = 0; i < columns.length; i++ ) {
+        r.push( { data: columns[i].field, name: 'range' });
+        r.push( { data: columns[i].field + '_sd', name: 'range', visible: false });
+    }
+
+    return r;
+}
+
+function buildFilterColumns(columns) {
+    var column_number = 0;
+    var r = [
+        {
+            column_number: column_number++,
+            filter_type: "text",
+            filter_delay: 500
+        }, {
+            column_number: column_number++,
+            filter_type: "text",
+            filter_delay: 500
+        }
+    ];
+
+    for( var i = 0; i < columns.length; i++ ) {
+        r.push( {
+            column_number: column_number++,
+            filter_type: "range_number",
+            filter_default_label : ["0", "&infin;"],
+            filter_delay: 500
+        });
+        r.push( {
+            column_number: column_number++,
+            filter_type: "range_number",
+            filter_default_label : ["0", "&infin;"],
+            filter_delay: 500
+        });
+    }
+
+    return r;
 }

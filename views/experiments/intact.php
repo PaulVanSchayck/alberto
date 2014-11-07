@@ -1,3 +1,9 @@
+<?php
+use Yii;
+
+$intact = Yii::$app->params['experiments']['intact'];
+?>
+
 <div class="row svg-images">
     <div class="col-lg-3">
 
@@ -138,14 +144,12 @@
     <tr>
         <th>agi</th>
         <th>Gene</th>
-        <th>Suspensor EG</th>
-        <th>Vascular EG</th>
-        <th>Whole embryo EG</th>
-        <th>Vascular LG</th>
-        <th>Whole embryo LG</th>
-        <th>QC HS</th>
-        <th>FC Vascular LG</th>
-
+<?php
+foreach( $intact['columns'] as $column ) {
+    echo "<th>{$column['label']}</th>\n";
+    echo "<th>{$column['label']} SD</th>\n";
+}
+?>
     </tr>
     </thead>
     <tbody>
@@ -154,5 +158,6 @@
 </table>
 
 <script type="text/javascript">
+    var intactColumns = $.parseJSON('<?= json_encode($intact['columns']); ?>');
     loadExperiment();
 </script>
