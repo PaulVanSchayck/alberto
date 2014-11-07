@@ -11,8 +11,7 @@ class DatatablesYadcfAsset extends AssetBundle
         'jquery.dataTables.yadcf.css',
     ];
     public $js = [
-        // The version provided as release is lagging some features, using the beta version separately
-        //'jquery.dataTables.yadcf.js',
+        'jquery.dataTables.yadcf.js',
     ];
 
     public $depends = [

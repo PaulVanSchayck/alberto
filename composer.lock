@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9c06997d985e7542866429cfb3bd9f19",
+    "hash": "6df1aa074b95da5268b8c07b6d162bd3",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -263,16 +263,16 @@
         },
         {
             "name": "bower-asset/jquery.inputmask",
-            "version": "3.1.36",
+            "version": "3.1.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
-                "reference": "1e667db21e878105686e636efea883fa23b54fb2"
+                "reference": "c40c5c0abaf42b35139cdf97569b1ef1fad3a3d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/1e667db21e878105686e636efea883fa23b54fb2",
-                "reference": "1e667db21e878105686e636efea883fa23b54fb2",
+                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/c40c5c0abaf42b35139cdf97569b1ef1fad3a3d9",
+                "reference": "c40c5c0abaf42b35139cdf97569b1ef1fad3a3d9",
                 "shasum": ""
             },
             "require": {
@@ -748,11 +748,11 @@
         },
         {
             "name": "vedmack/yadcf",
-            "version": "0.8.4",
+            "version": "0.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vedmack/yadcf.git",
-                "reference": "0.8.4"
+                "reference": "0.8.5"
             },
             "type": "library"
         },

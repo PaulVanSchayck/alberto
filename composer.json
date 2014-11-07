@@ -22,7 +22,7 @@
         "bower-asset/d3-tip": "v0.6.5",
         "kartik-v/yii2-widgets": "3.1.*",
         "kartik-v/yii2-slider": "*",
-        "vedmack/yadcf": "0.8.4"
+        "vedmack/yadcf": "0.8.5"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
@@ -42,11 +42,11 @@
         "type": "package",
         "package": {
             "name": "vedmack/yadcf",
-            "version": "0.8.4",
+            "version": "0.8.5",
             "source": {
                 "url": "https://github.com/vedmack/yadcf.git",
                 "type": "git",
-                "reference": "0.8.4"
+                "reference": "0.8.5"
             }
         }
     }],
