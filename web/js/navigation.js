@@ -24,6 +24,7 @@ $(document).ready(function(){
     });
 
     $(window).on('alberto.gene.changed', function(e, silent) {
+        $("#no-results").hide();
         $('.at-input input').val(navInfo.getGene());
 
         // Only show a gene, if the table is available, and this is not requested as a silent gene change

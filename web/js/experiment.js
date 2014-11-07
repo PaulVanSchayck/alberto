@@ -315,8 +315,12 @@ function assignData(ele, data) {
 function showGene(gene) {
     yadcf.exFilterColumn(table, [[0, gene]], true);
 
-    table.one( 'draw.dt', function(){
-        loadGeneFromRow('#example tbody tr:eq(0)');
+    table.one( 'draw.dt', function() {
+        if( table.data().length > 0 ) {
+            loadGeneFromRow('#example tbody tr:eq(0)');
+        } else {
+            $("#no-results").show();
+        }
     } );
 }
 

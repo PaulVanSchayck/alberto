@@ -50,6 +50,10 @@ $this->title = 'AlBERTO';
         </div>
     </div>
 
+    <div id="no-results" style="display:none" class="alert alert-danger" role="alert">
+        No results for this gene were found in this experiment.
+    </div>
+
     <ul class="nav nav-tabs" id="experiments" role="tablist">
         <li data-toggle="tab">
             <a href="#start" data-exp="start" data-toggle="tooltip" data-original-title="Start here">#</a>
