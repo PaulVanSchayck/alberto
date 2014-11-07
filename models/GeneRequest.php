@@ -116,9 +116,7 @@ class GeneRequest extends Model {
         $columns = [];
 
         foreach( $this->columns as $column ) {
-            if( $column['data'] != 'gene.geneShort' ) {
-                $columns[] = $column['data'];
-            }
+            $columns[] = $column['data'];
         }
 
         return $columns;
