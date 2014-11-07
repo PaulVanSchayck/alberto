@@ -19,13 +19,7 @@ class Gene extends ActiveRecord {
     public function fields()
     {
         return array_merge(
-            parent::fields(),
-            ['geneShort']
+            parent::fields()
         );
-    }
-
-    public function getGeneShort()
-    {
-        return substr($this->gene,0,10);
     }
 }

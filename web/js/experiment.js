@@ -64,7 +64,16 @@ function loadExperiment() {
         },
         columns: [
             { data: 'gene_agi' },
-            { data: 'gene.geneShort' },
+            {
+                data: 'gene.gene',
+                render: function(data) {
+                    if ( data ) {
+                        return "<span class='gene-tooltip' data-toggle='tooltip' title='" + data + "'>" + data.substr(0, 5) + "</span>";
+                    } else {
+                        return "";
+                    }
+                }
+            },
             { data: 'suspensor_eg', 'name': 'range' },
             { data: 'vascular_eg', 'name': 'range' },
             { data: 'embryo_eg', 'name': 'range' },
@@ -139,10 +148,14 @@ function loadExperiment() {
         return true;
     });
 
+    table.on( 'draw.dt', function(){
+        $("#example").find('span[data-toggle=tooltip]').tooltip({'placement': 'bottom'});
+    } );
+
     // Handle table clicks
     $('tbody').on( 'click', 'tr', function () {
         var data = table.row(this).data();
-        navInfo.setGene(data.gene.agi, true);
+        navInfo.setGene(data.gene_agi, true);
         loadGeneFromRow(this);
     } );
 
@@ -195,13 +208,13 @@ function showGeneInformation(data) {
     $gene = $('#gene-information .selected').show();
 
 
-    $gene.find('.agi').html(data.gene.agi);
-    $gene.find('.annotation').html(data.annotation);
-    $gene.find('.gene').html(data.gene);
+    $gene.find('.agi').html(data.gene_agi);
+    $gene.find('.annotation').html(data.gene.annotation);
+    $gene.find('.gene').html(data.gene.gene);
 
     $gene.find('#tools li a').each(function(i,e){
        $(e).attr('href', function() {
-           return $(this).data('template').replace('#AGI#', data.gene.agi);
+           return $(this).data('template').replace('#AGI#', data.gene_agi);
        });
     });
 }
