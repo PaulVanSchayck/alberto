@@ -63,15 +63,15 @@ function loadExperiment() {
             dataSrc: "data"
         },
         columns: [
-            { data: 'agi' },
-            { data: 'geneShort' },
-            { data: 'int17_eg', 'name': 'range' },
-            { data: 'iqd15_eg', 'name': 'range' },
-            { data: 'rps5a_eg', 'name': 'range' },
-            { data: 'iqd15_lg', 'name': 'range' },
-            { data: 'rps5a_lg', 'name': 'range' },
-            { data: 'wox5_hs', 'name': 'range' },
-            { data: 'fc', 'name': 'range' }
+            { data: 'gene_agi' },
+            { data: 'gene.geneShort' },
+            { data: 'suspensor_eg', 'name': 'range' },
+            { data: 'vascular_eg', 'name': 'range' },
+            { data: 'embryo_eg', 'name': 'range' },
+            { data: 'vascular_lg', 'name': 'range' },
+            { data: 'embryo_lg', 'name': 'range' },
+            { data: 'qc_hs', 'name': 'range' },
+            { data: 'fc_vascular_lg_embryo_eg', 'name': 'range' }
         ],
         dom: 'C<"clear">rtiS',
         scrollY: 500,
@@ -142,7 +142,7 @@ function loadExperiment() {
     // Handle table clicks
     $('tbody').on( 'click', 'tr', function () {
         var data = table.row(this).data();
-        navInfo.setGene(data.agi, true);
+        navInfo.setGene(data.gene.agi, true);
         loadGeneFromRow(this);
     } );
 
@@ -195,48 +195,48 @@ function showGeneInformation(data) {
     $gene = $('#gene-information .selected').show();
 
 
-    $gene.find('.agi').html(data.agi);
+    $gene.find('.agi').html(data.gene.agi);
     $gene.find('.annotation').html(data.annotation);
     $gene.find('.gene').html(data.gene);
 
     $gene.find('#tools li a').each(function(i,e){
        $(e).attr('href', function() {
-           return $(this).data('template').replace('#AGI#', data.agi);
+           return $(this).data('template').replace('#AGI#', data.gene.agi);
        });
     });
 }
 
 function loadINTACT(data) {
-    var int17_eg = ['suspensor'];
-    var iqd15_eg = ['vascular', 'vascular-initials'];
-    var rps5a_eg = ['ground-initials', 'ground', 'inner-upper','protoderm', 'hypophysis', 'qc','columella'];
+    var suspensor_eg = ['suspensor'];
+    var vascular_eg = ['vascular', 'vascular-initials'];
+    var embryo_eg = ['ground-initials', 'ground', 'inner-upper','protoderm', 'hypophysis', 'qc','columella'];
 
-    var iqd15_lg = ['vascular', 'vascular-initials'];
-    var rps5a_lg = ['suspensor', 'ground-initials', 'ground', 'inner-upper','protoderm', 'hypophysis', 'qc','columella'];
+    var vascular_lg = ['vascular', 'vascular-initials'];
+    var embryo_lg = ['suspensor', 'ground-initials', 'ground', 'inner-upper','protoderm', 'hypophysis', 'qc','columella'];
 
-    var wox5_hs = ['qc'];
+    var qc_hs = ['qc'];
 
     var dataEG = [], dataLG = [], dataHS = [];
     $.each(tissues, function(i, tissue) {
-        if( int17_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = data.int17_eg;
+        if( suspensor_eg.indexOf(tissue) > -1 ) {
+            dataEG[i] = data.suspensor_eg;
         }
-        if( iqd15_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = data.iqd15_eg;
+        if( vascular_eg.indexOf(tissue) > -1 ) {
+            dataEG[i] = data.vascular_eg;
         }
-        if( rps5a_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = data.rps5a_eg;
-        }
-
-        if( iqd15_lg.indexOf(tissue) > -1 ) {
-            dataLG[i] = data.iqd15_lg;
-        }
-        if( rps5a_lg.indexOf(tissue) > -1 ) {
-            dataLG[i] = data.rps5a_lg;
+        if( embryo_eg.indexOf(tissue) > -1 ) {
+            dataEG[i] = data.embryo_eg;
         }
 
-        if( wox5_hs.indexOf(tissue) > -1 ) {
-            dataHS[i] = data.wox5_hs;
+        if( vascular_lg.indexOf(tissue) > -1 ) {
+            dataLG[i] = data.vascular_lg;
+        }
+        if( embryo_lg.indexOf(tissue) > -1 ) {
+            dataLG[i] = data.embryo_lg;
+        }
+
+        if( qc_hs.indexOf(tissue) > -1 ) {
+            dataHS[i] = data.qc_hs;
         } else {
             dataHS[i] = 0;
         }

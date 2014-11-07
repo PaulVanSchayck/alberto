@@ -111,6 +111,21 @@ class GeneRequest extends Model {
         return $filter;
     }
 
+    public function getColumns()
+    {
+        $columns = [];
+
+        foreach( $this->columns as $column ) {
+            if( $column['data'] != 'gene.geneShort' ) {
+                $columns[] = $column['data'];
+            }
+        }
+
+        return $columns;
+    }
+
+
+
     public function getOrder()
     {
         $order = [];

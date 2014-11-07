@@ -2,6 +2,7 @@
 namespace app\controllers;
 
 use app\components\Scroller;
+use app\models\Intact;
 use Yii;
 use app\models\GeneRequest;
 use app\components\ActiveDataProvider;
@@ -37,7 +38,7 @@ class GeneController extends Controller {
         if( $GeneRequest->load(Yii::$app->request->get()) && $GeneRequest->validate()) {
 
             $dataProvider = new ActiveDataProvider([
-                'query' => Gene::findFc()->filterWhere($GeneRequest->getFilter())->orderBy($GeneRequest->getOrder()),
+                'query' => Intact::find()->select($GeneRequest->getColumns())->joinWith('gene')->filterWhere($GeneRequest->getFilter())->orderBy($GeneRequest->getOrder()),
                 'pagination' => new Scroller($GeneRequest->getPaginationConfig())
             ]);
 

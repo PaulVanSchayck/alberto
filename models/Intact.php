@@ -4,11 +4,11 @@ namespace app\models;
 
 use yii\db\ActiveRecord;
 
-class Gene extends ActiveRecord {
+class Intact extends ActiveRecord {
 
     public static function tableName()
     {
-        return 'gene';
+        return 'intact';
     }
 
     /**
@@ -20,12 +20,12 @@ class Gene extends ActiveRecord {
     {
         return array_merge(
             parent::fields(),
-            ['geneShort']
+            ['gene']
         );
     }
 
-    public function getGeneShort()
+    public function getGene()
     {
-        return substr($this->gene,0,10);
+        return $this->hasOne(Gene::className(), ['agi' => 'gene_agi']);
     }
 }
