@@ -68,7 +68,7 @@ function loadExperiment() {
                 data: 'gene.gene',
                 render: function(data) {
                     if ( data ) {
-                        return "<span class='gene-tooltip' data-toggle='tooltip' title='" + data + "'>" + data.substr(0, 5) + "</span>";
+                        return "<span class='gene-tooltip' data-toggle='tooltip' title='" + data + "'>" + data.split(',')[0] + "</span>";
                     } else {
                         return "";
                     }
