@@ -8,7 +8,7 @@ The annotations have been generated from [MBNI](http://brainarray.mbni.med.umich
 custom CDF files. Specifically of `aragene10st_At_TAIRG`. The description files has first been made ready for database import:
 
 ```
-cat aragene10st_At_TAIRG_desc.txt | sed -e 's/_at//' -e 's/\tSymbols: /|/' > cleaned
+cat aragene10st_At_TAIRG_desc.txt | sed -e 's/_at//' -e 's/\tSymbols: /|/' -e 's/| /|/g' > cleaned
 ```
 
 The data has then been imported in the database using:
