@@ -14,7 +14,6 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/experiment.js',
         'js/navigation.js',
-        'js/jquery.dataTables.yadcf.js'
     ];
     public $depends = [
         'app\assets\ModernizrAsset',
