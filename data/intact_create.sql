@@ -2,16 +2,16 @@
 Run like: $ mysql --local-infile -p -U alberto < ~/alberto/data/intact_create.sql
  */
 
-DROP TABLE intact;
+DROP TABLE IF EXISTS intact ;
 
 CREATE TABLE intact  (
-	agi VARCHAR(13),
+	gene_agi VARCHAR(13),
 	suspensor_eg_1 FLOAT,
 	suspensor_eg_2 FLOAT,
 	suspensor_eg_3 FLOAT,
 	suspensor_eg_4 FLOAT,
-	suspensor FLOAT,
-	suspensor_sd FLOAT,
+	suspensor_eg FLOAT,
+	suspensor_eg_sd FLOAT,
 	vascular_eg_2 FLOAT,
 	vascular_eg_3 FLOAT,
 	vascular_eg_4 FLOAT,
@@ -25,8 +25,8 @@ CREATE TABLE intact  (
 	vascular_lg1 FLOAT,
 	vascular_lg2 FLOAT,
 	vascular_lg3 FLOAT,
-	vascular FLOAT,
-	vascular_sd FLOAT,
+	vascular_lg FLOAT,
+	vascular_lg_sd FLOAT,
 	embryo_lg1 FLOAT,
 	embryo_lg2 FLOAT,
 	embryo_lg4 FLOAT,
@@ -97,7 +97,7 @@ CREATE TABLE intact  (
 	fc_qc_hs_suspensor_eg FLOAT,
 	q_qc_hs_suspensor_eg FLOAT,
 	fc_qc_hs_embryo_lg FLOAT,
- 	KEY agi (agi)
+ 	PRIMARY KEY agi (gene_agi)
 ) ENGINE=MyISAM;
 
 LOAD DATA LOCAL INFILE 'A325_all_2014_CustomCDF_2014_11_04_headers_no_MC.csv'
