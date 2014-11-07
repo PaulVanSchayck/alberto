@@ -122,7 +122,7 @@ function updateColors(colorScale, useIndex) {
     $.each(tissues, function(i, tissue) {
         d3.selectAll('.' + tissue).transition().duration(1000).attr('fill', function(d) {
             if( ! useIndex && d && d.value) {
-                return colorScale(d.value)
+                return colorScale(d.value.exp)
             } else {
                 return colorScale(i)
             }
@@ -168,26 +168,26 @@ function loadINTACT(data) {
     var dataEG = [], dataLG = [], dataHS = [];
     $.each(tissues, function(i, tissue) {
         if( suspensor_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = data.suspensor_eg;
+            dataEG[i] = { exp: data.suspensor_eg, sd: data.suspensor_eg_sd };
         }
         if( vascular_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = data.vascular_eg;
+            dataEG[i] = { exp: data.vascular_eg, sd: data.vascular_eg_sd };
         }
         if( embryo_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = data.embryo_eg;
+            dataEG[i] = { exp: data.embryo_eg, sd: data.embryo_eg_sd };
         }
 
         if( vascular_lg.indexOf(tissue) > -1 ) {
-            dataLG[i] = data.vascular_lg;
+            dataLG[i] = { exp: data.vascular_lg, sd: data.vascular_lg_sd };
         }
         if( embryo_lg.indexOf(tissue) > -1 ) {
-            dataLG[i] = data.embryo_lg;
+            dataLG[i] = { exp: data.embryo_lg, sd: data.embryo_lg_sd };
         }
 
         if( qc_hs.indexOf(tissue) > -1 ) {
-            dataHS[i] = data.qc_hs;
+            dataHS[i] = { exp: data.qc_hs, sd: data.qc_hs_sd };
         } else {
-            dataHS[i] = 0;
+            dataHS[i] = { exp: 0, sd: 0 };
         }
     });
 
@@ -219,7 +219,7 @@ function setupTooltip(ele) {
         .offset([0, 20])
         .html( function(d) {
             if ( d ) {
-                return d.tissue + "<br /> Expression value: " + d.value;
+                return d.tissue + "<br /> Expression value: " + d.value.exp + "<br /> SD: " + d.value.sd;
             } else {
                 return "N/A";
             }
