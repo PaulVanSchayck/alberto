@@ -8,8 +8,8 @@
                     <span class="btn-group pull-right">
                         <a href="#" class="dropdown-toggle download-drop" data-toggle="dropdown"><span class="glyphicon glyphicon-save"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" title="EG - gene" class="download-png">PNG</a></li>
-                            <li><a href="#" title="EG - gene" class="download-svg">SVG</a></li>
+                            <li><a href="#" title="gene - EG" class="download-png">PNG</a></li>
+                            <li><a href="#" title="gene - EG" class="download-svg">SVG</a></li>
                         </ul>
                     </span>
                 </h3>
@@ -29,8 +29,8 @@
                     <span class="btn-group pull-right">
                         <a href="#" class="dropdown-toggle download-drop" data-toggle="dropdown"><span class="glyphicon glyphicon-save"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" title="LG - gene" class="download-png">PNG</a></li>
-                            <li><a href="#" title="LG - gene" class="download-svg">SVG</a></li>
+                            <li><a href="#" title="gene - LG" class="download-png">PNG</a></li>
+                            <li><a href="#" title="gene - LG" class="download-svg">SVG</a></li>
                         </ul>
                     </span>
                 </h3>
@@ -50,8 +50,8 @@
                     <span class="btn-group pull-right">
                         <a href="#" class="dropdown-toggle download-drop" data-toggle="dropdown"><span class="glyphicon glyphicon-save"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" title="HS - gene" class="download-png">PNG</a></li>
-                            <li><a href="#" title="HS - gene" class="download-svg">SVG</a></li>
+                            <li><a href="#" title="gene - HS" class="download-png">PNG</a></li>
+                            <li><a href="#" title="gene - HS" class="download-svg">SVG</a></li>
                         </ul>
                     </span>
                 </h3>

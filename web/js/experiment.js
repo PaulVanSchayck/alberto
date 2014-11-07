@@ -165,12 +165,12 @@ function loadExperiment() {
 
     $(".download-svg").click(function(e) {
         e.preventDefault();
-        saveAsSVG($(this).parents('.panel').find('svg')[0],$(this).attr('title'));
+        saveAsSVG($(this).parents('.panel').find('svg')[0],$(this).attr('title').replace('gene',navInfo.getGene()));
     });
 
     $(".download-png").click(function(e) {
         e.preventDefault();
-        saveAsPNG($(this).parents('.panel').find('svg')[0],$(this).attr('title'));
+        saveAsPNG($(this).parents('.panel').find('svg')[0],$(this).attr('title').replace('gene',navInfo.getGene()));
     });
 
     $(window).trigger('experiment.loaded');
@@ -205,7 +205,7 @@ function showScale(colorScale) {
 
 function showGeneInformation(data) {
     $('#gene-information .non-selected').hide();
-    $gene = $('#gene-information .selected').show();
+    var $gene = $('#gene-information .selected').show();
 
 
     $gene.find('.agi').html(data.gene_agi);
