@@ -79,7 +79,9 @@ return [
 ];
 ```
 
-**NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
+### Constructing and filling the database
+
+Refer to the `data/README.md`
 
 Author
 ------
