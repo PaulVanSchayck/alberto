@@ -19,7 +19,7 @@ return [
             ],
             [
                 'field' => 'embryo_eg',
-                'label' => 'Vascular EG'
+                'label' => 'Embryo EG'
             ],
             [
                 'field' => 'vascular_lg',
