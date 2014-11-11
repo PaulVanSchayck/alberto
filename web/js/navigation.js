@@ -35,7 +35,9 @@ $(document).ready(function(){
 
             // Experiment has not loaded yet, wait for it, then show the gene
             $(window).one('experiment.loaded', function () {
-                showGene(navInfo.getGene());
+                setTimeout( function() {
+                    showGene(navInfo.getGene());
+                }, 1000);
             });
         }
     });
@@ -74,6 +76,7 @@ $(document).ready(function(){
 var navInfo = {
     exp: "",
     gene: "",
+    mode: "",
 
     getExperiment: function() {
         return this.exp;
@@ -93,6 +96,16 @@ var navInfo = {
         $(window).trigger('alberto.gene.changed', silent);
 
         this.buildHash();
+    },
+
+    getMode: function() {
+        return this.mode;
+    },
+
+    setMode: function(mode) {
+        this.mode = mode;
+
+        $(window).trigger('alberto.mode.changed');
     },
 
     setFromHash: function() {

@@ -213,3 +213,10 @@ table.dataTable thead th {
 pre.annotation {
     white-space: pre-wrap;
 }
+
+/* slider scale */
+.slider-scale {
+    float: left;
+    width: 5%;
+    height: 10px;
+}

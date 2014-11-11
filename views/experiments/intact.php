@@ -118,9 +118,9 @@ $intact = Yii::$app->params['experiments']['intact'];
             </div>
             <div class="panel-body" id="mode">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary" data-toggle="tooltip" title="View the absolute expression of genes.">Absolute</button>
-                    <button type="button" class="btn btn-default" data-toggle="tooltip" title="View the fold changes of the same gene between tissues.">Fold changes</button>
-                    <button type="button" class="btn btn-default" data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Relative</button>
+                    <button type="button" class="btn btn-default" data-mode='abs' data-toggle="tooltip" title="View the absolute expression of genes.">Absolute</button>
+                    <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View the fold changes of the same gene between tissues.">Fold changes</button>
+                    <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Relative</button>
                 </div>
             </div>
         </div>
@@ -147,7 +147,9 @@ $intact = Yii::$app->params['experiments']['intact'];
 <?php
 foreach( $intact['columns'] as $column ) {
     echo "<th>{$column['label']}</th>\n";
-    echo "<th>{$column['label']} SD</th>\n";
+    if ( $column['type'] == 'abs' ) {
+        echo "<th>{$column['label']} SD</th>\n";
+    }
 }
 ?>
     </tr>

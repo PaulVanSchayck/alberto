@@ -11,9 +11,21 @@ var tissues = [
     'columella'
 ];
 
-var scale = d3.scale.linear().clamp(true)
-    .domain([0, 1000])
-    .range(["yellow", "red"]);
+var scale = d3.scale.linear();
+
+/**
+ * This wraps the scale function, in order to return white whenever false or undefined is requested
+ *
+ * @param n
+ * @returns {*}
+ */
+scale.defined = function(n) {
+    if ( n ) {
+        return this(n);
+    } else {
+        return "#FFFFFF"
+    }
+};
 
 var table;
 
@@ -23,7 +35,7 @@ function loadExperiment() {
         .on('slide', function() {
             // Eval is evil??
             var domain = eval( '[' + slider.getValue() + ']');
-            scale = scale.domain(domain);
+            scale.domain(domain);
             updateColors(scale);
             updateTableColors();
         }).data('slider');
@@ -71,7 +83,7 @@ function loadExperiment() {
         }
     });
 
-    // Take note of the lowercase dataTable, this is the old API
+    // Setup YADCF filters
     yadcf.init(table, buildFilterColumns(intactColumns), 'header');
 
     $('#example').on( 'search.dt', function () {
@@ -95,7 +107,7 @@ function loadExperiment() {
         loadGeneFromRow(this);
     } );
 
-    $("#mode button").tooltip({'placement': 'bottom'});
+    $("#mode button").tooltip({'placement': 'bottom', container: 'body'});
 
     $("#gene-information .non-selected").tooltip({'placement': 'bottom'});
 
@@ -108,6 +120,40 @@ function loadExperiment() {
         e.preventDefault();
         saveAsPNG($(this).parents('.panel').find('svg')[0],$(this).attr('title').replace('gene',navInfo.getGene()));
     });
+
+    $("#mode button").click( function() {
+        navInfo.setMode($(this).data('mode'));
+        $("#mode button").removeClass('btn-primary');
+        $(this).addClass('btn-primary')
+    });
+
+    $(window).on('alberto.mode.changed', function() {
+        if ( navInfo.getMode() == "fc" ) {
+            slider.setAttribute('min', -10)
+                .setAttribute('max', 10)
+                .setValue([-10, 10])
+                .refresh();
+
+            scale.domain([-10,-1,1, 10])
+                .range(["green", "black","black", "red"]);
+        } else if ( navInfo.getMode() == "abs" ) {
+            slider.setAttribute('min', 0)
+                .setAttribute('max', 1000)
+                .setValue([30, 1000])
+                .refresh();
+
+            scale.domain([0, 1000])
+                .range(["yellow", "red"]);
+        }
+
+        updateColors(scale);
+        showScale(scale );
+    });
+
+    // If no mode is selected, set the absolute expression mode
+    if(! navInfo.getMode() ) {
+        navInfo.setMode("abs")
+    }
 
     $(window).trigger('experiment.loaded');
 }
@@ -122,7 +168,12 @@ function updateColors(colorScale, useIndex) {
     $.each(tissues, function(i, tissue) {
         d3.selectAll('.' + tissue).transition().duration(1000).attr('fill', function(d) {
             if( ! useIndex && d && d.value) {
-                return colorScale(d.value.exp)
+
+                if( navInfo.getMode() == 'fc') {
+                    return colorScale.defined(d.value.fc)
+                } else {
+                    return colorScale.defined(d.value.exp)
+                }
             } else {
                 return colorScale(i)
             }
@@ -131,12 +182,14 @@ function updateColors(colorScale, useIndex) {
 }
 
 function showScale(colorScale) {
-    d3.select(".slider-selection").selectAll('div')
-        .data(d3.range(1, 1000, 50))
-        .enter()
-        .append('div')
-        .attr('style','float: left;width:5%;height:10px;')
-        .style('background-color',function(d) { return colorScale(d) });
+    var div = d3.select(".slider-selection").selectAll('div')
+        .data(colorScale.ticks(20).slice(0,19));
+
+    div.enter().append('div')
+        .attr('class','slider-scale');
+
+    div.style('background-color',function(d) { return colorScale(d) });
+
 }
 
 function showGeneInformation(data) {
@@ -168,13 +221,13 @@ function loadINTACT(data) {
     var dataEG = [], dataLG = [], dataHS = [];
     $.each(tissues, function(i, tissue) {
         if( suspensor_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = { exp: data.suspensor_eg, sd: data.suspensor_eg_sd };
+            dataEG[i] = { exp: data.suspensor_eg, sd: data.suspensor_eg_sd, fc: data.fc_suspensor_eg_embryo_eg };
         }
         if( vascular_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = { exp: data.vascular_eg, sd: data.vascular_eg_sd };
+            dataEG[i] = { exp: data.vascular_eg, sd: data.vascular_eg_sd,  fc: data.fc_vascular_eg_embryo_eg};
         }
         if( embryo_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = { exp: data.embryo_eg, sd: data.embryo_eg_sd };
+            dataEG[i] = { exp: data.embryo_eg, sd: data.embryo_eg_sd, fc: false };
         }
 
         if( vascular_lg.indexOf(tissue) > -1 ) {
@@ -187,7 +240,7 @@ function loadINTACT(data) {
         if( qc_hs.indexOf(tissue) > -1 ) {
             dataHS[i] = { exp: data.qc_hs, sd: data.qc_hs_sd };
         } else {
-            dataHS[i] = { exp: 0, sd: 0 };
+            dataHS[i] = { exp: false, sd: false };
         }
     });
 
@@ -296,7 +349,10 @@ function buildDTColumns(columns) {
 
     for( var i = 0; i < columns.length; i++ ) {
         r.push( { data: columns[i].field, name: 'range' });
-        r.push( { data: columns[i].field + '_sd', name: 'range', visible: false });
+
+        if( columns[i].type == 'abs' ) {
+            r.push({data: columns[i].field + '_sd', name: 'range', visible: false});
+        }
     }
 
     return r;
@@ -323,12 +379,14 @@ function buildFilterColumns(columns) {
             filter_default_label : ["0", "&infin;"],
             filter_delay: 500
         });
-        r.push( {
-            column_number: column_number++,
-            filter_type: "range_number",
-            filter_default_label : ["0", "&infin;"],
-            filter_delay: 500
-        });
+        if( columns[i].type == 'abs' ) {
+            r.push({
+                column_number: column_number++,
+                filter_type: "range_number",
+                filter_default_label: ["0", "&infin;"],
+                filter_delay: 500
+            });
+        }
     }
 
     return r;

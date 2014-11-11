@@ -9,29 +9,49 @@ return [
         'template' => 'intact.php',
         'loader' => 'loadExperiment',
         'columns' => [
+
+            // Absolute expression
             [
                 'field' => 'suspensor_eg',
+                'type' => 'abs',
                 'label' => 'Suspensor EG'
             ],
             [
                 'field' => 'vascular_eg',
+                'type' => 'abs',
                 'label' => 'Vascular EG'
             ],
             [
                 'field' => 'embryo_eg',
+                'type' => 'abs',
                 'label' => 'Embryo EG'
             ],
             [
                 'field' => 'vascular_lg',
+                'type' => 'abs',
                 'label' => 'Vascular LG'
             ],
             [
                 'field' => 'embryo_lg',
+                'type' => 'abs',
                 'label' => 'Embryo LG'
             ],
             [
                 'field' => 'qc_hs',
+                'type' => 'abs',
                 'label' => 'QC HS'
+            ],
+
+            // Fold changes
+            [
+                'field' => 'fc_vascular_eg_embryo_eg',
+                'type' => 'fc',
+                'label' => 'FC Vascular/Embryo EG'
+            ],
+            [
+                'field' => 'fc_suspensor_eg_embryo_eg',
+                'type' => 'fc',
+                'label' => 'FC Suspensor/Embryo EG'
             ]
         ]
     ]
