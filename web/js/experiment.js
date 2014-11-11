@@ -234,16 +234,16 @@ function loadINTACT(data) {
         }
 
         if( vascular_lg.indexOf(tissue) > -1 ) {
-            dataLG[i] = { exp: data.vascular_lg, sd: data.vascular_lg_sd };
+            dataLG[i] = { exp: data.vascular_lg, sd: data.vascular_lg_sd, fc: data.fc_vascular_lg_embryo_lg };
         }
         if( embryo_lg.indexOf(tissue) > -1 ) {
-            dataLG[i] = { exp: data.embryo_lg, sd: data.embryo_lg_sd };
+            dataLG[i] = { exp: data.embryo_lg, sd: data.embryo_lg_sd, fc: false };
         }
 
         if( qc_hs.indexOf(tissue) > -1 ) {
-            dataHS[i] = { exp: data.qc_hs, sd: data.qc_hs_sd };
+            dataHS[i] = { exp: data.qc_hs, sd: data.qc_hs_sd, fc: false };
         } else {
-            dataHS[i] = { exp: false, sd: false };
+            dataHS[i] = { exp: false, sd: false, fc: false };
         }
     });
 

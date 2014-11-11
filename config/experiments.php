@@ -52,6 +52,11 @@ return [
                 'field' => 'fc_suspensor_eg_embryo_eg',
                 'type' => 'fc',
                 'label' => 'FC Suspensor/Embryo EG'
+            ],
+            [
+                'field' => 'fc_vascular_lg_embryo_lg',
+                'type' => 'fc',
+                'label' => 'FC Vascular/Embryo LG'
             ]
         ]
     ]
