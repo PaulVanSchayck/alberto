@@ -75,7 +75,7 @@ $(document).ready(function(){
 
 var navInfo = {
     exp: "",
-    gene: "",
+    gene: false,
     mode: "",
 
     getExperiment: function() {

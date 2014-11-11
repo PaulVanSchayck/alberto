@@ -146,16 +146,19 @@ function loadExperiment() {
                 .range(["yellow", "red"]);
         }
 
-        updateColors(scale);
-        showScale(scale );
+        showScale(scale);
+
+        if( navInfo.getGene() ) {
+            updateColors(scale);
+        }
     });
+
+    $(window).trigger('experiment.loaded');
 
     // If no mode is selected, set the absolute expression mode
     if(! navInfo.getMode() ) {
-        navInfo.setMode("abs")
+         $("#mode button").first().click();
     }
-
-    $(window).trigger('experiment.loaded');
 }
 
 function updateTableColors() {
