@@ -230,6 +230,14 @@ function setupTooltip(ele) {
     $.each(tissues, function(i, tissue) {
         ele.select('.' + tissue)
             .on('mouseover', function(d, i){
+
+                // Check for big standard deviation
+                if ( d && (d.value.sd / d.value.exp) > 0.1 ) {
+                    tip.attr('class', 'd3-tip large-sd')
+                } else {
+                    tip.style('class', 'd3-tip')
+                }
+
                 tip.show(d, i);
                 d3.select(this).transition().style("opacity", 0.5);
             })
