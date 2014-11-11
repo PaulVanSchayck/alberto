@@ -40,8 +40,6 @@ function loadExperiment() {
             updateTableColors();
         }).data('slider');
 
-    showScale(scale);
-
     var lg = d3.select('#lg');
     var eg = d3.select('#eg');
     var hs = d3.select('#hs');
@@ -134,6 +132,8 @@ function loadExperiment() {
                 .setValue([-10, 10])
                 .refresh();
 
+            showColumnType('fc');
+
             scale.domain([-10,-1,1, 10])
                 .range(["green", "black","black", "red"]);
         } else if ( navInfo.getMode() == "abs" ) {
@@ -141,6 +141,8 @@ function loadExperiment() {
                 .setAttribute('max', 1000)
                 .setValue([30, 1000])
                 .refresh();
+
+            showColumnType('abs');
 
             scale.domain([0, 1000])
                 .range(["yellow", "red"]);
@@ -159,6 +161,21 @@ function loadExperiment() {
     if(! navInfo.getMode() ) {
          $("#mode button").first().click();
     }
+}
+
+function showColumnType(type) {
+    // Hide all columns
+    table.columns().visible(false);
+
+    // Show first two columns
+    table.columns(0).visible(true);
+    table.columns(1).visible(true);
+
+    // Show column type request
+    table.columns('.type_' + type).visible(true);
+
+    // Rebuild Show/Hide menu
+    $.fn.dataTable.ColVis.fnRebuild();
 }
 
 function updateTableColors() {
@@ -351,7 +368,7 @@ function buildDTColumns(columns) {
     ];
 
     for( var i = 0; i < columns.length; i++ ) {
-        r.push( { data: columns[i].field, name: 'range' });
+        r.push( { data: columns[i].field, name: 'range', 'class': 'type_' + columns[i].type });
 
         if( columns[i].type == 'abs' ) {
             r.push({data: columns[i].field + '_sd', name: 'range', visible: false});

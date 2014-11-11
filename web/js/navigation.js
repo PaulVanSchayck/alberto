@@ -37,7 +37,7 @@ $(document).ready(function(){
             $(window).one('experiment.loaded', function () {
                 setTimeout( function() {
                     showGene(navInfo.getGene());
-                }, 1000);
+                }, 0);
             });
         }
     });
