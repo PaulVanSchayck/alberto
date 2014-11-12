@@ -165,16 +165,14 @@ function loadExperiment() {
 }
 
 function showColumnType(type) {
-    // TODO: fix this performance
-    // Hide all columns
-    table.columns().visible(false);
-
-    // Show first two columns
-    table.columns(0).visible(true);
-    table.columns(1).visible(true);
+    // Hide all but annotation columns
+    table.columns(":not('.type_ann')").visible(false, false);
 
     // Show column type request
-    table.columns('.type_' + type).visible(true);
+    table.columns('.type_' + type).visible(true, false);
+
+    // This late redraw makes for a flash of unstyled content, but seriously improves performance to do this only once
+    table.draw();
 
     // Rebuild Show/Hide menu
     $.fn.dataTable.ColVis.fnRebuild();
@@ -189,7 +187,7 @@ function updateTableColors(type) {
 function updateColors(colorScale, useIndex) {
     $.each(tissues, function(i, tissue) {
         d3.selectAll('.' + tissue).transition().duration(1000).attr('fill', function(d) {
-            if( ! useIndex && d && d.value) {
+            if( ! useIndex && d ) {
 
                 if( navInfo.getMode() == 'fc') {
                     return colorScale.defined(d.value.fc)
@@ -356,7 +354,7 @@ function loadGeneFromRow(row) {
 
 function buildDTColumns(columns) {
     var r = [
-        { data: 'gene_agi' },
+        { data: 'gene_agi', 'class': 'type_ann' },
         {
             data: 'gene.gene',
             render: function (data, type, row) {
@@ -365,7 +363,8 @@ function buildDTColumns(columns) {
                 } else {
                     return "";
                 }
-            }
+            },
+            'class': 'type_ann'
         }
     ];
 
