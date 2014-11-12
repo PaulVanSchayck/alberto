@@ -20,8 +20,8 @@
         "bower-asset/datatables-colvis" : "1.1.*",
         "bower-asset/d3": "3.4.*",
         "bower-asset/d3-tip": "v0.6.5",
-        "kartik-v/yii2-widgets": "3.1.*",
         "kartik-v/yii2-slider": "*",
+        "kartik-v/yii2-widget-typeahead": "*",
         "vedmack/yadcf": "0.8.5"
     },
     "require-dev": {
