@@ -1,6 +1,4 @@
 <?php
-use Yii;
-
 $intact = Yii::$app->params['experiments']['intact'];
 ?>
 
