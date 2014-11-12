@@ -1,6 +1,6 @@
 <?php
 /* @var $this yii\web\View */
-use kartik\widgets\Typeahead;
+use kartik\typeahead\Typeahead;
 use yii\helpers\Url;
 use yii\web\JsExpression;
 
@@ -26,6 +26,7 @@ $this->title = 'AlBERTO';
                 echo Typeahead::widget([
                     'name' => 'gene',
                     'id' => 'gene',
+                    'useHandleBars' => false,
                     'options' => ['placeholder' => 'AT1G01010 or WOX'],
                     'pluginOptions' => ['highlight' => true],
                     'dataset' => [
@@ -40,8 +41,6 @@ $this->title = 'AlBERTO';
                         ]
                     ]
                 ]);
-                // Remove the handlebars.js library from the asset, as we do not use it
-                unset($this->getAssetManager()->getBundle('kartik\widgets\TypeaheadAsset')->js[1]);
                 ?>
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-default btn-info">Show</button>
