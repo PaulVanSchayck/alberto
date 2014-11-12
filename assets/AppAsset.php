@@ -24,7 +24,10 @@ class AppAsset extends AssetBundle
         'app\assets\DatatablesScrollerAsset',
         'app\assets\DatatablesYadcfAsset',
         'app\assets\DatatablesColVisAsset',
+        'kartik\typeahead\TypeaheadAsset',
+        'kartik\base\WidgetAsset',
         'kartik\slider\SliderAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
         'app\assets\FilesaverAsset',
     ];
 }
