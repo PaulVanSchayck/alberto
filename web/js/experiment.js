@@ -171,8 +171,8 @@ function showColumnType(type) {
     // Show column type request
     table.columns('.type_' + type).visible(true, false);
 
-    // This late redraw makes for a flash of unstyled content, but seriously improves performance to do this only once
-    table.draw();
+    // This seriously improves performance to do this only once, see the false as second argument to visible()
+    table.columns.adjust();
 
     // Rebuild Show/Hide menu
     $.fn.dataTable.ColVis.fnRebuild();
