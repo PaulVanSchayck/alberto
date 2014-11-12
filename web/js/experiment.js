@@ -37,7 +37,7 @@ function loadExperiment() {
             var domain = eval( '[' + slider.getValue() + ']');
             scale.domain(domain);
             updateColors(scale);
-            updateTableColors();
+            updateTableColors(navInfo.getMode());
         }).data('slider');
 
     var lg = d3.select('#lg');
@@ -129,12 +129,12 @@ function loadExperiment() {
         if ( navInfo.getMode() == "fc" ) {
             slider.setAttribute('min', -10)
                 .setAttribute('max', 10)
-                .setValue([-10, 10])
+                .setValue([-5, 5])
                 .refresh();
 
             showColumnType('fc');
 
-            scale.domain([-10,-1,1, 10])
+            scale.domain([-5,-1,1, 5])
                 .range(["green", "black","black", "red"]);
         } else if ( navInfo.getMode() == "abs" ) {
             slider.setAttribute('min', 0)
@@ -152,6 +152,7 @@ function loadExperiment() {
 
         if( navInfo.getGene() ) {
             updateColors(scale);
+            updateTableColors(navInfo.getMode());
         }
     });
 
@@ -164,6 +165,7 @@ function loadExperiment() {
 }
 
 function showColumnType(type) {
+    // TODO: fix this performance
     // Hide all columns
     table.columns().visible(false);
 
@@ -178,8 +180,8 @@ function showColumnType(type) {
     $.fn.dataTable.ColVis.fnRebuild();
 }
 
-function updateTableColors() {
-    $("#example tbody tr.selected td").css('background-color', function() {
+function updateTableColors(type) {
+    $("#example tbody tr.selected td.type_" + type).css('background-color', function() {
         return scale($(this).html())
     })
 }
@@ -344,7 +346,7 @@ function showGene(gene) {
 function loadGeneFromRow(row) {
     $("tbody tr.selected").removeClass("selected").find('td').css('background-color','');
     $(row).addClass("selected");
-    updateTableColors();
+    updateTableColors(navInfo.getMode());
 
     var data = table.row(row).data();
 
