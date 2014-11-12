@@ -67,9 +67,19 @@ function loadExperiment() {
             return false;
         },
         ajax: {
-            url: "http://bic-hp-z400/index.php?r=gene/index",
+            url: "/index.php?r=gene/index",
             method: "get",
-            dataSrc: "data"
+            dataSrc: "data",
+            data: function(d) {
+                // Delete some variables which we will not use, this will reduce the size of the request
+                delete d.search;
+
+                for(var i =0; i < d.columns.length; i++) {
+                    delete d.columns[i].orderable;
+                    delete d.columns[i].searchable;
+                    delete d.columns[i].search.regex;
+                }
+            }
         },
         columns: buildDTColumns(intactColumns),
         dom: 'C<"clear">rtiS',
