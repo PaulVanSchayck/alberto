@@ -169,12 +169,6 @@ div.svg svg {
     display: none;
 }
 
-.input-group-addon.danger {
-    color: rgb(255, 255, 255);
-    background-color: rgb(217, 83, 79);
-    border-color: rgb(212, 63, 58);
-}
-
 /* DataTables */
 #example tbody tr {
     cursor: pointer;
