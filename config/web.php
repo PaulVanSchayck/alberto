@@ -39,15 +39,24 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
         'assetManager' => [
-            'bundles' => [
-                'yii\web\JqueryAsset' => [
-                    'js' => ['jquery.min.js']
-                ],
-            ],
+            'bundles' => require(__DIR__ . '/' . (YII_ENV_DEV ? 'assets-dev.php' : 'assets-prod.php')),
         ],
     ],
     'params' => $params,
 ];
+
+if (! YII_ENV_DEV) {
+    // See: https://github.com/kartik-v/yii2-widgets/issues/137
+    $config['components']['assetManager']['bundles']['kartik\\typeahead\\TypeaheadAsset'] = [
+        'sourcePath' => kartik\base\AssetBundle::EMPTY_PATH,
+        'js' => kartik\base\AssetBundle::EMPTY_ASSET,
+        'css' => kartik\base\AssetBundle::EMPTY_ASSET,
+    ];
+    $config['components']['assetManager']['bundles']['kartik\\base\\WidgetAsset'] = [
+        'sourcePath' => kartik\base\AssetBundle::EMPTY_PATH,
+        'css' => kartik\base\AssetBundle::EMPTY_ASSET,
+    ];
+}
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
