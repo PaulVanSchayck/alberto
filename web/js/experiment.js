@@ -68,7 +68,7 @@ function loadExperiment() {
         },
         ajax: {
             url: "/index.php?r=gene/index",
-            method: "get",
+            method: "post",
             dataSrc: "data",
             data: function(d) {
                 // Delete some variables which we will not use, this will reduce the size of the request

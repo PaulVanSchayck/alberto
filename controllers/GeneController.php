@@ -35,7 +35,7 @@ class GeneController extends Controller {
     {
         $GeneRequest = new GeneRequest();
 
-        if( $GeneRequest->load(Yii::$app->request->get()) && $GeneRequest->validate()) {
+        if( $GeneRequest->load(Yii::$app->request->post()) && $GeneRequest->validate()) {
 
             $dataProvider = new ActiveDataProvider([
                 'query' => Intact::find()->select($GeneRequest->getColumns())->joinWith('gene')->filterWhere($GeneRequest->getFilter())->orderBy($GeneRequest->getOrder()),
