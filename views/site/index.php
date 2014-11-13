@@ -43,7 +43,7 @@ $this->title = 'AlBERTO';
                 ]);
                 ?>
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-default btn-info">Show</button>
+                    <button type="button" class="btn btn-default btn-primary">Show</button>
                 </span>
             </div>
         </div>

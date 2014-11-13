@@ -36,8 +36,11 @@ function loadExperiment() {
             // Eval is evil??
             var domain = eval( '[' + slider.getValue() + ']');
             scale.domain(domain);
-            updateColors(scale);
-            updateTableColors(navInfo.getMode());
+
+            if( navInfo.getGene() ) {
+                updateColors(scale);
+                updateTableColors(navInfo.getMode());
+            }
         }).data('slider');
 
     var lg = d3.select('#lg');
@@ -148,7 +151,7 @@ function loadExperiment() {
                 .range(["green", "black","black", "red"]);
         } else if ( navInfo.getMode() == "abs" ) {
             slider.setAttribute('min', 0)
-                .setAttribute('max', 1000)
+                .setAttribute('max', 2000)
                 .setValue([30, 1000])
                 .refresh();
 
