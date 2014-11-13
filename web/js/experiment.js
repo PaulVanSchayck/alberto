@@ -178,6 +178,9 @@ function loadExperiment() {
 }
 
 function showColumnType(type) {
+    // Remove all background-color from selected row
+    $("tr.selected").find('td').css('background-color','');
+
     // Hide all but annotation columns
     table.columns(":not('.type_ann')").visible(false, false);
 
