@@ -43,7 +43,8 @@ $this->title = 'AlBERTO';
                 ]);
                 ?>
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-default btn-primary">Show</button>
+                    <button type="button" class="btn btn-default btn-primary show-gene">Show</button>
+                    <button type="button" class="btn btn-default btn-warning unshow-gene"><span class="glyphicon glyphicon-remove"></span></button>
                 </span>
             </div>
         </div>

@@ -25,6 +25,13 @@ $(document).ready(function(){
 
     $(window).on('alberto.gene.changed', function(e, silent) {
         $("#no-results").hide();
+
+        if ( navInfo.getGene() == false ) {
+            unShowGene();
+            $('.at-input input').val("");
+            return;
+        }
+
         $('.at-input input').val(navInfo.getGene());
 
         // Only show a gene, if the table is available, and this is not requested as a silent gene change
@@ -71,6 +78,18 @@ $(document).ready(function(){
         navInfo.setGene(selection.agi);
     });
 
+    $('.at-input .show-gene').on('click', function(e) {
+        e.preventDefault();
+        if ( $('.at-input input').val() != "" ) {
+            navInfo.setGene($('.at-input input').val())
+        }
+    });
+
+    $('.at-input .unshow-gene').on('click', function(e) {
+        e.preventDefault();
+        navInfo.setGene(false)
+    })
+
 });
 
 var navInfo = {
@@ -111,21 +130,22 @@ var navInfo = {
     setFromHash: function() {
         var hash = window.location.hash.split('-');
 
-        if ( hash[0] && hash[0].trim() != '' ) {
-            this.setExperiment(hash[0].replace('#',''));
+        if ( hash[1] && hash[1].trim() != '' ) {
+            this.setExperiment(hash[1].replace('#',''));
         } else {
             this.setExperiment("start");
         }
 
-        if ( hash[1] && hash[1].trim() != '' ) {
-            this.setGene(hash[1]);
+        if ( hash[2] && hash[2].trim() != '' ) {
+            this.setGene(hash[2]);
         }
 
         return this;
     },
 
     buildHash: function() {
-        window.location.hash = $.grep([this.exp,this.gene], Boolean).join('-')
+        // We're prefixing the hash so that we do actually have real elements to scroll to
+        window.location.hash = "nav-" + $.grep([this.exp,this.gene], Boolean).join('-')
     }
 
 };

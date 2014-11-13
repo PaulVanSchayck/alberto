@@ -28,6 +28,7 @@ scale.defined = function(n) {
 };
 
 var table;
+var baseColors;
 
 function loadExperiment() {
     var slider = $("#scale-slider")
@@ -47,14 +48,10 @@ function loadExperiment() {
     var eg = d3.select('#eg');
     var hs = d3.select('#hs');
 
-    var baseColors = retrieveFillColor(hs);
+     baseColors = retrieveFillColor(hs);
 
     $('#change').click(function() {
         updateColors(d3.scale.category20(), true);
-    });
-
-    $('#original').click(function() {
-        updateColors(baseColors, true);
     });
 
     setupTooltip(eg);
@@ -244,6 +241,11 @@ function showGeneInformation(data) {
     });
 }
 
+function hideGeneInformation() {
+    $('#gene-information .non-selected').show();
+    $('#gene-information .selected').hide();
+}
+
 function loadINTACT(data) {
     var suspensor_eg = ['suspensor'];
     var vascular_eg = ['vascular', 'vascular-initials'];
@@ -355,6 +357,15 @@ function showGene(gene) {
             $("#no-results").show();
         }
     } );
+}
+
+function unShowGene() {
+    // Revert to base colors
+    updateColors(baseColors, true);
+
+    hideGeneInformation();
+
+    $("tbody tr.selected").removeClass("selected").find('td').css('background-color','');
 }
 
 function loadGeneFromRow(row) {
