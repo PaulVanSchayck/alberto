@@ -55,7 +55,7 @@ $this->title = 'AlBERTO';
 
     <ul class="nav nav-tabs" id="experiments" role="tablist">
         <li data-toggle="tab">
-            <a href="#start" data-exp="start" data-toggle="tooltip" data-original-title="Start here">#</a>
+            <a href="#start" data-exp="start" data-toggle="tooltip" data-original-title="Start here"><span class="glyphicon glyphicon-home"></span></a>
         </li>
         <li data-toggle="tab">
             <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Transcriptome of individual cell types">Embryonic cell types</a>
