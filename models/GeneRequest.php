@@ -17,6 +17,8 @@ class GeneRequest extends Model {
     public $columns;
     public $order;
 
+    private static $prefixes = ['gene'];
+
     /**
      * The form name is set to be empty, as the request is not placed in a a scope
      *
@@ -32,9 +34,9 @@ class GeneRequest extends Model {
     public function rules()
     {
         return [
-            [['start'], 'required'],
-            // TODO: improve length validation
-            [['draw', 'length'], 'integer'],
+            [['start','length','columns','order'], 'required'],
+            ['length', 'integer', 'max' => 1000],
+            ['draw', 'integer'],
             ['columns', 'validateColumns'],
             ['order', 'validateOrder']
         ];
@@ -56,9 +58,43 @@ class GeneRequest extends Model {
      */
     public function validateColumns($attribute)
     {
-        // TODO: improve this validator!
-        if (!is_array($this->$attribute)) {
+        $columns = $this->$attribute;
+
+        if (!is_array($columns)) {
             $this->addError($attribute, "Columns is not specified as an array");
+            return;
+        }
+
+        foreach ( $columns as $i => $column ) {
+
+            if ( !isset($column['data']) ) {
+                $this->addError($attribute, "Column $i has no data attribute");
+                break;
+            }
+
+            $name = $column['data'];
+
+            // The column name may be prefixed with a table, allow for this by extracting the prefix
+            if (($pos = strrpos($name, '.')) !== false) {
+                $prefix = substr($name, 0, $pos);
+                $name = substr($name, $pos + 1);
+
+                if (! in_array($prefix, self::$prefixes)) {
+                    $this->addError($attribute, "Unknown prefix `$prefix`");
+                    break;
+                }
+            } else {
+                $prefix = 'intact';
+            }
+
+            // Check which columns are available
+            $class = 'app\\models\\' . ucwords($prefix);
+            $columns =  $class::getTableSchema()->columnNames;
+
+            if ( ! in_array($name,$columns) ) {
+                $this->addError($attribute, "Column " . $column['data'] . " is not a valid column");
+                break;
+            };
         }
     }
 
@@ -70,14 +106,15 @@ class GeneRequest extends Model {
      */
     public function validateOrder($attribute)
     {
-        // TODO: improve this validator!
         if (!is_array($this->$attribute)) {
             $this->addError($attribute, "Order is not specified as an array");
+            return;
         }
 
         foreach ( $this->$attribute as $order ) {
             if( ! array_key_exists($order['column'], $this->columns) ) {
                 $this->addError($attribute, "Order has an unspecified column as order target");
+                break;
             }
         }
     }
