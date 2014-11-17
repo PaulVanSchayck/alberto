@@ -201,6 +201,32 @@ function loadExperiment() {
     if(! navInfo.getMode() ) {
          $("#mode button").first().click();
     }
+
+    var $dropdown = $('.dropdown-menu.actions')
+    $('div.svg svg g').click(function(e) {
+
+        $dropdown
+            .offset({left:e.pageX,top:e.pageY})
+            .fadeIn();
+
+        $(document).mouseup(function (e) {
+            var container = $(".dropdown-menu.actions");
+
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.hide();
+            }
+        });
+    });
+
+    $('.dropdown-menu.actions').click(function(e) {
+
+        table.order([2, 'desc']);
+        yadcf.exResetAllFilters(table);
+        yadcf.exFilterColumn(table, [[2, {from:100}]], true);
+
+        $dropdown.hide();
+        e.preventDefault();
+    });
 }
 
 function showColumnType(type) {

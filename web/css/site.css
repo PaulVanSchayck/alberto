@@ -161,6 +161,10 @@ div.svg svg {
     height: 300px;
 }
 
+div.svg svg g {
+    cursor: pointer;
+}
+
 .download-drop {
     color: inherit;
 }
@@ -213,4 +217,10 @@ pre.annotation {
     float: left;
     width: 5%;
     height: 10px;
+}
+
+/* SVG Dropdown menu */
+.dropdown-menu.actions {
+    display: none;
+    position: absolute;
 }
