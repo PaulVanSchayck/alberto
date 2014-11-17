@@ -61,14 +61,14 @@ return [
 
             // Temporal fold changes
             [
-                'field' => 'fc_vascular_eg_vascular_lg',
+                'field' => 'fc_vascular_lg_vascular_eg',
                 'type' => 'fc_tmp',
-                'label' => 'FC Vascular EG/Vascular LG'
+                'label' => 'FC Vascular LG/Vascular EG'
             ],
             [
-                'field' => 'fc_embryo_eg_embryo_lg',
+                'field' => 'fc_embryo_lg_embryo_eg',
                 'type' => 'fc_tmp',
-                'label' => 'FC Embryo EG/Embryo LG'
+                'label' => 'FC Embryo LG/Embryo EG'
             ],
         ]
     ]

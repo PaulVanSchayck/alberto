@@ -299,10 +299,10 @@ function loadINTACT(data) {
         }
 
         if( vascular_lg.indexOf(tissue) > -1 ) {
-            dataLG[i] = { exp: data.vascular_lg, sd: data.vascular_lg_sd, fc: data.fc_vascular_lg_embryo_lg, fc_tmp: data.fc_vascular_eg_vascular_lg };
+            dataLG[i] = { exp: data.vascular_lg, sd: data.vascular_lg_sd, fc: data.fc_vascular_lg_embryo_lg, fc_tmp: data.fc_vascular_lg_vascular_eg };
         }
         if( embryo_lg.indexOf(tissue) > -1 ) {
-            dataLG[i] = { exp: data.embryo_lg, sd: data.embryo_lg_sd, fc: false, fc_tmp: data.fc_embryo_eg_embryo_lg };
+            dataLG[i] = { exp: data.embryo_lg, sd: data.embryo_lg_sd, fc: false, fc_tmp: data.fc_embryo_lg_embryo_eg };
         }
 
         if( qc_hs.indexOf(tissue) > -1 ) {
@@ -416,7 +416,7 @@ function buildDTColumns(columns) {
             data: 'gene.gene',
             render: function (data, type, row) {
                 if (data) {
-                    return "<span class='gene-tooltip' data-toggle='tooltip' title='" + data + row.gene.annotation + "'>" + data.split(',')[0] + " </span>";
+                    return "<span class='gene-tooltip' data-toggle='tooltip' title='" + data + "'>" + data.split(',')[0] + " </span>";
                 } else {
                     return "";
                 }
