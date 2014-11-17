@@ -30,6 +30,7 @@ REV=`git --git-dir=$rep/.git/ log --pretty=format:'%h' -n 1`
 echo "<?php define('GIT_REVISION','$REV'); define('GIT_AUTHOR','$AUTHOR'); ?>" > $rep/deployment/git_info.php
 
 # Update files using FTP
+echo "FTP Password:"
 lftp -u agarhosting agarhosting.nl <<EOF
 set cmd:fail-exit true;
 set ftp:ssl-allow no;
