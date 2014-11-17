@@ -356,7 +356,7 @@ function setupTooltip(ele) {
                 if ( d && (d.value.sd / d.value.exp) > 0.1 ) {
                     tip.attr('class', 'd3-tip large-sd')
                 } else {
-                    tip.style('class', 'd3-tip')
+                    tip.attr('class', 'd3-tip')
                 }
 
                 tip.show(d, i);
