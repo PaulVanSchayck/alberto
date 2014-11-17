@@ -7,6 +7,7 @@ use Yii;
 use app\models\GeneRequest;
 use app\components\ActiveDataProvider;
 use app\components\Serializer;
+use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use app\models\Gene;
@@ -26,6 +27,16 @@ class GeneController extends Controller {
                 'class' => 'yii\filters\ContentNegotiator',
                 'formats' => [
                     'application/json' => Response::FORMAT_JSON,
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index', 'autocomplete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];
