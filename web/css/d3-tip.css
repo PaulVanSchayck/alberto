@@ -7,8 +7,14 @@
     border-radius: 2px;
     pointer-events: none;
 }
-
-.d3-tip.large-sd {
+.d3-tip p {
+    text-align: right
+}
+.d3-tip p span {
+    float: left;
+    margin-right: 10px;
+}
+.d3-tip.large-sd .sd {
     background-color: red;
 }
 

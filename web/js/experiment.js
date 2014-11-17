@@ -340,7 +340,7 @@ function setupTooltip(ele) {
         .offset([0, 20])
         .html( function(d) {
             if ( d ) {
-                return d.tissue + "<br /> Expression value: " + d.value.exp + "<br /> SD: " + d.value.sd;
+                return formatTooltip(d)
             } else {
                 return "N/A";
             }
@@ -367,6 +367,16 @@ function setupTooltip(ele) {
                 d3.select(this).transition().style("opacity", 1);
             })
     });
+}
+
+function formatTooltip(d) {
+    var r;
+
+    r = "<p><span class='label label-success'>Tissue</span> " + d.tissue + " </p>";
+    r += "<p><span class='label label-primary'>Expression value</span> " + d.value.exp + "</p>";
+    r += "<p><span class='label label-primary sd'>SD</span> " + d.value.sd + "</p>";
+
+    return r;
 }
 
 function assignData(ele, data) {
