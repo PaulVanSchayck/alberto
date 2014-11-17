@@ -21,13 +21,16 @@ while getopts "h" opt; do
 	esac
 done
 
-rep=../
+rep=..
 host=agarhosting.nl
 
 # Update git_info.php
 AUTHOR=`git --git-dir=$rep/.git/ log --pretty=format:'%an' -n 1`
 REV=`git --git-dir=$rep/.git/ log --pretty=format:'%h' -n 1`
 echo "<?php define('GIT_REVISION','$REV'); define('GIT_AUTHOR','$AUTHOR'); ?>" > $rep/deployment/git_info.php
+
+# Generate assets
+$rep/yii asset $rep/deployment/assets.php $rep/config/assets-prod.php
 
 # Update files using FTP
 echo "FTP Password:"
