@@ -130,9 +130,28 @@ function loadExperiment() {
     });
 
     $("#mode button").click( function() {
+        var $this = $(this);
+
+        if ( $this.hasClass('dropdown-toggle')) {
+            // Dropdowns are handled in another event handler
+            return;
+        }
+
         navInfo.setMode($(this).data('mode'));
         $("#mode button").removeClass('btn-primary');
-        $(this).addClass('btn-primary')
+        $this.addClass('btn-primary')
+    });
+
+    $("#mode button.dropdown-toggle").parent().find('a').on('click', function(e){
+        var $a = $(this);
+        e.preventDefault();
+
+        $("#mode button").removeClass('btn-primary');
+        $a.closest('div').find('.dropdown-toggle').addClass('btn-primary');
+
+        $a.closest('ul').find('span.glyphicon-ok').remove();
+        $a.prepend('<span class="glyphicon glyphicon-ok"></span> ');
+        navInfo.setMode($a.data('mode'));
     });
 
     $(window).on('alberto.mode.changed', function() {
@@ -156,6 +175,16 @@ function loadExperiment() {
 
             scale.domain([0, 1000])
                 .range(["yellow", "red"]);
+        } else if ( navInfo.getMode() == "fc_tmp" ) {
+            slider.setAttribute('min', -10)
+                .setAttribute('max', 10)
+                .setValue([-5, 5])
+                .refresh();
+
+            showColumnType('fc_tmp');
+
+            scale.domain([-5,-1,1, 5])
+                .range(["green", "black","black", "red"]);
         }
 
         showScale(scale);
@@ -204,6 +233,8 @@ function updateColors(colorScale, useIndex) {
 
                 if( navInfo.getMode() == 'fc') {
                     return colorScale.defined(d.value.fc)
+                } else if( navInfo.getMode() == 'fc_tmp' ) {
+                    return colorScale.defined(d.value.fc_tmp)
                 } else {
                     return colorScale.defined(d.value.exp)
                 }
@@ -228,7 +259,6 @@ function showScale(colorScale) {
 function showGeneInformation(data) {
     $('#gene-information .non-selected').hide();
     var $gene = $('#gene-information .selected').show();
-
 
     $gene.find('.agi').html(data.gene_agi);
     $gene.find('.annotation').html(data.gene.annotation);
@@ -259,26 +289,26 @@ function loadINTACT(data) {
     var dataEG = [], dataLG = [], dataHS = [];
     $.each(tissues, function(i, tissue) {
         if( suspensor_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = { exp: data.suspensor_eg, sd: data.suspensor_eg_sd, fc: data.fc_suspensor_eg_embryo_eg };
+            dataEG[i] = { exp: data.suspensor_eg, sd: data.suspensor_eg_sd, fc: data.fc_suspensor_eg_embryo_eg, fc_tmp: false };
         }
         if( vascular_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = { exp: data.vascular_eg, sd: data.vascular_eg_sd,  fc: data.fc_vascular_eg_embryo_eg};
+            dataEG[i] = { exp: data.vascular_eg, sd: data.vascular_eg_sd,  fc: data.fc_vascular_eg_embryo_eg, fc_tmp: false};
         }
         if( embryo_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = { exp: data.embryo_eg, sd: data.embryo_eg_sd, fc: false };
+            dataEG[i] = { exp: data.embryo_eg, sd: data.embryo_eg_sd, fc: false, fc_tmp: false };
         }
 
         if( vascular_lg.indexOf(tissue) > -1 ) {
-            dataLG[i] = { exp: data.vascular_lg, sd: data.vascular_lg_sd, fc: data.fc_vascular_lg_embryo_lg };
+            dataLG[i] = { exp: data.vascular_lg, sd: data.vascular_lg_sd, fc: data.fc_vascular_lg_embryo_lg, fc_tmp: data.fc_vascular_eg_vascular_lg };
         }
         if( embryo_lg.indexOf(tissue) > -1 ) {
-            dataLG[i] = { exp: data.embryo_lg, sd: data.embryo_lg_sd, fc: false };
+            dataLG[i] = { exp: data.embryo_lg, sd: data.embryo_lg_sd, fc: false, fc_tmp: data.fc_embryo_eg_embryo_lg };
         }
 
         if( qc_hs.indexOf(tissue) > -1 ) {
-            dataHS[i] = { exp: data.qc_hs, sd: data.qc_hs_sd, fc: false };
+            dataHS[i] = { exp: data.qc_hs, sd: data.qc_hs_sd, fc: false, fc_tmp: false };
         } else {
-            dataHS[i] = { exp: false, sd: false, fc: false };
+            dataHS[i] = { exp: false, sd: false, fc: false, fc_tmp: false };
         }
     });
 

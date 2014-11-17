@@ -42,7 +42,7 @@ return [
                 'label' => 'QC HS'
             ],
 
-            // Fold changes
+            // Spatial fold changes
             [
                 'field' => 'fc_vascular_eg_embryo_eg',
                 'type' => 'fc',
@@ -57,7 +57,19 @@ return [
                 'field' => 'fc_vascular_lg_embryo_lg',
                 'type' => 'fc',
                 'label' => 'FC Vascular/Embryo LG'
-            ]
+            ],
+
+            // Temporal fold changes
+            [
+                'field' => 'fc_vascular_eg_vascular_lg',
+                'type' => 'fc_tmp',
+                'label' => 'FC Vascular EG/Vascular LG'
+            ],
+            [
+                'field' => 'fc_embryo_eg_embryo_lg',
+                'type' => 'fc_tmp',
+                'label' => 'FC Embryo EG/Embryo LG'
+            ],
         ]
     ]
 ];

@@ -117,7 +117,15 @@ $intact = Yii::$app->params['experiments']['intact'];
             <div class="panel-body" id="mode">
                 <div class="btn-group">
                     <button type="button" class="btn btn-default" data-mode='abs' data-toggle="tooltip" title="View the absolute expression of genes.">Absolute</button>
-                    <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View the fold changes of the same gene between tissues.">Fold changes</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            Fold changes <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-mode="fc" target="_blank" data-template="#">Spatial</a></li>
+                            <li><a href="#" data-mode="fc_tmp" target="_blank" data-template="#">Temporal</a></li>
+                        </ul>
+                    </div>
                     <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Relative</button>
                 </div>
             </div>
@@ -130,7 +138,6 @@ $intact = Yii::$app->params['experiments']['intact'];
             </div>
             <div class="panel-body">
                 <p><button class="btn btn-default" id="change">Test coloring &raquo;</button></p>
-                <p><button class="btn btn-default" id="original">Original coloring &raquo;</button></p>
                 <p><button class="btn btn-default" id="permalink">Permalink &raquo;</button></p>
             </div>
         </div>
