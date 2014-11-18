@@ -29,6 +29,7 @@ scale.defined = function(n) {
 
 var table;
 var baseColors;
+var lastRequest;
 
 function loadExperiment() {
     var slider = $("#scale-slider")
@@ -79,6 +80,9 @@ function loadExperiment() {
                     delete d.columns[i].searchable;
                     delete d.columns[i].search.regex;
                 }
+
+                // Store the build request for export purposes
+                lastRequest = d;
             }
         },
         columns: buildDTColumns(intactColumns),
@@ -225,6 +229,30 @@ function loadExperiment() {
         $dropdown.hide();
         e.preventDefault();
     });
+
+    $("#export").click(function() {
+        var d = lastRequest;
+
+        for (var i = 0; i < d.columns.length; i++) {
+            d.columns[i].visible = table.column(d.columns[i].name + ":name").visible();
+        }
+
+        // split params into form inputs
+        var inputs = '';
+        var data = decodeURIComponent(jQuery.param(d));
+
+        $.each(data.split('&'), function () {
+            var pair = this.split('=');
+            inputs += '<input type="hidden" name="' + pair[0] + '" value="' + pair[1] + '" />';
+        });
+
+        // Yii2 CSRF protection
+        inputs += '<input name="' + yii.getCsrfParam() + '" value="' + yii.getCsrfToken() + '" type="hidden">';
+
+        // send request
+        $('<form action="/index.php?r=gene/export" method="post">' + inputs + '</form>')
+            .appendTo('body').submit().remove();
+    })
 }
 
 function showColumnType(type) {
@@ -445,7 +473,7 @@ function loadGeneFromRow(row) {
 
 function buildDTColumns(columns) {
     var r = [
-        { data: 'gene_agi', 'class': 'type_ann' },
+        { data: 'gene_agi', 'class': 'type_ann', name:'gene_agi' },
         {
             data: 'gene.gene',
             render: function (data, type, row) {
@@ -455,15 +483,16 @@ function buildDTColumns(columns) {
                     return "";
                 }
             },
+            name: 'gene.gene',
             'class': 'type_ann'
         }
     ];
 
     for( var i = 0; i < columns.length; i++ ) {
-        r.push( { data: columns[i].field, name: 'range', 'class': 'type_' + columns[i].type });
+        r.push( { data: columns[i].field, name: columns[i].field, 'class': 'type_' + columns[i].type });
 
         if( columns[i].type == 'abs' ) {
-            r.push({data: columns[i].field + '_sd', name: 'range', visible: false});
+            r.push({data: columns[i].field + '_sd', name: columns[i].field + '_sd', visible: false});
         }
     }
 

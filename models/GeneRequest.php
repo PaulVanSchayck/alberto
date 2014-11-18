@@ -130,7 +130,7 @@ class GeneRequest extends Model {
         $filter = ['and'];
 
         foreach( $this->columns as $column ) {
-            if ( $column['name'] == 'range' && strstr($column['search']['value'], '-yadcf_delim-')) {
+            if ( strpos($column['search']['value'], '-yadcf_delim-') !== false ) {
                 $range = explode('-yadcf_delim-', $column['search']['value']);
 
                 if ( is_numeric($range[0]) && is_numeric($range[1]) ) {
@@ -159,6 +159,18 @@ class GeneRequest extends Model {
         return $columns;
     }
 
+    public function getVisibleColumns()
+    {
+        $columns = [];
+
+        foreach( $this->columns as $column ) {
+            if ( $column['visible'] == 'true' ) {
+                $columns[] = $column['data'];
+            }
+        }
+
+        return $columns;
+    }
 
 
     public function getOrder()

@@ -33,7 +33,7 @@ class GeneController extends Controller {
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'autocomplete'],
+                        'actions' => ['index', 'autocomplete', 'export'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -68,5 +68,35 @@ class GeneController extends Controller {
         )->limit(10)->all();
 
         return ArrayHelper::toArray($results);
+    }
+
+    function actionExport()
+    {
+        Yii::$app->response->formatters['csv'] = 'app\components\CsvResponseFormatter';
+        Yii::$app->response->format = 'csv';
+
+        $GeneRequest = new GeneRequest();
+
+        if( $GeneRequest->load(Yii::$app->request->post()) && $GeneRequest->validate()) {
+
+            $dataProvider = new ActiveDataProvider([
+                'query' => Intact::find()
+                    ->select($GeneRequest->getVisibleColumns())
+                    ->joinWith('gene')
+                    ->filterWhere($GeneRequest->getFilter())
+                    ->orderBy($GeneRequest->getOrder()),
+                'pagination' => new Scroller([
+                    'pageSize' => 1000,
+                    'page' => 0,
+                    'draw' => 0
+                ])
+            ]);
+
+            $serializer = new Serializer();
+
+            return $serializer->serialize($dataProvider);
+        } else {
+            return $GeneRequest->getErrors();
+        }
     }
 } 

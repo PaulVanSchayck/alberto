@@ -18,8 +18,10 @@ class Gene extends ActiveRecord {
      */
     public function fields()
     {
-        return array_merge(
-            parent::fields()
-        );
+        $fields = parent::fields();
+
+        unset($fields['location']);
+
+        return $fields;
     }
 }
