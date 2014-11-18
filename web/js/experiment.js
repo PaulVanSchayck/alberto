@@ -202,23 +202,21 @@ function loadExperiment() {
          $("#mode button").first().click();
     }
 
-    var $dropdown = $('.dropdown-menu.actions')
+    var $dropdown = $('.dropdown-menu.actions');
     $('div.svg svg g').click(function(e) {
 
         $dropdown
             .offset({left:e.pageX,top:e.pageY})
             .fadeIn();
 
-        $(document).mouseup(function (e) {
-            var container = $(".dropdown-menu.actions");
-
-            if (!container.is(e.target) && container.has(e.target).length === 0) {
-                container.hide();
+        $(document).one('mouseup', function (e) {
+            if (!$dropdown.is(e.target) && $dropdown.has(e.target).length === 0) {
+                $dropdown.hide();
             }
         });
     });
 
-    $('.dropdown-menu.actions').click(function(e) {
+    $dropdown.click(function(e) {
 
         table.order([2, 'desc']);
         yadcf.exResetAllFilters(table);
