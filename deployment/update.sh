@@ -38,7 +38,7 @@ lftp -u agarhosting agarhosting.nl <<EOF
 set cmd:fail-exit true;
 set ftp:ssl-allow no;
 set ftp:list-options -a;
-mirror -veR --exclude config/db.php --exclude web/assets --exclude .git --exclude runtime --exclude .idea --exclude config/db.php $rep/. alberto/.;
+mirror -veR --exclude web/index.php --exclude config/db.php --exclude web/assets --exclude .git --exclude runtime --exclude .idea --exclude config/db.php $rep/. alberto/.;
 bye;
 EOF
 
