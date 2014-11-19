@@ -352,7 +352,12 @@ function hideGeneInformation() {
     $('#gene-information .selected').hide();
 }
 
-function parseRuleField( field, data ) {
+function parseRuleField( field, data, postfix ) {
+
+    if ( postfix == undefined ) {
+        postfix = '';
+    }
+
     if ( field === false ) {
         return false;
     }
@@ -362,7 +367,7 @@ function parseRuleField( field, data ) {
     }
 
     if ( data[field] ) {
-        return data[field];
+        return data[field + postfix];
     }
 }
 
@@ -383,6 +388,7 @@ function loadINTACT(data) {
             stageData[j]= {
                 name : s.name,
                 abs : parseRuleField( s.abs, data),
+                sd : parseRuleField( s.abs, data, '_sd'),
                 fc_spt : parseRuleField( s.fc_spt, data),
                 fc_tmp : parseRuleField( s.fc_tmp, data)
             };
@@ -455,7 +461,7 @@ function formatTooltip(d) {
 
     r = "<p><span class='label label-success'>Tissue</span> " + d.name + " </p>";
     r += "<p><span class='label label-primary'>Expression value</span> " + d.abs+ "</p>";
-    r += "<p><span class='label label-primary sd'>SD</span> " + d.sd + "</p>";
+    r += "<p class='sd'><span class='label label-primary'>Standard deviation</span> " + d.sd + "</p>";
 
     return r;
 }
