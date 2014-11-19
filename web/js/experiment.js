@@ -330,9 +330,9 @@ function updateColors(colorScale, useIndex) {
                 return colorScale(i)
             }
         }).each('start', function() {
-            this.classList.add("in-transition");
+            d3.select(this).attr('in-transition', 'yes')
         }).each('end', function() {
-            this.classList.remove("in-transition");
+            d3.select(this).attr('in-transition', 'no')
         })
     });
 }
@@ -462,16 +462,19 @@ function setupTooltip(ele) {
 
                 tip.show(d, i);
 
-                if ( ! this.classList.contains('in-transition') ) {
-                    d3.select(this).transition().style("opacity", 0.5);
+                var g = d3.select(this);
+                if ( g.attr('in-transition') == undefined || g.attr('in-transition') == 'no' ) {
+                    g.transition().style("opacity", 0.5);
                 }
 
             })
             .on('mouseout', function(d, i) {
                 tip.hide(d, i);
 
-                if ( ! this.classList.contains('in-transition') ) {
-                    d3.select(this).transition().style("opacity", 1);
+                var g = d3.select(this);
+
+                if ( g.attr('in-transition') == undefined || g.attr('in-transition') == 'no' ) {
+                    g.transition().style("opacity", 1);
                 }
             })
     });
