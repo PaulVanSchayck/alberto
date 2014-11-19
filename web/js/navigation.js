@@ -42,9 +42,7 @@ $(document).ready(function(){
 
             // Experiment has not loaded yet, wait for it, then show the gene
             $(window).one('experiment.loaded', function () {
-                setTimeout( function() {
-                    showGene(navInfo.getGene());
-                }, 0);
+                showGene(navInfo.getGene());
             });
         }
     });
