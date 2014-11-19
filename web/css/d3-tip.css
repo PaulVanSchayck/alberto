@@ -17,6 +17,9 @@
 .d3-tip.large-sd .sd {
     background-color: red;
 }
+.d3-tip.large-sd  {
+    color: red;
+}
 
 /* Creates a small triangle extender for the tooltip */
 .d3-tip:after {

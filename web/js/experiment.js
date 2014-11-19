@@ -207,11 +207,15 @@ function loadExperiment() {
     }
 
     var $dropdown = $('.dropdown-menu.actions');
-    $('div.svg svg g').click(function(e) {
+    $('div.svg svg g[class!=""]').click(function(e) {
 
         $dropdown
             .offset({left:e.pageX,top:e.pageY})
             .fadeIn();
+
+        if ( $(this).attr('class') == 'vascular' ) {
+            $dropdown.data('g', this);
+        }
 
         $(document).one('mouseup', function (e) {
             if (!$dropdown.is(e.target) && $dropdown.has(e.target).length === 0) {
@@ -221,13 +225,19 @@ function loadExperiment() {
     });
 
     $dropdown.click(function(e) {
+        e.preventDefault();
 
-        table.order([2, 'desc']);
+        var tissue = $($dropdown.data('g')).attr('class');
+        var stage =  $($dropdown.data('g')).parents('svg').attr('id');
+
+        console.log(tissue + "_" + stage + ":name");
+
+        table.order([table.column(tissue + "_" + stage + ":name").index(), 'desc']);
         yadcf.exResetAllFilters(table);
-        yadcf.exFilterColumn(table, [[2, {from:100}]], true);
+        yadcf.exFilterColumn(table, [[table.column(tissue + "_" + stage + ":name").index(), {from:100}]], true);
 
         $dropdown.hide();
-        e.preventDefault();
+
     });
 
     $("#export").click(function() {
