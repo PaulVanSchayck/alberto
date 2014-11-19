@@ -36,7 +36,7 @@ class GeneRequest extends Model {
     {
         return [
             [['start','length','columns','order'], 'required'],
-            ['length', 'integer', 'max' => 1000],
+            ['length', 'integer', 'max' => 2000],
             ['draw', 'integer'],
             ['columns', 'validateColumns'],
             ['order', 'validateOrder'],
@@ -47,7 +47,7 @@ class GeneRequest extends Model {
     public function getPaginationConfig() {
         return [
             'pageSize' => $this->length,
-            'page' => $this->start,
+            'offset' => $this->start,
             'draw' => $this->draw
         ];
     }

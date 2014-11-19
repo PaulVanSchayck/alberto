@@ -49,7 +49,11 @@ class GeneController extends Controller {
         if( $GeneRequest->load(Yii::$app->request->post()) && $GeneRequest->validate()) {
 
             $dataProvider = new ActiveDataProvider([
-                'query' => Intact::find()->select($GeneRequest->getColumns())->joinWith('gene')->filterWhere($GeneRequest->getFilter())->orderBy($GeneRequest->getOrder()),
+                'query' => Intact::find()
+                    ->select($GeneRequest->getColumns())
+                    ->joinWith('gene')
+                    ->filterWhere($GeneRequest->getFilter())
+                    ->orderBy($GeneRequest->getOrder()),
                 'pagination' => new Scroller($GeneRequest->getPaginationConfig())
             ]);
 
@@ -72,9 +76,6 @@ class GeneController extends Controller {
 
     function actionExport()
     {
-        Yii::$app->response->formatters['csv'] = 'app\components\CsvResponseFormatter';
-        Yii::$app->response->format = 'csv';
-
         $GeneRequest = new GeneRequest();
 
         if( $GeneRequest->load(Yii::$app->request->post()) && $GeneRequest->validate()) {
@@ -87,7 +88,7 @@ class GeneController extends Controller {
                     ->orderBy($GeneRequest->getOrder()),
                 'pagination' => new Scroller([
                     'pageSize' => $GeneRequest->length,
-                    'page' => 0,
+                    'offset' => 0,
                     'draw' => 0
                 ])
             ]);
@@ -99,6 +100,9 @@ class GeneController extends Controller {
             }
 
             $serializer = new Serializer(['extraFields' => $extraFields]);
+
+            Yii::$app->response->formatters['csv'] = 'app\components\CsvResponseFormatter';
+            Yii::$app->response->format = 'csv';
 
             return $serializer->serialize($dataProvider);
         } else {
