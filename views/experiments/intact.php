@@ -126,7 +126,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                             Fold changes <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#" data-mode="fc" target="_blank" data-template="#">Spatial</a></li>
+                            <li><a href="#" data-mode="fc_spt" target="_blank" data-template="#">Spatial</a></li>
                             <li><a href="#" data-mode="fc_tmp" target="_blank" data-template="#">Temporal</a></li>
                         </ul>
                     </div>
@@ -171,5 +171,6 @@ foreach( $intact['columns'] as $column ) {
 
 <script type="text/javascript">
     var intactColumns = $.parseJSON('<?= json_encode($intact['columns']); ?>');
+    var intactRules = $.parseJSON('<?= json_encode($intact['rules']); ?>');
     loadExperiment();
 </script>

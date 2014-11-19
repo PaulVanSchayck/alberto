@@ -45,17 +45,17 @@ return [
             // Spatial fold changes
             [
                 'field' => 'fc_vascular_eg_embryo_eg',
-                'type' => 'fc',
+                'type' => 'fc_spt',
                 'label' => 'FC Vascular/Embryo EG'
             ],
             [
                 'field' => 'fc_suspensor_eg_embryo_eg',
-                'type' => 'fc',
+                'type' => 'fc_spt',
                 'label' => 'FC Suspensor/Embryo EG'
             ],
             [
                 'field' => 'fc_vascular_lg_embryo_lg',
-                'type' => 'fc',
+                'type' => 'fc_spt',
                 'label' => 'FC Vascular/Embryo LG'
             ],
 
@@ -70,6 +70,69 @@ return [
                 'type' => 'fc_tmp',
                 'label' => 'FC Embryo LG/Embryo EG'
             ],
+        ],
+
+        // Rules for setting colors
+        'rules' => [
+            'eg' => [
+                'suspensor' => [
+                    'name' => 'Suspensor',
+                    'abs' => 'suspensor_eg',
+                    'fc_spt' => 'fc_suspensor_eg_embryo_eg',
+                    'fc_tmp' => false
+                ],
+                'vascular-initials' => [
+                    'name' => 'Vascular initials',
+                    'abs' => 'vascular_eg',
+                    'fc_spt' => 'fc_vascular_eg_embryo_eg',
+                    'fc_tmp' => false
+                ],
+
+                '*' => [
+                    'name' => 'Whole embryo',
+                    'abs' => 'embryo_eg',
+                    'fc_spt' => false,
+                    'fc_tmp' => false
+                ]
+            ],
+
+            'lg' => [
+                'vascular' => [
+                    'name' => 'Vascular',
+                    'abs' => 'vascular_lg',
+                    'fc_spt' => 'fc_vascular_lg_embryo_lg',
+                    'fc_tmp' => 'fc_vascular_lg_vascular_eg'
+                ],
+                'vascular-initials' => [
+                    'name' => 'Vascular',
+                    'abs' => 'vascular_lg',
+                    'fc_spt' => 'fc_vascular_lg_embryo_lg',
+                    'fc_tmp' => 'fc_vascular_lg_vascular_eg'
+                ],
+
+                '*' => [
+                    'name' => 'Whole embryo',
+                    'abs' => 'embryo_lg',
+                    'fc_spt' => false,
+                    'fc_tmp' => 'fc_embryo_lg_embryo_eg'
+                ]
+            ],
+
+            'hs' => [
+                'qc' => [
+                    'name' => 'QC',
+                    'abs' => 'qc_hs',
+                    'fc_spt' => 'no-data',
+                    'fc_tmp' => 'no-data'
+                ],
+
+                '*' => [
+                    'name' => 'Whole embryo',
+                    'abs' => 'no-data',
+                    'fc_spt' => 'no-data',
+                    'fc_tmp' => 'no-data'
+                ]
+            ]
         ]
     ]
 ];

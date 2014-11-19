@@ -20,18 +20,14 @@ var scale = d3.scale.linear();
  * @returns {*}
  */
 scale.defined = function(n) {
-    if ( n ) {
-        return this(n);
-    } else {
+    if ( n === false ) {
         return "#FFFFFF"
+    } else if( n == 'no-data' ) {
+        return "lightgray"
+    } else {
+        return this(n);
     }
 };
-
-d3.selection.prototype.getTransition = function() {
-    if(this[0][0].__transition__) {
-        return this[0][0].__transition__[1];
-    } else return undefined;
-}
 
 var table;
 var baseColors;
@@ -165,13 +161,13 @@ function loadExperiment() {
     });
 
     $(window).on('alberto.mode.changed', function() {
-        if ( navInfo.getMode() == "fc" ) {
+        if ( navInfo.getMode() == "fc_spt" ) {
             slider.setAttribute('min', -10)
                 .setAttribute('max', 10)
                 .setValue([-5, 5])
                 .refresh();
 
-            showColumnType('fc');
+            showColumnType('fc_spt');
 
             scale.domain([-5,-1,1, 5])
                 .range(["green", "black","black", "red"]);
@@ -299,12 +295,12 @@ function updateColors(colorScale, useIndex) {
         d3.selectAll('.' + tissue).transition().duration(1000).attr('fill', function(d) {
             if( ! useIndex && d ) {
 
-                if( navInfo.getMode() == 'fc') {
-                    return colorScale.defined(d.value.fc)
+                if( navInfo.getMode() == 'fc_spt') {
+                    return colorScale.defined(d.fc_spt)
                 } else if( navInfo.getMode() == 'fc_tmp' ) {
-                    return colorScale.defined(d.value.fc_tmp)
+                    return colorScale.defined(d.fc_tmp)
                 } else {
-                    return colorScale.defined(d.value.exp)
+                    return colorScale.defined(d.abs)
                 }
             } else {
                 return colorScale(i)
@@ -348,47 +344,45 @@ function hideGeneInformation() {
     $('#gene-information .selected').hide();
 }
 
+function parseRuleField( field, data ) {
+    if ( field === false ) {
+        return false;
+    }
+
+    if ( field == 'no-data' ) {
+        return 'no-data';
+    }
+
+    if ( data[field] ) {
+        return data[field];
+    }
+}
+
 function loadINTACT(data) {
-    var suspensor_eg = ['suspensor'];
-    var vascular_eg = ['vascular', 'vascular-initials'];
-    var embryo_eg = ['ground-initials', 'ground', 'inner-upper','protoderm', 'hypophysis', 'qc','columella'];
 
-    var vascular_lg = ['vascular', 'vascular-initials'];
-    var embryo_lg = ['suspensor', 'ground-initials', 'ground', 'inner-upper','protoderm', 'hypophysis', 'qc','columella'];
+    $.each( intactRules, function(stageId, stage)  {
+        var stageData = [];
 
-    var qc_hs = ['qc'];
+        $.each(tissues, function(j, tissue) {
+            var s;
 
-    var dataEG = [], dataLG = [], dataHS = [];
-    $.each(tissues, function(i, tissue) {
-        if( suspensor_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = { exp: data.suspensor_eg, sd: data.suspensor_eg_sd, fc: data.fc_suspensor_eg_embryo_eg, fc_tmp: false };
-        }
-        if( vascular_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = { exp: data.vascular_eg, sd: data.vascular_eg_sd,  fc: data.fc_vascular_eg_embryo_eg, fc_tmp: false};
-        }
-        if( embryo_eg.indexOf(tissue) > -1 ) {
-            dataEG[i] = { exp: data.embryo_eg, sd: data.embryo_eg_sd, fc: false, fc_tmp: false };
-        }
+            if ( stage[tissue] !== undefined ) {
+                s = stage[tissue];
+            } else {
+                s = stage['*'];
+            }
 
-        if( vascular_lg.indexOf(tissue) > -1 ) {
-            dataLG[i] = { exp: data.vascular_lg, sd: data.vascular_lg_sd, fc: data.fc_vascular_lg_embryo_lg, fc_tmp: data.fc_vascular_lg_vascular_eg };
-        }
-        if( embryo_lg.indexOf(tissue) > -1 ) {
-            dataLG[i] = { exp: data.embryo_lg, sd: data.embryo_lg_sd, fc: false, fc_tmp: data.fc_embryo_lg_embryo_eg };
-        }
+            stageData[j]= {
+                name : s.name,
+                abs : parseRuleField( s.abs, data),
+                fc_spt : parseRuleField( s.fc_spt, data),
+                fc_tmp : parseRuleField( s.fc_tmp, data)
+            };
 
-        if( qc_hs.indexOf(tissue) > -1 ) {
-            dataHS[i] = { exp: data.qc_hs, sd: data.qc_hs_sd, fc: false, fc_tmp: false };
-        } else {
-            dataHS[i] = { exp: false, sd: false, fc: false, fc_tmp: false };
-        }
+        });
+
+        assignData(d3.select("#"+stageId), stageData);
     });
-
-    var eg = d3.select('#eg'), lg = d3.select('#lg'), hs = d3.select('#hs');
-
-    assignData(lg, dataLG);
-    assignData(eg, dataEG);
-    assignData(hs, dataHS);
 
     updateColors(scale);
 }
@@ -425,7 +419,7 @@ function setupTooltip(ele) {
             .on('mouseover', function(d, i){
 
                 // Check for big standard deviation
-                if ( d && (d.value.sd / d.value.exp) > 0.1 ) {
+                if ( d && (d.sd / d.abs) > 0.1 ) {
                     tip.attr('class', 'd3-tip large-sd')
                 } else {
                     tip.attr('class', 'd3-tip')
@@ -451,9 +445,9 @@ function setupTooltip(ele) {
 function formatTooltip(d) {
     var r;
 
-    r = "<p><span class='label label-success'>Tissue</span> " + d.tissue + " </p>";
-    r += "<p><span class='label label-primary'>Expression value</span> " + d.value.exp + "</p>";
-    r += "<p><span class='label label-primary sd'>SD</span> " + d.value.sd + "</p>";
+    r = "<p><span class='label label-success'>Tissue</span> " + d.name + " </p>";
+    r += "<p><span class='label label-primary'>Expression value</span> " + d.abs+ "</p>";
+    r += "<p><span class='label label-primary sd'>SD</span> " + d.sd + "</p>";
 
     return r;
 }
@@ -462,7 +456,7 @@ function assignData(ele, data) {
 
     $.each(tissues, function(i, tissue) {
         ele.select('.' + tissue)
-            .data([{'tissue' : tissue, 'value' : data[i]}])
+            .data([ data[i] ])
     });
 }
 
