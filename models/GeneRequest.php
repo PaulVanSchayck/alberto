@@ -16,6 +16,7 @@ class GeneRequest extends Model {
     public $length = 10;
     public $columns;
     public $order;
+    public $includeAnnotations;
 
     private static $prefixes = ['gene'];
 
@@ -38,7 +39,8 @@ class GeneRequest extends Model {
             ['length', 'integer', 'max' => 1000],
             ['draw', 'integer'],
             ['columns', 'validateColumns'],
-            ['order', 'validateOrder']
+            ['order', 'validateOrder'],
+            ['includeAnnotations', 'boolean', 'trueValue' => 'true', 'falseValue' => 'false', 'strict' => true],
         ];
     }
 

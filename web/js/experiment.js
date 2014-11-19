@@ -248,12 +248,24 @@ function loadExperiment() {
         yadcf.exFilterColumn(table, [[columnIdx, {from:100}]], true);
     });
 
+    var ngenes = $("#exportModal .ngenes").slider().data('slider');
+
     $("#export").click(function() {
         var d = lastRequest;
 
         for (var i = 0; i < d.columns.length; i++) {
-            d.columns[i].visible = table.column(d.columns[i].name + ":name").visible();
+
+            if ( $("#exportModal .visible").is(":checked") ) {
+                d.columns[i].visible = true;
+            } else {
+                d.columns[i].visible = table.column(d.columns[i].name + ":name").visible();
+            }
+
         }
+
+        d.start = 0;
+        d.length = ngenes.getValue();
+        d.includeAnnotations = $("#exportModal .annotations").is(":checked");
 
         // split params into form inputs
         var inputs = '';
@@ -270,6 +282,7 @@ function loadExperiment() {
         // send request
         $('<form action="/index.php?r=gene/export" method="post">' + inputs + '</form>')
             .appendTo('body').submit().remove();
+
     })
 }
 

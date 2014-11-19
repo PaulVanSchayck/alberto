@@ -53,7 +53,7 @@ class GeneController extends Controller {
                 'pagination' => new Scroller($GeneRequest->getPaginationConfig())
             ]);
 
-            $serializer = new Serializer(['collectionEnvelope' => "data"]);
+            $serializer = new Serializer(['collectionEnvelope' => "data", 'extraFields' => ['gene']]);
 
             return $serializer->serialize($dataProvider);
         } else {
@@ -86,13 +86,19 @@ class GeneController extends Controller {
                     ->filterWhere($GeneRequest->getFilter())
                     ->orderBy($GeneRequest->getOrder()),
                 'pagination' => new Scroller([
-                    'pageSize' => 1000,
+                    'pageSize' => $GeneRequest->length,
                     'page' => 0,
                     'draw' => 0
                 ])
             ]);
 
-            $serializer = new Serializer();
+            if ( $GeneRequest->includeAnnotations ) {
+                $extraFields = ['gene'];
+            } else {
+                $extraFields = [];
+            }
+
+            $serializer = new Serializer(['extraFields' => $extraFields]);
 
             return $serializer->serialize($dataProvider);
         } else {
