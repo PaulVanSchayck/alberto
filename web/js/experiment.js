@@ -51,15 +51,16 @@ function loadExperiment() {
     var eg = d3.select('#eg');
     var hs = d3.select('#hs');
 
-     baseColors = retrieveFillColor(hs);
+    baseColors = retrieveFillColor(hs);
 
     $('#change').click(function() {
-        updateColors(d3.scale.category20(), true);
+        showSDWarning()
     });
 
     setupTooltip(eg);
     setupTooltip(lg);
     setupTooltip(hs);
+    setupSDTooltip()
 
     table = $('#example').DataTable({
         serverSide: true,
@@ -309,6 +310,10 @@ function updateTableColors(type) {
     })
 }
 
+function showSDWarning() {
+
+}
+
 function updateColors(colorScale, useIndex) {
     $.each(tissues, function(i, tissue) {
         d3.selectAll('.' + tissue).transition().duration(1000).attr('fill', function(d) {
@@ -387,6 +392,8 @@ function loadINTACT(data) {
     $.each( intactRules, function(stageId, stage)  {
         var stageData = [];
 
+        d3.select("#" + stageId + " g.warning-sign").attr('display','none');
+
         $.each(tissues, function(j, tissue) {
             var s;
 
@@ -404,6 +411,9 @@ function loadINTACT(data) {
                 fc_tmp : parseRuleField( s.fc_tmp, data)
             };
 
+            if ( stageData[j].sd / stageData[j].abs > 0.1 ) {
+                d3.select("#" + stageId + " g.warning-sign").attr('display','inline');
+            }
         });
 
         assignData(d3.select("#"+stageId), stageData);
@@ -465,6 +475,24 @@ function setupTooltip(ele) {
                 }
             })
     });
+}
+
+function setupSDTooltip() {
+    var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .direction('e')
+        .offset([0, 20])
+        .html( 'A tissue in this embryo has a high standard deviation' );
+
+    d3.select('g.warning-sign')
+        .on('mouseover', function(d, i) {
+            tip.show(d, i);
+        })
+        .on('mouseout', function(d, i) {
+            tip.hide(d, i);
+        });
+
+    d3.select('#eg').call(tip);
 }
 
 function formatTooltip(d) {

@@ -17,10 +17,6 @@
 .d3-tip.large-sd .sd {
     color: red;
 }
-.d3-tip.large-sd .sd span {
-    background-color: red;
-    color: white;
-}
 
 
 /* Creates a small triangle extender for the tooltip */
@@ -30,7 +26,14 @@
     font-size: 10px;
     width: 100%;
     line-height: 1;
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(214, 214, 214, 0.80);
     position: absolute;
     pointer-events: none;
+}
+/* Eastward tooltips */
+.d3-tip.e:after {
+    content: "\25C0";
+    margin: -4px 0 0 0;
+    top: 50%;
+    left: -8px;
 }
