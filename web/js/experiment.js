@@ -167,8 +167,6 @@ function loadExperiment() {
                 .setValue([-5, 5])
                 .refresh();
 
-            showColumnType('fc_spt');
-
             scale.domain([-5,-1,1, 5])
                 .range(["green", "black","black", "red"]);
         } else if ( navInfo.getMode() == "abs" ) {
@@ -176,8 +174,6 @@ function loadExperiment() {
                 .setAttribute('max', 2000)
                 .setValue([30, 1000])
                 .refresh();
-
-            showColumnType('abs');
 
             scale.domain([0, 1000])
                 .range(["yellow", "red"]);
@@ -187,12 +183,14 @@ function loadExperiment() {
                 .setValue([-5, 5])
                 .refresh();
 
-            showColumnType('fc_tmp');
-
             scale.domain([-5,-1,1, 5])
                 .range(["green", "black","black", "red"]);
         }
 
+        $("#scale b:first").html(slider.getAttribute('min'));
+        $("#scale b:last").html(slider.getAttribute('max'));
+
+        showColumnType(navInfo.getMode());
         showScale(scale);
 
         if( navInfo.getGene() ) {
