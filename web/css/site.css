@@ -188,7 +188,7 @@ tr.selected td {
     margin: 1px;
 }
 .yadcf-filter-reset-button {
-    display: none;
+
 }
 .yadcf-filter-wrapper {
     display: block;
@@ -197,11 +197,14 @@ tr.selected td {
 .yadcf-filter-wrapper-inner {
     border: 0;
 }
-#yadcf-filter--example-0, #yadcf-filter--example-1 {
+#yadcf-filter--example-0, #yadcf-filter--example-1, #yadcf-filter--example-2 {
     width: 80px;
 }
 table.dataTable thead th {
     padding: 0 0 2px 0;
+}
+#example .tooltip-inner {
+    white-space: pre-wrap;
 }
 
 /* Gene information */

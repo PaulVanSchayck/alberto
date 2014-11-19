@@ -514,6 +514,19 @@ function buildDTColumns(columns) {
             },
             name: 'gene.gene',
             'class': 'type_ann'
+        },
+        {
+            data: 'gene.annotation',
+            render: function (data) {
+                if (data) {
+                    return "<span class='gene-tooltip' data-toggle='tooltip' title='" + data + "'>" + data.substr(0, 10) + " </span>";
+                } else {
+                    return "";
+                }
+            },
+            name: 'gene.annotation',
+            visible: true,
+            'class': 'type_ann'
         }
     ];
 
@@ -536,6 +549,11 @@ function buildFilterColumns(columns) {
             filter_type: "text",
             filter_delay: 500
         }, {
+            column_number: column_number++,
+            filter_type: "text",
+            filter_delay: 500
+        },
+        {
             column_number: column_number++,
             filter_type: "text",
             filter_delay: 500

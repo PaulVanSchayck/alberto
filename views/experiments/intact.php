@@ -152,8 +152,9 @@ $intact = Yii::$app->params['experiments']['intact'];
 <table id="example" class="display">
     <thead>
     <tr>
-        <th>agi</th>
+        <th>AGI</th>
         <th>Gene</th>
+        <th>Annotation</th>
 <?php
 foreach( $intact['columns'] as $column ) {
     echo "<th>{$column['label']}</th>\n";
