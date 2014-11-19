@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4734852dce5e2a14d55dc0f636c3aa34",
+    "hash": "a6f4a4db3464af6f1b48795c494cad57",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -474,16 +474,16 @@
         },
         {
             "name": "kartik-v/yii2-krajee-base",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-krajee-base.git",
-                "reference": "175e65fd84dbca518155bb978986b8ac3ed428ba"
+                "reference": "ed68a77ad9209d8aaf4b479dae46f5a37248fca1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/175e65fd84dbca518155bb978986b8ac3ed428ba",
-                "reference": "175e65fd84dbca518155bb978986b8ac3ed428ba",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/ed68a77ad9209d8aaf4b479dae46f5a37248fca1",
+                "reference": "ed68a77ad9209d8aaf4b479dae46f5a37248fca1",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +516,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2014-11-14 19:10:10"
+            "time": "2014-11-19 05:28:44"
         },
         {
             "name": "kartik-v/yii2-slider",
