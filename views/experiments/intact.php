@@ -108,7 +108,7 @@ $intact = Yii::$app->params['experiments']['intact'];
             </div>
             <div class="panel-body" id="scale">
                 <b class="badge">0</b>
-                <input type="text" id="scale-slider" class="form-control" name="scale" data-slider-min="0" data-slider-max="2000" data-slider-step="1" data-slider-value="[30,1000]" data-plugin-name="slider">
+                <input type="text" id="scale-slider" class="form-control" name="scale" data-slider-min="0" data-slider-max="2000" data-slider-step="1" data-slider-value="[30,1000]" data-plugin-name="slider" title="slider">
                 <b class="badge">2000</b>
             </div>
         </div>

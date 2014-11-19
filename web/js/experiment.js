@@ -209,37 +209,45 @@ function loadExperiment() {
     }
 
     var $dropdown = $('.dropdown-menu.actions');
-    $('div.svg svg g[class!=""]').click(function(e) {
+    $('div.svg svg g').click(function(e) {
 
         $dropdown
-            .offset({left:e.pageX,top:e.pageY})
-            .fadeIn();
+            .fadeIn()
+            .offset({left:e.pageX,top:e.pageY});
 
-        if ( $(this).attr('class') == 'vascular' ) {
-            $dropdown.data('g', this);
-        }
+        $dropdown.data('g', this);
 
         $(document).one('mouseup', function (e) {
             if (!$dropdown.is(e.target) && $dropdown.has(e.target).length === 0) {
                 $dropdown.hide();
             }
         });
+
+        event.stopPropagation();
     });
 
     $dropdown.click(function(e) {
         e.preventDefault();
+        $dropdown.hide();
 
         var tissue = $($dropdown.data('g')).attr('class');
         var stage =  $($dropdown.data('g')).parents('svg').attr('id');
+        var column;
 
-        console.log(tissue + "_" + stage + ":name");
+        if( intactRules[stage][tissue] ) {
+            column = intactRules[stage][tissue].abs
+        } else {
+            column = intactRules[stage]['*'].abs
+        }
+        var columnIdx = table.column(column + ":name").index();
 
-        table.order([table.column(tissue + "_" + stage + ":name").index(), 'desc']);
+        if ( columnIdx == undefined ) {
+            return false;
+        }
+
+        table.order([columnIdx, 'desc']);
         yadcf.exResetAllFilters(table);
-        yadcf.exFilterColumn(table, [[table.column(tissue + "_" + stage + ":name").index(), {from:100}]], true);
-
-        $dropdown.hide();
-
+        yadcf.exFilterColumn(table, [[columnIdx, {from:100}]], true);
     });
 
     $("#export").click(function() {
@@ -497,7 +505,7 @@ function buildDTColumns(columns) {
         { data: 'gene_agi', 'class': 'type_ann', name:'gene_agi' },
         {
             data: 'gene.gene',
-            render: function (data, type, row) {
+            render: function (data) {
                 if (data) {
                     return "<span class='gene-tooltip' data-toggle='tooltip' title='" + data + "'>" + data.split(',')[0] + " </span>";
                 } else {
