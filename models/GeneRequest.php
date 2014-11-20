@@ -13,7 +13,7 @@ class GeneRequest extends Model {
 
     public $start;
     public $draw;
-    public $length = 10;
+    public $length;
     public $columns;
     public $order;
     public $includeAnnotations;

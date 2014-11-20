@@ -53,10 +53,6 @@ function loadExperiment() {
 
     baseColors = retrieveFillColor(hs);
 
-    $('#change').click(function() {
-        showSDWarning()
-    });
-
     setupTooltip(eg);
     setupTooltip(lg);
     setupTooltip(hs);
@@ -89,7 +85,7 @@ function loadExperiment() {
             }
         },
         columns: buildDTColumns(intactColumns),
-        dom: 'C<"clear">rtiS',
+        dom: 'rtiS',
         scrollY: 500,
         scrollX: "100%",
         processing: true,
@@ -266,7 +262,7 @@ function loadExperiment() {
 
         d.start = 0;
         d.length = ngenes.getValue();
-        d.includeAnnotations = $("#exportModal .annotations").is(":checked") ? 1 : 0
+        d.includeAnnotations = $("#exportModal .annotations").is(":checked") ? 1 : 0;
 
         // split params into form inputs
         var inputs = '';
@@ -283,7 +279,10 @@ function loadExperiment() {
         // send request
         $('<form action="/index.php?r=gene/export" method="post">' + inputs + '</form>')
             .appendTo('body').submit().remove();
+    });
 
+    $("#clearfilters").click( function() {
+        yadcf.exResetAllFilters(table);
     })
 }
 
@@ -308,10 +307,6 @@ function updateTableColors(type) {
     $("#example tbody tr.selected td.type_" + type).css('background-color', function() {
         return scale($(this).html())
     })
-}
-
-function showSDWarning() {
-
 }
 
 function updateColors(colorScale, useIndex) {

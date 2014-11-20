@@ -143,74 +143,88 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <h3 class="panel-title">Tools</h3>
             </div>
             <div class="panel-body">
-                <p><button class="btn btn-default" id="change">Test coloring &raquo;</button></p>
-                <p><button class="btn btn-default" id="permalink">Permalink &raquo;</button></p>
+                <p><button class="btn btn-default" id="clearfilters">Clear all filters &raquo;</button></p>
+                <?php Modal::begin([
+                    'id' => 'exportModal',
+                    'header' => '<h4 class="modal-title">Export</h4>',
+                    'toggleButton' => ['tag' => 'button', 'label' => 'CSV Export &raquo;', 'class' => 'btn btn-default'],
+                    'size' => Modal::SIZE_DEFAULT
+                ]);?>
                 <p>
-                    <?php Modal::begin([
-                        'id' => 'exportModal',
-                        'header' => '<h4 class="modal-title">Export</h4>',
-                        'toggleButton' => ['tag' => 'button', 'label' => 'CSV Export &raquo;', 'class' => 'btn btn-default'],
-                        'size' => Modal::SIZE_DEFAULT
-                    ]);?>
-                    <p>
-                        <label>Export all columns:
-                            <input type="checkbox" class="visible">
-                        </label>
-                    </p>
-
-                    <p>Per default only columns visible in the current table are exported.</p>
-
-                    <p>
-                        <label>Maximum number of genes:
-                            <b class="badge">0</b>
-                             <input type="text" class="form-control ngenes" data-slider-min="0" data-slider-max="2000" data-slider-step="1" data-slider-value="1000" data-plugin-name="slider" title="Maximum number of genes">
-                            <b class="badge">2000</b>
-                        </label>
-                    </p>
-
-                    <p>The export is limited to 2000 genes. If you would like to view more genes in an export, you're
-                        recommended to download the full dataset and perform the filtering yourself.</p>
-
-                    <p>
-                        <label>Include annotations:
-                            <input type="checkbox" class="annotations">
-                        </label>
-                    </p>
-
-                    <p>The annotations increase the download size of the export significantly</p>
-
-                    <p><button class="btn btn-primary" id="export">Export &raquo;</button></p>
-                    <?php Modal::end(); ?>
+                    <label>Export all columns:
+                        <input type="checkbox" class="visible">
+                    </label>
                 </p>
+
+                <p>Per default only columns visible in the current table are exported.</p>
+
+                <p>
+                    <label>Maximum number of genes:
+                        <b class="badge">0</b>
+                         <input type="text" class="form-control ngenes" data-slider-min="0" data-slider-max="2000" data-slider-step="1" data-slider-value="1000" data-plugin-name="slider" title="Maximum number of genes">
+                        <b class="badge">2000</b>
+                    </label>
+                </p>
+
+                <p>The export is limited to 2000 genes. If you would like to view more genes in an export, you're
+                    recommended to download the full dataset and perform the filtering yourself.</p>
+
+                <p>
+                    <label>Include annotations:
+                        <input type="checkbox" class="annotations">
+                    </label>
+                </p>
+
+                <p>The annotations increase the download size of the export significantly</p>
+
+                <p><button class="btn btn-primary" id="export">Export &raquo;</button></p>
+                <?php Modal::end(); ?>
+                <p></p>
+                <?php Modal::begin([
+                    'id' => 'visibilityModal',
+                    'header' => '<h4 class="modal-title">Set column visibility</h4>',
+                    'toggleButton' => ['tag' => 'button', 'label' => 'Show / hide columns &raquo;', 'class' => 'btn btn-default'],
+                    'size' => Modal::SIZE_DEFAULT
+                ]);?>
+                <p>Set visibility of columns</p>
+                <?php Modal::end(); ?>
             </div>
         </div>
     </div>
 </div>
 
-<table id="example" class="display">
-    <thead>
-    <tr>
-        <th>AGI</th>
-        <th>Gene</th>
-        <th>Annotation</th>
-<?php
-foreach( $intact['columns'] as $column ) {
-    echo "<th>{$column['label']}</th>\n";
-    if ( $column['type'] == 'abs' ) {
-        echo "<th>{$column['label']} SD</th>\n";
-    } else if ( $column['type'] == 'fc_tmp' ) {
-        echo "<th>{$column['label']} Q</th>\n";
-    } else if ( $column['type'] == 'fc_spt' ) {
-        echo "<th>{$column['label']} Q</th>\n";
-    }
-}
-?>
-    </tr>
-    </thead>
-    <tbody>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table id="example" class="display">
+                    <thead>
+                    <tr>
+                        <th>AGI</th>
+                        <th>Gene</th>
+                        <th>Annotation</th>
+                <?php
+                foreach( $intact['columns'] as $column ) {
+                    echo "<th>{$column['label']}</th>\n";
+                    if ( $column['type'] == 'abs' ) {
+                        echo "<th>{$column['label']} SD</th>\n";
+                    } else if ( $column['type'] == 'fc_tmp' ) {
+                        echo "<th>{$column['label']} Q</th>\n";
+                    } else if ( $column['type'] == 'fc_spt' ) {
+                        echo "<th>{$column['label']} Q</th>\n";
+                    }
+                }
+                ?>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-    </tbody>
-</table>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
     var intactColumns = $.parseJSON('<?= json_encode($intact['columns']); ?>');
