@@ -198,6 +198,10 @@ foreach( $intact['columns'] as $column ) {
     echo "<th>{$column['label']}</th>\n";
     if ( $column['type'] == 'abs' ) {
         echo "<th>{$column['label']} SD</th>\n";
+    } else if ( $column['type'] == 'fc_tmp' ) {
+        echo "<th>{$column['label']} Q</th>\n";
+    } else if ( $column['type'] == 'fc_spt' ) {
+        echo "<th>{$column['label']} Q</th>\n";
     }
 }
 ?>

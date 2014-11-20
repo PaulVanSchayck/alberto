@@ -60,7 +60,7 @@ function loadExperiment() {
     setupTooltip(eg);
     setupTooltip(lg);
     setupTooltip(hs);
-    setupSDTooltip()
+    setupSDTooltip();
 
     table = $('#example').DataTable({
         serverSide: true,
@@ -583,6 +583,8 @@ function buildDTColumns(columns) {
 
         if( columns[i].type == 'abs' ) {
             r.push({data: columns[i].field + '_sd', name: columns[i].field + '_sd', visible: false});
+        } else if (columns[i].type == 'fc_tmp' || columns[i].type == 'fc_spt') {
+            r.push({data: columns[i].field + '_q', name: columns[i].field + '_q', visible: false});
         }
     }
 
@@ -616,6 +618,13 @@ function buildFilterColumns(columns) {
             filter_delay: 500
         });
         if( columns[i].type == 'abs' ) {
+            r.push({
+                column_number: column_number++,
+                filter_type: "range_number",
+                filter_default_label: ["0", "&infin;"],
+                filter_delay: 500
+            });
+        } else if( columns[i].type == 'fc_tmp' || columns[i].type == 'fc_spt') {
             r.push({
                 column_number: column_number++,
                 filter_type: "range_number",
