@@ -184,9 +184,73 @@ $intact = Yii::$app->params['experiments']['intact'];
                     'id' => 'visibilityModal',
                     'header' => '<h4 class="modal-title">Set column visibility</h4>',
                     'toggleButton' => ['tag' => 'button', 'label' => 'Show / hide columns &raquo;', 'class' => 'btn btn-default'],
-                    'size' => Modal::SIZE_DEFAULT
+                    'size' => Modal::SIZE_LARGE
                 ]);?>
-                <p>Set visibility of columns</p>
+                <div class="row">
+                    <div class="col-lg-2 columns">
+                        <b>General columns</b>
+                        <div class="checkbox">
+                            <label class="checkbox-inline"><input type="checkbox" value="" name="gene.gene"> Gene</label>
+                        </div>
+                        <div class="checkbox">
+                            <label class="checkbox-inline"><input type="checkbox" value="" name="gene.annotation">Annotation</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 columns">
+                        <b>Absolute expression</b>
+                        <?php
+                        foreach( $intact['columns'] as $column ) {
+                            if ( $column['type'] != 'abs' ) {
+                                continue;
+                            }
+                            echo "<div class='checkbox checkbox-double column'>\n";
+                                echo "<label class='checkbox-inline'><input type='checkbox' name='{$column['field']}_sd'><input type='checkbox' name='{$column['field']}'> {$column['label']}</label>";
+                            echo "</div>";
+                        }
+                        ?>
+                        <div class="checkbox checkbox-double all">
+                            <label class='checkbox-inline'><input type="checkbox" name="all-sd" /><input type="checkbox" name="all" /> <b>All</b></label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 columns">
+                        <b>Spatial fold changes</b>
+                        <?php
+                        foreach( $intact['columns'] as $column ) {
+                            if ( $column['type'] != 'fc_spt' ) {
+                                continue;
+                            }
+                            echo "<div class='checkbox checkbox-double column'>\n";
+                            echo "<label class='checkbox-inline'><input type='checkbox' name='{$column['field']}_q'><input type='checkbox' name='{$column['field']}'> {$column['label']}</label>";
+                            echo "</div>";
+                        }
+                        ?>
+                        <div class="checkbox checkbox-double all">
+                            <label class='checkbox-inline'><input type="checkbox" name="all" /><input type="checkbox" name="all-sd" /> <b>All</b></label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 columns">
+                        <b>Temporal fold changes</b>
+                        <?php
+                        foreach( $intact['columns'] as $column ) {
+                            if ( $column['type'] != 'fc_tmp' ) {
+                                continue;
+                            }
+                            echo "<div class='checkbox checkbox-double column'>\n";
+                            echo "<label class='checkbox-inline'><input type='checkbox' name='{$column['field']}_q'><input type='checkbox' name='{$column['field']}'> {$column['label']}</label>";
+                            echo "</div>";
+                        }
+                        ?>
+                        <div class="checkbox checkbox-double all">
+                            <label class='checkbox-inline'><input type="checkbox" name="all" /><input type="checkbox" name="all-sd" /> <b>All</b></label>
+                        </div>
+                    </div>
+                </div>
+
+
+
                 <?php Modal::end(); ?>
             </div>
         </div>

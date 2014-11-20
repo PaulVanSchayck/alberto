@@ -111,6 +111,9 @@ function loadExperiment() {
         $("#example").find('span[data-toggle=tooltip]').tooltip({'placement': 'bottom'});
     } );
 
+    // Poor mans method of injecting code into DataTables api
+    table.colvis = colvis($("#visibilityModal"), table);
+
     // Handle table clicks
     $('tbody').on( 'click', 'tr', function () {
         var data = table.row(this).data();
@@ -299,8 +302,8 @@ function showColumnType(type) {
     // This seriously improves performance to do this only once, see the false as second argument to visible()
     table.columns.adjust();
 
-    // Rebuild Show/Hide menu
-    $.fn.dataTable.ColVis.fnRebuild();
+    // Refresh column visibility dialog
+    table.colvis.refresh();
 }
 
 function updateTableColors(type) {
