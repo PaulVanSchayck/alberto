@@ -266,7 +266,7 @@ function loadExperiment() {
 
         d.start = 0;
         d.length = ngenes.getValue();
-        d.includeAnnotations = $("#exportModal .annotations").is(":checked");
+        d.includeAnnotations = $("#exportModal .annotations").is(":checked") ? 1 : 0
 
         // split params into form inputs
         var inputs = '';

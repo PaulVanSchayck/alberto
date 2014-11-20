@@ -40,7 +40,7 @@ class GeneRequest extends Model {
             ['draw', 'integer'],
             ['columns', 'validateColumns'],
             ['order', 'validateOrder'],
-            ['includeAnnotations', 'boolean', 'trueValue' => 'true', 'falseValue' => 'false', 'strict' => true],
+            ['includeAnnotations', 'boolean'],
         ];
     }
 
