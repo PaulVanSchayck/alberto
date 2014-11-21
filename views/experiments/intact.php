@@ -190,10 +190,10 @@ $intact = Yii::$app->params['experiments']['intact'];
                     <div class="col-lg-2 columns">
                         <b>General columns</b>
                         <div class="sd">&nbsp;</div>
-                        <div class="checkbox">
+                        <div class="checkbox column">
                             <label class="checkbox-inline"><input type="checkbox" value="" name="gene.gene"> Gene</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="checkbox column">
                             <label class="checkbox-inline"><input type="checkbox" value="" name="gene.annotation">Annotation</label>
                         </div>
                     </div>
