@@ -261,38 +261,32 @@ $intact = Yii::$app->params['experiments']['intact'];
     </div>
 </div>
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <table id="intactTable" class="display">
-                    <thead>
-                    <tr>
-                        <th>AGI</th>
-                        <th>Gene</th>
-                        <th>Annotation</th>
-                <?php
-                foreach( $intact['columns'] as $column ) {
-                    echo "<th>{$column['label']}</th>\n";
-                    if ( $column['type'] == 'abs' ) {
-                        echo "<th>{$column['label']} SD</th>\n";
-                    } else if ( $column['type'] == 'fc_tmp' ) {
-                        echo "<th>{$column['label']} Q</th>\n";
-                    } else if ( $column['type'] == 'fc_spt' ) {
-                        echo "<th>{$column['label']} Q</th>\n";
-                    }
-                }
-                ?>
-                    </tr>
-                    </thead>
-                    <tbody>
 
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+<table id="intactTable" class="display">
+    <thead>
+    <tr>
+        <th>AGI</th>
+        <th>Gene</th>
+        <th>Annotation</th>
+<?php
+foreach( $intact['columns'] as $column ) {
+    echo "<th>{$column['label']}</th>\n";
+    if ( $column['type'] == 'abs' ) {
+        echo "<th>{$column['label']} SD</th>\n";
+    } else if ( $column['type'] == 'fc_tmp' ) {
+        echo "<th>{$column['label']} Q</th>\n";
+    } else if ( $column['type'] == 'fc_spt' ) {
+        echo "<th>{$column['label']} Q</th>\n";
+    }
+}
+?>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
 
 <script type="text/javascript">
     var intactColumns = $.parseJSON('<?= json_encode($intact['columns']); ?>');
