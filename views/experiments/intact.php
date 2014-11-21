@@ -191,10 +191,10 @@ $intact = Yii::$app->params['experiments']['intact'];
                         <b>General columns</b>
                         <div class="sd">&nbsp;</div>
                         <div class="checkbox column">
-                            <label class="checkbox-inline"><input type="checkbox" value="" name="gene.gene"> Gene</label>
+                            <input type="checkbox" value="" name="gene.gene"><label class="checkbox-inline">Gene</label>
                         </div>
                         <div class="checkbox column">
-                            <label class="checkbox-inline"><input type="checkbox" value="" name="gene.annotation">Annotation</label>
+                            <input type="checkbox" value="" name="gene.annotation"><label class="checkbox-inline">Annotation</label>
                         </div>
                     </div>
 
@@ -207,12 +207,12 @@ $intact = Yii::$app->params['experiments']['intact'];
                                 continue;
                             }
                             echo "<div class='checkbox checkbox-double column'>\n";
-                                echo "<label class='checkbox-inline'><input type='checkbox' name='{$column['field']}_sd'><input type='checkbox' name='{$column['field']}'> {$column['label']}</label>";
+                                echo "<input type='checkbox' name='{$column['field']}_sd'><input type='checkbox' name='{$column['field']}'> <label class='checkbox-inline'>{$column['label']}</label>";
                             echo "</div>";
                         }
                         ?>
                         <div class="checkbox checkbox-double all">
-                            <label class='checkbox-inline'><input type="checkbox" name="all-sd" /><input type="checkbox" name="all" /> <b>All</b></label>
+                            <input type="checkbox" name="all-sd" /><input type="checkbox" name="all" /> <label class='checkbox-inline'><b>All</b></label>
                         </div>
                     </div>
 
@@ -225,12 +225,12 @@ $intact = Yii::$app->params['experiments']['intact'];
                                 continue;
                             }
                             echo "<div class='checkbox checkbox-double column'>\n";
-                            echo "<label class='checkbox-inline'><input type='checkbox' name='{$column['field']}_q'><input type='checkbox' name='{$column['field']}'> {$column['label']}</label>";
+                            echo "<input type='checkbox' name='{$column['field']}_q'><input type='checkbox' name='{$column['field']}'> <label class='checkbox-inline'>{$column['label']}</label>";
                             echo "</div>";
                         }
                         ?>
                         <div class="checkbox checkbox-double all">
-                            <label class='checkbox-inline'><input type="checkbox" name="all" /><input type="checkbox" name="all-sd" /> <b>All</b></label>
+                            <input type="checkbox" name="all" /><input type="checkbox" name="all-sd" /> <label class='checkbox-inline'><b>All</b></label>
                         </div>
                     </div>
 
@@ -243,18 +243,15 @@ $intact = Yii::$app->params['experiments']['intact'];
                                 continue;
                             }
                             echo "<div class='checkbox checkbox-double column'>\n";
-                            echo "<label class='checkbox-inline'><input type='checkbox' name='{$column['field']}_q'><input type='checkbox' name='{$column['field']}'> {$column['label']}</label>";
+                            echo "<input type='checkbox' name='{$column['field']}_q'><input type='checkbox' name='{$column['field']}'> <label class='checkbox-inline'>{$column['label']}</label>";
                             echo "</div>";
                         }
                         ?>
                         <div class="checkbox checkbox-double all">
-                            <label class='checkbox-inline'><input type="checkbox" name="all" /><input type="checkbox" name="all-sd" /> <b>All</b></label>
+                            <input type="checkbox" name="all" /><input type="checkbox" name="all-sd" /> <label class='checkbox-inline'><b>All</b></label>
                         </div>
                     </div>
                 </div>
-
-
-
                 <?php Modal::end(); ?>
             </div>
         </div>

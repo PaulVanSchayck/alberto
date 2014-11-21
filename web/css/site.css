@@ -248,14 +248,20 @@ pre.annotation {
 .checkbox-double label {
     padding-left: 40px;
 }
-.checkbox-double input:last-of-type {
-    margin-left: -40px;
+#visibilityModal .checkbox input {
+    margin-left: 0;
 }
-.checkbox {
+#visibilityModal .checkbox-double input:first-of-type {
+    margin-left: 20px;
+}
+#visibilityModal .checkbox {
     margin-top: 0;
+    margin-bottom: 0;
 }
 #visibilityModal .sd {
     margin-top: 10px;
     padding-left: 20px;
-    font-size: 10px;
+}
+#visibilityModal {
+    font-size: 85%;
 }
