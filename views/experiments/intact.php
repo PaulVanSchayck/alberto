@@ -146,7 +146,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <p><button class="btn btn-default" id="clearfilters">Clear all filters &raquo;</button></p>
                 <?php Modal::begin([
                     'id' => 'exportModal',
-                    'header' => '<h4 class="modal-title">Export</h4>',
+                    'header' => '<h4 class="modal-title">Export to CSV file</h4>',
                     'toggleButton' => ['tag' => 'button', 'label' => 'CSV Export &raquo;', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_DEFAULT
                 ]);?>
@@ -182,7 +182,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <p></p>
                 <?php Modal::begin([
                     'id' => 'visibilityModal',
-                    'header' => '<h4 class="modal-title">Set column visibility</h4>',
+                    'header' => '<h4 class="modal-title">Show / hide columns</h4>',
                     'toggleButton' => ['tag' => 'button', 'label' => 'Show / hide columns &raquo;', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
                 ]);?>
@@ -200,7 +200,7 @@ $intact = Yii::$app->params['experiments']['intact'];
 
                     <div class="col-lg-3 columns">
                         <b>Absolute expression</b>
-                        <div class="sd">SD</div>
+                        <div class="sd"><span>E</span>SD</div>
                         <?php
                         foreach( $intact['columns'] as $column ) {
                             if ( $column['type'] != 'abs' ) {
@@ -218,7 +218,7 @@ $intact = Yii::$app->params['experiments']['intact'];
 
                     <div class="col-lg-3 columns">
                         <b>Spatial fold changes</b>
-                        <div class="sd">Q</div>
+                        <div class="sd"><span>FC</span>Q</div>
                         <?php
                         foreach( $intact['columns'] as $column ) {
                             if ( $column['type'] != 'fc_spt' ) {
@@ -236,7 +236,7 @@ $intact = Yii::$app->params['experiments']['intact'];
 
                     <div class="col-lg-4 columns">
                         <b>Temporal fold changes</b>
-                        <div class="sd">Q</div>
+                        <div class="sd"><span>FC</span>Q</div>
                         <?php
                         foreach( $intact['columns'] as $column ) {
                             if ( $column['type'] != 'fc_tmp' ) {
@@ -252,6 +252,10 @@ $intact = Yii::$app->params['experiments']['intact'];
                         </div>
                     </div>
                 </div>
+                <p><b>E:</b> Expression</p>
+                <p><b>SD:</b> Standard deviation</p>
+                <p><b>FC:</b> Fold change</p>
+                <p><b>Q:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                 <?php Modal::end(); ?>
             </div>
         </div>

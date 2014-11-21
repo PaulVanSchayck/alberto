@@ -261,6 +261,11 @@ pre.annotation {
 #visibilityModal .sd {
     margin-top: 10px;
     padding-left: 20px;
+    position: relative;
+}
+#visibilityModal .sd span {
+    position: absolute;
+    margin-left: -20px;
 }
 #visibilityModal {
     font-size: 85%;
