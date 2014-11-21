@@ -33,6 +33,8 @@ var table;
 var baseColors;
 var lastRequest;
 
+var sdWarning = 0.5;
+
 function loadExperiment() {
     var slider = $("#scale-slider")
         .slider({tooltip: 'always'})
@@ -53,10 +55,9 @@ function loadExperiment() {
 
     baseColors = retrieveFillColor(hs);
 
-    setupTooltip(eg);
-    setupTooltip(lg);
-    setupTooltip(hs);
-    setupSDTooltip();
+    setupTooltip(eg); setupSDTooltip(eg);
+    setupTooltip(lg); setupSDTooltip(lg);
+    setupTooltip(hs); setupSDTooltip(hs);
 
     table = $('#intactTable').DataTable({
         serverSide: true,
@@ -409,7 +410,7 @@ function loadINTACT(data) {
                 fc_tmp : parseRuleField( s.fc_tmp, data)
             };
 
-            if ( stageData[j].sd / stageData[j].abs > 0.1 ) {
+            if ( stageData[j].sd / stageData[j].abs > sdWarning ) {
                 d3.select("#" + stageId + " g.warning-sign").attr('display','inline');
             }
         });
@@ -452,7 +453,7 @@ function setupTooltip(ele) {
             .on('mouseover', function(d, i){
 
                 // Check for big standard deviation
-                if ( d && (d.sd / d.abs) > 0.1 ) {
+                if ( d && (d.sd / d.abs) > sdWarning ) {
                     tip.attr('class', 'd3-tip large-sd')
                 } else {
                     tip.attr('class', 'd3-tip')
@@ -478,14 +479,14 @@ function setupTooltip(ele) {
     });
 }
 
-function setupSDTooltip() {
+function setupSDTooltip(ele) {
     var tip = d3.tip()
         .attr('class', 'd3-tip')
         .direction('e')
         .offset([0, 20])
         .html( 'A tissue in this embryo has a high standard deviation' );
 
-    d3.select('g.warning-sign')
+    ele.select('g.warning-sign')
         .on('mouseover', function(d, i) {
             tip.show(d, i);
         })
@@ -493,7 +494,7 @@ function setupSDTooltip() {
             tip.hide(d, i);
         });
 
-    d3.select('#eg').call(tip);
+    ele.call(tip);
 }
 
 function formatTooltip(d) {
