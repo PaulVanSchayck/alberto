@@ -189,6 +189,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <div class="row">
                     <div class="col-lg-2 columns">
                         <b>General columns</b>
+                        <div class="sd">&nbsp;</div>
                         <div class="checkbox">
                             <label class="checkbox-inline"><input type="checkbox" value="" name="gene.gene"> Gene</label>
                         </div>
@@ -199,6 +200,7 @@ $intact = Yii::$app->params['experiments']['intact'];
 
                     <div class="col-lg-3 columns">
                         <b>Absolute expression</b>
+                        <div class="sd">SD</div>
                         <?php
                         foreach( $intact['columns'] as $column ) {
                             if ( $column['type'] != 'abs' ) {
@@ -216,6 +218,7 @@ $intact = Yii::$app->params['experiments']['intact'];
 
                     <div class="col-lg-3 columns">
                         <b>Spatial fold changes</b>
+                        <div class="sd">Q</div>
                         <?php
                         foreach( $intact['columns'] as $column ) {
                             if ( $column['type'] != 'fc_spt' ) {
@@ -233,6 +236,7 @@ $intact = Yii::$app->params['experiments']['intact'];
 
                     <div class="col-lg-4 columns">
                         <b>Temporal fold changes</b>
+                        <div class="sd">Q</div>
                         <?php
                         foreach( $intact['columns'] as $column ) {
                             if ( $column['type'] != 'fc_tmp' ) {

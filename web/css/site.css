@@ -235,6 +235,11 @@ pre.annotation {
 .checkbox-double input:last-of-type {
     margin-left: -40px;
 }
+.checkbox {
+    margin-top: 0;
+}
 #visibilityModal .sd {
-    padding-left: 40px;
+    margin-top: 10px;
+    padding-left: 20px;
+    font-size: 10px;
 }
