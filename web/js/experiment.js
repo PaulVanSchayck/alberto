@@ -484,7 +484,7 @@ function setupSDTooltip(ele) {
         .attr('class', 'd3-tip')
         .direction('e')
         .offset([0, 20])
-        .html( 'A tissue in this embryo has a high standard deviation' );
+        .html( 'A tissue in this embryo has a relative standard deviation above 50%' );
 
     ele.select('g.warning-sign')
         .on('mouseover', function(d, i) {
