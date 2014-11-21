@@ -174,13 +174,13 @@ div.svg svg g {
 }
 
 /* DataTables */
-#example tbody tr {
+#intactTable tbody tr {
     cursor: pointer;
 }
 tr.selected td {
     background-color: #b0bed9;
 }
-#example_wrapper {
+#intactTable_wrapper {
     font-size: 10px;
     white-space: nowrap;
 }
@@ -197,13 +197,13 @@ tr.selected td {
 .yadcf-filter-wrapper-inner {
     border: 0;
 }
-#yadcf-filter--example-0, #yadcf-filter--example-1, #yadcf-filter--example-2 {
+#yadcf-filter--intactTable-0, #yadcf-filter--intactTable-1, #yadcf-filter--intactTable-2 {
     width: 80px;
 }
 table.dataTable thead th {
     padding: 0 0 2px 0;
 }
-#example .tooltip-inner {
+#intactTable .tooltip-inner {
     white-space: pre-wrap;
 }
 

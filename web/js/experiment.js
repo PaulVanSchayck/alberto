@@ -58,7 +58,7 @@ function loadExperiment() {
     setupTooltip(hs);
     setupSDTooltip();
 
-    table = $('#example').DataTable({
+    table = $('#intactTable').DataTable({
         serverSide: true,
         stateSave: true,
         // experiment.loaded is responsible for loading the table
@@ -97,7 +97,7 @@ function loadExperiment() {
     // Setup YADCF filters
     yadcf.init(table, buildFilterColumns(intactColumns), 'header');
 
-    $('#example').on( 'search.dt', function () {
+    $('#intactTable').on( 'search.dt', function () {
         $(".filter_column input").removeClass('filtered');
         $(".filter_column input").each(function() {
             if( $(this).val() != '' ) {
@@ -108,7 +108,7 @@ function loadExperiment() {
     });
 
     table.on( 'draw.dt', function(){
-        $("#example").find('span[data-toggle=tooltip]').tooltip({'placement': 'bottom'});
+        $("#intactTable").find('span[data-toggle=tooltip]').tooltip({'placement': 'bottom'});
     } );
 
     // Poor mans method of injecting code into DataTables api
@@ -307,7 +307,7 @@ function showColumnType(type) {
 }
 
 function updateTableColors(type) {
-    $("#example tbody tr.selected td.type_" + type).css('background-color', function() {
+    $("#intactTable tbody tr.selected td.type_" + type).css('background-color', function() {
         return scale($(this).html())
     })
 }
@@ -519,7 +519,7 @@ function showGene(gene) {
 
     table.one( 'draw.dt', function() {
         if( table.data().length > 0 ) {
-            loadGeneFromRow('#example tbody tr:eq(0)');
+            loadGeneFromRow('#intactTable tbody tr:eq(0)');
         } else {
             $("#no-results").show();
         }

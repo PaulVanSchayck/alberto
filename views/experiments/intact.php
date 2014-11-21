@@ -265,7 +265,7 @@ $intact = Yii::$app->params['experiments']['intact'];
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-body">
-                <table id="example" class="display">
+                <table id="intactTable" class="display">
                     <thead>
                     <tr>
                         <th>AGI</th>
