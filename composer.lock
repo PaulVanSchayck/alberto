@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a6f4a4db3464af6f1b48795c494cad57",
+    "hash": "77b9fbc422ca0bd91a27fb912e2e2130",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -165,32 +165,6 @@
                 "library",
                 "table"
             ]
-        },
-        {
-            "name": "bower-asset/datatables-colvis",
-            "version": "1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DataTables/ColVis.git",
-                "reference": "8d069a5b39b5aa7e928593971afe3502dedbc9ef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/DataTables/ColVis/zipball/8d069a5b39b5aa7e928593971afe3502dedbc9ef",
-                "reference": "8d069a5b39b5aa7e928593971afe3502dedbc9ef",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/datatables": ">=1.7.0",
-                "bower-asset/jquery": ">=1.7.0"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "js/dataTables.colVis.js",
-                    "css/dataTables.colVis.css"
-                ]
-            }
         },
         {
             "name": "bower-asset/datatables-scroller",
