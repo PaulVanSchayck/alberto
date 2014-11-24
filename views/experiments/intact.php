@@ -143,7 +143,9 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <h3 class="panel-title">Tools</h3>
             </div>
             <div class="panel-body">
-                <p><button class="btn btn-default" id="clearfilters">Clear all filters &raquo;</button></p>
+
+                <button class="btn btn-default" id="clearfilters">Clear all filters &raquo;</button>
+                <p></p>
                 <?php Modal::begin([
                     'id' => 'exportModal',
                     'header' => '<h4 class="modal-title">Export to CSV file</h4>',
@@ -256,6 +258,15 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <p><b>SD:</b> Standard deviation</p>
                 <p><b>FC:</b> Fold change</p>
                 <p><b>Q:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
+                <?php Modal::end(); ?>
+                <p></p>
+                <?php Modal::begin([
+                    'id' => 'experimentModal',
+                    'header' => '<h4 class="modal-title">Experimental setup</h4>',
+                    'toggleButton' => ['tag' => 'button', 'label' => 'Show experimental setup &raquo;', 'class' => 'btn btn-default'],
+                    'size' => Modal::SIZE_DEFAULT
+                ]);?>
+                We aborted genetically modified embryos!
                 <?php Modal::end(); ?>
             </div>
         </div>
