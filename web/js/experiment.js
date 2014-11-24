@@ -92,7 +92,11 @@ function loadExperiment() {
         processing: true,
         scroller: {
             loadingIndicator: true
+        },
+        infoCallback: function( settings, start, end, max, total, pre ) {
+            return pre + " ordered by " + settings.aoColumns[settings.aaSorting[0][0]].sTitle
         }
+
     });
 
     // Setup YADCF filters
