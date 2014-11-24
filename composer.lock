@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "77b9fbc422ca0bd91a27fb912e2e2130",
+    "hash": "1d3b8f2b8af9b7bf935c609d5ebb34d7",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -237,16 +237,16 @@
         },
         {
             "name": "bower-asset/jquery.inputmask",
-            "version": "3.1.38",
+            "version": "3.1.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
-                "reference": "464cddbdea65411896468f40321e68abcc75a34c"
+                "reference": "b8f06eef3ccf9b8009607f30d47f66133670afc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/464cddbdea65411896468f40321e68abcc75a34c",
-                "reference": "464cddbdea65411896468f40321e68abcc75a34c",
+                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/b8f06eef3ccf9b8009607f30d47f66133670afc2",
+                "reference": "b8f06eef3ccf9b8009607f30d47f66133670afc2",
                 "shasum": ""
             },
             "require": {
@@ -400,6 +400,16 @@
                 "markdown-extra"
             ],
             "time": "2014-10-25 16:16:49"
+        },
+        {
+            "name": "eligrey/FileSaver.js",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eligrey/FileSaver.js.git",
+                "reference": "master"
+            },
+            "type": "library"
         },
         {
             "name": "ezyang/htmlpurifier",

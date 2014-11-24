@@ -14,7 +14,8 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/experiment.js',
         'js/navigation.js',
-        'js/colvis.js'
+        'js/colvis.js',
+        'js/canvas-toBlob.js'
     ];
     public $depends = [
         'app\assets\ModernizrAsset',

@@ -5,10 +5,9 @@ use yii\web\AssetBundle;
 
 class FilesaverAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    public $sourcePath = '@vendor/eligrey/FileSaver.js';
+
     public $js = [
-        'js/filesaver.js',
-        'js/canvas-toBlob.js'
+        'FileSaver.min.js',
     ];
 }
