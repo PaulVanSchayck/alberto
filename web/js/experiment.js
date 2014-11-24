@@ -229,6 +229,8 @@ function loadExperiment() {
         e.preventDefault();
         $dropdown.hide();
 
+        navInfo.setMode('abs')
+
         var tissue = $($dropdown.data('g')).attr('class');
         var stage =  $($dropdown.data('g')).parents('svg').attr('id');
         var column;
