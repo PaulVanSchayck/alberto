@@ -580,12 +580,12 @@ function buildDTColumns(columns) {
     ];
 
     for( var i = 0; i < columns.length; i++ ) {
-        r.push( { data: columns[i].field, name: columns[i].field, 'class': 'type_' + columns[i].type });
+        r.push( { data: columns[i].field, name: columns[i].field, 'class': 'type_' + columns[i].type, orderSequence:['desc','asc'] });
 
         if( columns[i].type == 'abs' ) {
-            r.push({data: columns[i].field + '_sd', name: columns[i].field + '_sd', visible: false});
+            r.push({data: columns[i].field + '_sd', name: columns[i].field + '_sd', visible: false, orderSequence:['desc','asc']});
         } else if (columns[i].type == 'fc_tmp' || columns[i].type == 'fc_spt') {
-            r.push({data: columns[i].field + '_q', name: columns[i].field + '_q', visible: false});
+            r.push({data: columns[i].field + '_q', name: columns[i].field + '_q', visible: false, orderSequence:['desc','asc']});
         }
     }
 
