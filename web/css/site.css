@@ -197,6 +197,9 @@ table.dataTable tbody tr {
 tr.selected td {
     background-color: #b0bed9;
 }
+tr.selected td.type_fc_spt,  tr.selected td.type_fc_tmp{
+    color: white;
+}
 table.dataTable {
     font-size: 10px;
     white-space: nowrap;
