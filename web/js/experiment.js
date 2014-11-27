@@ -47,7 +47,15 @@ function loadExperiment() {
                 updateColors(scale);
                 updateTableColors(navInfo.getMode());
             }
-        }).data('slider');
+        }).data('slider').disable();
+
+    $("#scale-input").change(function() {
+        if ( $(this).is(":checked") ) {
+            slider.enable()
+        } else {
+            slider.disable()
+        }
+    });
 
     var lg = d3.select('#lg');
     var eg = d3.select('#eg');
@@ -129,6 +137,7 @@ function loadExperiment() {
     $("#mode button a").tooltip({placement: 'bottom', container: 'body'});
 
     $("#gene-information .non-selected").tooltip({placement: 'bottom'});
+    $("#scale label").tooltip({placement: 'bottom'});
 
     $(".download-svg").click(function(e) {
         e.preventDefault();
