@@ -36,6 +36,9 @@ var lastRequest;
 var sdWarning = 0.5;
 
 function loadExperiment() {
+
+    // Scale settings
+
     var slider = $("#scale-slider")
         .slider({tooltip: 'always'})
         .on('slide', function() {
@@ -56,6 +59,38 @@ function loadExperiment() {
             slider.disable()
         }
     });
+
+    // Allow to change scale through clicking badge
+    $("#scale").on('click', '.badge', function() {
+        if ( !$("#scale-input").is(':checked') ) {
+            return false;
+        }
+        var $this = $(this);
+        var val = $this.text();
+        var $input = $('<input class="scale-domain" value=' + val + '>').on('change, focusout', function() {
+            var attr, $this = $(this);
+
+            if ( ! $.isNumeric($this.val()) ) {
+                return false;
+            }
+
+            if ( $this.prevAll('.slider').length !== 0 ) {
+                attr = 'max'
+            } else {
+                attr = 'min'
+            }
+
+            // Refresh slider and the scale through triggering a slide event
+            slider.setAttribute(attr, parseInt($this.val())).refresh();
+            $("#scale-slider").trigger('slide');
+
+            $this.replaceWith('<b class="badge">' + $this.val() + '</b>');
+        });
+        $this.replaceWith($input);
+        $input.focus()
+    });
+
+    // SVG images
 
     var lg = d3.select('#lg');
     var eg = d3.select('#eg');
@@ -243,7 +278,7 @@ function loadExperiment() {
         e.preventDefault();
         $dropdown.hide();
 
-        navInfo.setMode('abs')
+        navInfo.setMode('abs');
 
         var tissue = $($dropdown.data('g')).attr('class');
         var stage =  $($dropdown.data('g')).parents('svg').attr('id');
