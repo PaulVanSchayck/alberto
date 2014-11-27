@@ -44,7 +44,13 @@ function loadExperiment() {
         .on('slide', function() {
             // Eval is evil??
             var domain = eval( '[' + slider.getValue() + ']');
-            scale.domain(domain);
+
+            if ( navInfo.getMode() == "fc_spt" ||  navInfo.getMode() == "fc_tmp") {
+                scale.domain([domain[0], -1, 1, domain[1]]);
+            } else {
+                scale.domain(domain);
+            }
+
 
             if( navInfo.getGene() ) {
                 updateColors(scale);
