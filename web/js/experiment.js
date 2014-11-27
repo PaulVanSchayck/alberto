@@ -126,9 +126,9 @@ function loadExperiment() {
         loadGeneFromRow(this);
     } );
 
-    $("#mode button").tooltip({'placement': 'bottom', container: 'body'});
+    $("#mode button a").tooltip({placement: 'bottom', container: 'body'});
 
-    $("#gene-information .non-selected").tooltip({'placement': 'bottom'});
+    $("#gene-information .non-selected").tooltip({placement: 'bottom'});
 
     $(".download-svg").click(function(e) {
         e.preventDefault();
@@ -150,6 +150,7 @@ function loadExperiment() {
 
         navInfo.setMode($(this).data('mode'));
         $("#mode button").removeClass('btn-primary');
+        $("#mode li").removeClass('active');
         $this.addClass('btn-primary')
     });
 
@@ -160,8 +161,8 @@ function loadExperiment() {
         $("#mode button").removeClass('btn-primary');
         $a.closest('div').find('.dropdown-toggle').addClass('btn-primary');
 
-        $a.closest('ul').find('span.glyphicon-ok').remove();
-        $a.prepend('<span class="glyphicon glyphicon-ok"></span> ');
+        $a.closest('ul').find('.active').removeClass('active');
+        $a.closest('li').addClass('active');
         navInfo.setMode($a.data('mode'));
     });
 
@@ -315,6 +316,9 @@ function showColumnType(type) {
 
 function updateTableColors(type) {
     $("#intactTable tbody tr.selected td.type_" + type).css('background-color', function() {
+        return scale($(this).html())
+    });
+    $("#intactTable tbody tr.selected td.type_sd").css('background-color', function() {
         return scale($(this).html())
     })
 }
@@ -587,7 +591,13 @@ function buildDTColumns(columns) {
         r.push( { data: columns[i].field, name: columns[i].field, 'class': 'type_' + columns[i].type, orderSequence:['desc','asc'] });
 
         if( columns[i].type == 'abs' ) {
-            r.push({data: columns[i].field + '_sd', name: columns[i].field + '_sd', visible: false, orderSequence:['desc','asc']});
+            r.push({
+                data: columns[i].field + '_sd',
+                name: columns[i].field + '_sd',
+                'class': 'type_sd',
+                visible: false,
+                orderSequence:['desc','asc']
+            });
         } else if (columns[i].type == 'fc_tmp' || columns[i].type == 'fc_spt') {
             r.push({data: columns[i].field + '_q', name: columns[i].field + '_q', visible: false, orderSequence:['desc','asc']});
         }
