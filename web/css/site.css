@@ -218,6 +218,9 @@ table.dataTable {
     display: block;
     width: 80px;
 }
+input.inuse::selection {
+    background-color: orange;
+}
 .yadcf-filter-wrapper-inner {
     border: 0;
 }
