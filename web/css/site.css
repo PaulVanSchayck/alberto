@@ -235,6 +235,10 @@ input.inuse::selection {
     white-space: pre-wrap;
 }
 
+#intactTable span.sd-warning {
+    color: red;
+}
+
 /* Gene information */
 #gene-information .selected {
     display: none;

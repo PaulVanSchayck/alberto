@@ -34,6 +34,7 @@ var baseColors;
 var lastRequest;
 
 var sdWarning = 0.5;
+var rsdWarning = 50;
 
 function loadExperiment() {
 
@@ -644,8 +645,15 @@ function buildDTColumns(columns) {
             r.push({
                 data: columns[i].field + '_rsd',
                 name: columns[i].field + '_rsd',
+                render: function (data) {
+                    if ( data > rsdWarning) {
+                        return "<span class='sd-warning'>" + data + " </span>";
+                    } else {
+                         return data;
+                    }
+                },
                 'class': 'type_rsd',
-                visible: false,
+                visible: true,
                 orderSequence:['desc','asc']
             });
             r.push({
