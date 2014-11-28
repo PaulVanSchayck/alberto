@@ -471,7 +471,7 @@ function loadINTACT(data) {
                 fc_spt : parseRuleField( s.fc_spt, data),
                 fc_spt_q : parseRuleField( s.fc_spt, data,'_q'),
                 fc_tmp : parseRuleField( s.fc_tmp, data),
-                fc_tmp_q : parseRuleField( s.fc_spt, data,'_q')
+                fc_tmp_q : parseRuleField( s.fc_tmp, data,'_q')
             };
 
             if ( stageData[j].rsd > rsdWarning ) {
