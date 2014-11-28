@@ -467,11 +467,14 @@ function loadINTACT(data) {
                 name : s.name,
                 abs : parseRuleField( s.abs, data),
                 sd : parseRuleField( s.abs, data, '_sd'),
+                rsd : parseRuleField( s.abs, data, '_rsd'),
                 fc_spt : parseRuleField( s.fc_spt, data),
-                fc_tmp : parseRuleField( s.fc_tmp, data)
+                fc_spt_q : parseRuleField( s.fc_spt, data,'_q'),
+                fc_tmp : parseRuleField( s.fc_tmp, data),
+                fc_tmp_q : parseRuleField( s.fc_spt, data,'_q')
             };
 
-            if ( stageData[j].sd / stageData[j].abs > sdWarning ) {
+            if ( stageData[j].rsd > rsdWarning ) {
                 d3.select("#" + stageId + " g.warning-sign").attr('display','inline');
             }
         });
@@ -514,7 +517,7 @@ function setupTooltip(ele) {
             .on('mouseover', function(d, i){
 
                 // Check for big standard deviation
-                if ( d && (d.sd / d.abs) > sdWarning ) {
+                if ( d && d.rsd  > rsdWarning ) {
                     tip.attr('class', 'd3-tip large-sd')
                 } else {
                     tip.attr('class', 'd3-tip')
@@ -564,6 +567,19 @@ function formatTooltip(d) {
     r = "<p><span class='label label-success'>Tissue</span> " + d.name + " </p>";
     r += "<p><span class='label label-primary'>Expression value</span> " + d.abs+ "</p>";
     r += "<p class='sd'><span class='label label-primary'>Standard deviation</span> " + d.sd + "</p>";
+    if ( navInfo.getMode() == "abs" ) {
+        r += "<p class='sd'><span class='label label-primary'>%RSD</span> " + d.rsd + "</p>";
+    }
+
+    if ( navInfo.getMode() == "fc_spt" && d.fc_spt ) {
+        r += "<p><span class='label label-primary'>Spatial FC</span> " + d.fc_spt + "</p>";
+        r += "<p><span class='label label-primary'>q-value</span> " + d.fc_spt_q + "</p>";
+    }
+
+    if ( navInfo.getMode() == "fc_tmp" && d.fc_tmp ) {
+        r += "<p><span class='label label-primary'>Temporal FC</span> " + d.fc_tmp + "</p>";
+        r += "<p><span class='label label-primary'>q-value</span> " + d.fc_tmp_q + "</p>";
+    }
 
     return r;
 }
