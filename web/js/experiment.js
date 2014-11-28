@@ -227,11 +227,11 @@ function loadExperiment() {
                 .range(["green", "black","black", "red"]);
         } else if ( navInfo.getMode() == "abs" ) {
             slider.setAttribute('min', 0)
-                .setAttribute('max', 2000)
-                .setValue([30, 1000])
+                .setAttribute('max', 200)
+                .setValue([32, 100])
                 .refresh();
 
-            scale.domain([0, 1000])
+            scale.domain([32, 100])
                 .range(["yellow", "red"]);
         } else if ( navInfo.getMode() == "fc_tmp" ) {
             slider.setAttribute('min', -10)

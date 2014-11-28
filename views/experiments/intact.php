@@ -110,8 +110,8 @@ $intact = Yii::$app->params['experiments']['intact'];
             </div>
             <div class="panel-body" id="scale">
                 <b class="badge">0</b>
-                <input type="text" id="scale-slider" class="form-control" name="scale" data-slider-min="0" data-slider-max="2000" data-slider-step="1" data-slider-value="[30,1000]" data-plugin-name="slider" title="slider">
-                <b class="badge">2000</b>
+                <input type="text" id="scale-slider" class="form-control" name="scale" data-slider-min="0" data-slider-max="150" data-slider-step="1" data-slider-value="[32,100]" data-plugin-name="slider" title="slider">
+                <b class="badge">150</b>
                 <div class='checkbox'>
                     <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications."><input type='checkbox' id="scale-input" >Enable changing scale</label>
                 </div>
