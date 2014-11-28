@@ -169,7 +169,7 @@ function loadExperiment() {
     table.colvis = colvis($("#visibilityModal"), table);
 
     // Handle table clicks
-    $('tbody').on( 'click', 'tr', function () {
+    $('#intactTable tbody').on( 'click', 'tr', function () {
         var data = table.row(this).data();
         navInfo.setGene(data.gene_agi, true);
         loadGeneFromRow(this);
@@ -642,6 +642,13 @@ function buildDTColumns(columns) {
 
         if( columns[i].type == 'abs' ) {
             r.push({
+                data: columns[i].field + '_rsd',
+                name: columns[i].field + '_rsd',
+                'class': 'type_rsd',
+                visible: false,
+                orderSequence:['desc','asc']
+            });
+            r.push({
                 data: columns[i].field + '_sd',
                 name: columns[i].field + '_sd',
                 'class': 'type_sd',
@@ -681,6 +688,12 @@ function buildFilterColumns(columns) {
                 column_number: column_number++,
                 filter_type: "range_number",
                 filter_default_label : ["0", "&infin;"],
+                filter_delay: 500
+            });
+            r.push({
+                column_number: column_number++,
+                filter_type: "range_number",
+                filter_default_label: ["0", "100"],
                 filter_delay: 500
             });
             r.push({

@@ -260,27 +260,25 @@ pre.annotation {
 }
 
 /* Column visibility dialog */
-.checkbox-double label {
-    padding-left: 40px;
+#visibilityModal .checkbox-inline {
+    padding-left: 0;
 }
-#visibilityModal .checkbox input {
-    margin-left: 0;
+#visibilityModal input {
+    margin: 0;
 }
-#visibilityModal .checkbox-double input:first-of-type {
-    margin-left: 20px;
+#visibilityModal table.column-checkboxes {
+    margin-top: 20px;
 }
-#visibilityModal .checkbox {
-    margin-top: 0;
-    margin-bottom: 0;
+#visibilityModal th {
+    padding-bottom: 5px;
+    height: 20px;
+    white-space: nowrap;
 }
-#visibilityModal .sd {
-    margin-top: 10px;
-    padding-left: 20px;
-    position: relative;
-}
-#visibilityModal .sd span {
-    position: absolute;
-    margin-left: -20px;
+#visibilityModal th div {
+    -webkit-transform: rotate(315deg);
+    -moz-transform: rotate(315deg);
+    -o-transform: rotate(315deg);
+    width: 20px;
 }
 #visibilityModal {
     font-size: 85%;

@@ -4,20 +4,20 @@
 
 function colvis(modal, table){
 
-    modal.find('.column input').change( function(e, redraw) {
+    modal.find('.field input').change( function(e, redraw) {
         if ( redraw == undefined ) {
             redraw = true;
         }
         var $input = $(this);
-        table.column($input.attr('name') + ":name").visible($input.is(':checked'), redraw);
+        table.column($input.attr('id') + ":name").visible($input.is(':checked'), redraw);
     });
 
     modal.find('.all input').change( function() {
         var $this = $(this);
 
-        var selector = $this.is(':first-of-type') ? '.column input:first-of-type' : '.column input:last-of-type';
+        var idx = $this.parents('td').index();
 
-        $(this).parents('.columns').find(selector).prop('checked', $this.is(':checked')).trigger('change', [false]);
+        $(this).parents('.columns').find('tr.field td:nth-of-type('+ (idx + 1) +') input').prop('checked', $this.is(':checked')).trigger('change', [false]);
 
         // This seriously increases performance, when mass changing column visibility
         table.columns.adjust();
@@ -32,7 +32,7 @@ function colvis(modal, table){
 
             this.modal.find('input').each(function(i, input) {
                 var $input = $(input);
-                var visible = table.column($input.attr('name') + ":name").visible();
+                var visible = table.column($input.attr('id') + ":name").visible();
 
                 if ( visible === true ) {
                     $input.prop('checked', true)

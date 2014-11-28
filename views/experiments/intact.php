@@ -195,73 +195,112 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <div class="row">
                     <div class="col-lg-2 columns">
                         <b>General columns</b>
-                        <div class="sd">&nbsp;</div>
-                        <div class="checkbox column">
-                            <input type="checkbox" value="" name="gene.gene"><label class="checkbox-inline">Gene</label>
-                        </div>
-                        <div class="checkbox column">
-                            <input type="checkbox" value="" name="gene.annotation"><label class="checkbox-inline">Annotation</label>
-                        </div>
+                        <table class="column-checkboxes">
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tr class='field'>
+                                <td><input type="checkbox" id="gene.gene"></td>
+                                <td><label class="checkbox-inline" for="gene.gene">Gene</label></td>
+                            </tr>
+                            <tr class='field'>
+                                <td><input type="checkbox" id="gene.annotation"></td>
+                                <td><label class="checkbox-inline" for="gene.gene">Annotation</label>
+                            </td></tr>
+                        </table>
                     </div>
 
                     <div class="col-lg-3 columns">
                         <b>Absolute expression</b>
-                        <div class="sd"><span>E</span>SD</div>
-                        <?php
-                        foreach( $intact['columns'] as $column ) {
-                            if ( $column['type'] != 'abs' ) {
-                                continue;
+                        <table class="column-checkboxes">
+                            <tr>
+                                <th><div>Exp</div></th>
+                                <th><div>%RSD</div></th>
+                                <th><div>SD</div></th>
+                            </tr>
+
+                            <?php
+                            foreach( $intact['columns'] as $column ) {
+                                if ( $column['type'] != 'abs' ) {
+                                    continue;
+                                }
+                                echo "<tr class='field'>";
+                                echo "<td><input type='checkbox' id='{$column['field']}'></td>\n";
+                                echo "<td><input type='checkbox' id='{$column['field']}_rsd'></td>\n";
+                                echo "<td><input type='checkbox' id='{$column['field']}_sd'></td>\n";
+                                echo "<td><label for='{$column['field']}' class='checkbox-inline'>{$column['label']}</label></td>";
+                                echo "</tr>";
                             }
-                            echo "<div class='checkbox checkbox-double column'>\n";
-                                echo "<input type='checkbox' name='{$column['field']}_sd'><input type='checkbox' name='{$column['field']}'> <label class='checkbox-inline'>{$column['label']}</label>";
-                            echo "</div>";
-                        }
-                        ?>
-                        <div class="checkbox checkbox-double all">
-                            <input type="checkbox" name="all-sd" /><input type="checkbox" name="all" /> <label class='checkbox-inline'><b>All</b></label>
-                        </div>
+                            ?>
+                            <tr class="all">
+                                <td><input type="checkbox" name="all" /></td>
+                                <td><input type="checkbox" name="all-rsd" /></td>
+                                <td><input type="checkbox" name="all-sd" /></td>
+                                <td><b>All</b></td>
+                            </tr>
+                        </table>
                     </div>
 
                     <div class="col-lg-3 columns">
                         <b>Spatial fold changes</b>
-                        <div class="sd"><span>FC</span>Q</div>
-                        <?php
-                        foreach( $intact['columns'] as $column ) {
-                            if ( $column['type'] != 'fc_spt' ) {
-                                continue;
+                        <table class="column-checkboxes">
+                            <tr>
+                                <th><div>FC</div></th>
+                                <th><div>Q-value</div></th>
+                            </tr>
+                            <?php
+                            foreach( $intact['columns'] as $column ) {
+                                if ( $column['type'] != 'fc_spt' ) {
+                                    continue;
+                                }
+                                echo "<tr class='field'>";
+                                echo "<td><input type='checkbox' id='{$column['field']}'></td>\n";
+                                echo "<td><input type='checkbox' id='{$column['field']}_q'></td>\n";
+                                echo "<td><label for='{$column['field']}' class='checkbox-inline'>{$column['label']}</label></td>";
+                                echo "</tr>";
                             }
-                            echo "<div class='checkbox checkbox-double column'>\n";
-                            echo "<input type='checkbox' name='{$column['field']}_q'><input type='checkbox' name='{$column['field']}'> <label class='checkbox-inline'>{$column['label']}</label>";
-                            echo "</div>";
-                        }
-                        ?>
-                        <div class="checkbox checkbox-double all">
-                            <input type="checkbox" name="all" /><input type="checkbox" name="all-sd" /> <label class='checkbox-inline'><b>All</b></label>
-                        </div>
+                            ?>
+                            <tr class="all">
+                                <td><input type="checkbox" name="all" /></td>
+                                <td><input type="checkbox" name="all-q" /></td>
+                                <td><b>All</b></td>
+                            </tr>
+                        </table>
                     </div>
 
                     <div class="col-lg-4 columns">
                         <b>Temporal fold changes</b>
-                        <div class="sd"><span>FC</span>Q</div>
+                        <table class="column-checkboxes">
+                            <tr>
+                                <th><div>FC</div></th>
+                                <th><div>Q-value</div></th>
+                            </tr>
                         <?php
                         foreach( $intact['columns'] as $column ) {
                             if ( $column['type'] != 'fc_tmp' ) {
                                 continue;
                             }
-                            echo "<div class='checkbox checkbox-double column'>\n";
-                            echo "<input type='checkbox' name='{$column['field']}_q'><input type='checkbox' name='{$column['field']}'> <label class='checkbox-inline'>{$column['label']}</label>";
-                            echo "</div>";
+                            echo "<tr class='field'>";
+                            echo "<td><input type='checkbox' id='{$column['field']}'></td>\n";
+                            echo "<td><input type='checkbox' id='{$column['field']}_q'></td>\n";
+                            echo "<td><label for='{$column['field']}' class='checkbox-inline'>{$column['label']}</label></td>";
+                            echo "</tr>";
                         }
                         ?>
-                        <div class="checkbox checkbox-double all">
-                            <input type="checkbox" name="all" /><input type="checkbox" name="all-sd" /> <label class='checkbox-inline'><b>All</b></label>
-                        </div>
+                            <tr class="all">
+                                <td><input type="checkbox" name="all" /></td>
+                                <td><input type="checkbox" name="all-q" /></td>
+                                <td><b>All</b></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
-                <p><b>E:</b> Expression</p>
+                <p><b>Exp:</b> Expression</p>
+                <p><b>%RSD:</b> Relative Standard deviation</p>
                 <p><b>SD:</b> Standard deviation</p>
                 <p><b>FC:</b> Fold change</p>
-                <p><b>Q:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
+                <p><b>Q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                 <?php Modal::end(); ?>
                 <p></p>
                 <?php Modal::begin([
@@ -288,6 +327,7 @@ $intact = Yii::$app->params['experiments']['intact'];
 foreach( $intact['columns'] as $column ) {
     echo "<th>{$column['label']}</th>\n";
     if ( $column['type'] == 'abs' ) {
+        echo "<th>{$column['label']} %RSD</th>\n";
         echo "<th>{$column['label']} SD</th>\n";
     } else if ( $column['type'] == 'fc_tmp' ) {
         echo "<th>{$column['label']} Q</th>\n";
