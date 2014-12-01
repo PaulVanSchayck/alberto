@@ -134,7 +134,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                             Fold changes <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li class="active"><a href="#" data-mode="fc_spt" target="_blank" data-toggle="tooltip"><b>Spatial</b> - A tissue compared to the whole embryo.</a></li>
+                            <li><a href="#" data-mode="fc_spt" target="_blank" data-toggle="tooltip"><b>Spatial</b> - A tissue compared to the whole embryo.</a></li>
                             <li><a href="#" data-mode="fc_tmp" target="_blank"><b>Temporal</b> - A tissue compared to it predecessor in the previous stage</a></li>
                         </ul>
                     </div>

@@ -200,20 +200,12 @@ function loadExperiment() {
         }
 
         navInfo.setMode($(this).data('mode'));
-        $("#mode button").removeClass('btn-primary');
-        $("#mode li").removeClass('active');
-        $this.addClass('btn-primary')
     });
 
     $("#mode button.dropdown-toggle").parent().find('a').on('click', function(e){
         var $a = $(this);
         e.preventDefault();
 
-        $("#mode button").removeClass('btn-primary');
-        $a.closest('div').find('.dropdown-toggle').addClass('btn-primary');
-
-        $a.closest('ul').find('.active').removeClass('active');
-        $a.closest('li').addClass('active');
         navInfo.setMode($a.data('mode'));
     });
 
@@ -248,6 +240,7 @@ function loadExperiment() {
         $("#scale b:last").html(slider.getAttribute('max'));
 
         $("#intact").removeClass('abs fc_spt fc_tmp').addClass(navInfo.getMode());
+        highlightActiveMode(navInfo.getMode());
 
         showColumnType(navInfo.getMode());
         showScale(scale);
@@ -515,6 +508,17 @@ function loadINTACT(data) {
     });
 
     updateColors(scale);
+}
+
+function highlightActiveMode(mode) {
+    $("#mode button").removeClass('btn-primary');
+    $("#mode li").removeClass('active');
+
+    $("#mode button[data-mode="+mode+"]").addClass('btn-primary');
+
+    $("#mode li a[data-mode="+mode+"]")
+        .closest('li').addClass('active')
+        .closest('div').find('button').addClass('btn-primary');
 }
 
 function retrieveFillColor(ele) {
