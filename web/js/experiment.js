@@ -33,8 +33,8 @@ var table;
 var baseColors;
 var lastRequest;
 
-var sdWarning = 0.5;
 var rsdWarning = 50;
+var qWarning = 0.1;
 
 function loadExperiment() {
 
@@ -247,6 +247,8 @@ function loadExperiment() {
         $("#scale b:first").html(slider.getAttribute('min'));
         $("#scale b:last").html(slider.getAttribute('max'));
 
+        $("#intact").removeClass('abs fc_spt fc_tmp').addClass(navInfo.getMode());
+
         showColumnType(navInfo.getMode());
         showScale(scale);
 
@@ -450,9 +452,9 @@ function parseRuleField( field, data, postfix ) {
 function loadINTACT(data) {
 
     $.each( intactRules, function(stageId, stage)  {
-        var stageData = [];
+        var stageData = [], warning = { 'abs' : false, 'fc_spt': false, 'fc_tmp': false };
 
-        d3.select("#" + stageId + " g.warning-sign").attr('display','none');
+        d3.select("#" + stageId + " g.warning-sign").classed(warning);
 
         $.each(tissues, function(j, tissue) {
             var s;
@@ -474,10 +476,14 @@ function loadINTACT(data) {
                 fc_tmp_q : parseRuleField( s.fc_tmp, data,'_q')
             };
 
-            if ( stageData[j].rsd > rsdWarning ) {
-                d3.select("#" + stageId + " g.warning-sign").attr('display','inline');
-            }
+            warning = {
+                'abs': stageData[j].rsd > rsdWarning && !warning.abs ? true : warning.abs ,
+                'fc_spt': stageData[j].fc_spt_q > qWarning && !warning.fc_spt ? true : warning.fc_spt,
+                'fc_tmp': stageData[j].fc_tmp_q > qWarning && !warning.fc_tmp ? true : warning.fc_tmp
+            };
         });
+
+        d3.select("#" + stageId + " g.warning-sign").classed(warning);
 
         assignData(d3.select("#"+stageId), stageData);
     });
@@ -548,7 +554,13 @@ function setupSDTooltip(ele) {
         .attr('class', 'd3-tip')
         .direction('e')
         .offset([0, 20])
-        .html( 'A tissue in this embryo has a relative standard deviation above 50%' );
+        .html( function() {
+            if ( navInfo.getMode() == 'abs' ) {
+                return 'A tissue in this embryo has a relative standard deviation above 50%'
+            } else {
+                return 'A fold change in this embryo has a q-value above 0.1'
+            }
+        } );
 
     ele.select('g.warning-sign')
         .on('mouseover', function(d, i) {
@@ -567,8 +579,9 @@ function formatTooltip(d) {
     r = "<p><span class='label label-success'>Tissue</span> " + d.name + " </p>";
     r += "<p><span class='label label-primary'>Expression value</span> " + d.abs+ "</p>";
     r += "<p class='sd'><span class='label label-primary'>Standard deviation</span> " + d.sd + "</p>";
+
     if ( navInfo.getMode() == "abs" ) {
-        r += "<p class='sd'><span class='label label-primary'>%RSD</span> " + d.rsd + "</p>";
+        r += "<p class='sd'><span class='label label-primary'>%RSD</span> " + d.rsd + "%</p>";
     }
 
     if ( navInfo.getMode() == "fc_spt" && d.fc_spt ) {

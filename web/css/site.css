@@ -171,6 +171,16 @@ div.svg svg g {
     cursor: pointer;
 }
 
+#intact.abs g.warning-sign.abs {
+    display: inline;
+}
+#intact.fc_tmp g.warning-sign.fc_tmp {
+    display: inline;
+}
+#intact.fc_spt g.warning-sign.fc_spt {
+    display: inline;
+}
+
 .download-drop {
     color: inherit;
 }
@@ -257,7 +267,7 @@ pre.annotation {
     width: 50px;
 }
 
-/* SVG Dropdown menu */
+/* SVGSVG Dropdown menu */
 .dropdown-menu.actions {
     display: none;
     position: absolute;
