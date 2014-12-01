@@ -283,11 +283,9 @@ function loadExperiment() {
         event.stopPropagation();
     });
 
-    $dropdown.click(function(e) {
+    $dropdown.find('a').click(function(e) {
         e.preventDefault();
         $dropdown.hide();
-
-        navInfo.setMode('abs');
 
         var tissue = $($dropdown.data('g')).attr('class');
         var stage =  $($dropdown.data('g')).parents('svg').attr('id');
@@ -304,9 +302,37 @@ function loadExperiment() {
             return false;
         }
 
-        table.order([columnIdx, 'desc']);
-        yadcf.exResetAllFilters(table);
-        yadcf.exFilterColumn(table, [[columnIdx, {from:100}]], true);
+        if ( $(this).hasClass('highest') ) {
+            navInfo.setMode('abs');
+
+            table.order([columnIdx, 'desc']);
+            yadcf.exResetAllFilters(table);
+            yadcf.exFilterColumn(table, [[columnIdx, {from: 100}]], true);
+
+            return false;
+        }
+
+        if ( $(this).hasClass('not-expressed') ) {
+            navInfo.setMode('abs');
+
+            table.order([columnIdx, 'asc']);
+            yadcf.exResetAllFilters(table);
+            yadcf.exFilterColumn(table, [[columnIdx, {to: 32}]], true);
+
+            return false;
+        }
+
+        if ( $(this).hasClass('enriched') ) {
+            navInfo.setMode('fc_spt');
+
+            columnIdx = table.column(intactRules[stage][tissue].fc_spt + ":name").index();
+
+            table.order([columnIdx, 'asc']);
+            yadcf.exResetAllFilters(table);
+            yadcf.exFilterColumn(table, [[columnIdx, {from: 2}]], true);
+
+            return false;
+        }
     });
 
     var ngenes = $("#exportModal .ngenes").slider().data('slider');
@@ -593,6 +619,8 @@ function formatTooltip(d) {
         r += "<p><span class='label label-primary'>Temporal FC</span> " + d.fc_tmp + "</p>";
         r += "<p><span class='label label-primary'>q-value</span> " + d.fc_tmp_q + "</p>";
     }
+
+    r += "<p>Click tissue for actions</p>"
 
     return r;
 }

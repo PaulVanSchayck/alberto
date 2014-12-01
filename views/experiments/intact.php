@@ -5,7 +5,9 @@ $intact = Yii::$app->params['experiments']['intact'];
 ?>
 
 <ul class="dropdown-menu actions" role="menu">
-    <li><a href="#">Show highest expressed genes in this tissue</a></li>
+    <li><a class='highest' href="#">Show highest expressed genes in this tissue</a></li>
+    <li><a class='not-expressed' href="#">Show genes not expressed in this tissue</a></li>
+    <li><a class='enriched' href="#">Show genes enriched in this tissue</a></li>
 </ul>
 
 <div class="row svg-images">
