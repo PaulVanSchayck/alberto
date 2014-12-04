@@ -62,7 +62,10 @@ $this->title = 'AlBERTO';
             <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Transcriptome of individual cell types">Individual cell types</a>
         </li>
         <li data-toggle="tab">
-            <a href="#mp" data-exp="monopteros" data-toggle="tooltip" data-original-title="Transcriptome of MP mutant compared to WT"><i>Monopteros</i> mutants</a>
+            <a href="#monopteros" data-exp="monopteros" data-toggle="tooltip" data-original-title="Transcriptome of MP mutant compared to WT"><i>Monopteros</i> embryo proper</a>
+        </li>
+        <li data-toggle="tab">
+            <a href="#mp-suspensor" data-exp="mp-suspensor" data-toggle="tooltip" data-original-title="Transcriptome of MP mutant compared to WT"><i>Monopteros</i> suspensor</a>
         </li>
         <li data-toggle="tab" class="disabled">
             <a href="#" data-toggle="tooltip" data-original-title="FACS gradient of root">Root gradients</a>
@@ -74,5 +77,6 @@ $this->title = 'AlBERTO';
         <div class="tab-pane active" id="start"></div>
         <div class="tab-pane active" id="intact"></div>
         <div class="tab-pane active" id="monopteros"></div>
+        <div class="tab-pane active" id="mp-suspensor"></div>
     </div>
 </div>
