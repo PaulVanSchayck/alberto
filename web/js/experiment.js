@@ -441,13 +441,19 @@ function updateColors(colorScale, useIndex) {
 }
 
 function showScale(colorScale) {
+    var ticks = colorScale.ticks(20);
+
     var div = d3.select(".slider-selection").selectAll('div')
-        .data(colorScale.ticks(20).slice(0,19));
+        .data(ticks);
 
     div.enter().append('div')
         .attr('class','slider-scale');
 
-    div.style('background-color',function(d) { return colorScale(d) });
+    div.exit().remove();
+
+    div
+        .style('background-color',function(d) { return colorScale(d) })
+        .style('width', (Math.floor(100 / ticks.length * 10) / 10) + "%");
 
 }
 

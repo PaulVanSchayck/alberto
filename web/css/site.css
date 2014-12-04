@@ -261,11 +261,13 @@ pre.annotation {
 /* slider scale */
 .slider-scale {
     float: left;
-    width: 5%;
     height: 10px;
 }
 #scale .scale-domain {
     width: 50px;
+}
+#scale .slider.slider-horizontal {
+    width: 75%;
 }
 
 /* SVG Dropdown menu */
