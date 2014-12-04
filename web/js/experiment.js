@@ -648,7 +648,7 @@ function formatTooltip(d) {
         r += "<p><span class='label label-primary'>Expression value</span> " + d.abs+ "</p>";
         warning = d.rsd > rsdWarning ? 'warning' : '';
         r += "<p class='sd " + warning + "'><span class='label label-primary'>Standard deviation</span> " + d.sd + "</p>";
-        r += "<p class='sd " + warning + "'><span class='label label-primary'>%RSD</span> " + d.rsd.toFixed(1) + "%</p>";
+        r += "<p class='sd " + warning + "'><span class='label label-primary'>%RSD</span> " + (d.rsd.toFixed ? d.rsd.toFixed(1) + "%" : d.rsd) + "</p>";
     }
 
     if ( navInfo.getMode() == "fc_spt" && d.fc_spt ) {
