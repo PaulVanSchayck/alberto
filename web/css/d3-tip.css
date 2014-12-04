@@ -14,7 +14,7 @@
     margin-right: 10px;
 }
 
-.d3-tip.large-sd .sd {
+.sd.warning, .q.warning {
     color: red;
 }
 

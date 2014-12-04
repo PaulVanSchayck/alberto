@@ -34,7 +34,7 @@ var baseColors;
 var lastRequest;
 
 var rsdWarning = 50;
-var qWarning = 0.1;
+var qWarning = 0.05;
 
 function loadExperiment() {
 
@@ -552,13 +552,6 @@ function setupTooltip(ele) {
         ele.select('.' + tissue)
             .on('mouseover', function(d, i){
 
-                // Check for big standard deviation
-                if ( d && d.rsd  > rsdWarning ) {
-                    tip.attr('class', 'd3-tip large-sd')
-                } else {
-                    tip.attr('class', 'd3-tip')
-                }
-
                 tip.show(d, i);
 
                 var g = d3.select(this);
@@ -588,7 +581,7 @@ function setupSDTooltip(ele) {
             if ( navInfo.getMode() == 'abs' ) {
                 return 'A tissue in this embryo has a relative standard deviation above 50%'
             } else {
-                return 'A fold change in this embryo has a q-value above 0.1'
+                return 'A fold change in this embryo has a q-value above 0.05'
             }
         } );
 
@@ -604,24 +597,27 @@ function setupSDTooltip(ele) {
 }
 
 function formatTooltip(d) {
-    var r;
+    var r, warning;
 
     r = "<p><span class='label label-success'>Tissue</span> " + d.name + " </p>";
 
     if ( navInfo.getMode() == "abs" ) {
         r += "<p><span class='label label-primary'>Expression value</span> " + d.abs+ "</p>";
-        r += "<p class='sd'><span class='label label-primary'>Standard deviation</span> " + d.sd + "</p>";
-        r += "<p class='sd'><span class='label label-primary'>%RSD</span> " + d.rsd.toFixed(1) + "%</p>";
+        warning = d.rsd > rsdWarning ? 'warning' : '';
+        r += "<p class='sd " + warning + "'><span class='label label-primary'>Standard deviation</span> " + d.sd + "</p>";
+        r += "<p class='sd " + warning + "'><span class='label label-primary'>%RSD</span> " + d.rsd.toFixed(1) + "%</p>";
     }
 
     if ( navInfo.getMode() == "fc_spt" && d.fc_spt ) {
+        warning = d.fc_spt_q > qWarning ? 'warning' : '';
         r += "<p><span class='label label-primary'>Spatial FC</span> " + d.fc_spt + "</p>";
-        r += "<p><span class='label label-primary'>q-value</span> " + d.fc_spt_q + "</p>";
+        r += "<p class='q " + warning + "'><span class='label label-primary'>q-value</span> " + d.fc_spt_q + "</p>";
     }
 
     if ( navInfo.getMode() == "fc_tmp" && d.fc_tmp ) {
+        warning = d.fc_tmp_q > qWarning ? 'warning' : '';
         r += "<p><span class='label label-primary'>Temporal FC</span> " + d.fc_tmp + "</p>";
-        r += "<p><span class='label label-primary'>q-value</span> " + d.fc_tmp_q + "</p>";
+        r += "<p class='q " + warning + "'><span class='label label-primary'>q-value</span> " + d.fc_tmp_q + "</p>";
     }
 
     r += "<p>Click tissue for actions</p>";
