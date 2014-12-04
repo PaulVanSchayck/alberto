@@ -5,9 +5,21 @@ $intact = Yii::$app->params['experiments']['intact'];
 ?>
 
 <ul class="dropdown-menu actions" role="menu">
-    <li><a class='highest' href="#">Show highest expressed genes in this tissue</a></li>
-    <li><a class='not-expressed' href="#">Show genes not expressed in this tissue</a></li>
-    <li><a class='enriched' href="#">Show genes enriched in this tissue</a></li>
+    <li class="dropdown-submenu">
+        <a tabindex="-1" href="#">Absolute expression</a>
+        <ul class="dropdown-menu">
+            <li><a class='highest' href="#">Show highest expressed genes in this tissue</a></li>
+            <li><a class='not-expressed' href="#">Show genes not expressed in this tissue</a></li>
+        </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-submenu">
+        <a tabindex="-1" href="#">Fold changes</a>
+        <ul class="dropdown-menu">
+            <li><a class='enriched' href="#">Show genes enriched in this tissue</a></li>
+            <li><a class='enriched significant' href="#">Show statistically significant genes enriched in this tissue</a></li>
+        </ul>
+    </li>
 </ul>
 
 <div class="row svg-images">

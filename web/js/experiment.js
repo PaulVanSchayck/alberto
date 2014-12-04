@@ -320,9 +320,20 @@ function loadExperiment() {
 
             columnIdx = table.column(intactRules[stage][tissue].fc_spt + ":name").index();
 
+            yadcf.exResetAllFilters(table, true);
+
+            var filter = [
+                [columnIdx, {from: 2}]
+            ];
+
+            if ( $(this).hasClass('significant') ) {
+                table.column(columnIdx + 1).visible(true);
+                filter.push([columnIdx + 1, {to: 0.05}])
+            }
+
+            yadcf.exFilterColumn(table, filter, true);
+
             table.order([columnIdx, 'asc']);
-            yadcf.exResetAllFilters(table);
-            yadcf.exFilterColumn(table, [[columnIdx, {from: 2}]], true);
 
             return false;
         }
