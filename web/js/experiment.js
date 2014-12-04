@@ -611,7 +611,7 @@ function formatTooltip(d) {
     r += "<p class='sd'><span class='label label-primary'>Standard deviation</span> " + d.sd + "</p>";
 
     if ( navInfo.getMode() == "abs" ) {
-        r += "<p class='sd'><span class='label label-primary'>%RSD</span> " + d.rsd + "%</p>";
+        r += "<p class='sd'><span class='label label-primary'>%RSD</span> " + d.rsd.toFixed(1) + "%</p>";
     }
 
     if ( navInfo.getMode() == "fc_spt" && d.fc_spt ) {
@@ -624,7 +624,7 @@ function formatTooltip(d) {
         r += "<p><span class='label label-primary'>q-value</span> " + d.fc_tmp_q + "</p>";
     }
 
-    r += "<p>Click tissue for actions</p>"
+    r += "<p>Click tissue for actions</p>";
 
     return r;
 }
@@ -708,9 +708,9 @@ function buildDTColumns(columns) {
                 name: columns[i].field + '_rsd',
                 render: function (data) {
                     if ( data > rsdWarning) {
-                        return "<span class='sd-warning'>" + data + " </span>";
+                        return "<span class='sd-warning'>" + data.toFixed(1) + " </span>";
                     } else {
-                         return data;
+                         return data.toFixed(1);
                     }
                 },
                 'class': 'type_rsd',
