@@ -264,7 +264,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                         <table class="column-checkboxes">
                             <tr>
                                 <th><div>FC</div></th>
-                                <th><div>Q-value</div></th>
+                                <th><div>q-value</div></th>
                             </tr>
                             <?php
                             foreach( $intact['columns'] as $column ) {
@@ -291,7 +291,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                         <table class="column-checkboxes">
                             <tr>
                                 <th><div>FC</div></th>
-                                <th><div>Q-value</div></th>
+                                <th><div>q-value</div></th>
                             </tr>
                         <?php
                         foreach( $intact['columns'] as $column ) {
@@ -317,7 +317,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <p><b>%RSD:</b> Relative Standard deviation</p>
                 <p><b>SD:</b> Standard deviation</p>
                 <p><b>FC:</b> Fold change</p>
-                <p><b>Q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
+                <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                 <?php Modal::end(); ?>
                 <p></p>
                 <?php Modal::begin([
