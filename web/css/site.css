@@ -15,8 +15,13 @@ body {
 }
 
 @media (min-width: 1200px) {
-    .wrap > .container {
+    .container {
         width: 90%;
+    }
+}
+@media (max-width: 768px) {
+    .nav-tabs > li {
+        float:none;
     }
 }
 

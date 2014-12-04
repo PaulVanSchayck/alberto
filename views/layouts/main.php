@@ -26,7 +26,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'AlBERTO - AraBidopsis EmbRyonic Transcriptome brOwser',
+                'brandLabel' => 'AlBERTO</a> <span class="navbar-text">AraBidopsis EmbRyonic Transcriptome brOwser</span> <a>',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-default',
@@ -58,7 +58,8 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; Wageningen University <?= date('Y') ?></p>
+            <p class="pull-left"><a href="http://www.wageningenur.nl" target="_blank"><img alt="Wageingen UR logo" src="/images/wur-logo.png" /></a></p>
+            <p class="pull-right">&copy; Wageningen University <?= date('Y') ?></p>
         </div>
     </footer>
 
