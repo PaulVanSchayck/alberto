@@ -607,10 +607,10 @@ function formatTooltip(d) {
     var r;
 
     r = "<p><span class='label label-success'>Tissue</span> " + d.name + " </p>";
-    r += "<p><span class='label label-primary'>Expression value</span> " + d.abs+ "</p>";
-    r += "<p class='sd'><span class='label label-primary'>Standard deviation</span> " + d.sd + "</p>";
 
     if ( navInfo.getMode() == "abs" ) {
+        r += "<p><span class='label label-primary'>Expression value</span> " + d.abs+ "</p>";
+        r += "<p class='sd'><span class='label label-primary'>Standard deviation</span> " + d.sd + "</p>";
         r += "<p class='sd'><span class='label label-primary'>%RSD</span> " + d.rsd.toFixed(1) + "%</p>";
     }
 
