@@ -581,6 +581,20 @@ function setupTooltip(ele) {
                     g.transition().style("opacity", 0.5);
                 }
 
+                var $g = $(this);
+                var tissue = $g.attr('class');
+                var stage =  $g.parents('svg').attr('id');
+                var column;
+
+                if( intactRules[stage][tissue] ) {
+                    column = intactRules[stage][tissue].abs
+                } else {
+                    column = intactRules[stage]['*'].abs
+                }
+                var columnIdx = table.column(column + ":name").index();
+
+                $(table.column( columnIdx ).nodes()).addClass('highlight');
+
             })
             .on('mouseout', function(d, i) {
                 tip.hide(d, i);
@@ -590,6 +604,7 @@ function setupTooltip(ele) {
                 if ( g.attr('in-transition') == undefined || g.attr('in-transition') == 'no' ) {
                     g.transition().style("opacity", 1);
                 }
+                $( table.cells().nodes() ).removeClass( 'highlight' );
             })
     });
 }
