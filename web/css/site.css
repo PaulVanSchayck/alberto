@@ -281,7 +281,7 @@ pre.annotation {
     margin: 0;
 }
 #visibilityModal table.column-checkboxes {
-    margin-top: 20px;
+    margin-top: 40px;
 }
 #visibilityModal th {
     padding-bottom: 5px;
@@ -296,4 +296,8 @@ pre.annotation {
 }
 #visibilityModal {
     font-size: 85%;
+}
+
+#visibilityModal p:first-of-type {
+    margin-top: 20px;
 }
