@@ -59,10 +59,10 @@ $this->title = 'AlBERTO';
             <a href="#start" data-exp="start" data-toggle="tooltip" data-original-title="Start here"><span class="glyphicon glyphicon-home"></span></a>
         </li>
         <li data-toggle="tab">
-            <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Transcriptome of individual cell types">Embryonic cell types</a>
+            <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Transcriptome of individual cell types">Individual cell types</a>
         </li>
         <li data-toggle="tab">
-            <a href="#mp" data-exp="mp" data-toggle="tooltip" data-original-title="Transcriptome of MP mutant compared to WT"><i>Monopteros</i> mutants transcriptome</a>
+            <a href="#mp" data-exp="monopteros" data-toggle="tooltip" data-original-title="Transcriptome of MP mutant compared to WT"><i>Monopteros</i> mutants</a>
         </li>
         <li data-toggle="tab" class="disabled">
             <a href="#" data-toggle="tooltip" data-original-title="FACS gradient of root">Root gradients</a>
@@ -73,6 +73,6 @@ $this->title = 'AlBERTO';
     <div class="tab-content">
         <div class="tab-pane active" id="start"></div>
         <div class="tab-pane active" id="intact"></div>
-        <div class="tab-pane active" id="mp"></div>
+        <div class="tab-pane active" id="monopteros"></div>
     </div>
 </div>

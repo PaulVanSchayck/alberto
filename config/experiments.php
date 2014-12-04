@@ -134,5 +134,11 @@ return [
                 ]
             ]
         ]
+    ],
+
+    'monopteros' => [
+        'template' => 'monopteros.php',
+        'loader' => 'loadExperiment',
+        'columns' => []
     ]
 ];
