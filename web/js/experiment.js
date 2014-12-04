@@ -398,12 +398,23 @@ function showColumnType(type) {
 }
 
 function updateTableColors(type) {
-    $("#intactTable tbody tr.selected td.type_" + type).css('background-color', function() {
-        return scale($(this).html())
-    });
-    $("#intactTable tbody tr.selected td.type_sd").css('background-color', function() {
-        return scale($(this).html())
-    })
+    $("#intactTable tbody tr.selected td.type_" + type)
+        .css('background-color', function() {
+            return scale($(this).html())
+        })
+        .css('color', function() {
+            // Find contrasting color
+            // From: http://ux.stackexchange.com/questions/8297/choosing-high-contrast-text-color-in-relation-to-background-color-dynamically
+            var c = d3.rgb(scale($(this).html()));
+
+            var y = 0.2126 * Math.pow(c.r/255,2.2)  +  0.7151 * Math.pow(c.g/255,2.2)  +  0.0721 * Math.pow(c.b/255,2.2);
+
+            if ( y > 0.25 ) {
+                return 'black';
+            } else {
+                return 'white'
+            }
+        });
 }
 
 function updateColors(colorScale, useIndex) {
@@ -662,11 +673,11 @@ function unShowGene() {
 
     hideGeneInformation();
 
-    $("tbody tr.selected").removeClass("selected").find('td').css('background-color','');
+    $("tbody tr.selected").removeClass("selected").find('td').css('background-color','').css('color','');
 }
 
 function loadGeneFromRow(row) {
-    $("tbody tr.selected").removeClass("selected").find('td').css('background-color','');
+    $("tbody tr.selected").removeClass("selected").find('td').css('background-color','').css('color','');
     $(row).addClass("selected");
     updateTableColors(navInfo.getMode());
 
