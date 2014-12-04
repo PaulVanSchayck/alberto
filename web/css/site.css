@@ -292,6 +292,7 @@ pre.annotation {
     -webkit-transform: rotate(315deg);
     -moz-transform: rotate(315deg);
     -o-transform: rotate(315deg);
+    -ms-transform: rotate(315deg);
     width: 20px;
 }
 #visibilityModal {
