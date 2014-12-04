@@ -176,7 +176,7 @@ function loadExperiment() {
         loadGeneFromRow(this);
     } );
 
-    $("#mode button a").tooltip({placement: 'bottom', container: 'body'});
+    $("#mode button").tooltip({placement: 'bottom', container: 'body'});
 
     $("#gene-information .non-selected").tooltip({placement: 'bottom'});
     $("#scale label").tooltip({placement: 'bottom'});

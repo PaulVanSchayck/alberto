@@ -118,6 +118,9 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <div class='checkbox'>
                     <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications."><input type='checkbox' id="scale-input" >Enable changing scale</label>
                 </div>
+                <p>
+                    Values below 32 are considered not expressed.
+                </p>
             </div>
         </div>
     </div>
