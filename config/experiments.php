@@ -70,6 +70,11 @@ return [
                 'type' => 'fc_tmp',
                 'label' => 'FC Embryo LG/Embryo EG'
             ],
+            [
+                'field' => 'fc_qc_hs_suspensor_eg',
+                'type' => 'fc_tmp',
+                'label' => 'FC QC HS / Suspensor EG'
+            ],
         ],
 
         // Rules for setting colors
@@ -123,7 +128,7 @@ return [
                     'name' => 'QC',
                     'abs' => 'qc_hs',
                     'fc_spt' => 'no-data',
-                    'fc_tmp' => 'no-data'
+                    'fc_tmp' => 'fc_qc_hs_suspensor_eg'
                 ],
 
                 '*' => [
