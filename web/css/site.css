@@ -275,6 +275,12 @@ pre.annotation {
 .scale .slider.slider-horizontal {
     width: 75%;
 }
+.scale .mode-abs {
+    display: none;
+}
+#intact.abs .scale .mode-abs {
+    display: block;
+}
 
 /* SVG Dropdown menu */
 .dropdown-menu.actions {
