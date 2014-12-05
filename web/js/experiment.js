@@ -40,7 +40,7 @@ function loadExperiment() {
 
     // Scale settings
 
-    var slider = $("#scale-slider")
+    var slider = $("#intact .scale-slider")
         .slider({tooltip: 'always'})
         .on('slide', function() {
             // Eval is evil??
@@ -59,7 +59,7 @@ function loadExperiment() {
             }
         }).data('slider').disable();
 
-    $("#scale-input").change(function() {
+    $("#intact .scale-input").change(function() {
         if ( $(this).is(":checked") ) {
             slider.enable()
         } else {
@@ -68,8 +68,8 @@ function loadExperiment() {
     });
 
     // Allow to change scale through clicking badge
-    $("#scale").on('click', '.badge', function() {
-        if ( !$("#scale-input").is(':checked') ) {
+    $("#intact .scale").on('click', '.badge', function() {
+        if ( !$("#intact .scale-input").is(':checked') ) {
             return false;
         }
         var $this = $(this);
@@ -89,7 +89,7 @@ function loadExperiment() {
 
             // Refresh slider and the scale through triggering a slide event
             slider.setAttribute(attr, parseInt($this.val())).refresh();
-            $("#scale-slider").trigger('slide');
+            $("#intact .scale-slider").trigger('slide');
 
             $this.replaceWith('<b class="badge">' + $this.val() + '</b>');
         });
@@ -99,9 +99,9 @@ function loadExperiment() {
 
     // SVG images
 
-    var lg = d3.select('#lg');
-    var eg = d3.select('#eg');
-    var hs = d3.select('#hs');
+    var lg = d3.select('#intact .lg');
+    var eg = d3.select('#intact .eg');
+    var hs = d3.select('#intact .hs');
 
     baseColors = retrieveFillColor(hs);
 
@@ -176,22 +176,12 @@ function loadExperiment() {
         loadGeneFromRow(this);
     } );
 
-    $("#mode button").tooltip({placement: 'bottom', container: 'body'});
+    $("#intact .mode button").tooltip({placement: 'bottom', container: 'body'});
 
-    $("#gene-information .non-selected").tooltip({placement: 'bottom'});
-    $("#scale label").tooltip({placement: 'bottom'});
+    $("#intact .gene-information .non-selected").tooltip({placement: 'bottom'});
+    $("#intact .scale label").tooltip({placement: 'bottom'});
 
-    $(".download-svg").click(function(e) {
-        e.preventDefault();
-        saveAsSVG($(this).parents('.panel').find('svg')[0],$(this).attr('title').replace('gene',navInfo.getGene()));
-    });
-
-    $(".download-png").click(function(e) {
-        e.preventDefault();
-        saveAsPNG($(this).parents('.panel').find('svg')[0],$(this).attr('title').replace('gene',navInfo.getGene()));
-    });
-
-    $("#mode button").click( function() {
+    $("#intact .mode button").click( function() {
         var $this = $(this);
 
         if ( $this.hasClass('dropdown-toggle')) {
@@ -202,7 +192,7 @@ function loadExperiment() {
         navInfo.setMode($(this).data('mode'));
     });
 
-    $("#mode button.dropdown-toggle").parent().find('a').on('click', function(e){
+    $("#intact .mode button.dropdown-toggle").parent().find('a').on('click', function(e){
         var $a = $(this);
         e.preventDefault();
 
@@ -236,8 +226,8 @@ function loadExperiment() {
                 .range(["green", "black","black", "red"]);
         }
 
-        $("#scale b:first").html(slider.getAttribute('min'));
-        $("#scale b:last").html(slider.getAttribute('max'));
+        $("#intact .scale b:first").html(slider.getAttribute('min'));
+        $("#intact .scale b:last").html(slider.getAttribute('max'));
 
         $("#intact").removeClass('abs fc_spt fc_tmp').addClass(navInfo.getMode());
         highlightActiveMode(navInfo.getMode());
@@ -255,7 +245,7 @@ function loadExperiment() {
 
     // If no mode is selected, set the absolute expression mode
     if(! navInfo.getMode() ) {
-         $("#mode button").first().click();
+         $("#intact .mode button").first().click();
     }
 
     var $dropdown = $('.dropdown-menu.actions');
@@ -281,7 +271,7 @@ function loadExperiment() {
         $dropdown.hide();
 
         var tissue = $($dropdown.data('g')).attr('class');
-        var stage =  $($dropdown.data('g')).parents('svg').attr('id');
+        var stage =  $($dropdown.data('g')).parents('svg').attr('class');
         var column;
 
         if( intactRules[stage][tissue] ) {
@@ -375,7 +365,7 @@ function loadExperiment() {
             .appendTo('body').submit().remove();
     });
 
-    $("#clearfilters").click( function() {
+    $("#intact .clearfilters").click( function() {
         yadcf.exResetAllFilters(table);
     })
 }
@@ -419,7 +409,7 @@ function updateTableColors(type) {
 
 function updateColors(colorScale, useIndex) {
     $.each(tissues, function(i, tissue) {
-        d3.selectAll('.' + tissue).transition().duration(1000).attr('fill', function(d) {
+        d3.selectAll('#intact .' + tissue).transition().duration(1000).attr('fill', function(d) {
             if( ! useIndex && d ) {
 
                 if( navInfo.getMode() == 'fc_spt') {
@@ -443,7 +433,7 @@ function updateColors(colorScale, useIndex) {
 function showScale(colorScale) {
     var ticks = colorScale.ticks(20);
 
-    var div = d3.select(".slider-selection").selectAll('div')
+    var div = d3.select("#intact .slider-selection").selectAll('div')
         .data(ticks);
 
     div.enter().append('div')
@@ -455,26 +445,6 @@ function showScale(colorScale) {
         .style('background-color',function(d) { return colorScale(d) })
         .style('width', (Math.floor(100 / ticks.length * 10) / 10) + "%");
 
-}
-
-function showGeneInformation(data) {
-    $('#gene-information .non-selected').hide();
-    var $gene = $('#gene-information .selected').show();
-
-    $gene.find('.agi').html(data.gene_agi);
-    $gene.find('.annotation').html(data.gene.annotation);
-    $gene.find('.gene').html(data.gene.gene);
-
-    $gene.find('#tools li a').each(function(i,e){
-       $(e).attr('href', function() {
-           return $(this).data('template').replace('#AGI#', data.gene_agi);
-       });
-    });
-}
-
-function hideGeneInformation() {
-    $('#gene-information .non-selected').show();
-    $('#gene-information .selected').hide();
 }
 
 function parseRuleField( field, data, postfix ) {
@@ -501,7 +471,7 @@ function loadINTACT(data) {
     $.each( intactRules, function(stageId, stage)  {
         var stageData = [], warning = { 'abs' : false, 'fc_spt': false, 'fc_tmp': false };
 
-        d3.select("#" + stageId + " g.warning-sign").classed(warning);
+        d3.select("#intact ." + stageId + " g.warning-sign").classed(warning);
 
         $.each(tissues, function(j, tissue) {
             var s;
@@ -530,21 +500,21 @@ function loadINTACT(data) {
             };
         });
 
-        d3.select("#" + stageId + " g.warning-sign").classed(warning);
+        d3.select("#intact ." + stageId + " g.warning-sign").classed(warning);
 
-        assignData(d3.select("#"+stageId), stageData);
+        assignData(d3.select("#intact ."+stageId), stageData);
     });
 
     updateColors(scale);
 }
 
 function highlightActiveMode(mode) {
-    $("#mode button").removeClass('btn-primary');
-    $("#mode li").removeClass('active');
+    $("#intact .mode button").removeClass('btn-primary');
+    $("#intact .mode li").removeClass('active');
 
-    $("#mode button[data-mode="+mode+"]").addClass('btn-primary');
+    $("#intact .mode button[data-mode="+mode+"]").addClass('btn-primary');
 
-    $("#mode li a[data-mode="+mode+"]")
+    $("#intact .mode li a[data-mode="+mode+"]")
         .closest('li').addClass('active')
         .closest('div').find('button').addClass('btn-primary');
 }
@@ -589,7 +559,7 @@ function setupTooltip(ele) {
 
                 var $g = $(this);
                 var tissue = $g.attr('class');
-                var stage =  $g.parents('svg').attr('id');
+                var stage =  $g.parents('svg').attr('class');
                 var column;
 
                 if( intactRules[stage][tissue] ) {

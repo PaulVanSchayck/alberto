@@ -256,7 +256,7 @@ input.inuse::selection {
 }
 
 /* Gene information */
-#gene-information .selected {
+.gene-information .selected {
     display: none;
 }
 pre.annotation {
@@ -268,10 +268,7 @@ pre.annotation {
     float: left;
     height: 10px;
 }
-#scale .scale-domain {
-    width: 50px;
-}
-#scale .slider.slider-horizontal {
+.scale .slider.slider-horizontal {
     width: 75%;
 }
 

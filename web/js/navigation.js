@@ -86,9 +86,38 @@ $(document).ready(function(){
     $('.at-input .unshow-gene').on('click', function(e) {
         e.preventDefault();
         navInfo.setGene(false)
-    })
+    });
 
+    $(".tab-content").on('click','.download-svg', function(e) {
+        e.preventDefault();
+        saveAsSVG($(this).parents('.panel').find('svg')[0],$(this).attr('title').replace('gene',navInfo.getGene()));
+    });
+
+    $(".tab-content").on('click','.download-png', function(e) {
+        e.preventDefault();
+        saveAsPNG($(this).parents('.panel').find('svg')[0],$(this).attr('title').replace('gene',navInfo.getGene()));
+    });
 });
+
+function showGeneInformation(data) {
+    $('.gene-information .non-selected').hide();
+    var $gene = $('.gene-information .selected').show();
+
+    $gene.find('.agi').html(data.gene_agi);
+    $gene.find('.annotation').html(data.gene.annotation);
+    $gene.find('.gene').html(data.gene.gene);
+
+    $gene.find('.tools li a').each(function(i,e){
+        $(e).attr('href', function() {
+            return $(this).data('template').replace('#AGI#', data.gene_agi);
+        });
+    });
+}
+
+function hideGeneInformation() {
+    $('.gene-information .non-selected').show();
+    $('.gene-information .selected').hide();
+}
 
 var navInfo = {
     exp: "",
