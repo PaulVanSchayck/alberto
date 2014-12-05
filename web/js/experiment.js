@@ -367,7 +367,9 @@ function loadExperiment() {
 
     $("#intact .clearfilters").click( function() {
         yadcf.exResetAllFilters(table);
-    })
+    });
+
+    highlightColumns();
 }
 
 function showColumnType(type) {
@@ -531,6 +533,33 @@ function retrieveFillColor(ele) {
     return d3.scale.ordinal().range(color);
 }
 
+function highlightColumns() {
+
+    $.each(tissues, function(i, tissue) {
+        $("." + tissue)
+            .on('mouseover', function() {
+                var $g = $(this);
+                var tissue = $g.attr('class');
+                var stage =  $g.parents('svg').attr('class');
+                var column;
+
+                if( intactRules[stage][tissue] ) {
+                    column = intactRules[stage][tissue][navInfo.getMode()]
+                } else {
+                    column = intactRules[stage]['*'][navInfo.getMode()]
+                }
+                var columnIdx = table.column(column + ":name").index();
+
+                if ( columnIdx ) {
+                    $(table.column(columnIdx).nodes()).removeClass('save').addClass('highlight');
+                }
+            })
+            .on('mouseout', function() {
+                $( table.cells().nodes() ).removeClass( 'highlight' ).addClass('save');
+            })
+    });
+}
+
 function setupTooltip(ele) {
     var tip = d3.tip()
         .attr('class', 'd3-tip')
@@ -557,20 +586,6 @@ function setupTooltip(ele) {
                     g.transition().style("opacity", 0.5);
                 }
 
-                var $g = $(this);
-                var tissue = $g.attr('class');
-                var stage =  $g.parents('svg').attr('class');
-                var column;
-
-                if( intactRules[stage][tissue] ) {
-                    column = intactRules[stage][tissue].abs
-                } else {
-                    column = intactRules[stage]['*'].abs
-                }
-                var columnIdx = table.column(column + ":name").index();
-
-                $(table.column( columnIdx ).nodes()).addClass('highlight');
-
             })
             .on('mouseout', function(d, i) {
                 tip.hide(d, i);
@@ -580,7 +595,7 @@ function setupTooltip(ele) {
                 if ( g.attr('in-transition') == undefined || g.attr('in-transition') == 'no' ) {
                     g.transition().style("opacity", 1);
                 }
-                $( table.cells().nodes() ).removeClass( 'highlight' );
+
             })
     });
 }

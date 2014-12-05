@@ -174,8 +174,8 @@ div.svg svg {
 
 div.svg svg g {
     cursor: pointer;
+    pointer-events: all;
 }
-
 #intact.abs g.warning-sign.abs {
     display: inline;
 }
@@ -220,6 +220,10 @@ tr.selected td {
 }
 table.dataTable tbody td.highlight {
     background-color: lightgray !important;
+    transition: all 0.5s ease;
+}
+table.dataTable tbody td.save {
+    background-color: inherit;
     transition: all 0.5s ease;
 }
 table.dataTable {
