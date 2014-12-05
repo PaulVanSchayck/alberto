@@ -23,6 +23,9 @@ $intact = Yii::$app->params['experiments']['intact'];
 </ul>
 
 <div class="row svg-images">
+    <div class="col-lg-12">
+    <p>Click on the embryo for preset filtering actions, or use the table below for setting your own filters.</p>
+    </div>
     <div class="col-lg-3">
 
         <div class="panel panel-success">
@@ -161,12 +164,36 @@ $intact = Yii::$app->params['experiments']['intact'];
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Tools</h3>
+                <h3 class="panel-title">Experimental setup</h3>
             </div>
             <div class="panel-body">
+                <p>
+                    Nuclear transcriptomic profiles were collected from individual cell types isolated
+                    with help of cell type specific promoters.
+                </p>
+                <?php Modal::begin([
+                    'id' => 'experimentModal',
+                    'header' => '<h4 class="modal-title">Experimental setup</h4>',
+                    'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
+                    'size' => Modal::SIZE_DEFAULT
+                ]);?>
+                We aborted genetically modified embryos!
+                <?php Modal::end(); ?>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-lg-12">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Dataset</h3>
+        </div>
+        <div class="panel-body">
+            <p>Use the fields to filter the table.</p>
+            <div class="table-tools">
                 <button class="btn btn-default clearfilters">Clear all filters &raquo;</button>
-                <p></p>
                 <?php Modal::begin([
                     'id' => 'exportModal',
                     'header' => '<h4 class="modal-title">Export to CSV file</h4>',
@@ -184,7 +211,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <p>
                     <label>Maximum number of genes:
                         <b class="badge">0</b>
-                         <input type="text" class="form-control ngenes" data-slider-min="0" data-slider-max="2000" data-slider-step="1" data-slider-value="1000" data-plugin-name="slider" title="Maximum number of genes">
+                        <input type="text" class="form-control ngenes" data-slider-min="0" data-slider-max="2000" data-slider-step="1" data-slider-value="1000" data-plugin-name="slider" title="Maximum number of genes">
                         <b class="badge">2000</b>
                     </label>
                 </p>
@@ -202,7 +229,6 @@ $intact = Yii::$app->params['experiments']['intact'];
 
                 <p><button class="btn btn-primary" id="export">Export &raquo;</button></p>
                 <?php Modal::end(); ?>
-                <p></p>
                 <?php Modal::begin([
                     'id' => 'visibilityModal',
                     'header' => '<h4 class="modal-title">Show / hide columns</h4>',
@@ -224,7 +250,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                             <tr class='field'>
                                 <td><input type="checkbox" id="gene.annotation"></td>
                                 <td><label class="checkbox-inline" for="gene.gene">Annotation</label>
-                            </td></tr>
+                                </td></tr>
                         </table>
                     </div>
 
@@ -293,18 +319,18 @@ $intact = Yii::$app->params['experiments']['intact'];
                                 <th><div>FC</div></th>
                                 <th><div>q-value</div></th>
                             </tr>
-                        <?php
-                        foreach( $intact['columns'] as $column ) {
-                            if ( $column['type'] != 'fc_tmp' ) {
-                                continue;
+                            <?php
+                            foreach( $intact['columns'] as $column ) {
+                                if ( $column['type'] != 'fc_tmp' ) {
+                                    continue;
+                                }
+                                echo "<tr class='field'>";
+                                echo "<td><input type='checkbox' id='{$column['field']}'></td>\n";
+                                echo "<td><input type='checkbox' id='{$column['field']}_q'></td>\n";
+                                echo "<td><label for='{$column['field']}' class='checkbox-inline'>{$column['label']}</label></td>";
+                                echo "</tr>";
                             }
-                            echo "<tr class='field'>";
-                            echo "<td><input type='checkbox' id='{$column['field']}'></td>\n";
-                            echo "<td><input type='checkbox' id='{$column['field']}_q'></td>\n";
-                            echo "<td><label for='{$column['field']}' class='checkbox-inline'>{$column['label']}</label></td>";
-                            echo "</tr>";
-                        }
-                        ?>
+                            ?>
                             <tr class="all">
                                 <td><input type="checkbox" name="all" /></td>
                                 <td><input type="checkbox" name="all-q" /></td>
@@ -319,46 +345,37 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <p><b>FC:</b> Fold change</p>
                 <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                 <?php Modal::end(); ?>
-                <p></p>
-                <?php Modal::begin([
-                    'id' => 'experimentModal',
-                    'header' => '<h4 class="modal-title">Experimental setup</h4>',
-                    'toggleButton' => ['tag' => 'button', 'label' => 'Show experimental setup &raquo;', 'class' => 'btn btn-default'],
-                    'size' => Modal::SIZE_DEFAULT
-                ]);?>
-                We aborted genetically modified embryos!
-                <?php Modal::end(); ?>
             </div>
+            <table id="intactTable" class="display">
+                <thead>
+                <tr>
+                    <th>AGI</th>
+                    <th>Gene</th>
+                    <th>Annotation</th>
+                    <?php
+                    foreach( $intact['columns'] as $column ) {
+                        echo "<th>{$column['label']}</th>\n";
+                        if ( $column['type'] == 'abs' ) {
+                            echo "<th>{$column['label']} %RSD</th>\n";
+                            echo "<th>{$column['label']} SD</th>\n";
+                        } else if ( $column['type'] == 'fc_tmp' ) {
+                            echo "<th>{$column['label']} Q</th>\n";
+                        } else if ( $column['type'] == 'fc_spt' ) {
+                            echo "<th>{$column['label']} Q</th>\n";
+                        }
+                    }
+                    ?>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 
 
-<table id="intactTable" class="display">
-    <thead>
-    <tr>
-        <th>AGI</th>
-        <th>Gene</th>
-        <th>Annotation</th>
-<?php
-foreach( $intact['columns'] as $column ) {
-    echo "<th>{$column['label']}</th>\n";
-    if ( $column['type'] == 'abs' ) {
-        echo "<th>{$column['label']} %RSD</th>\n";
-        echo "<th>{$column['label']} SD</th>\n";
-    } else if ( $column['type'] == 'fc_tmp' ) {
-        echo "<th>{$column['label']} Q</th>\n";
-    } else if ( $column['type'] == 'fc_spt' ) {
-        echo "<th>{$column['label']} Q</th>\n";
-    }
-}
-?>
-    </tr>
-    </thead>
-    <tbody>
-
-    </tbody>
-</table>
 
 
 <script type="text/javascript">

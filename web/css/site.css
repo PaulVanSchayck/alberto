@@ -258,7 +258,6 @@ input.inuse::selection {
 #intactTable span.sd-warning {
     color: red;
 }
-
 /* Gene information */
 .gene-information .selected {
     display: none;
@@ -286,6 +285,12 @@ pre.annotation {
 .dropdown-menu.actions {
     display: none;
     position: absolute;
+}
+
+/* table tools */
+.table-tools {
+    margin-bottom: 10px;
+    float: right
 }
 
 /* Column visibility dialog */

@@ -59,7 +59,7 @@ $this->title = 'AlBERTO';
             <a href="#start" data-exp="start" data-toggle="tooltip" data-original-title="Start here"><span class="glyphicon glyphicon-home"></span></a>
         </li>
         <li data-toggle="tab">
-            <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Transcriptome of individual cell types">Individual cell types</a>
+            <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Transcriptome of individual cell types">Cell type specific</a>
         </li>
         <li data-toggle="tab">
             <a href="#monopteros" data-exp="monopteros" data-toggle="tooltip" data-original-title="Transcriptome of MP mutant compared to WT"><i>Monopteros</i> embryo proper</a>
