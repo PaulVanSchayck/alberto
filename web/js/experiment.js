@@ -551,11 +551,11 @@ function highlightColumns() {
                 var columnIdx = table.column(column + ":name").index();
 
                 if ( columnIdx ) {
-                    $(table.column(columnIdx).nodes()).removeClass('save').addClass('highlight');
+                    $(table.column(columnIdx).nodes()).addClass('highlight');
                 }
             })
             .on('mouseout', function() {
-                $( table.cells().nodes() ).removeClass( 'highlight' ).addClass('save');
+                $( table.cells().nodes() ).removeClass('highlight')
             })
     });
 }
@@ -662,6 +662,7 @@ function assignData(ele, data) {
 }
 
 function showGene(gene) {
+    yadcf.exResetAllFilters(table, true);
     yadcf.exFilterColumn(table, [[0, gene]], true);
 
     table.one( 'draw.dt', function() {

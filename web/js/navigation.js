@@ -28,11 +28,15 @@ $(document).ready(function(){
 
         if ( navInfo.getGene() == false ) {
             unShowGene();
-            $('.at-input input').val("");
-            return;
+            $('.at-input input')
+                .val("")
+                .removeClass('loaded');
+            return false;
         }
 
-        $('.at-input input').val(navInfo.getGene());
+        $('.at-input input')
+            .val(navInfo.getGene())
+            .addClass('loaded');
 
         // Only show a gene, if the table is available, and this is not requested as a silent gene change
         if ( table && !silent) {
@@ -74,6 +78,10 @@ $(document).ready(function(){
     // Handle gene input from typeahead dropdown
     $('.at-input input').on('typeahead:selected', function(event, selection) {
         navInfo.setGene(selection.agi);
+    });
+
+    $('.at-input input').on('keydown', function() {
+        $(this).removeClass('loaded');
     });
 
     $('.at-input .show-gene').on('click', function(e) {

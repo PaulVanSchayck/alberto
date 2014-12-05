@@ -159,6 +159,10 @@ a.desc:after {
     margin-bottom: 20px;
 }
 
+#gene.loaded {
+    color: darkgreen !important;
+}
+
 div.svg-images {
     margin-top: 25px;
 }
@@ -220,11 +224,9 @@ tr.selected td {
 }
 table.dataTable tbody td.highlight {
     background-color: lightgray !important;
-    transition: all 0.5s ease;
 }
 table.dataTable tbody td.save {
     background-color: inherit;
-    transition: all 0.5s ease;
 }
 table.dataTable {
     font-size: 10px;
@@ -271,6 +273,9 @@ pre.annotation {
     float: left;
     height: 10px;
 }
+.scale-domain {
+    width: 50px;
+}
 .scale .slider.slider-horizontal {
     width: 75%;
 }
@@ -288,6 +293,9 @@ pre.annotation {
 }
 
 /* table tools */
+.table-text {
+    float: left;
+}
 .table-tools {
     margin-bottom: 10px;
     float: right

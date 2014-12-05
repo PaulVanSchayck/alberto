@@ -188,10 +188,10 @@ $intact = Yii::$app->params['experiments']['intact'];
     <div class="col-lg-12">
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">Dataset</h3>
+            <h3 class="panel-title">Transcriptomic profiles</h3>
         </div>
         <div class="panel-body">
-            <p>Use the fields to filter the table.</p>
+            <p class="table-text">Click on a row to view the profile of a gene. Use the fields to filter the table.</p>
             <div class="table-tools">
                 <button class="btn btn-default clearfilters">Clear all filters &raquo;</button>
                 <?php Modal::begin([
