@@ -62,10 +62,10 @@ $this->title = 'AlBERTO';
             <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Transcriptome of individual cell types">Cell type-specific</a>
         </li>
         <li data-toggle="tab">
-            <a href="#monopteros" data-exp="monopteros" data-toggle="tooltip" data-original-title="Transcriptome of MP mutant compared to WT"><i>Monopteros</i> embryo proper</a>
+            <a href="#mpproper" data-exp="mpproper" data-toggle="tooltip" data-original-title="Inhibition of Monopteros in ground and vascular tissue">Q0990>>bdl</a>
         </li>
         <li data-toggle="tab">
-            <a href="#mp-suspensor" data-exp="mp-suspensor" data-toggle="tooltip" data-original-title="Transcriptome of MP mutant compared to WT"><i>Monopteros</i> suspensor</a>
+            <a href="#mpsuspensor" data-exp="mpsuspensor" data-toggle="tooltip" data-original-title="Inhibition of Monopteros in suspensor">M10101>>bdl</a>
         </li>
         <li data-toggle="tab" class="disabled">
             <a href="#" data-toggle="tooltip" data-original-title="FACS gradient of root">Root gradients</a>
@@ -76,7 +76,7 @@ $this->title = 'AlBERTO';
     <div class="tab-content">
         <div class="tab-pane active" id="start"></div>
         <div class="tab-pane active" id="intact"></div>
-        <div class="tab-pane active" id="monopteros"></div>
-        <div class="tab-pane active" id="mp-suspensor"></div>
+        <div class="tab-pane active" id="mpproper"></div>
+        <div class="tab-pane active" id="mpsuspensor"></div>
     </div>
 </div>

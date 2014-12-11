@@ -131,6 +131,7 @@ var navInfo = {
     exp: "",
     gene: false,
     mode: "",
+    experiments: {},
 
     getExperiment: function() {
         return this.exp;
@@ -139,6 +140,11 @@ var navInfo = {
         this.exp = exp;
         $(window).trigger('alberto.experiment.changed');
         this.buildHash();
+    },
+    registerExperiment: function(expObj) {
+        this.experiments[this.getExperiment()] = expObj;
+
+        this.experiments[this.getExperiment()].load();
     },
 
     getGene: function() {

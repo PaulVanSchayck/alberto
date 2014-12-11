@@ -14,6 +14,7 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/experiment.js',
         'js/navigation.js',
+        'js/default.js',
         'js/colvis.js',
         'js/canvas-toBlob.js'
     ];

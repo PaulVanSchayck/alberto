@@ -90,7 +90,7 @@ use yii\bootstrap\Modal;
     <div class="col-lg-3">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Tools</h3>
+                <h3 class="panel-title">Experimental setup</h3>
             </div>
             <div class="panel-body">
 
@@ -116,10 +116,7 @@ use yii\bootstrap\Modal;
                             External tools <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#" target="_blank" data-template="http://bar.utoronto.ca/efp/cgi-bin/efpWeb.cgi?dataSource=Seed&modeInput=Absolute&primaryGene=#AGI#">eFP Seed</a></li>
-                            <li><a href="#" target="_blank" data-template="http://bar.utoronto.ca/efp/cgi-bin/efpWeb.cgi?dataSource=Tissue_Specific&modeInput=Absolute&primaryGene=#AGI#">eFP Tissue Specific</a></li>
-                            <li><a href="#" target="_blank" data-template="http://bar.utoronto.ca/efp/cgi-bin/efpWeb.cgi?dataSource=Root&modeInput=Absolute&primaryGene=#AGI#">eFP Root</a></li>
-                            <li><a href="#"  target="_blank" data-template="http://www.arabidopsis.org/servlets/TairObject?type=locus&name=#AGI#">TAIR</a></li>
+                            <li><a href="#" target="_blank" data-template="http://www.arabidopsis.org/servlets/TairObject?type=locus&name=#AGI#">TAIR</a></li>
                         </ul>
                     </div>
                 </div>
@@ -127,3 +124,7 @@ use yii\bootstrap\Modal;
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    navInfo.registerExperiment(defaultExperiment("#mpproper"));
+</script>

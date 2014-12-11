@@ -141,7 +141,7 @@ return [
         ]
     ],
 
-    'monopteros' => [
+    'mpproper' => [
         'template' => 'monopteros.php',
         'loader' => 'loadExperiment',
         'columns' => []
