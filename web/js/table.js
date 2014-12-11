@@ -2,10 +2,7 @@
  * Functions for controlling the DataTable
  */
 
-window.alberto.table = function($root, columns) {
-
-    var $table = $root.find('table.geneTable');
-
+window.alberto.table = function($table, columns) {
     var dt = $table.DataTable({
         serverSide: true,
         stateSave: true,
@@ -43,7 +40,6 @@ window.alberto.table = function($root, columns) {
         infoCallback: function( settings, start, end, max, total, pre ) {
             return pre + " ordered by " + settings.aoColumns[settings.aaSorting[0][0]].sTitle
         }
-
     });
 
     dt.on( 'search.dt', function () {
@@ -66,7 +62,7 @@ window.alberto.table = function($root, columns) {
     $table.on( 'click', 'tr', function () {
         var data = dt.row(this).data();
         navInfo.setGene(data.gene_agi, true);
-        //loadGeneFromRow(this);
+        loadGeneFromRow(this);
     } );
 
     return {

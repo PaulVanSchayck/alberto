@@ -35,72 +35,13 @@ function loadExperiment() {
     setupTooltip(lg); setupSDTooltip(lg);
     setupTooltip(hs); setupSDTooltip(hs);
 
-    table = $('#intactTable').DataTable({
-        serverSide: true,
-        stateSave: true,
-        // experiment.loaded is responsible for loading the table
-        deferLoading: 0,
-        stateLoadCallback: function () {
-            return false;
-        },
-        ajax: {
-            url: "/index.php?r=gene/index",
-            method: "post",
-            dataSrc: "data",
-            data: function(d) {
-                // Delete some variables which we will not use, this will reduce the size of the request
-                delete d.search;
-
-                for(var i =0; i < d.columns.length; i++) {
-                    delete d.columns[i].orderable;
-                    delete d.columns[i].searchable;
-                    delete d.columns[i].search.regex;
-                }
-
-                // Store the build request for export purposes
-                lastRequest = d;
-            }
-        },
-        columns: buildDTColumns(intactColumns),
-        dom: 'rtiS',
-        scrollY: 500,
-        scrollX: "100%",
-        processing: true,
-        scroller: {
-            loadingIndicator: true
-        },
-        infoCallback: function( settings, start, end, max, total, pre ) {
-            return pre + " ordered by " + settings.aoColumns[settings.aaSorting[0][0]].sTitle
-        }
-
-    });
+    table = window.alberto.table($("#intactTable"), buildDTColumns(intactColumns));
 
     // Setup YADCF filters
-    yadcf.init(table, buildFilterColumns(intactColumns), 'header');
-
-    $('#intactTable').on( 'search.dt', function () {
-        $(".filter_column input").removeClass('filtered');
-        $(".filter_column input").each(function() {
-            if( $(this).val() != '' ) {
-                $(this).addClass('filtered');
-            }
-        });
-        return true;
-    });
-
-    table.on( 'draw.dt', function(){
-        $("#intactTable").find('span[data-toggle=tooltip]').tooltip({'placement': 'bottom'});
-    } );
+    yadcf.init(table.dt, buildFilterColumns(intactColumns), 'header');
 
     // Poor mans method of injecting code into DataTables api
-    table.colvis = colvis($("#visibilityModal"), table);
-
-    // Handle table clicks
-    $('#intactTable tbody').on( 'click', 'tr', function () {
-        var data = table.row(this).data();
-        navInfo.setGene(data.gene_agi, true);
-        loadGeneFromRow(this);
-    } );
+    table.dt.colvis = colvis($("#visibilityModal"), table.dt);
 
     $("#intact .mode button").tooltip({placement: 'bottom', container: 'body'});
 
@@ -202,7 +143,7 @@ function loadExperiment() {
         } else {
             column = intactRules[stage]['*'].abs
         }
-        var columnIdx = table.column(column + ":name").index();
+        var columnIdx = table.dt.column(column + ":name").index();
 
         if ( columnIdx == undefined ) {
             return false;
@@ -211,9 +152,9 @@ function loadExperiment() {
         if ( $(this).hasClass('highest') ) {
             navInfo.setMode('abs');
 
-            table.order([columnIdx, 'desc']);
-            yadcf.exResetAllFilters(table);
-            yadcf.exFilterColumn(table, [[columnIdx, {from: 100}]], true);
+            table.dt.order([columnIdx, 'desc']);
+            yadcf.exResetAllFilters(table.dt);
+            yadcf.exFilterColumn(table.dt, [[columnIdx, {from: 100}]], true);
 
             return false;
         }
@@ -221,9 +162,9 @@ function loadExperiment() {
         if ( $(this).hasClass('not-expressed') ) {
             navInfo.setMode('abs');
 
-            table.order([columnIdx, 'asc']);
-            yadcf.exResetAllFilters(table);
-            yadcf.exFilterColumn(table, [[columnIdx, {to: 32}]], true);
+            table.dt.order([columnIdx, 'asc']);
+            yadcf.exResetAllFilters(table.dt);
+            yadcf.exFilterColumn(table.dt, [[columnIdx, {to: 32}]], true);
 
             return false;
         }
@@ -231,22 +172,22 @@ function loadExperiment() {
         if ( $(this).hasClass('enriched') ) {
             navInfo.setMode('fc_spt');
 
-            columnIdx = table.column(intactRules[stage][tissue].fc_spt + ":name").index();
+            columnIdx = table.dt.column(intactRules[stage][tissue].fc_spt + ":name").index();
 
-            yadcf.exResetAllFilters(table, true);
+            yadcf.exResetAllFilters(table.dt, true);
 
             var filter = [
                 [columnIdx, {from: 2}]
             ];
 
             if ( $(this).hasClass('significant') ) {
-                table.column(columnIdx + 1).visible(true);
+                table.dt.column(columnIdx + 1).visible(true);
                 filter.push([columnIdx + 1, {to: 0.05}])
             }
 
-            yadcf.exFilterColumn(table, filter, true);
+            yadcf.exFilterColumn(table.dt, filter, true);
 
-            table.order([columnIdx, 'asc']);
+            table.dt.order([columnIdx, 'asc']);
 
             return false;
         }
@@ -262,7 +203,7 @@ function loadExperiment() {
             if ( $("#exportModal .visible").is(":checked") ) {
                 d.columns[i].visible = true;
             } else {
-                d.columns[i].visible = table.column(d.columns[i].name + ":name").visible();
+                d.columns[i].visible = table.dt.column(d.columns[i].name + ":name").visible();
             }
 
         }
@@ -289,7 +230,7 @@ function loadExperiment() {
     });
 
     $("#intact .clearfilters").click( function() {
-        yadcf.exResetAllFilters(table);
+        yadcf.exResetAllFilters(table.dt);
     });
 
     highlightColumns();
@@ -300,16 +241,16 @@ function showColumnType(type) {
     $("tr.selected").find('td').css('background-color','');
 
     // Hide all but annotation columns
-    table.columns(":not('.type_ann')").visible(false, false);
+    table.dt.columns(":not('.type_ann')").visible(false, false);
 
     // Show column type request
-    table.columns('.type_' + type).visible(true, false);
+    table.dt.columns('.type_' + type).visible(true, false);
 
     // This seriously improves performance to do this only once, see the false as second argument to visible()
-    table.columns.adjust();
+    table.dt.columns.adjust();
 
     // Refresh column visibility dialog
-    table.colvis.refresh();
+    table.dt.colvis.refresh();
 }
 
 function updateTableColors(type) {
@@ -454,14 +395,14 @@ function highlightColumns() {
                 } else {
                     column = intactRules[stage]['*'][navInfo.getMode()]
                 }
-                var columnIdx = table.column(column + ":name").index();
+                var columnIdx = table.dt.column(column + ":name").index();
 
                 if ( columnIdx ) {
-                    $(table.column(columnIdx).nodes()).addClass('highlight');
+                    $(table.dt.column(columnIdx).nodes()).addClass('highlight');
                 }
             })
             .on('mouseout', function() {
-                $( table.cells().nodes() ).removeClass('highlight')
+                $( table.dt.cells().nodes() ).removeClass('highlight')
             })
     });
 }
@@ -568,11 +509,11 @@ function assignData(ele, data) {
 }
 
 function showGene(gene) {
-    yadcf.exResetAllFilters(table, true);
-    yadcf.exFilterColumn(table, [[0, gene]], true);
+    yadcf.exResetAllFilters(table.dt, true);
+    yadcf.exFilterColumn(table.dt, [[0, gene]], true);
 
-    table.one( 'draw.dt', function() {
-        if( table.data().length > 0 ) {
+    table.dt.one( 'draw.dt', function() {
+        if( table.dt.data().length > 0 ) {
             loadGeneFromRow('#intactTable tbody tr:eq(0)');
         } else {
             $("#no-results").show();
@@ -594,7 +535,7 @@ function loadGeneFromRow(row) {
     $(row).addClass("selected");
     updateTableColors(navInfo.getMode());
 
-    var data = table.row(row).data();
+    var data = table.dt.row(row).data();
 
     loadINTACT(data);
     showGeneInformation(data);

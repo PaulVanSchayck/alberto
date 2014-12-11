@@ -346,7 +346,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                 <?php Modal::end(); ?>
             </div>
-            <table id="intactTable" class="display">
+            <table class="display" id="intactTable">
                 <thead>
                 <tr>
                     <th>AGI</th>

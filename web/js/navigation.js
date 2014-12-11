@@ -57,7 +57,7 @@ $(document).ready(function(){
 
         // If there is no gene selected, load the default table
         if (! navInfo.getGene()) {
-            table.ajax.reload();
+            table.dt.ajax.reload();
         }
     });
 
@@ -134,12 +134,14 @@ var navInfo = {
     gene: false,
     mode: "",
     experiments: {},
+    experiment: null,
 
     getExperiment: function() {
         return this.exp;
     },
     setExperiment: function(exp) {
         this.exp = exp;
+        this.experiment = this.experiments[exp];
         $(window).trigger('alberto.experiment.changed');
         this.buildHash();
     },
