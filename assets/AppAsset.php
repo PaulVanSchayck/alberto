@@ -12,12 +12,16 @@ class AppAsset extends AssetBundle
         'css/d3-tip.css'
     ];
     public $js = [
+        // General code
         'js/navigation.js',
         'js/scale.js',
+        'js/table.js',
+        'js/colvis.js',
+        'js/canvas-toBlob.js',
+
+        // Experiments
         'js/experiment.js',
         'js/default.js',
-        'js/colvis.js',
-        'js/canvas-toBlob.js'
     ];
     public $depends = [
         'app\assets\ModernizrAsset',

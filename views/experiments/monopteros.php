@@ -1,8 +1,13 @@
 <?php
 use yii\bootstrap\Modal;
+
+$experiment = Yii::$app->params['experiments']['mpproper'];
 ?>
 
 <div class="row svg-images">
+    <div class="col-lg-12">
+        <p>Click on the embryo for preset filtering actions, or use the table below for setting your own filters.</p>
+    </div>
     <div class="col-lg-6">
 
         <div class="panel panel-success">
@@ -124,6 +129,48 @@ use yii\bootstrap\Modal;
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Transcriptomic profiles</h3>
+            </div>
+            <div class="panel-body">
+                <p class="table-text">Click on a row to view the profile of a gene. Use the fields to filter the table.</p>
+                <div class="table-tools">
+                    <button class="btn btn-default clearfilters">Clear all filters &raquo;</button>
+                </div>
+
+                <table class="geneTable display">
+                    <thead>
+                    <tr>
+                        <th>AGI</th>
+                        <th>Gene</th>
+                        <th>Annotation</th>
+                        <?php
+                        foreach( $experiment['columns'] as $column ) {
+                            echo "<th>{$column['label']}</th>\n";
+                            if ( $column['type'] == 'abs' ) {
+                                echo "<th>{$column['label']} %RSD</th>\n";
+                                echo "<th>{$column['label']} SD</th>\n";
+                            } else if ( $column['type'] == 'fc_tmp' ) {
+                                echo "<th>{$column['label']} Q</th>\n";
+                            } else if ( $column['type'] == 'fc_spt' ) {
+                                echo "<th>{$column['label']} Q</th>\n";
+                            }
+                        }
+                        ?>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
 
 <script type="text/javascript">
     navInfo.registerExperiment(defaultExperiment("#mpproper"));
