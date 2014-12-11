@@ -12,8 +12,9 @@ class AppAsset extends AssetBundle
         'css/d3-tip.css'
     ];
     public $js = [
-        'js/experiment.js',
         'js/navigation.js',
+        'js/scale.js',
+        'js/experiment.js',
         'js/default.js',
         'js/colvis.js',
         'js/canvas-toBlob.js'

@@ -11,24 +11,6 @@ var tissues = [
     'columella'
 ];
 
-var scale = d3.scale.linear();
-
-/**
- * This wraps the scale function, in order to return white whenever false or undefined is requested
- *
- * @param n
- * @returns {*}
- */
-scale.defined = function(n) {
-    if ( n === false ) {
-        return "#FFFFFF"
-    } else if( n == 'no-data' ) {
-        return "lightgray"
-    } else {
-        return this(n);
-    }
-};
-
 var table;
 var baseColors;
 var lastRequest;
@@ -36,69 +18,13 @@ var lastRequest;
 var rsdWarning = 50;
 var qWarning = 0.05;
 
+var $root = $("#intact");
+var scale;
+
 function loadExperiment() {
-
-    // Scale settings
-
-    var slider = $("#intact .scale-slider")
-        .slider({tooltip: 'always'})
-        .on('slide', function() {
-            // Eval is evil??
-            var domain = eval( '[' + slider.getValue() + ']');
-
-            if ( navInfo.getMode() == "fc_spt" ||  navInfo.getMode() == "fc_tmp") {
-                scale.domain([domain[0], -1, 1, domain[1]]);
-            } else {
-                scale.domain(domain);
-            }
-
-
-            if( navInfo.getGene() ) {
-                updateColors(scale);
-                updateTableColors(navInfo.getMode());
-            }
-        }).data('slider').disable();
-
-    $("#intact .scale-input").change(function() {
-        if ( $(this).is(":checked") ) {
-            slider.enable()
-        } else {
-            slider.disable()
-        }
-    });
-
-    // Allow to change scale through clicking badge
-    $("#intact .scale").on('click', '.badge', function() {
-        if ( !$("#intact .scale-input").is(':checked') ) {
-            return false;
-        }
-        var $this = $(this);
-        var val = $this.text();
-        var $input = $('<input class="scale-domain" value=' + val + '>').on('change, focusout', function() {
-            var attr, $this = $(this);
-
-            if ( ! $.isNumeric($this.val()) ) {
-                return false;
-            }
-
-            if ( $this.prevAll('.slider').length !== 0 ) {
-                attr = 'max'
-            } else {
-                attr = 'min'
-            }
-
-            // Refresh slider and the scale through triggering a slide event
-            slider.setAttribute(attr, parseInt($this.val())).refresh();
-            $("#intact .scale-slider").trigger('slide');
-
-            $this.replaceWith('<b class="badge">' + $this.val() + '</b>');
-        });
-        $this.replaceWith($input);
-        $input.focus()
-    });
+    scale = window.alberto.scale($root);
 
     // SVG images
-
     var lg = d3.select('#intact .lg');
     var eg = d3.select('#intact .eg');
     var hs = d3.select('#intact .hs');
@@ -201,42 +127,39 @@ function loadExperiment() {
 
     $(window).on('alberto.mode.changed', function() {
         if ( navInfo.getMode() == "fc_spt" ) {
-            slider.setAttribute('min', -10)
+            scale.slider.setAttribute('min', -10)
                 .setAttribute('max', 10)
                 .setValue([-5, 5])
                 .refresh();
 
-            scale.domain([-5,-1,1, 5])
+            scale.scale.domain([-5,-1,1, 5])
                 .range(["green", "black","black", "red"]);
         } else if ( navInfo.getMode() == "abs" ) {
-            slider.setAttribute('min', 0)
+            scale.slider.setAttribute('min', 0)
                 .setAttribute('max', 200)
                 .setValue([32, 100])
                 .refresh();
 
-            scale.domain([32, 100])
+            scale.scale.domain([32, 100])
                 .range(["yellow", "red"]);
         } else if ( navInfo.getMode() == "fc_tmp" ) {
-            slider.setAttribute('min', -10)
+            scale.slider.setAttribute('min', -10)
                 .setAttribute('max', 10)
                 .setValue([-5, 5])
                 .refresh();
 
-            scale.domain([-5,-1,1, 5])
+            scale.scale.domain([-5,-1,1, 5])
                 .range(["green", "black","black", "red"]);
         }
-
-        $("#intact .scale b:first").html(slider.getAttribute('min'));
-        $("#intact .scale b:last").html(slider.getAttribute('max'));
 
         $("#intact").removeClass('abs fc_spt fc_tmp').addClass(navInfo.getMode());
         highlightActiveMode(navInfo.getMode());
 
         showColumnType(navInfo.getMode());
-        showScale(scale);
+        scale.showScale();
 
         if( navInfo.getGene() ) {
-            updateColors(scale);
+            updateColors(scale.scale);
             updateTableColors(navInfo.getMode());
         }
     });
@@ -392,12 +315,12 @@ function showColumnType(type) {
 function updateTableColors(type) {
     $("#intactTable tbody tr.selected td.type_" + type)
         .css('background-color', function() {
-            return scale($(this).html())
+            return scale.scale($(this).html())
         })
         .css('color', function() {
             // Find contrasting color
             // From: http://ux.stackexchange.com/questions/8297/choosing-high-contrast-text-color-in-relation-to-background-color-dynamically
-            var c = d3.rgb(scale($(this).html()));
+            var c = d3.rgb(scale.scale($(this).html()));
 
             var y = 0.2126 * Math.pow(c.r/255,2.2)  +  0.7151 * Math.pow(c.g/255,2.2)  +  0.0721 * Math.pow(c.b/255,2.2);
 
@@ -430,23 +353,6 @@ function updateColors(colorScale, useIndex) {
             d3.select(this).attr('in-transition', 'no')
         })
     });
-}
-
-function showScale(colorScale) {
-    var ticks = colorScale.ticks(20);
-
-    var div = d3.select("#intact .slider-selection").selectAll('div')
-        .data(ticks);
-
-    div.enter().append('div')
-        .attr('class','slider-scale');
-
-    div.exit().remove();
-
-    div
-        .style('background-color',function(d) { return colorScale(d) })
-        .style('width', (Math.floor(100 / ticks.length * 10) / 10) + "%");
-
 }
 
 function parseRuleField( field, data, postfix ) {
@@ -507,7 +413,7 @@ function loadINTACT(data) {
         assignData(d3.select("#intact ."+stageId), stageData);
     });
 
-    updateColors(scale);
+    updateColors(scale.scale);
 }
 
 function highlightActiveMode(mode) {

@@ -2,6 +2,8 @@
  * This file handles navigation through the tabs
  */
 
+window.alberto = {};
+
 $(document).ready(function(){
 
     /* Show or hide spinner */
