@@ -381,5 +381,5 @@ $intact = Yii::$app->params['experiments']['intact'];
 <script type="text/javascript">
     var intactColumns = $.parseJSON('<?= json_encode($intact['columns']); ?>');
     var intactRules = $.parseJSON('<?= json_encode($intact['rules']); ?>');
-    loadExperiment();
+    navInfo.registerExperiment(intactExperiment("#intact"));
 </script>

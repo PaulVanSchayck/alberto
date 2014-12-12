@@ -60,12 +60,23 @@ window.alberto.table = function($table, columns) {
 
     // Handle table clicks
     $table.on( 'click', 'tr', function () {
+        $table.find("tr.selected")
+            .removeClass("selected")
+            .find('td').css('background-color', '').css('color', '');
+
+        $(this).addClass("selected");
+
         var data = dt.row(this).data();
         navInfo.setGene(data.gene_agi, true);
-        loadGeneFromRow(this);
     } );
 
+    function getSelectedRow() {
+        return $table.find('tr.selected');
+    }
+
     return {
-        dt: dt
+        dt: dt,
+        $table: $table,
+        getSelectedRow: getSelectedRow
     }
 };

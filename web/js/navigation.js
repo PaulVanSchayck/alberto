@@ -41,15 +41,18 @@ $(document).ready(function(){
             .addClass('loaded');
 
         // Only show a gene, if the table is available, and this is not requested as a silent gene change
-        if ( table && !silent) {
-            showGene(navInfo.getGene());
+        if ( navInfo.experiment && !silent) {
+            navInfo.experiment.filterGene(navInfo.getGene());
 
-        } else if ( !table && !silent ) {
+        } else if ( !navInfo.experiment && !silent ) {
 
             // Experiment has not loaded yet, wait for it, then show the gene
             $(window).one('experiment.loaded', function () {
-                showGene(navInfo.getGene());
+                navInfo.experiment.filterGene(navInfo.getGene());
             });
+
+        } else if ( navInfo.experiment && silent ) {
+            navInfo.experiment.showGene(navInfo.getGene());
         }
     });
 
@@ -57,7 +60,7 @@ $(document).ready(function(){
 
         // If there is no gene selected, load the default table
         if (! navInfo.getGene()) {
-            table.dt.ajax.reload();
+            navInfo.experiment.reloadTable();
         }
     });
 
@@ -147,6 +150,9 @@ var navInfo = {
     },
     registerExperiment: function(expObj) {
         this.experiments[this.getExperiment()] = expObj;
+
+        // TODO: Fix this hack
+        this.experiment = expObj;
 
         this.experiments[this.getExperiment()].load();
     },
