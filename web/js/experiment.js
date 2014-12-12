@@ -23,24 +23,23 @@ function intactExperiment(root) {
         var qWarning = 0.05;
 
         var $root = $(root);
-        var scale;
+        var scale= window.alberto.scale($root);
+        var svg = window.alberto.svg($root, tissues);
 
         function loadExperiment() {
-            scale = window.alberto.scale($root);
-
             // SVG images
             var lg = d3.select('#intact .lg');
             var eg = d3.select('#intact .eg');
             var hs = d3.select('#intact .hs');
 
-            baseColors = retrieveFillColor(hs);
+            baseColors = svg.retrieveFillColor(hs);
 
-            setupTooltip(eg);
-            setupSDTooltip(eg);
-            setupTooltip(lg);
-            setupSDTooltip(lg);
-            setupTooltip(hs);
-            setupSDTooltip(hs);
+            svg.setupTooltip(eg, formatTooltip);
+            svg.setupWarningTooltip(eg, formatWarningTooltip);
+            svg.setupTooltip(lg, formatTooltip);
+            svg.setupWarningTooltip(lg, formatWarningTooltip);
+            svg.setupTooltip(hs, formatTooltip);
+            svg.setupWarningTooltip(hs, formatWarningTooltip);
 
             // Poor mans method of injecting code into DataTables api
             table.dt.colvis = colvis($("#visibilityModal"), table.dt);
@@ -353,7 +352,7 @@ function intactExperiment(root) {
 
                 d3.select("#intact ." + stageId + " g.warning-sign").classed(warning);
 
-                assignData(d3.select("#intact ." + stageId), stageData);
+                svg.assignData(d3.select("#intact ." + stageId), stageData);
             });
 
             updateColors(scale.scale);
@@ -368,18 +367,6 @@ function intactExperiment(root) {
             $("#intact .mode li a[data-mode=" + mode + "]")
                 .closest('li').addClass('active')
                 .closest('div').find('button').addClass('btn-primary');
-        }
-
-        function retrieveFillColor(ele) {
-            var color = [];
-
-            $.each(tissues, function (i, tissue) {
-                if (!ele.select('.' + tissue).empty()) {
-                    color[i] = ele.select('.' + tissue).attr('fill');
-                }
-            });
-
-            return d3.scale.ordinal().range(color);
         }
 
         function highlightColumns() {
@@ -409,68 +396,12 @@ function intactExperiment(root) {
             });
         }
 
-        function setupTooltip(ele) {
-            var tip = d3.tip()
-                .attr('class', 'd3-tip')
-                .direction('e')
-                .offset([0, 20])
-                .html(function (d) {
-                    if (d) {
-                        return formatTooltip(d)
-                    } else {
-                        return "N/A";
-                    }
-                });
-
-            ele.call(tip);
-
-            $.each(tissues, function (i, tissue) {
-                ele.select('.' + tissue)
-                    .on('mouseover', function (d, i) {
-
-                        tip.show(d, i);
-
-                        var g = d3.select(this);
-                        if (g.attr('in-transition') == undefined || g.attr('in-transition') == 'no') {
-                            g.transition().style("opacity", 0.5);
-                        }
-
-                    })
-                    .on('mouseout', function (d, i) {
-                        tip.hide(d, i);
-
-                        var g = d3.select(this);
-
-                        if (g.attr('in-transition') == undefined || g.attr('in-transition') == 'no') {
-                            g.transition().style("opacity", 1);
-                        }
-
-                    })
-            });
-        }
-
-        function setupSDTooltip(ele) {
-            var tip = d3.tip()
-                .attr('class', 'd3-tip')
-                .direction('e')
-                .offset([0, 20])
-                .html(function () {
-                    if (navInfo.getMode() == 'abs') {
-                        return 'A tissue in this embryo has a relative standard deviation above 50%'
-                    } else {
-                        return 'A fold change in this embryo has a q-value above 0.05'
-                    }
-                });
-
-            ele.select('g.warning-sign')
-                .on('mouseover', function (d, i) {
-                    tip.show(d, i);
-                })
-                .on('mouseout', function (d, i) {
-                    tip.hide(d, i);
-                });
-
-            ele.call(tip);
+        function formatWarningTooltip() {
+            if (navInfo.getMode() == 'abs') {
+                return 'A tissue in this embryo has a relative standard deviation above 50%'
+            } else {
+                return 'A fold change in this embryo has a q-value above 0.05'
+            }
         }
 
         function formatTooltip(d) {
@@ -500,14 +431,6 @@ function intactExperiment(root) {
             r += "<p>Click tissue for actions</p>";
 
             return r;
-        }
-
-        function assignData(ele, data) {
-
-            $.each(tissues, function (i, tissue) {
-                ele.select('.' + tissue)
-                    .data([data[i]])
-            });
         }
 
         function filterGene(gene) {

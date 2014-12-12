@@ -15,6 +15,7 @@ class AppAsset extends AssetBundle
         // General code
         'js/navigation.js',
         'js/scale.js',
+        'js/svg.js',
         'js/table.js',
         'js/colvis.js',
         'js/canvas-toBlob.js',

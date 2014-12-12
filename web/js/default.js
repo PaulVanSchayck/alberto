@@ -5,11 +5,56 @@ function defaultExperiment(root) {
     return function() {
         var publics = {};
         var $root = $(root);
+        var tissues = [
+            'suspensor',
+            'vascular-initials',
+            'vascular',
+            'ground-initials',
+            'ground',
+            'inner-upper',
+            'protoderm',
+            'hypophysis',
+            'qc',
+            'columella'
+        ];
+
         var scale = window.alberto.scale($root);
         var table = window.alberto.table($("#mpTable"), buildDTColumns(), buildFilterColumns());
+        var svg = window.alberto.svg($root, tissues);
 
         function load() {
             $(window).trigger('experiment.loaded');
+
+            // SVG images
+            var wtlg = d3.select('#mpproper .wt .lg');
+            var mplg = d3.select('#mpproper .mp .lg');
+            var wths = d3.select('#mpproper .wt .hs');
+            var mphs = d3.select('#mpproper .mp .hs');
+
+            baseColors = svg.retrieveFillColor(wths);
+
+            svg.setupTooltip(wtlg, formatTooltip);
+            svg.setupWarningTooltip(wtlg, formatWarningTooltip);
+            svg.setupTooltip(mplg, formatTooltip);
+            svg.setupWarningTooltip(mplg, formatWarningTooltip);
+            svg.setupTooltip(wths, formatTooltip);
+            svg.setupWarningTooltip(wths, formatWarningTooltip);
+            svg.setupTooltip(mphs, formatTooltip);
+            svg.setupWarningTooltip(mphs, formatWarningTooltip);
+        }
+
+        function formatWarningTooltip() {
+            return "This tissue has issues"
+        }
+
+        function formatTooltip(d) {
+            var r, warning;
+
+            r = "<p><span class='label label-success'>Tissue</span> " + d.name + " </p>";
+
+            r += "<p>Click tissue for actions</p>";
+
+            return r;
         }
 
         function buildDTColumns() {

@@ -24,10 +24,10 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
                 </h3>
             </div>
             <div class="panel-body row">
-                <div class="col-lg-6 svg">
+                <div class="col-lg-6 svg wt">
                     <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?>
                 </div>
-                <div class="col-lg-6 svg">
+                <div class="col-lg-6 svg mp">
                     <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?>
                 </div>
             </div>
@@ -50,10 +50,10 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
                 </h3>
             </div>
             <div class="panel-body row">
-                <div class="col-lg-6 svg">
+                <div class="col-lg-6 svg wt">
                     <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?>
                 </div>
-                <div class="col-lg-6 svg">
+                <div class="col-lg-6 svg mp">
                     <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?>
                 </div>
             </div>
