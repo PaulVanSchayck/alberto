@@ -8,6 +8,7 @@ return [
     'intact' => [
         'template' => 'intact.php',
         'loader' => 'loadExperiment',
+        'model' => 'app\models\Intact',
         'columns' => [
 
             // Absolute expression
@@ -144,6 +145,24 @@ return [
     'mpproper' => [
         'template' => 'monopteros.php',
         'loader' => 'loadExperiment',
-        'columns' => []
+        'model' => 'app\models\MpProper',
+        'columns' => [
+            [
+                'field' => 'c1',
+                'type' => 'abs',
+                'label' => 'C1'
+            ],
+            [
+                'field' => 'e1',
+                'type' => 'abs',
+                'label' => 'E1'
+            ],
+            [
+                'field' => 'fc1',
+                'type' => 'abs',
+                'label' => 'FC1'
+            ],
+
+        ]
     ]
 ];

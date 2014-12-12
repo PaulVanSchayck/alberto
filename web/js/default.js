@@ -19,7 +19,7 @@ function defaultExperiment(root) {
         ];
 
         var scale = window.alberto.scale(root);
-        var table = window.alberto.table($("#mpTable"), buildDTColumns(), buildFilterColumns());
+        var table = window.alberto.table($("#mpTable"), buildDTColumns(mpColumns), buildFilterColumns(mpColumns), 'mpproper');
         var svg = window.alberto.svg($root, tissues);
 
         function load() {
@@ -67,7 +67,7 @@ function defaultExperiment(root) {
             return r;
         }
 
-        function buildDTColumns() {
+        function buildDTColumns(columns) {
             var r = [
                 {data: 'gene_agi', 'class': 'type_ann', name: 'gene_agi'},
                 {
@@ -97,10 +97,19 @@ function defaultExperiment(root) {
                 }
             ];
 
+            for (var i = 0; i < columns.length; i++) {
+                r.push({
+                    data: columns[i].field,
+                    name: columns[i].field,
+                    'class': 'type_' + columns[i].type,
+                    orderSequence: ['desc', 'asc']
+                });
+            }
+
             return r;
         }
 
-        function buildFilterColumns() {
+        function buildFilterColumns(columns) {
             var column_number = 0;
             var r = [
                 {
@@ -118,6 +127,18 @@ function defaultExperiment(root) {
                     filter_delay: 500
                 }
             ];
+
+            for (var i = 0; i < columns.length; i++) {
+                if (columns[i].type == 'abs') {
+                    r.push({
+                        column_number: column_number++,
+                        filter_type: "range_number",
+                        filter_default_label: ["0", "&infin;"],
+                        filter_delay: 500
+                    });
+                }
+            }
+
             return r;
         }
 

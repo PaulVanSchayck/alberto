@@ -151,14 +151,6 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
                         <?php
                         foreach( $experiment['columns'] as $column ) {
                             echo "<th>{$column['label']}</th>\n";
-                            if ( $column['type'] == 'abs' ) {
-                                echo "<th>{$column['label']} %RSD</th>\n";
-                                echo "<th>{$column['label']} SD</th>\n";
-                            } else if ( $column['type'] == 'fc_tmp' ) {
-                                echo "<th>{$column['label']} Q</th>\n";
-                            } else if ( $column['type'] == 'fc_spt' ) {
-                                echo "<th>{$column['label']} Q</th>\n";
-                            }
                         }
                         ?>
                     </tr>
@@ -173,5 +165,6 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
     </div>
 
 <script type="text/javascript">
+    var mpColumns = $.parseJSON('<?= json_encode($experiment['columns']); ?>');
     navInfo.registerExperiment(defaultExperiment("#mpproper"));
 </script>

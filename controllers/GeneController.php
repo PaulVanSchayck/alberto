@@ -42,16 +42,27 @@ class GeneController extends Controller {
         ];
     }
 
-    function actionIndex()
+    function actionIndex($exp)
     {
+        $experiments = Yii::$app->params['experiments'];
+
+        if( isset($experiments[$exp]) ) {
+            /* @var $model \yii\db\ActiveRecord */
+            $model = $experiments[$exp]['model'];
+        } else {
+            return 'Not implemented';
+        }
+
         $GeneRequest = new GeneRequest();
+        $GeneRequest->setTable($model::tableName());
 
         if( $GeneRequest->load(Yii::$app->request->post()) && $GeneRequest->validate()) {
 
             $dataProvider = new ActiveDataProvider([
-                'query' => Intact::find()
+                'query' => $model::find()
                     ->select($GeneRequest->getColumns())
                     ->joinWith('gene')
+                    ->where('gene.agi != ""') // TODO: Determine whether we want to do this, or want to fix this at the data level
                     ->filterWhere($GeneRequest->getFilter())
                     ->orderBy($GeneRequest->getOrder()),
                 'pagination' => new Scroller($GeneRequest->getPaginationConfig())

@@ -2,7 +2,7 @@
  * Functions for controlling the DataTable
  */
 
-window.alberto.table = function($table, columns, filterColumns) {
+window.alberto.table = function($table, columns, filterColumns, experiment) {
     var dt = $table.DataTable({
         serverSide: true,
         stateSave: true,
@@ -12,7 +12,7 @@ window.alberto.table = function($table, columns, filterColumns) {
             return false;
         },
         ajax: {
-            url: "/index.php?r=gene/index",
+            url: "/index.php?r=gene/index&exp=" + experiment ,
             method: "post",
             dataSrc: "data",
             data: function(d) {

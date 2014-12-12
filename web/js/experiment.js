@@ -15,7 +15,7 @@ function intactExperiment(root) {
             'columella'
         ];
 
-        var table = window.alberto.table($("#intactTable"), buildDTColumns(intactColumns), buildFilterColumns(intactColumns));
+        var table = window.alberto.table($("#intactTable"), buildDTColumns(intactColumns), buildFilterColumns(intactColumns), 'intact');
         var baseColors;
         var lastRequest;
 

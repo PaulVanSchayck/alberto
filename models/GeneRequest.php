@@ -19,6 +19,7 @@ class GeneRequest extends Model {
     public $includeAnnotations;
 
     private static $prefixes = ['gene'];
+    private $table;
 
     /**
      * The form name is set to be empty, as the request is not placed in a a scope
@@ -86,14 +87,14 @@ class GeneRequest extends Model {
                     break;
                 }
             } else {
-                $prefix = 'intact';
+                $prefix = $this->table;
             }
 
             // Check which columns are available
             $class = 'app\\models\\' . ucwords($prefix);
-            $columns =  $class::getTableSchema()->columnNames;
+            $columnNames =  $class::getTableSchema()->columnNames;
 
-            if ( ! in_array($name,$columns) ) {
+            if ( ! in_array($name,$columnNames) ) {
                 $this->addError($attribute, "Column " . $column['data'] . " is not a valid column");
                 break;
             };
@@ -192,5 +193,9 @@ class GeneRequest extends Model {
         }
 
         return $order;
+    }
+
+    public function setTable($table) {
+        $this->table = $table;
     }
 }
