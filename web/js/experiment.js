@@ -15,7 +15,7 @@ function intactExperiment(root) {
             'columella'
         ];
 
-        var table = window.alberto.table($("#intactTable"), buildDTColumns(intactColumns));
+        var table = window.alberto.table($("#intactTable"), buildDTColumns(intactColumns), buildFilterColumns(intactColumns));
         var baseColors;
         var lastRequest;
 
@@ -41,9 +41,6 @@ function intactExperiment(root) {
             setupSDTooltip(lg);
             setupTooltip(hs);
             setupSDTooltip(hs);
-
-            // Setup YADCF filters
-            yadcf.init(table.dt, buildFilterColumns(intactColumns), 'header');
 
             // Poor mans method of injecting code into DataTables api
             table.dt.colvis = colvis($("#visibilityModal"), table.dt);
@@ -531,7 +528,7 @@ function intactExperiment(root) {
             // Revert to base colors
             updateColors(baseColors, true);
 
-            hideGeneInformation();
+            hideGeneInformation($root);
 
             $("tbody tr.selected").removeClass("selected").find('td').css('background-color', '').css('color', '');
         }
@@ -544,7 +541,7 @@ function intactExperiment(root) {
             var data = table.dt.row($row).data();
 
             loadINTACT(data);
-            showGeneInformation(data);
+            showGeneInformation($root, data);
         }
 
         function buildDTColumns(columns) {

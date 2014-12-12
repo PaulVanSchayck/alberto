@@ -142,7 +142,7 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
                     <button class="btn btn-default clearfilters">Clear all filters &raquo;</button>
                 </div>
 
-                <table class="geneTable display">
+                <table class="display" id="mpTable">
                     <thead>
                     <tr>
                         <th>AGI</th>

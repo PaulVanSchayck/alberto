@@ -6,10 +6,10 @@ function defaultExperiment(root) {
         var publics = {};
         var $root = $(root);
         var scale = window.alberto.scale($root);
-        var table = window.alberto.table($root, buildDTColumns());
+        var table = window.alberto.table($("#mpTable"), buildDTColumns(), buildFilterColumns());
 
         function load() {
-            table.dt.ajax.reload();
+            $(window).trigger('experiment.loaded');
         }
 
         function buildDTColumns() {
@@ -45,8 +45,54 @@ function defaultExperiment(root) {
             return r;
         }
 
+        function buildFilterColumns() {
+            var column_number = 0;
+            var r = [
+                {
+                    column_number: column_number++,
+                    filter_type: "text",
+                    filter_delay: 500
+                }, {
+                    column_number: column_number++,
+                    filter_type: "text",
+                    filter_delay: 500
+                },
+                {
+                    column_number: column_number++,
+                    filter_type: "text",
+                    filter_delay: 500
+                }
+            ];
+            return r;
+        }
+
+        function filterGene(gene) {
+            yadcf.exResetAllFilters(table.dt, true);
+            yadcf.exFilterColumn(table.dt, [[0, gene]], true);
+
+            table.dt.one('draw.dt', function () {
+                if (table.dt.data().length > 0) {
+                    table.$table.find("tbody tr:eq(0)").addClass("selected");
+                    showGene(gene);
+                } else {
+                    $("#no-results").show();
+                }
+            });
+        }
+
+        function showGene() {
+            var $row = table.getSelectedRow();
+
+            var data = table.dt.row($row).data();
+
+            showGeneInformation($root, data);
+        }
+
         // Public functions and variables
         publics.load = load;
+        publics.showGene = showGene;
+        publics.filterGene = filterGene;
+        publics.reloadTable = table.dt.ajax.reload;
 
         return publics
     }();

@@ -44,15 +44,8 @@ $(document).ready(function(){
         if ( navInfo.experiment && !silent) {
             navInfo.experiment.filterGene(navInfo.getGene());
 
-        } else if ( !navInfo.experiment && !silent ) {
-
-            // Experiment has not loaded yet, wait for it, then show the gene
-            $(window).one('experiment.loaded', function () {
-                navInfo.experiment.filterGene(navInfo.getGene());
-            });
-
         } else if ( navInfo.experiment && silent ) {
-            navInfo.experiment.showGene(navInfo.getGene());
+            navInfo.experiment.showGene();
         }
     });
 
@@ -61,6 +54,8 @@ $(document).ready(function(){
         // If there is no gene selected, load the default table
         if (! navInfo.getGene()) {
             navInfo.experiment.reloadTable();
+        } else {
+            navInfo.experiment.filterGene(navInfo.getGene());
         }
     });
 
@@ -112,9 +107,9 @@ $(document).ready(function(){
     });
 });
 
-function showGeneInformation(data) {
-    $('.gene-information .non-selected').hide();
-    var $gene = $('.gene-information .selected').show();
+function showGeneInformation($root, data) {
+    $root.find('.gene-information .non-selected').hide();
+    var $gene = $root.find('.gene-information .selected').show();
 
     $gene.find('.agi').html(data.gene_agi);
     $gene.find('.annotation').html(data.gene.annotation);
@@ -127,9 +122,9 @@ function showGeneInformation(data) {
     });
 }
 
-function hideGeneInformation() {
-    $('.gene-information .non-selected').show();
-    $('.gene-information .selected').hide();
+function hideGeneInformation($root) {
+    $root.find('.gene-information .non-selected').show();
+    $root.find('.gene-information .selected').hide();
 }
 
 var navInfo = {

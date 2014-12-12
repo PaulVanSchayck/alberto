@@ -2,7 +2,7 @@
  * Functions for controlling the DataTable
  */
 
-window.alberto.table = function($table, columns) {
+window.alberto.table = function($table, columns, filterColumns) {
     var dt = $table.DataTable({
         serverSide: true,
         stateSave: true,
@@ -41,6 +41,9 @@ window.alberto.table = function($table, columns) {
             return pre + " ordered by " + settings.aoColumns[settings.aaSorting[0][0]].sTitle
         }
     });
+
+    // Setup YADCF filters
+    yadcf.init(dt, filterColumns, 'header');
 
     dt.on( 'search.dt', function () {
         $(".filter_column input")
