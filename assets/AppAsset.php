@@ -14,6 +14,7 @@ class AppAsset extends AssetBundle
     public $js = [
         // General code
         'js/navigation.js',
+        'js/common.js',
         'js/scale.js',
         'js/svg.js',
         'js/table.js',

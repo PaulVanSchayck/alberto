@@ -53,6 +53,56 @@ function defaultExperiment(root) {
             scale.showScale();
         }
 
+        function loadData(data) {
+
+            $.each(mpRules, function (stageId, stage) {
+                var stageData = [], warning = {'abs': false };
+
+                d3.select(root + " ." + stageId + " g.warning-sign").classed(warning);
+
+                $.each(tissues, function (j, tissue) {
+                    var s;
+
+                    if (stage[tissue] !== undefined) {
+                        s = stage[tissue];
+                    } else {
+                        s = stage['*'];
+                    }
+
+                    stageData[j] = {
+                        name: s.name,
+                        abs: parseRuleField(s.abs, data)
+                    };
+
+                    warning = {
+                        //'abs': stageData[j].rsd > rsdWarning && !warning.abs ? true : warning.abs
+                    };
+                });
+
+                d3.select(root + " ." + stageId + " g.warning-sign").classed(warning);
+
+                svg.assignData(d3.select(root + " ." + stageId), stageData);
+            });
+
+            updateColors(scale.scale);
+        }
+
+        function updateColors(colorScale, useIndex) {
+            $.each(tissues, function (i, tissue) {
+                d3.selectAll(root + ' .' + tissue).transition().duration(1000).attr('fill', function (d) {
+                    if (!useIndex && d) {
+                        return colorScale.defined(d.abs)
+                    } else {
+                        return colorScale(i)
+                    }
+                }).each('start', function () {
+                    d3.select(this).attr('in-transition', 'yes')
+                }).each('end', function () {
+                    d3.select(this).attr('in-transition', 'no')
+                })
+            });
+        }
+
         function formatWarningTooltip() {
             return "This tissue has issues"
         }
@@ -162,6 +212,7 @@ function defaultExperiment(root) {
             var data = table.dt.row($row).data();
 
             showGeneInformation($root, data);
+            loadData(data);
         }
 
         // Public functions and variables

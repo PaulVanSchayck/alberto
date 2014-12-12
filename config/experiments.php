@@ -162,7 +162,14 @@ return [
                 'type' => 'abs',
                 'label' => 'FC1'
             ],
-
+        ],
+        'rules' => [
+            'lg' => [
+                '*' => [
+                    'name' => 'Whole embryo',
+                    'abs' => 'c1',
+                ]
+            ],
         ]
     ]
 ];
