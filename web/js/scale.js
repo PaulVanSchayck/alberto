@@ -2,9 +2,10 @@
  * Functions for controlling the scale and the slider associated with it
  */
 
-window.alberto.scale = function scale($root) {
+window.alberto.scale = function scale(root) {
     var scale = d3.scale.linear();
 
+    var $root = $(root);
     /**
      * This wraps the scale function, in order to return white whenever false or undefined is requested
      *
@@ -76,7 +77,7 @@ window.alberto.scale = function scale($root) {
     function showScale() {
         var ticks = scale.ticks(20);
 
-        var div = d3.select("#intact .slider-selection").selectAll('div')
+        var div = d3.select(root + " .slider-selection").selectAll('div')
             .data(ticks);
 
         div.enter().append('div')

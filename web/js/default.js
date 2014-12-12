@@ -18,7 +18,7 @@ function defaultExperiment(root) {
             'columella'
         ];
 
-        var scale = window.alberto.scale($root);
+        var scale = window.alberto.scale(root);
         var table = window.alberto.table($("#mpTable"), buildDTColumns(), buildFilterColumns());
         var svg = window.alberto.svg($root, tissues);
 
@@ -41,6 +41,16 @@ function defaultExperiment(root) {
             svg.setupWarningTooltip(wths, formatWarningTooltip);
             svg.setupTooltip(mphs, formatTooltip);
             svg.setupWarningTooltip(mphs, formatWarningTooltip);
+
+            scale.slider.setAttribute('min', 0)
+                .setAttribute('max', 200)
+                .setValue([32, 100])
+                .refresh();
+
+            scale.scale.domain([32, 100])
+                .range(["yellow", "red"]);
+
+            scale.showScale();
         }
 
         function formatWarningTooltip() {
@@ -48,7 +58,7 @@ function defaultExperiment(root) {
         }
 
         function formatTooltip(d) {
-            var r, warning;
+            var r;
 
             r = "<p><span class='label label-success'>Tissue</span> " + d.name + " </p>";
 

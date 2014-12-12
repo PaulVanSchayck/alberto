@@ -23,7 +23,7 @@ function intactExperiment(root) {
         var qWarning = 0.05;
 
         var $root = $(root);
-        var scale= window.alberto.scale($root);
+        var scale= window.alberto.scale(root);
         var svg = window.alberto.svg($root, tissues);
 
         function loadExperiment() {
