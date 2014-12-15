@@ -41,11 +41,11 @@ $(document).ready(function(){
             .addClass('loaded');
 
         // Only show a gene, if the table is available, and this is not requested as a silent gene change
-        if ( navInfo.experiment && !silent) {
-            navInfo.experiment.filterGene(navInfo.getGene());
+        if ( navInfo.getExperimentObj() && !silent) {
+            navInfo.getExperimentObj().filterGene(navInfo.getGene());
 
-        } else if ( navInfo.experiment && silent ) {
-            navInfo.experiment.showGene();
+        } else if ( navInfo.getExperimentObj() && silent ) {
+            navInfo.getExperimentObj().showGene();
         }
     });
 
@@ -53,9 +53,9 @@ $(document).ready(function(){
 
         // If there is no gene selected, load the default table
         if (! navInfo.getGene()) {
-            navInfo.experiment.reloadTable();
+            navInfo.getExperimentObj().reloadTable();
         } else {
-            navInfo.experiment.filterGene(navInfo.getGene());
+            navInfo.getExperimentObj().filterGene(navInfo.getGene());
         }
     });
 
@@ -69,6 +69,11 @@ $(document).ready(function(){
         }
 
         $('a[data-exp="' + navInfo.getExperiment() + '"]').tab('show');
+
+        // Only filter a gene when the experiment is changed when the gene set for the experiment differs from the currently set gene
+        if ( navInfo.getExperimentObj() && navInfo.getExperimentGene() != navInfo.getGene() ) {
+            navInfo.getExperimentObj().filterGene(navInfo.getGene());
+        }
 
     });
 
@@ -132,31 +137,45 @@ var navInfo = {
     gene: false,
     mode: "",
     experiments: {},
-    experiment: null,
 
     getExperiment: function() {
         return this.exp;
     },
     setExperiment: function(exp) {
         this.exp = exp;
-        this.experiment = this.experiments[exp];
+
         $(window).trigger('alberto.experiment.changed');
         this.buildHash();
     },
     registerExperiment: function(expObj) {
-        this.experiments[this.getExperiment()] = expObj;
+        this.experiments[this.getExperiment()] = { obj: expObj, gene: this.getGene() };
 
-        // TODO: Fix this hack
-        this.experiment = expObj;
-
-        this.experiments[this.getExperiment()].load();
+        expObj.load();
     },
 
     getGene: function() {
         return this.gene;
     },
+    getExperimentGene: function() {
+        if ( this.experiments[this.getExperiment()] ) {
+            return this.experiments[this.getExperiment()].gene;
+        } else {
+            return false;
+        }
+    },
+    getExperimentObj: function() {
+        if ( this.experiments[this.getExperiment()] ) {
+            return this.experiments[this.getExperiment()].obj;
+        } else {
+            return false;
+        }
+    },
     setGene: function(gene, silent) {
         this.gene = gene;
+
+        if ( this.experiments[this.getExperiment()] ) {
+            this.experiments[this.getExperiment()].gene = gene;
+        }
 
         $(window).trigger('alberto.gene.changed', silent);
 
