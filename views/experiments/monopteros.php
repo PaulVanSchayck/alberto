@@ -98,7 +98,20 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
                 <h3 class="panel-title">Experimental setup</h3>
             </div>
             <div class="panel-body">
-
+                <p>
+                    Monopteros activity was locally inhibited in the inner basal embryo cells of the early embryo that will
+                    acquire vascular or ground tissue identity, depending on their position
+                </p>
+                <?php Modal::begin([
+                    'id' => 'experimentModal',
+                    'header' => '<h4 class="modal-title">Experimental setup</h4>',
+                    'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
+                    'size' => Modal::SIZE_LARGE
+                ]);
+                $parser = new \cebe\markdown\GithubMarkdown();
+                echo $parser->parse(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/Q0990.md'));
+                ?>
+                <?php Modal::end(); ?>
             </div>
         </div>
     </div>
