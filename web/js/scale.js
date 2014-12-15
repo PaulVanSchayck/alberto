@@ -2,7 +2,7 @@
  * Functions for controlling the scale and the slider associated with it
  */
 
-window.alberto.scale = function scale(root) {
+window.alberto.scale = function scale(root, changeScaleCallback) {
     var scale = d3.scale.linear();
 
     var $root = $(root);
@@ -30,10 +30,7 @@ window.alberto.scale = function scale(root) {
 
             scale.domain(domain);
 
-            if( navInfo.getGene() ) {
-                updateColors(scale);
-                updateTableColors(navInfo.getMode());
-            }
+            changeScaleCallback(scale)
         }).data('slider').disable();
 
     $root.find(".scale-input").change(function() {

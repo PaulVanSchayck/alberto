@@ -23,7 +23,13 @@ function intactExperiment(root) {
         var qWarning = 0.05;
 
         var $root = $(root);
-        var scale= window.alberto.scale(root);
+        var scale= window.alberto.scale(root, function(scale) {
+            // What to do upon changing scale
+            if( navInfo.getGene() ) {
+                updateColors(scale);
+                updateTableColors(navInfo.getMode());
+            }
+        });
         var svg = window.alberto.svg($root, tissues);
 
         function loadExperiment() {

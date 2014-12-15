@@ -18,7 +18,13 @@ function defaultExperiment(root) {
             'columella'
         ];
 
-        var scale = window.alberto.scale(root);
+        var scale = window.alberto.scale(root, function(scale) {
+            // What to do upon changing scale
+            if( navInfo.getGene() ) {
+                updateColors(scale);
+                updateTableColors(navInfo.getMode());
+            }
+        });
         var table = window.alberto.table($("#mpTable"), buildDTColumns(mpColumns), buildFilterColumns(mpColumns), 'mpproper');
         var svg = window.alberto.svg($root, tissues);
 
