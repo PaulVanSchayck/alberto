@@ -4,6 +4,16 @@ use yii\bootstrap\Modal;
 $experiment = Yii::$app->params['experiments']['mpproper'];
 ?>
 
+<?php $this->beginBlock('download'); ?>
+<span class="btn-group">
+    <a href="#" class="dropdown-toggle download-drop" data-toggle="dropdown"><span class="glyphicon glyphicon-save"></span></a>
+    <ul class="dropdown-menu">
+        <li><a href="#" title="gene - LG" class="download-png">PNG</a></li>
+        <li><a href="#" title="gene - LG" class="download-svg">SVG</a></li>
+    </ul>
+</span>
+<?php $this->endBlock(); ?>
+
 <div class="row svg-images">
     <div class="col-lg-12">
         <p>Click on the embryo for preset filtering actions, or use the table below for setting your own filters.</p>
@@ -14,20 +24,17 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
             <div class="panel-heading">
                 <h3 class="panel-title">
                     Late globular
-                    <span class="btn-group pull-right">
-                        <a href="#" class="dropdown-toggle download-drop" data-toggle="dropdown"><span class="glyphicon glyphicon-save"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" title="gene - EG" class="download-png">PNG</a></li>
-                            <li><a href="#" title="gene - EG" class="download-svg">SVG</a></li>
-                        </ul>
-                    </span>
                 </h3>
             </div>
             <div class="panel-body row">
                 <div class="col-lg-6 svg wt">
+                    <strong>Wild Type</strong>
+                    <?= $this->blocks['download'] ?>
                     <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?>
                 </div>
                 <div class="col-lg-6 svg mp">
+                    <strong>Mutant</strong>
+                    <?= $this->blocks['download'] ?>
                     <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?>
                 </div>
             </div>
@@ -40,20 +47,17 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
             <div class="panel-heading">
                 <h3 class="panel-title">
                     Heart stage
-                    <span class="btn-group pull-right">
-                        <a href="#" class="dropdown-toggle download-drop" data-toggle="dropdown"><span class="glyphicon glyphicon-save"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" title="gene - LG" class="download-png">PNG</a></li>
-                            <li><a href="#" title="gene - LG" class="download-svg">SVG</a></li>
-                        </ul>
-                    </span>
                 </h3>
             </div>
             <div class="panel-body row">
                 <div class="col-lg-6 svg wt">
+                    <strong>Wild Type</strong>
+                    <?= $this->blocks['download'] ?>
                     <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?>
                 </div>
                 <div class="col-lg-6 svg mp">
+                    <strong>Mutant</strong>
+                    <?= $this->blocks['download'] ?>
                     <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?>
                 </div>
             </div>
