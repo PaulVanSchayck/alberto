@@ -23,7 +23,7 @@
         "kartik-v/yii2-widget-typeahead": "1.0.*",
         "vedmack/yadcf": "0.8.5",
         "eligrey/FileSaver.js": "1.0",
-        "cebe/markdown": "~1.0.1"
+        "michelf/php-markdown": "1.4.*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "2.0.*",

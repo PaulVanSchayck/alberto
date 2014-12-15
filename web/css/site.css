@@ -380,3 +380,8 @@ pre.annotation {
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
 }
+
+/* Experimental setup */
+div.caption {
+    font-size: 80%;
+}

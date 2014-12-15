@@ -103,13 +103,12 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
                     acquire vascular or ground tissue identity, depending on their position
                 </p>
                 <?php Modal::begin([
-                    'id' => 'experimentModal',
+                    'id' => 'Q0990-experiment',
                     'header' => '<h4 class="modal-title">Experimental setup</h4>',
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
                 ]);
-                $parser = new \cebe\markdown\GithubMarkdown();
-                echo $parser->parse(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/Q0990.md'));
+                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/Q0990.md'));
                 ?>
                 <?php Modal::end(); ?>
             </div>
