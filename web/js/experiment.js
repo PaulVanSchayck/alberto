@@ -103,7 +103,7 @@ function intactExperiment(root) {
                 $("#intact").removeClass('abs fc_spt fc_tmp').addClass(navInfo.getMode());
                 highlightActiveMode(navInfo.getMode());
 
-                showColumnType(navInfo.getMode());
+                table.showColumnType(navInfo.getMode());
                 scale.showScale();
 
                 if (navInfo.getGene()) {
@@ -116,7 +116,7 @@ function intactExperiment(root) {
 
             // If no mode is selected, set the absolute expression mode
             if (!navInfo.getMode()) {
-                $("#intact .mode button").first().click();
+                $root.find(".mode button").first().click();
             }
 
             var $dropdown = $('.dropdown-menu.actions');
@@ -241,23 +241,6 @@ function intactExperiment(root) {
             });
 
             highlightColumns();
-        }
-
-        function showColumnType(type) {
-            // Remove all background-color from selected row
-            $("tr.selected").find('td').css('background-color', '');
-
-            // Hide all but annotation columns
-            table.dt.columns(":not('.type_ann')").visible(false, false);
-
-            // Show column type request
-            table.dt.columns('.type_' + type).visible(true, false);
-
-            // This seriously improves performance to do this only once, see the false as second argument to visible()
-            table.dt.columns.adjust();
-
-            // Refresh column visibility dialog
-            table.dt.colvis.refresh();
         }
 
         function updateTableColors(type) {

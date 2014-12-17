@@ -29,8 +29,6 @@ function defaultExperiment(root) {
         var svg = window.alberto.svg($root, tissues);
 
         function load() {
-            $(window).trigger('experiment.loaded');
-
             // SVG images
             var wtlg = d3.select('#mpproper .wt .lg');
             var mplg = d3.select('#mpproper .mp .lg');
@@ -57,6 +55,56 @@ function defaultExperiment(root) {
                 .range(["yellow", "red"]);
 
             scale.showScale();
+
+            $root.find(".mode button").tooltip({placement: 'bottom', container: 'body'});
+
+            $root.find(".gene-information .non-selected").tooltip({placement: 'bottom'});
+            $root.find(".scale label").tooltip({placement: 'bottom'});
+
+            $root.find(".mode button").click(function () {
+                navInfo.setMode($(this).data('mode'));
+            });
+
+            // Poor mans method of injecting code into DataTables api
+            table.dt.colvis = colvis($("#visibilityModal"), table.dt);
+
+            $(window).on('alberto.mode.changed', function () {
+                if (navInfo.getMode() == "fc_spt") {
+                    scale.slider.setAttribute('min', -10)
+                        .setAttribute('max', 10)
+                        .setValue([-5, 5])
+                        .refresh();
+
+                    scale.scale.domain([-5, -1, 1, 5])
+                        .range(["green", "black", "black", "red"]);
+                } else if (navInfo.getMode() == "abs") {
+                    scale.slider.setAttribute('min', 0)
+                        .setAttribute('max', 200)
+                        .setValue([32, 100])
+                        .refresh();
+
+                    scale.scale.domain([32, 100])
+                        .range(["yellow", "red"]);
+                }
+
+                $root.removeClass('abs fc_spt').addClass(navInfo.getMode());
+                highlightActiveMode(navInfo.getMode());
+
+                table.showColumnType(navInfo.getMode());
+                scale.showScale();
+
+                if (navInfo.getGene()) {
+                    updateColors(scale.scale);
+                    updateTableColors(navInfo.getMode());
+                }
+            });
+
+            // If no mode is selected, set the absolute expression mode
+            if (!navInfo.getMode()) {
+                $root.find(".mode button").first().click();
+            }
+
+            $(window).trigger('experiment.loaded');
         }
 
         function loadData(data) {
@@ -107,6 +155,31 @@ function defaultExperiment(root) {
                     d3.select(this).attr('in-transition', 'no')
                 })
             });
+        }
+
+        function updateTableColors(type) {
+            table.$table.find("tbody tr.selected td.type_" + type)
+                .css('background-color', function () {
+                    return scale.scale($(this).html())
+                })
+                .css('color', function () {
+                    // Find contrasting color
+                    // From: http://ux.stackexchange.com/questions/8297/choosing-high-contrast-text-color-in-relation-to-background-color-dynamically
+                    var c = d3.rgb(scale.scale($(this).html()));
+
+                    var y = 0.2126 * Math.pow(c.r / 255, 2.2) + 0.7151 * Math.pow(c.g / 255, 2.2) + 0.0721 * Math.pow(c.b / 255, 2.2);
+
+                    if (y > 0.25) {
+                        return 'black';
+                    } else {
+                        return 'white'
+                    }
+                });
+        }
+
+        function highlightActiveMode(mode) {
+            $root.find(".mode button").removeClass('btn-primary');
+            $root.find(".mode button[data-mode=" + mode + "]").addClass('btn-primary');
         }
 
         function formatWarningTooltip() {
@@ -216,6 +289,8 @@ function defaultExperiment(root) {
             var $row = table.getSelectedRow();
 
             var data = table.dt.row($row).data();
+
+            updateTableColors(navInfo.getMode());
 
             showGeneInformation($root, data);
             loadData(data);

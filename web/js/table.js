@@ -77,9 +77,27 @@ window.alberto.table = function($table, columns, filterColumns, experiment) {
         return $table.find('tr.selected');
     }
 
+    function showColumnType(type) {
+        // Remove all background-color from selected row
+        $table.find("tr.selected").find('td').css('background-color', '');
+
+        // Hide all but annotation columns
+        dt.columns(":not('.type_ann')").visible(false, false);
+
+        // Show column type request
+        dt.columns('.type_' + type).visible(true, false);
+
+        // This seriously improves performance to do this only once, see the false as second argument to visible()
+        dt.columns.adjust();
+
+        // Refresh column visibility dialog
+        dt.colvis.refresh();
+    }
+
     return {
         dt: dt,
         $table: $table,
-        getSelectedRow: getSelectedRow
+        getSelectedRow: getSelectedRow,
+        showColumnType: showColumnType
     }
 };
