@@ -27,34 +27,15 @@ function defaultExperiment(root) {
         });
         var table = window.alberto.table($("#mpTable"), buildDTColumns(mpColumns), buildFilterColumns(mpColumns), 'mpproper');
         var svg = window.alberto.svg($root, tissues);
+        var baseColors = svg.retrieveFillColor(d3.select(root + " " + mpImages[0]));
 
         function load() {
             // SVG images
-            var wtlg = d3.select('#mpproper .wt .lg');
-            var mplg = d3.select('#mpproper .mp .lg');
-            var wths = d3.select('#mpproper .wt .hs');
-            var mphs = d3.select('#mpproper .mp .hs');
-
-            baseColors = svg.retrieveFillColor(wths);
-
-            svg.setupTooltip(wtlg, formatTooltip);
-            svg.setupWarningTooltip(wtlg, formatWarningTooltip);
-            svg.setupTooltip(mplg, formatTooltip);
-            svg.setupWarningTooltip(mplg, formatWarningTooltip);
-            svg.setupTooltip(wths, formatTooltip);
-            svg.setupWarningTooltip(wths, formatWarningTooltip);
-            svg.setupTooltip(mphs, formatTooltip);
-            svg.setupWarningTooltip(mphs, formatWarningTooltip);
-
-            scale.slider.setAttribute('min', 0)
-                .setAttribute('max', 200)
-                .setValue([32, 100])
-                .refresh();
-
-            scale.scale.domain([32, 100])
-                .range(["yellow", "red"]);
-
-            scale.showScale();
+            $.each( mpImages, function( name, selector )  {
+                var ele = d3.select(root + " " + selector);
+                svg.setupTooltip(ele, formatTooltip);
+                svg.setupWarningTooltip(ele, formatWarningTooltip);
+            });
 
             $root.find(".mode button").tooltip({placement: 'bottom', container: 'body'});
 
@@ -112,7 +93,7 @@ function defaultExperiment(root) {
             $.each(mpRules, function (stageId, stage) {
                 var stageData = [], warning = {'abs': false };
 
-                d3.select(root + " ." + stageId + " g.warning-sign").classed(warning);
+                d3.select(root + " " + mpImages[stageId] + " g.warning-sign").classed(warning);
 
                 $.each(tissues, function (j, tissue) {
                     var s;
@@ -133,9 +114,9 @@ function defaultExperiment(root) {
                     };
                 });
 
-                d3.select(root + " ." + stageId + " g.warning-sign").classed(warning);
+                d3.select(root + " " + mpImages[stageId] + " g.warning-sign").classed(warning);
 
-                svg.assignData(d3.select(root + " ." + stageId), stageData);
+                svg.assignData(d3.select(root + " " + mpImages[stageId]), stageData);
             });
 
             updateColors(scale.scale);

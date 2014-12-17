@@ -146,6 +146,12 @@ return [
         'template' => 'monopteros.php',
         'loader' => 'loadExperiment',
         'model' => 'app\models\MpProper',
+        'images' => [
+            'wtlg' => '.wt .lg',
+            'mplg' => '.mp .lg',
+            'wths' => '.wt .hs',
+            'mphs' => '.mp .hs'
+        ],
         'columns' => [
             [
                 'field' => 'c1',
@@ -164,10 +170,16 @@ return [
             ],
         ],
         'rules' => [
-            'lg' => [
+            'wtlg' => [
                 '*' => [
                     'name' => 'Whole embryo',
                     'abs' => 'c1',
+                ]
+            ],
+            'mplg' => [
+                '*' => [
+                    'name' => 'Whole embryo',
+                    'abs' => 'e1',
                 ]
             ],
         ]

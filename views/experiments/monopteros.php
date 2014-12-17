@@ -271,5 +271,6 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
 <script type="text/javascript">
     var mpColumns = $.parseJSON('<?= json_encode($experiment['columns']); ?>');
     var mpRules = $.parseJSON('<?= json_encode($experiment['rules']); ?>');
+    var mpImages = $.parseJSON('<?= json_encode($experiment['images']); ?>');
     navInfo.registerExperiment(defaultExperiment("#mpproper"));
 </script>
