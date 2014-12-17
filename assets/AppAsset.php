@@ -19,6 +19,7 @@ class AppAsset extends AssetBundle
         'js/svg.js',
         'js/table.js',
         'js/colvis.js',
+        'js/export.js',
         'js/canvas-toBlob.js',
 
         // Experiments

@@ -17,7 +17,6 @@ function intactExperiment(root) {
 
         var table = window.alberto.table($("#intactTable"), buildDTColumns(intactColumns), buildFilterColumns(intactColumns), 'intact');
         var baseColors;
-        var lastRequest;
 
         var rsdWarning = 50;
         var qWarning = 0.05;
@@ -121,6 +120,7 @@ function intactExperiment(root) {
                 $root.find(".mode button").first().click();
             }
 
+            window.alberto.exportModal($root, table, 'intact');
 
             $(window).trigger('experiment.loaded');
 
@@ -203,42 +203,6 @@ function intactExperiment(root) {
 
                     return false;
                 }
-            });
-
-            var ngenes = $("#exportModal .ngenes").slider().data('slider');
-
-            $("#export").click(function () {
-                var d = lastRequest;
-
-                for (var i = 0; i < d.columns.length; i++) {
-
-                    if ($("#exportModal .visible").is(":checked")) {
-                        d.columns[i].visible = true;
-                    } else {
-                        d.columns[i].visible = table.dt.column(d.columns[i].name + ":name").visible();
-                    }
-
-                }
-
-                d.start = 0;
-                d.length = ngenes.getValue();
-                d.includeAnnotations = $("#exportModal .annotations").is(":checked") ? 1 : 0;
-
-                // split params into form inputs
-                var inputs = '';
-                var data = decodeURIComponent(jQuery.param(d));
-
-                $.each(data.split('&'), function () {
-                    var pair = this.split('=');
-                    inputs += '<input type="hidden" name="' + pair[0] + '" value="' + pair[1] + '" />';
-                });
-
-                // Yii2 CSRF protection
-                inputs += '<input name="' + yii.getCsrfParam() + '" value="' + yii.getCsrfToken() + '" type="hidden">';
-
-                // send request
-                $('<form action="/index.php?r=gene/export" method="post">' + inputs + '</form>')
-                    .appendTo('body').submit().remove();
             });
 
             $("#intact .clearfilters").click(function () {

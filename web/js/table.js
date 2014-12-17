@@ -3,6 +3,8 @@
  */
 
 window.alberto.table = function($table, columns, filterColumns, experiment) {
+    var lastRequest;
+
     var dt = $table.DataTable({
         serverSide: true,
         stateSave: true,
@@ -94,7 +96,12 @@ window.alberto.table = function($table, columns, filterColumns, experiment) {
         dt.colvis.refresh();
     }
 
+    function getLastRequest() {
+        return lastRequest;
+    }
+
     return {
+        getLastRequest: getLastRequest,
         dt: dt,
         $table: $table,
         getSelectedRow: getSelectedRow,

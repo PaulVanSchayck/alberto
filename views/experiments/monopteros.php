@@ -156,6 +156,7 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
                 <p class="table-text">Click on a row to view the profile of a gene. Use the fields to filter the table.</p>
                 <div class="table-tools">
                     <button class="btn btn-default clearfilters">Clear all filters &raquo;</button>
+                    <?= $this->render('/_blocks/export', ['experiment' => 'Q0990']); ?>
                     <?php Modal::begin([
                         'id' => 'Q0990-visibilityModal',
                         'header' => '<h4 class="modal-title">Show / hide columns</h4>',

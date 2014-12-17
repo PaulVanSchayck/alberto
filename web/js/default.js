@@ -84,6 +84,8 @@ function defaultExperiment(root) {
                 }
             });
 
+            window.alberto.exportModal($root, table, 'mpproper');
+
             // If no mode is selected, set the absolute expression mode
             if (!navInfo.getExperimentMode()) {
                 $root.find(".mode button").first().click();

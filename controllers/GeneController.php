@@ -2,7 +2,6 @@
 namespace app\controllers;
 
 use app\components\Scroller;
-use app\models\Intact;
 use Yii;
 use app\models\GeneRequest;
 use app\components\ActiveDataProvider;
@@ -86,14 +85,24 @@ class GeneController extends Controller {
         return ArrayHelper::toArray($results);
     }
 
-    function actionExport()
+    function actionExport($exp)
     {
+        $experiments = Yii::$app->params['experiments'];
+
+        if( isset($experiments[$exp]) ) {
+            /* @var $model \yii\db\ActiveRecord */
+            $model = $experiments[$exp]['model'];
+        } else {
+            return 'Not implemented';
+        }
+
         $GeneRequest = new GeneRequest();
+        $GeneRequest->setTable($model::tableName());
 
         if( $GeneRequest->load(Yii::$app->request->post()) && $GeneRequest->validate()) {
 
             $dataProvider = new ActiveDataProvider([
-                'query' => Intact::find()
+                'query' => $model::find()
                     ->select($GeneRequest->getVisibleColumns())
                     ->joinWith('gene')
                     ->filterWhere($GeneRequest->getFilter())
