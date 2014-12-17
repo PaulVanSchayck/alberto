@@ -165,7 +165,7 @@ return [
             ],
             [
                 'field' => 'fc1',
-                'type' => 'abs',
+                'type' => 'fc',
                 'label' => 'FC1'
             ],
         ],
@@ -174,14 +174,30 @@ return [
                 '*' => [
                     'name' => 'Whole embryo',
                     'abs' => 'c1',
+                    'fc' => 'no-data'
                 ]
             ],
             'mplg' => [
                 '*' => [
                     'name' => 'Whole embryo',
                     'abs' => 'e1',
+                    'fc' => 'fc1'
                 ]
             ],
+            'wths' => [
+                '*' => [
+                    'name' => 'Whole embryo',
+                    'abs' => 'no-data',
+                    'fc' => 'no-data'
+                ]
+            ],
+            'mphs' => [
+                '*' => [
+                    'name' => 'Whole embryo',
+                    'abs' => 'no-data',
+                    'fc' => 'no-data'
+                ]
+            ]
         ]
     ]
 ];

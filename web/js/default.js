@@ -50,7 +50,7 @@ function defaultExperiment(root) {
             table.dt.colvis = colvis($("#Q0990-visibilityModal"), table.dt);
 
             $(window).on('alberto.mode.changed', function () {
-                if (navInfo.getMode() == "fc_spt") {
+                if (navInfo.getMode() == "fc") {
                     scale.slider.setAttribute('min', -10)
                         .setAttribute('max', 10)
                         .setValue([-5, 5])
@@ -68,7 +68,7 @@ function defaultExperiment(root) {
                         .range(["yellow", "red"]);
                 }
 
-                $root.removeClass('abs fc_spt').addClass(navInfo.getMode());
+                $root.removeClass('abs fc').addClass(navInfo.getMode());
                 highlightActiveMode(navInfo.getMode());
 
                 table.showColumnType(navInfo.getMode());
@@ -91,7 +91,7 @@ function defaultExperiment(root) {
         function loadData(data) {
 
             $.each(mpRules, function (stageId, stage) {
-                var stageData = [], warning = {'abs': false };
+                var stageData = [], warning = {'abs': false, 'fc': false };
 
                 d3.select(root + " " + mpImages[stageId] + " g.warning-sign").classed(warning);
 
@@ -106,7 +106,8 @@ function defaultExperiment(root) {
 
                     stageData[j] = {
                         name: s.name,
-                        abs: parseRuleField(s.abs, data)
+                        abs: parseRuleField(s.abs, data),
+                        fc: parseRuleField(s.fc, data)
                     };
 
                     warning = {
@@ -126,7 +127,11 @@ function defaultExperiment(root) {
             $.each(tissues, function (i, tissue) {
                 d3.selectAll(root + ' .' + tissue).transition().duration(1000).attr('fill', function (d) {
                     if (!useIndex && d) {
-                        return colorScale.defined(d.abs)
+                        if (navInfo.getMode() == 'fc') {
+                            return colorScale.defined(d.fc)
+                        } else if (navInfo.getMode() == 'abs') {
+                            return colorScale.defined(d.abs)
+                        }
                     } else {
                         return colorScale(i)
                     }
@@ -240,6 +245,13 @@ function defaultExperiment(root) {
 
             for (var i = 0; i < columns.length; i++) {
                 if (columns[i].type == 'abs') {
+                    r.push({
+                        column_number: column_number++,
+                        filter_type: "range_number",
+                        filter_default_label: ["0", "&infin;"],
+                        filter_delay: 500
+                    });
+                } else if ( columns[i].type == 'fc') {
                     r.push({
                         column_number: column_number++,
                         filter_type: "range_number",
