@@ -91,6 +91,10 @@ function defaultExperiment(root) {
                 $root.find(".mode button").first().click();
             }
 
+            $root.find(".clearfilters").click(function () {
+                yadcf.exResetAllFilters(table.dt);
+            });
+
             $(window).trigger('experiment.loaded');
         }
 

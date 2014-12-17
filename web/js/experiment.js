@@ -205,7 +205,7 @@ function intactExperiment(root) {
                 }
             });
 
-            $("#intact .clearfilters").click(function () {
+            $root.find(".clearfilters").click(function () {
                 yadcf.exResetAllFilters(table.dt);
             });
 

@@ -60,6 +60,8 @@ $(document).ready(function(){
     });
 
     $(window).on('alberto.experiment.changed', function() {
+        $("#no-results").hide();
+
         var exp = navInfo.getExperiment(),
             $content = $("#" + exp);
 
