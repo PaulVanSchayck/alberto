@@ -62,8 +62,9 @@ class GeneController extends Controller {
                 'query' => $model::find()
                     ->select($GeneRequest->getColumns())
                     ->joinWith('gene')
-                    ->where('gene.agi != ""') // TODO: Determine whether we want to do this, or want to fix this at the data level
                     ->filterWhere($GeneRequest->getFilter())
+                    // The next line filters any genes where there is no corresponding gene
+                    ->andWhere('gene.agi != ""')
                     ->orderBy($GeneRequest->getOrder()),
                 'pagination' => new Scroller($GeneRequest->getPaginationConfig())
             ]);
