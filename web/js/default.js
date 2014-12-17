@@ -183,6 +183,14 @@ function defaultExperiment(root) {
 
             r = "<p><span class='label label-success'>Tissue</span> " + d.name + " </p>";
 
+            if (navInfo.getExperimentMode() == "abs") {
+                r += "<p><span class='label label-primary'>Expression value</span> " + d.abs + "</p>";
+            }
+
+            if (navInfo.getExperimentMode() == "fc_spt" && d.fc_spt) {
+                r += "<p><span class='label label-primary'>Spatial FC</span> " + d.fc_spt + "</p>";
+            }
+
             r += "<p>Click tissue for actions</p>";
 
             return r;

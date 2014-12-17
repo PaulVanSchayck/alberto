@@ -18,7 +18,7 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
     <div class="col-lg-12">
         <p>Click on the embryo for preset filtering actions, or use the table below for setting your own filters.</p>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-4">
 
         <div class="panel panel-success">
             <div class="panel-heading">
@@ -41,7 +41,7 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
         </div>
 
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-5">
 
         <div class="panel panel-success">
             <div class="panel-heading">
@@ -63,60 +63,6 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
             </div>
         </div>
 
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Scale</h3>
-            </div>
-            <div class="panel-body scale">
-                <b class="badge">0</b>
-                <input type="text" class="scale-slider form-control" name="scale" data-slider-min="0" data-slider-max="150" data-slider-step="1" data-slider-value="[32,100]" data-plugin-name="slider" title="slider">
-                <b class="badge">150</b>
-                <div class='checkbox'>
-                    <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications."><input type='checkbox' class="scale-input" >Enable changing scale</label>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Mode</h3>
-            </div>
-            <div class="panel-body mode">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default" data-mode='abs' data-toggle="tooltip" title="View the absolute expression of genes.">Absolute</button>
-                    <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Fold change</button>
-                    <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Relative</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Experimental setup</h3>
-            </div>
-            <div class="panel-body">
-                <p>
-                    Monopteros activity was locally inhibited in the inner basal embryo cells of the early embryo that will
-                    acquire vascular or ground tissue identity, depending on their position
-                </p>
-                <?php Modal::begin([
-                    'id' => 'Q0990-experiment',
-                    'header' => '<h4 class="modal-title">Experimental setup</h4>',
-                    'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
-                    'size' => Modal::SIZE_LARGE
-                ]);
-                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/Q0990.md'));
-                ?>
-                <?php Modal::end(); ?>
-            </div>
-        </div>
     </div>
     <div class="col-lg-3">
         <div class="panel panel-primary">
@@ -141,6 +87,60 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Scale</h3>
+            </div>
+            <div class="panel-body scale">
+                <b class="badge">0</b>
+                <input type="text" class="scale-slider form-control" name="scale" data-slider-min="0" data-slider-max="150" data-slider-step="1" data-slider-value="[32,100]" data-plugin-name="slider" title="slider">
+                <b class="badge">150</b>
+                <div class='checkbox'>
+                    <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications."><input type='checkbox' class="scale-input" >Enable changing scale</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Mode</h3>
+            </div>
+            <div class="panel-body mode">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default" data-mode='abs' data-toggle="tooltip" title="View the absolute expression of genes.">Absolute</button>
+                    <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Fold change</button>
+                    <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Relative</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Experimental setup</h3>
+            </div>
+            <div class="panel-body">
+                <p>
+                    Monopteros activity was locally inhibited in the inner basal embryo cells of the early embryo that will
+                    acquire vascular or ground tissue identity, depending on their position
+                </p>
+                <?php Modal::begin([
+                    'id' => 'Q0990-experiment',
+                    'header' => '<h4 class="modal-title">Experimental setup</h4>',
+                    'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
+                    'size' => Modal::SIZE_LARGE
+                ]);
+                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/Q0990.md'));
+                ?>
+                <?php Modal::end(); ?>
             </div>
         </div>
     </div>
