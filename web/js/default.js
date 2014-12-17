@@ -66,7 +66,7 @@ function defaultExperiment(root) {
             });
 
             // Poor mans method of injecting code into DataTables api
-            table.dt.colvis = colvis($("#visibilityModal"), table.dt);
+            table.dt.colvis = colvis($("#Q0990-visibilityModal"), table.dt);
 
             $(window).on('alberto.mode.changed', function () {
                 if (navInfo.getMode() == "fc_spt") {

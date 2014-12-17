@@ -302,32 +302,32 @@ pre.annotation {
 }
 
 /* Column visibility dialog */
-#visibilityModal .checkbox-inline {
+.visibilityModal .checkbox-inline {
     padding-left: 0;
 }
-#visibilityModal input {
+.visibilityModal input {
     margin: 0;
 }
-#visibilityModal table.column-checkboxes {
+.visibilityModal table.column-checkboxes {
     margin-top: 40px;
 }
-#visibilityModal th {
+.visibilityModal th {
     padding-bottom: 5px;
     height: 20px;
     white-space: nowrap;
 }
-#visibilityModal th div {
+.visibilityModal th div {
     -webkit-transform: rotate(315deg);
     -moz-transform: rotate(315deg);
     -o-transform: rotate(315deg);
     -ms-transform: rotate(315deg);
     width: 20px;
 }
-#visibilityModal {
+.visibilityModal {
     font-size: 85%;
 }
 
-#visibilityModal p:first-of-type {
+.visibilityModal p:first-of-type {
     margin-top: 20px;
 }
 

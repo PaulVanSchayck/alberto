@@ -235,7 +235,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                     'toggleButton' => ['tag' => 'button', 'label' => 'Show / hide columns &raquo;', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
                 ]);?>
-                <div class="row">
+                <div class="row visibilityModal">
                     <div class="col-lg-2 columns">
                         <b>General columns</b>
                         <table class="column-checkboxes">
