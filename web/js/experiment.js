@@ -27,7 +27,7 @@ function intactExperiment(root) {
             // What to do upon changing scale
             if( navInfo.getGene() ) {
                 updateColors(scale);
-                updateTableColors(navInfo.getMode());
+                updateTableColors(navInfo.getExperimentMode());
             }
         });
         var svg = window.alberto.svg($root, tissues);
@@ -63,18 +63,22 @@ function intactExperiment(root) {
                     return;
                 }
 
-                navInfo.setMode($(this).data('mode'));
+                navInfo.setExperimentMode($(this).data('mode'));
             });
 
             $("#intact .mode button.dropdown-toggle").parent().find('a').on('click', function (e) {
                 var $a = $(this);
                 e.preventDefault();
 
-                navInfo.setMode($a.data('mode'));
+                navInfo.setExperimentMode($a.data('mode'));
             });
 
             $(window).on('alberto.mode.changed', function () {
-                if (navInfo.getMode() == "fc_spt") {
+                if ( navInfo.getExperiment() != "intact" ) {
+                    return;
+                }
+
+                if (navInfo.getExperimentMode() == "fc_spt") {
                     scale.slider.setAttribute('min', -10)
                         .setAttribute('max', 10)
                         .setValue([-5, 5])
@@ -82,7 +86,7 @@ function intactExperiment(root) {
 
                     scale.scale.domain([-5, -1, 1, 5])
                         .range(["green", "black", "black", "red"]);
-                } else if (navInfo.getMode() == "abs") {
+                } else if (navInfo.getExperimentMode() == "abs") {
                     scale.slider.setAttribute('min', 0)
                         .setAttribute('max', 200)
                         .setValue([32, 100])
@@ -90,7 +94,7 @@ function intactExperiment(root) {
 
                     scale.scale.domain([32, 100])
                         .range(["yellow", "red"]);
-                } else if (navInfo.getMode() == "fc_tmp") {
+                } else if (navInfo.getExperimentMode() == "fc_tmp") {
                     scale.slider.setAttribute('min', -10)
                         .setAttribute('max', 10)
                         .setValue([-5, 5])
@@ -100,24 +104,25 @@ function intactExperiment(root) {
                         .range(["green", "black", "black", "red"]);
                 }
 
-                $("#intact").removeClass('abs fc_spt fc_tmp').addClass(navInfo.getMode());
-                highlightActiveMode(navInfo.getMode());
+                $("#intact").removeClass('abs fc_spt fc_tmp').addClass(navInfo.getExperimentMode());
+                highlightActiveMode(navInfo.getExperimentMode());
 
-                table.showColumnType(navInfo.getMode());
+                table.showColumnType(navInfo.getExperimentMode());
                 scale.showScale();
 
                 if (navInfo.getGene()) {
                     updateColors(scale.scale);
-                    updateTableColors(navInfo.getMode());
+                    updateTableColors(navInfo.getExperimentMode());
                 }
             });
 
-            $(window).trigger('experiment.loaded');
-
             // If no mode is selected, set the absolute expression mode
-            if (!navInfo.getMode()) {
+            if (!navInfo.getExperimentMode()) {
                 $root.find(".mode button").first().click();
             }
+
+
+            $(window).trigger('experiment.loaded');
 
             var $dropdown = $('.dropdown-menu.actions');
             $('div.svg svg g').click(function (e) {
@@ -157,7 +162,7 @@ function intactExperiment(root) {
                 }
 
                 if ($(this).hasClass('highest')) {
-                    navInfo.setMode('abs');
+                    navInfo.setExperimentMode('abs');
 
                     table.dt.order([columnIdx, 'desc']);
                     yadcf.exResetAllFilters(table.dt);
@@ -167,7 +172,7 @@ function intactExperiment(root) {
                 }
 
                 if ($(this).hasClass('not-expressed')) {
-                    navInfo.setMode('abs');
+                    navInfo.setExperimentMode('abs');
 
                     table.dt.order([columnIdx, 'asc']);
                     yadcf.exResetAllFilters(table.dt);
@@ -177,7 +182,7 @@ function intactExperiment(root) {
                 }
 
                 if ($(this).hasClass('enriched')) {
-                    navInfo.setMode('fc_spt');
+                    navInfo.setExperimentMode('fc_spt');
 
                     columnIdx = table.dt.column(intactRules[stage][tissue].fc_spt + ":name").index();
 
@@ -268,9 +273,9 @@ function intactExperiment(root) {
                 d3.selectAll('#intact .' + tissue).transition().duration(1000).attr('fill', function (d) {
                     if (!useIndex && d) {
 
-                        if (navInfo.getMode() == 'fc_spt') {
+                        if (navInfo.getExperimentMode() == 'fc_spt') {
                             return colorScale.defined(d.fc_spt)
-                        } else if (navInfo.getMode() == 'fc_tmp') {
+                        } else if (navInfo.getExperimentMode() == 'fc_tmp') {
                             return colorScale.defined(d.fc_tmp)
                         } else {
                             return colorScale.defined(d.abs)
@@ -329,12 +334,12 @@ function intactExperiment(root) {
         }
 
         function highlightActiveMode(mode) {
-            $("#intact .mode button").removeClass('btn-primary');
-            $("#intact .mode li").removeClass('active');
+            $root.find(".mode button").removeClass('btn-primary');
+            $root.find(".mode li").removeClass('active');
 
-            $("#intact .mode button[data-mode=" + mode + "]").addClass('btn-primary');
+            $root.find(".mode button[data-mode=" + mode + "]").addClass('btn-primary');
 
-            $("#intact .mode li a[data-mode=" + mode + "]")
+            $root.find(".mode li a[data-mode=" + mode + "]")
                 .closest('li').addClass('active')
                 .closest('div').find('button').addClass('btn-primary');
         }
@@ -350,9 +355,9 @@ function intactExperiment(root) {
                         var column;
 
                         if (intactRules[stage][tissue]) {
-                            column = intactRules[stage][tissue][navInfo.getMode()]
+                            column = intactRules[stage][tissue][navInfo.getExperimentMode()]
                         } else {
-                            column = intactRules[stage]['*'][navInfo.getMode()]
+                            column = intactRules[stage]['*'][navInfo.getExperimentMode()]
                         }
                         var columnIdx = table.dt.column(column + ":name").index();
 
@@ -367,7 +372,7 @@ function intactExperiment(root) {
         }
 
         function formatWarningTooltip() {
-            if (navInfo.getMode() == 'abs') {
+            if (navInfo.getExperimentMode() == 'abs') {
                 return 'A tissue in this embryo has a relative standard deviation above 50%'
             } else {
                 return 'A fold change in this embryo has a q-value above 0.05'
@@ -379,20 +384,20 @@ function intactExperiment(root) {
 
             r = "<p><span class='label label-success'>Tissue</span> " + d.name + " </p>";
 
-            if (navInfo.getMode() == "abs") {
+            if (navInfo.getExperimentMode() == "abs") {
                 r += "<p><span class='label label-primary'>Expression value</span> " + d.abs + "</p>";
                 warning = d.rsd > rsdWarning ? 'warning' : '';
                 r += "<p class='sd " + warning + "'><span class='label label-primary'>Standard deviation</span> " + d.sd + "</p>";
                 r += "<p class='sd " + warning + "'><span class='label label-primary'>%RSD</span> " + (d.rsd.toFixed ? d.rsd.toFixed(1) + "%" : d.rsd) + "</p>";
             }
 
-            if (navInfo.getMode() == "fc_spt" && d.fc_spt) {
+            if (navInfo.getExperimentMode() == "fc_spt" && d.fc_spt) {
                 warning = d.fc_spt_q > qWarning ? 'warning' : '';
                 r += "<p><span class='label label-primary'>Spatial FC</span> " + d.fc_spt + "</p>";
                 r += "<p class='q " + warning + "'><span class='label label-primary'>q-value</span> " + d.fc_spt_q + "</p>";
             }
 
-            if (navInfo.getMode() == "fc_tmp" && d.fc_tmp) {
+            if (navInfo.getExperimentMode() == "fc_tmp" && d.fc_tmp) {
                 warning = d.fc_tmp_q > qWarning ? 'warning' : '';
                 r += "<p><span class='label label-primary'>Temporal FC</span> " + d.fc_tmp + "</p>";
                 r += "<p class='q " + warning + "'><span class='label label-primary'>q-value</span> " + d.fc_tmp_q + "</p>";
@@ -429,7 +434,7 @@ function intactExperiment(root) {
         function showGene() {
             var $row = table.getSelectedRow();
 
-            updateTableColors(navInfo.getMode());
+            updateTableColors(navInfo.getExperimentMode());
 
             var data = table.dt.row($row).data();
 

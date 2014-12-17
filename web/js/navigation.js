@@ -115,7 +115,6 @@ $(document).ready(function(){
 var navInfo = {
     exp: "",
     gene: false,
-    mode: "",
     experiments: {},
 
     getExperiment: function() {
@@ -127,8 +126,13 @@ var navInfo = {
         $(window).trigger('alberto.experiment.changed');
         this.buildHash();
     },
+
     registerExperiment: function(expObj) {
-        this.experiments[this.getExperiment()] = { obj: expObj, gene: this.getGene() };
+        this.experiments[this.getExperiment()] = {
+            obj: expObj,
+            gene: this.getGene(),
+            mode: null
+        };
 
         expObj.load();
     },
@@ -162,12 +166,16 @@ var navInfo = {
         this.buildHash();
     },
 
-    getMode: function() {
-        return this.mode;
+    getExperimentMode: function() {
+        if ( this.experiments[this.getExperiment()] ) {
+            return this.experiments[this.getExperiment()].mode;
+        } else {
+            return false;
+        }
     },
 
-    setMode: function(mode) {
-        this.mode = mode;
+    setExperimentMode: function(mode) {
+        this.experiments[this.getExperiment()].mode = mode;
 
         $(window).trigger('alberto.mode.changed');
     },

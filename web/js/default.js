@@ -22,7 +22,7 @@ function defaultExperiment(root) {
             // What to do upon changing scale
             if( navInfo.getGene() ) {
                 updateColors(scale);
-                updateTableColors(navInfo.getMode());
+                updateTableColors(navInfo.getExperimentMode());
             }
         });
         var table = window.alberto.table($("#mpTable"), buildDTColumns(mpColumns), buildFilterColumns(mpColumns), 'mpproper');
@@ -43,14 +43,18 @@ function defaultExperiment(root) {
             $root.find(".scale label").tooltip({placement: 'bottom'});
 
             $root.find(".mode button").click(function () {
-                navInfo.setMode($(this).data('mode'));
+                navInfo.setExperimentMode($(this).data('mode'));
             });
 
             // Poor mans method of injecting code into DataTables api
             table.dt.colvis = colvis($("#Q0990-visibilityModal"), table.dt);
 
             $(window).on('alberto.mode.changed', function () {
-                if (navInfo.getMode() == "fc") {
+                if ( navInfo.getExperiment() != "mpproper" ) {
+                    return;
+                }
+
+                if (navInfo.getExperimentMode() == "fc") {
                     scale.slider.setAttribute('min', -10)
                         .setAttribute('max', 10)
                         .setValue([-5, 5])
@@ -58,7 +62,7 @@ function defaultExperiment(root) {
 
                     scale.scale.domain([-5, -1, 1, 5])
                         .range(["green", "black", "black", "red"]);
-                } else if (navInfo.getMode() == "abs") {
+                } else if (navInfo.getExperimentMode() == "abs") {
                     scale.slider.setAttribute('min', 0)
                         .setAttribute('max', 200)
                         .setValue([32, 100])
@@ -68,20 +72,20 @@ function defaultExperiment(root) {
                         .range(["yellow", "red"]);
                 }
 
-                $root.removeClass('abs fc').addClass(navInfo.getMode());
-                highlightActiveMode(navInfo.getMode());
+                $root.removeClass('abs fc').addClass(navInfo.getExperimentMode());
+                highlightActiveMode(navInfo.getExperimentMode());
 
-                table.showColumnType(navInfo.getMode());
+                table.showColumnType(navInfo.getExperimentMode());
                 scale.showScale();
 
                 if (navInfo.getGene()) {
                     updateColors(scale.scale);
-                    updateTableColors(navInfo.getMode());
+                    updateTableColors(navInfo.getExperimentMode());
                 }
             });
 
             // If no mode is selected, set the absolute expression mode
-            if (!navInfo.getMode()) {
+            if (!navInfo.getExperimentMode()) {
                 $root.find(".mode button").first().click();
             }
 
@@ -127,9 +131,9 @@ function defaultExperiment(root) {
             $.each(tissues, function (i, tissue) {
                 d3.selectAll(root + ' .' + tissue).transition().duration(1000).attr('fill', function (d) {
                     if (!useIndex && d) {
-                        if (navInfo.getMode() == 'fc') {
+                        if (navInfo.getExperimentMode() == 'fc') {
                             return colorScale.defined(d.fc)
-                        } else if (navInfo.getMode() == 'abs') {
+                        } else if (navInfo.getExperimentMode() == 'abs') {
                             return colorScale.defined(d.abs)
                         }
                     } else {
@@ -283,7 +287,7 @@ function defaultExperiment(root) {
 
             var data = table.dt.row($row).data();
 
-            updateTableColors(navInfo.getMode());
+            updateTableColors(navInfo.getExperimentMode());
 
             showGeneInformation($root, data);
             loadData(data);
