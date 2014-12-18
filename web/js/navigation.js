@@ -29,7 +29,7 @@ $(document).ready(function(){
         $("#no-results").hide();
 
         if ( navInfo.getGene() == false ) {
-            unShowGene();
+            navInfo.getExperimentObj().unShowGene();
             $('.at-input input')
                 .val("")
                 .removeClass('loaded');

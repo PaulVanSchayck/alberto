@@ -392,7 +392,7 @@ function intactExperiment(root) {
 
             hideGeneInformation($root);
 
-            $("tbody tr.selected").removeClass("selected").find('td').css('background-color', '').css('color', '');
+            $root.find("tbody tr.selected").removeClass("selected").find('td').css('background-color', '').css('color', '');
         }
 
         function showGene() {
@@ -542,6 +542,7 @@ function intactExperiment(root) {
             load: loadExperiment,
             reloadTable: table.dt.ajax.reload,
             showGene: showGene,
+            unShowGene: unShowGene,
             filterGene: filterGene
         }
     }()

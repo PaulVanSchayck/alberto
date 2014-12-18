@@ -27,7 +27,7 @@ function defaultExperiment(root) {
         });
         var table = window.alberto.table($("#mpTable"), buildDTColumns(mpColumns), buildFilterColumns(mpColumns), 'mpproper');
         var svg = window.alberto.svg($root, tissues);
-        var baseColors = svg.retrieveFillColor(d3.select(root + " " + mpImages[0]));
+        var baseColors;
 
         function load() {
             // SVG images
@@ -35,6 +35,10 @@ function defaultExperiment(root) {
                 var ele = d3.select(root + " " + selector);
                 svg.setupTooltip(ele, formatTooltip);
                 svg.setupWarningTooltip(ele, formatWarningTooltip);
+
+                if ( ! baseColors ) {
+                    baseColors = svg.retrieveFillColor(ele);
+                }
             });
 
             $root.find(".mode button").tooltip({placement: 'bottom', container: 'body'});
@@ -307,9 +311,19 @@ function defaultExperiment(root) {
             loadData(data);
         }
 
+        function unShowGene() {
+            // Revert to base colors
+            updateColors(baseColors, true);
+
+            hideGeneInformation($root);
+
+            $root.find("tbody tr.selected").removeClass("selected").find('td').css('background-color', '').css('color', '');
+        }
+
         // Public functions and variables
         publics.load = load;
         publics.showGene = showGene;
+        publics.unShowGene = unShowGene;
         publics.filterGene = filterGene;
         publics.reloadTable = table.dt.ajax.reload;
 
