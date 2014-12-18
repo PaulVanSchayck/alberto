@@ -23,17 +23,17 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    Late globular
+                    Late globular stage
                 </h3>
             </div>
             <div class="panel-body row">
                 <div class="col-lg-6 svg wt">
-                    <strong>Wild Type</strong>
+                    <span class="svg-label">Wild Type</span>
                     <?= $this->blocks['download'] ?>
                     <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?>
                 </div>
                 <div class="col-lg-6 svg mp">
-                    <strong>Mutant</strong>
+                    <span class="svg-label">Q0990>>bdl</span>
                     <?= $this->blocks['download'] ?>
                     <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?>
                 </div>
@@ -51,12 +51,12 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
             </div>
             <div class="panel-body row">
                 <div class="col-lg-6 svg wt">
-                    <strong>Wild Type</strong>
+                    <span class="svg-label">Wild Type</span>
                     <?= $this->blocks['download'] ?>
                     <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?>
                 </div>
                 <div class="col-lg-6 svg mp">
-                    <strong>Mutant</strong>
+                    <span class="svg-label">Q0990>>bdl</span>
                     <?= $this->blocks['download'] ?>
                     <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?>
                 </div>
@@ -130,7 +130,7 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
             <div class="panel-body">
                 <p>
                     Monopteros activity was locally inhibited in the inner basal embryo cells of the early embryo that will
-                    acquire vascular or ground tissue identity, depending on their position
+                    acquire vascular or ground tissue identity, depending on their position.
                 </p>
                 <?php Modal::begin([
                     'id' => 'Q0990-experiment',

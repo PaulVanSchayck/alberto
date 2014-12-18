@@ -31,7 +31,7 @@ $intact = Yii::$app->params['experiments']['intact'];
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    Early globular
+                    Early globular stage
                     <span class="btn-group pull-right">
                         <a href="#" class="dropdown-toggle download-drop" data-toggle="dropdown"><span class="glyphicon glyphicon-save"></span></a>
                         <ul class="dropdown-menu">
@@ -52,7 +52,7 @@ $intact = Yii::$app->params['experiments']['intact'];
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    Late globular
+                    Late globular stage
                     <span class="btn-group pull-right">
                         <a href="#" class="dropdown-toggle download-drop" data-toggle="dropdown"><span class="glyphicon glyphicon-save"></span></a>
                         <ul class="dropdown-menu">
