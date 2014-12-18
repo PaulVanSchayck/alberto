@@ -63,7 +63,7 @@ window.alberto.scale = function scale(root, changeScaleCallback) {
 
             // Refresh slider and the scale through triggering a slide event
             slider.setAttribute(attr, parseInt($this.val())).refresh();
-            $("#intact .scale-slider").trigger('slide');
+            $root.find(".scale-slider").trigger('slide');
 
             $this.replaceWith('<b class="badge">' + $this.val() + '</b>');
         });
@@ -86,10 +86,10 @@ window.alberto.scale = function scale(root, changeScaleCallback) {
             .style('background-color',function(d) { return scale(d) })
             .style('width', (Math.floor(100 / ticks.length * 10) / 10) + "%");
 
+        $root.find(".scale b:first").html(slider.getAttribute('min'));
+        $root.find(".scale b:last").html(slider.getAttribute('max'));
     }
 
-    $root.find(".scale b:first").html(slider.getAttribute('min'));
-    $root.find(".scale b:last").html(slider.getAttribute('max'));
 
     return {
         slider: slider,
