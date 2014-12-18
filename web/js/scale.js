@@ -4,8 +4,10 @@
 
 window.alberto.scale = function scale(root, changeScaleCallback) {
     var scale = d3.scale.linear();
+    var fcMode = false;
 
     var $root = $(root);
+
     /**
      * This wraps the scale function, in order to return white whenever false or undefined is requested
      *
@@ -25,8 +27,24 @@ window.alberto.scale = function scale(root, changeScaleCallback) {
     var slider = $root.find(".scale-slider")
         .slider({tooltip: 'always'})
         .on('slide', function() {
-            // Eval is evil??
-            var domain = eval( '[' + slider.getValue() + ']');
+            var domain;
+            if ( fcMode ) {
+                var val = eval('[' +  slider.getValue() + ']');
+
+                // Prevent the scale from going beyond its limits
+                if ( val[0] > -2 ) {
+                    slider.setValue([-2, val[1]]);
+                    return
+                }
+                if ( val[1] < 2 ) {
+                    slider.setValue([val[0], 2]);
+                    return
+                }
+
+                domain = [ val[0], -1, 1, val[1]]
+            } else {
+                domain = eval('[' + slider.getValue() + ']');
+            }
 
             scale.domain(domain);
 
@@ -90,10 +108,14 @@ window.alberto.scale = function scale(root, changeScaleCallback) {
         $root.find(".scale b:last").html(slider.getAttribute('max'));
     }
 
+    function setFcMode(mode) {
+        fcMode = mode
+    }
 
     return {
         slider: slider,
         scale: scale,
-        showScale: showScale
+        showScale: showScale,
+        setFcMode: setFcMode
     }
 };

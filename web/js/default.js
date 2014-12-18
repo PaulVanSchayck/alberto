@@ -65,7 +65,8 @@ function defaultExperiment(root) {
                         .refresh();
 
                     scale.scale.domain([-5, -1, 1, 5])
-                        .range(["green", "black", "black", "red"]);
+                        .range(["blue", "lightgray", "lightgray", "red"]);
+                    scale.setFcMode(true)
                 } else if (navInfo.getExperimentMode() == "abs") {
                     scale.slider.setAttribute('min', 0)
                         .setAttribute('max', 200)
@@ -74,6 +75,7 @@ function defaultExperiment(root) {
 
                     scale.scale.domain([32, 100])
                         .range(["yellow", "red"]);
+                    scale.setFcMode(false)
                 }
 
                 $root.removeClass('abs fc').addClass(navInfo.getExperimentMode());

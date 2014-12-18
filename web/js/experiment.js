@@ -84,7 +84,8 @@ function intactExperiment(root) {
                         .refresh();
 
                     scale.scale.domain([-5, -1, 1, 5])
-                        .range(["green", "black", "black", "red"]);
+                        .range(["blue", "lightgray", "lightgray", "red"]);
+                    scale.setFcMode(true);
                 } else if (navInfo.getExperimentMode() == "abs") {
                     scale.slider.setAttribute('min', 0)
                         .setAttribute('max', 200)
@@ -93,6 +94,7 @@ function intactExperiment(root) {
 
                     scale.scale.domain([32, 100])
                         .range(["yellow", "red"]);
+                    scale.setFcMode(false);
                 } else if (navInfo.getExperimentMode() == "fc_tmp") {
                     scale.slider.setAttribute('min', -10)
                         .setAttribute('max', 10)
@@ -100,7 +102,8 @@ function intactExperiment(root) {
                         .refresh();
 
                     scale.scale.domain([-5, -1, 1, 5])
-                        .range(["green", "black", "black", "red"]);
+                        .range(["blue", "lightgray", "lightgray", "red"]);
+                    scale.setFcMode(true)
                 }
 
                 $("#intact").removeClass('abs fc_spt fc_tmp').addClass(navInfo.getExperimentMode());
