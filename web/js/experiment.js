@@ -199,7 +199,7 @@ function intactExperiment(root) {
 
                     yadcf.exFilterColumn(table.dt, filter, true);
 
-                    table.dt.order([columnIdx, 'asc']);
+                    table.dt.order([columnIdx, 'desc']);
 
                     return false;
                 }
