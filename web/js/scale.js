@@ -48,6 +48,7 @@ window.alberto.scale = function scale(root, changeScaleCallback) {
 
             scale.domain(domain);
 
+            showScale();
             changeScaleCallback(scale)
         }).data('slider').disable();
 
