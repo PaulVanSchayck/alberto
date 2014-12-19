@@ -34,7 +34,6 @@ class GeneController extends Controller {
                     [
                         'actions' => ['index', 'autocomplete', 'export'],
                         'allow' => true,
-                        'roles' => ['@'],
                     ],
                 ],
             ],
@@ -50,6 +49,10 @@ class GeneController extends Controller {
             $model = $experiments[$exp]['model'];
         } else {
             return 'Not implemented';
+        }
+
+        if ( $experiments[$exp]['login'] && Yii::$app->user->isGuest ) {
+            return "No access";
         }
 
         $GeneRequest = new GeneRequest();
@@ -94,6 +97,10 @@ class GeneController extends Controller {
             $model = $experiments[$exp]['model'];
         } else {
             return 'Not implemented';
+        }
+
+        if ( $experiments[$exp]['login'] && Yii::$app->user->isGuest ) {
+            return "No access";
         }
 
         $GeneRequest = new GeneRequest();

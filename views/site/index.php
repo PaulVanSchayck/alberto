@@ -16,7 +16,7 @@ $this->title = 'AlBERTO';
         The download feature is not completely supported in your browser. Please use a modern version of either Chrome or Firefox.
     </div>
 
-    <p>Enter an AT number or gene name and press show.</p>
+    <p>Enter an AGI or gene name, select an experiment and press show.</p>
 
     <div class="row">
         <div class="col-lg-6">
@@ -58,9 +58,12 @@ $this->title = 'AlBERTO';
         <li data-toggle="tab">
             <a href="#start" data-exp="start" data-toggle="tooltip" data-original-title="Start here"><span class="glyphicon glyphicon-home"></span></a>
         </li>
+
         <li data-toggle="tab">
             <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Transcriptome of individual cell types">Cell type-specific</a>
         </li>
+
+        <?php if ( Yii::$app->user->isGuest === false ): ?>
         <li data-toggle="tab">
             <a href="#mpproper" data-exp="mpproper" data-toggle="tooltip" data-original-title="Inhibition of Monopteros in ground and vascular tissue">Q0990>>bdl</a>
         </li>
@@ -73,6 +76,7 @@ $this->title = 'AlBERTO';
         <li data-toggle="tab" class="disabled">
             <a href="#" data-toggle="tooltip" data-original-title="16 cell stage">16 cell stage dissected</a>
         </li>
+        <?php endif; ?>
         <li class="pull-right" id="spinner"><img src="/images/spinner.gif" alt="Loading" />Loading...</li>
     </ul>
 

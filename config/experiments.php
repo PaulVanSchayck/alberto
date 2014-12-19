@@ -1,11 +1,13 @@
 <?php
 return [
     'start' => [
+        'login' => false,
         'template' => 'start.php',
         'loader' => 'loadStart'
     ],
 
     'intact' => [
+        'login' => false,
         'template' => 'intact.php',
         'loader' => 'loadExperiment',
         'model' => 'app\models\Intact',
@@ -143,6 +145,7 @@ return [
     ],
 
     'mpproper' => [
+        'login' => true,
         'template' => 'monopteros.php',
         'loader' => 'loadExperiment',
         'model' => 'app\models\MpProper',
@@ -202,6 +205,7 @@ return [
     ],
 
     'rootgradient' => [
+        'login' => true,
         'template' => 'roots.php',
         'loader' => 'loadExperiment',
         'model' => 'app\models\MpProper',

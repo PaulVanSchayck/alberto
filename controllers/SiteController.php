@@ -19,11 +19,11 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error', 'about', 'contact'],
+                        'actions' => ['login', 'error', 'about', 'contact', 'tab', 'index'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'tab', 'index'],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -103,14 +103,18 @@ class SiteController extends Controller
     {
         $experiments = Yii::$app->params['experiments'];
 
-        if( isset($experiments[$exp]) ) {
-            return $this->renderPartial('/experiments/' . $experiments[$exp]['template'], [
-                'experimentName' => $exp,
-                'config' => $experiments[$exp]
-            ]);
-        } else {
+        if( ! isset($experiments[$exp]) ) {
             return 'Not implemented';
         }
+
+        if ( $experiments[$exp]['login'] && Yii::$app->user->isGuest ) {
+            return "No access";
+        }
+
+        return $this->renderPartial('/experiments/' . $experiments[$exp]['template'], [
+            'experimentName' => $exp,
+            'config' => $experiments[$exp]
+        ]);
 
     }
 }
