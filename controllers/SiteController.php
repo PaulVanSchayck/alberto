@@ -104,7 +104,10 @@ class SiteController extends Controller
         $experiments = Yii::$app->params['experiments'];
 
         if( isset($experiments[$exp]) ) {
-            return $this->renderPartial('/experiments/' . $experiments[$exp]['template']);
+            return $this->renderPartial('/experiments/' . $experiments[$exp]['template'], [
+                'experimentName' => $exp,
+                'config' => $experiments[$exp]
+            ]);
         } else {
             return 'Not implemented';
         }

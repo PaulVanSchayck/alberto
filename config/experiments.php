@@ -199,5 +199,18 @@ return [
                 ]
             ]
         ]
+    ],
+
+    'rootgradient' => [
+        'template' => 'roots.php',
+        'loader' => 'loadExperiment',
+        'model' => 'app\models\MpProper',
+        'images' => [
+
+        ],
+        'columns' => [
+        ],
+        'rules' => [
+        ]
     ]
 ];

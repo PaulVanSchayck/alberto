@@ -67,8 +67,11 @@ $this->title = 'AlBERTO';
         <li data-toggle="tab">
             <a href="#mpsuspensor" data-exp="mpsuspensor" data-toggle="tooltip" data-original-title="Inhibition of Monopteros in suspensor">M10101>>bdl</a>
         </li>
+        <li data-toggle="tab">
+            <a href="#rootgradient" data-exp="rootgradient" data-toggle="tooltip" data-original-title="FACS gradient of root">Root gradients</a>
+        </li>
         <li data-toggle="tab" class="disabled">
-            <a href="#" data-toggle="tooltip" data-original-title="FACS gradient of root">Root gradients</a>
+            <a href="#" data-toggle="tooltip" data-original-title="16 cell stage">16 cell stage dissected</a>
         </li>
         <li class="pull-right" id="spinner"><img src="/images/spinner.gif" alt="Loading" />Loading...</li>
     </ul>
@@ -78,5 +81,6 @@ $this->title = 'AlBERTO';
         <div class="tab-pane active" id="intact"></div>
         <div class="tab-pane active" id="mpproper"></div>
         <div class="tab-pane active" id="mpsuspensor"></div>
+        <div class="tab-pane active" id="rootgradient"></div>
     </div>
 </div>
