@@ -1,10 +1,12 @@
 
 
-function defaultExperiment(root) {
+function defaultExperiment(experimentName) {
 
     return function() {
         var publics = {};
+        var root = "#" + experimentName;
         var $root = $(root);
+
         var tissues = [
             'suspensor',
             'vascular-initials',
@@ -25,7 +27,7 @@ function defaultExperiment(root) {
                 updateTableColors(navInfo.getExperimentMode());
             }
         });
-        var table = window.alberto.table($("#mpTable"), buildDTColumns(mpColumns), buildFilterColumns(mpColumns), 'mpproper');
+        var table = window.alberto.table($("#" + experimentName + "-table"), buildDTColumns(mpColumns), buildFilterColumns(mpColumns), experimentName);
         var svg = window.alberto.svg($root, tissues);
         var baseColors;
 

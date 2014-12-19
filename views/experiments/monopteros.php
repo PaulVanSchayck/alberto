@@ -1,7 +1,8 @@
 <?php
 use yii\bootstrap\Modal;
 
-$experiment = Yii::$app->params['experiments']['mpproper'];
+/* @var $config [] */
+/* @var $experimentName String */
 ?>
 
 <?php $this->beginBlock('download'); ?>
@@ -192,7 +193,7 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
                                 </tr>
 
                                 <?php
-                                foreach( $experiment['columns'] as $column ) {
+                                foreach( $config['columns'] as $column ) {
                                     if ( $column['type'] != 'abs' ) {
                                         continue;
                                     }
@@ -221,7 +222,7 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
                                     <th><div>q-value</div></th>
                                 </tr>
                                 <?php
-                                foreach( $experiment['columns'] as $column ) {
+                                foreach( $config['columns'] as $column ) {
                                     if ( $column['type'] != 'fc' ) {
                                         continue;
                                     }
@@ -247,14 +248,14 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
                     <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                     <?php Modal::end(); ?>
                 </div>
-                <table class="display" id="mpTable">
+                <table class="display" id="<?=$experimentName?>-table">
                     <thead>
                     <tr>
                         <th>AGI</th>
                         <th>Gene</th>
                         <th>Annotation</th>
                         <?php
-                        foreach( $experiment['columns'] as $column ) {
+                        foreach( $config['columns'] as $column ) {
                             echo "<th>{$column['label']}</th>\n";
                         }
                         ?>
@@ -270,8 +271,8 @@ $experiment = Yii::$app->params['experiments']['mpproper'];
     </div>
 
 <script type="text/javascript">
-    var mpColumns = $.parseJSON('<?= json_encode($experiment['columns']); ?>');
-    var mpRules = $.parseJSON('<?= json_encode($experiment['rules']); ?>');
-    var mpImages = $.parseJSON('<?= json_encode($experiment['images']); ?>');
-    navInfo.registerExperiment(defaultExperiment("#mpproper"));
+    var mpColumns = $.parseJSON('<?= json_encode($config['columns']); ?>');
+    var mpRules = $.parseJSON('<?= json_encode($config['rules']); ?>');
+    var mpImages = $.parseJSON('<?= json_encode($config['images']); ?>');
+    navInfo.registerExperiment(defaultExperiment("<?=$experimentName?>"));
 </script>

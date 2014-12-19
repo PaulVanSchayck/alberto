@@ -244,7 +244,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                     <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                     <?php Modal::end(); ?>
                 </div>
-                <table class="display" id="rootgradient-table">
+                <table class="display" id="<?=$experimentName?>-table">
                     <thead>
                     <tr>
                         <th>AGI</th>
@@ -267,8 +267,8 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
     </div>
 
 <script type="text/javascript">
-    var mpColumns = $.parseJSON('<?= json_encode($experiment['columns']); ?>');
-    var mpRules = $.parseJSON('<?= json_encode($experiment['rules']); ?>');
-    var mpImages = $.parseJSON('<?= json_encode($experiment['images']); ?>');
-    navInfo.registerExperiment(defaultExperiment("#rootgradient"));
+    var mpColumns = $.parseJSON('<?= json_encode($config['columns']); ?>');
+    var mpRules = $.parseJSON('<?= json_encode($config['rules']); ?>');
+    var mpImages = $.parseJSON('<?= json_encode($config['images']); ?>');
+    navInfo.registerExperiment(defaultExperiment("<?=$experimentName?>"));
 </script>
