@@ -7,7 +7,7 @@ return [
     ],
 
     'intact' => [
-        'login' => false,
+        'login' => true,
         'template' => 'intact.php',
         'loader' => 'loadExperiment',
         'model' => 'app\models\Intact',

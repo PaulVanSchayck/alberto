@@ -389,3 +389,32 @@ pre.annotation {
 div.caption {
     font-size: 80%;
 }
+
+/* Start help */
+#start p {
+    font-weight: 300;
+    color: #748796;
+}
+#start img {
+    box-shadow: 5px 5px 2px #888888;
+}
+#start .row > div {
+    margin-bottom: 10%;
+}
+@media (min-width: 1200px) {
+    .container-lg-height {
+        display: table;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .row-lg-height {
+        display: table-row;
+    }
+    .col-lg-height {
+        display: table-cell;
+        float: none;
+    }
+}
+.col-middle {
+    vertical-align:middle;
+}
