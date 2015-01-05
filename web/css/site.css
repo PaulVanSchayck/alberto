@@ -264,6 +264,11 @@ input.inuse::selection {
 #intactTable span.sd-warning {
     color: red;
 }
+table.dataTable tr.topHeader th {
+    border-left: 1px solid black;
+    padding-bottom: 5px;
+    text-align: center;
+}
 /* Gene information */
 .gene-information .selected {
     display: none;

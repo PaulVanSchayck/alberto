@@ -466,14 +466,14 @@ function intactExperiment(root) {
                         data: columns[i].field + '_sd',
                         name: columns[i].field + '_sd',
                         'class': 'type_sd',
-                        visible: false,
+                        visible: true,
                         orderSequence: ['desc', 'asc']
                     });
                 } else if (columns[i].type == 'fc_tmp' || columns[i].type == 'fc_spt') {
                     r.push({
                         data: columns[i].field + '_q',
                         name: columns[i].field + '_q',
-                        visible: false,
+                        visible: true,
                         orderSequence: ['desc', 'asc']
                     });
                 }

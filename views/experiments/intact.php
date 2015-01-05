@@ -314,6 +314,13 @@ $intact = Yii::$app->params['experiments']['intact'];
             </div>
             <table class="display" id="intactTable">
                 <thead>
+                <tr class="topHeader">
+                    <th colspan="3">General</th>
+                    <th colspan="9">Early Globular Stage</th>
+                    <th colspan="6">Late Globular Stage</th>
+                    <th colspan="3">Heart Stage</th>
+                    <th colspan="12">Fold changes</th>
+                </tr>
                 <tr>
                     <th>AGI</th>
                     <th>Gene</th>
@@ -340,9 +347,6 @@ $intact = Yii::$app->params['experiments']['intact'];
         </div>
     </div>
 </div>
-
-
-
 
 <script type="text/javascript">
     var intactColumns = $.parseJSON('<?= json_encode($intact['columns']); ?>');

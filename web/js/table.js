@@ -45,7 +45,7 @@ window.alberto.table = function($table, columns, filterColumns, experiment) {
     });
 
     // Setup YADCF filters
-    yadcf.init(dt, filterColumns, 'header');
+    yadcf.init(dt, filterColumns);
 
     dt.on( 'search.dt', function () {
         $(".filter_column input")
