@@ -300,6 +300,7 @@ function defaultExperiment(experimentName) {
                     showGene(gene);
                 } else {
                     $("#no-results").show();
+                    unShowGene();
                 }
             });
         }

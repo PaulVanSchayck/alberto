@@ -385,6 +385,7 @@ function intactExperiment(root) {
                     showGene(gene);
                 } else {
                     $("#no-results").show();
+                    unShowGene();
                 }
             });
         }
