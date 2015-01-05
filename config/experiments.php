@@ -6,6 +6,12 @@ return [
         'loader' => 'loadStart'
     ],
 
+    'help' => [
+        'login' => false,
+        'template' => 'help.php',
+        'loader' => 'loadStart'
+    ],
+
     'intact' => [
         'login' => true,
         'template' => 'intact.php',

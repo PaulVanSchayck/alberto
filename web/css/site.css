@@ -396,15 +396,20 @@ div.caption {
 }
 
 /* Start help */
-#start p {
+#help p {
     font-weight: 300;
     color: #748796;
 }
-#start img {
+#help img {
     box-shadow: 5px 5px 2px #888888;
 }
-#start .row > div {
+#help .row h3 {
+    margin-top: 0;
+}
+
+#help .row > div {
     margin-bottom: 10%;
+    padding-right: 10%;
 }
 @media (min-width: 1200px) {
     .container-lg-height {

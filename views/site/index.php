@@ -60,6 +60,10 @@ $this->title = 'AlBERTO';
         </li>
 
         <li data-toggle="tab">
+            <a href="#help" data-exp="help" data-toggle="tooltip" data-original-title="Quick Start Guide"><span class="glyphicon glyphicon-question-sign"></span></a>
+        </li>
+
+        <li data-toggle="tab">
             <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Transcriptome of individual cell types">Cell type-specific</a>
         </li>
 
@@ -82,6 +86,7 @@ $this->title = 'AlBERTO';
 
     <div class="tab-content">
         <div class="tab-pane active" id="start"></div>
+        <div class="tab-pane active" id="help"></div>
         <div class="tab-pane active" id="intact"></div>
         <div class="tab-pane active" id="mpproper"></div>
         <div class="tab-pane active" id="mpsuspensor"></div>
