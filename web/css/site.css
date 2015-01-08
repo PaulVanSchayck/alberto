@@ -428,3 +428,29 @@ div.caption {
 .col-middle {
     vertical-align:middle;
 }
+
+/* Start */
+
+.container.experiments {
+    width: 100%;
+    margin: 0 0;
+}
+.experiments .experiment a {
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 2px #888888;
+    display: block;
+    text-align: center;
+}
+.experiments .experiment img {
+    vertical-align: top;
+}
+.experiments .experiment span {
+    color: black;
+    display: block;
+    margin-top: -20px;
+    font-weight: bold;
+}
+.experiments .experiment a:hover {
+    text-decoration: none;
+}
