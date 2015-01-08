@@ -179,7 +179,7 @@ var navInfo = {
     setExperimentMode: function(mode) {
         this.experiments[this.getExperiment()].mode = mode;
 
-        $(window).trigger('alberto.mode.changed');
+        this.experiments[this.getExperiment()].obj.modeChanged()
     },
 
     setFromHash: function() {

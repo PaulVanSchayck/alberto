@@ -55,40 +55,6 @@ function defaultExperiment(experimentName) {
             // Poor mans method of injecting code into DataTables api
             table.dt.colvis = colvis($("#Q0990-visibilityModal"), table.dt);
 
-            $(window).on('alberto.mode.changed', function () {
-
-                if (navInfo.getExperimentMode() == "fc") {
-                    scale.slider.setAttribute('min', -10)
-                        .setAttribute('max', 10)
-                        .setValue([-5, 5])
-                        .refresh();
-
-                    scale.scale.domain([-5, -1, 1, 5])
-                        .range(["blue", "lightgray", "lightgray", "red"]);
-                    scale.setFcMode(true)
-                } else if (navInfo.getExperimentMode() == "abs") {
-                    scale.slider.setAttribute('min', 0)
-                        .setAttribute('max', 200)
-                        .setValue([32, 100])
-                        .refresh();
-
-                    scale.scale.domain([32, 100])
-                        .range(["yellow", "red"]);
-                    scale.setFcMode(false)
-                }
-
-                $root.removeClass('abs fc').addClass(navInfo.getExperimentMode());
-                highlightActiveMode(navInfo.getExperimentMode());
-
-                table.showColumnType(navInfo.getExperimentMode());
-                scale.showScale();
-
-                if (navInfo.getGene()) {
-                    updateColors(scale.scale);
-                    updateTableColors(navInfo.getExperimentMode());
-                }
-            });
-
             window.alberto.exportModal($root, table, 'mpproper');
 
             // If no mode is selected, set the absolute expression mode
@@ -313,6 +279,39 @@ function defaultExperiment(experimentName) {
             loadData(data);
         }
 
+        function modeChanged() {
+            if (navInfo.getExperimentMode() == "fc") {
+                scale.slider.setAttribute('min', -10)
+                    .setAttribute('max', 10)
+                    .setValue([-5, 5])
+                    .refresh();
+
+                scale.scale.domain([-5, -1, 1, 5])
+                    .range(["blue", "lightgray", "lightgray", "red"]);
+                scale.setFcMode(true)
+            } else if (navInfo.getExperimentMode() == "abs") {
+                scale.slider.setAttribute('min', 0)
+                    .setAttribute('max', 200)
+                    .setValue([32, 100])
+                    .refresh();
+
+                scale.scale.domain([32, 100])
+                    .range(["yellow", "red"]);
+                scale.setFcMode(false)
+            }
+
+            $root.removeClass('abs fc').addClass(navInfo.getExperimentMode());
+            highlightActiveMode(navInfo.getExperimentMode());
+
+            table.showColumnType(navInfo.getExperimentMode());
+            scale.showScale();
+
+            if (navInfo.getGene()) {
+                updateColors(scale.scale);
+                updateTableColors(navInfo.getExperimentMode());
+            }
+        }
+
         function unShowGene() {
             // Revert to base colors
             updateColors(baseColors, true);
@@ -327,6 +326,7 @@ function defaultExperiment(experimentName) {
         publics.showGene = showGene;
         publics.unShowGene = unShowGene;
         publics.filterGene = filterGene;
+        publics.modeChanged = modeChanged;
         publics.reloadTable = table.dt.ajax.reload;
 
         return publics

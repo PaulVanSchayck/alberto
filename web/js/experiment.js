@@ -72,52 +72,6 @@ function intactExperiment(root) {
                 navInfo.setExperimentMode($a.data('mode'));
             });
 
-            $(window).on('alberto.mode.changed', function () {
-                if ( navInfo.getExperiment() != "intact" ) {
-                    return;
-                }
-
-                if (navInfo.getExperimentMode() == "fc_spt") {
-                    scale.slider.setAttribute('min', -10)
-                        .setAttribute('max', 10)
-                        .setValue([-5, 5])
-                        .refresh();
-
-                    scale.scale.domain([-5, -1, 1, 5])
-                        .range(["blue", "lightgray", "lightgray", "red"]);
-                    scale.setFcMode(true);
-                } else if (navInfo.getExperimentMode() == "abs") {
-                    scale.slider.setAttribute('min', 0)
-                        .setAttribute('max', 200)
-                        .setValue([32, 100])
-                        .refresh();
-
-                    scale.scale.domain([32, 100])
-                        .range(["yellow", "red"]);
-                    scale.setFcMode(false);
-                } else if (navInfo.getExperimentMode() == "fc_tmp") {
-                    scale.slider.setAttribute('min', -10)
-                        .setAttribute('max', 10)
-                        .setValue([-5, 5])
-                        .refresh();
-
-                    scale.scale.domain([-5, -1, 1, 5])
-                        .range(["blue", "lightgray", "lightgray", "red"]);
-                    scale.setFcMode(true)
-                }
-
-                $("#intact").removeClass('abs fc_spt fc_tmp').addClass(navInfo.getExperimentMode());
-                highlightActiveMode(navInfo.getExperimentMode());
-
-                table.showColumnType(navInfo.getExperimentMode());
-                scale.showScale();
-
-                if (navInfo.getGene()) {
-                    updateColors(scale.scale);
-                    updateTableColors(navInfo.getExperimentMode());
-                }
-            });
-
             // If no mode is selected, set the absolute expression mode
             if (!navInfo.getExperimentMode()) {
                 $root.find(".mode button").first().click();
@@ -410,6 +364,48 @@ function intactExperiment(root) {
             showGeneInformation($root, data);
         }
 
+        function modeChanged() {
+            if (navInfo.getExperimentMode() == "fc_spt") {
+                scale.slider.setAttribute('min', -10)
+                    .setAttribute('max', 10)
+                    .setValue([-5, 5])
+                    .refresh();
+
+                scale.scale.domain([-5, -1, 1, 5])
+                    .range(["blue", "lightgray", "lightgray", "red"]);
+                scale.setFcMode(true);
+            } else if (navInfo.getExperimentMode() == "abs") {
+                scale.slider.setAttribute('min', 0)
+                    .setAttribute('max', 200)
+                    .setValue([32, 100])
+                    .refresh();
+
+                scale.scale.domain([32, 100])
+                    .range(["yellow", "red"]);
+                scale.setFcMode(false);
+            } else if (navInfo.getExperimentMode() == "fc_tmp") {
+                scale.slider.setAttribute('min', -10)
+                    .setAttribute('max', 10)
+                    .setValue([-5, 5])
+                    .refresh();
+
+                scale.scale.domain([-5, -1, 1, 5])
+                    .range(["blue", "lightgray", "lightgray", "red"]);
+                scale.setFcMode(true)
+            }
+
+            $("#intact").removeClass('abs fc_spt fc_tmp').addClass(navInfo.getExperimentMode());
+            highlightActiveMode(navInfo.getExperimentMode());
+
+            table.showColumnType(navInfo.getExperimentMode());
+            scale.showScale();
+
+            if (navInfo.getGene()) {
+                updateColors(scale.scale);
+                updateTableColors(navInfo.getExperimentMode());
+            }
+        }
+
         function buildDTColumns(columns) {
             var r = [
                 {data: 'gene_agi', 'class': 'type_ann', name: 'gene_agi'},
@@ -547,7 +543,8 @@ function intactExperiment(root) {
             reloadTable: table.dt.ajax.reload,
             showGene: showGene,
             unShowGene: unShowGene,
-            filterGene: filterGene
+            filterGene: filterGene,
+            modeChanged: modeChanged
         }
     }()
 }
