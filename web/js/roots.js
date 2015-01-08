@@ -1,6 +1,6 @@
 
 
-function defaultExperiment(experimentName) {
+function rootExperiment(experimentName) {
 
     return function() {
         var publics = {};
@@ -56,6 +56,9 @@ function defaultExperiment(experimentName) {
             table.dt.colvis = colvis($("#Q0990-visibilityModal"), table.dt);
 
             $(window).on('alberto.mode.changed', function () {
+                if ( navInfo.getExperiment() != "mpproper" ) {
+                    return;
+                }
 
                 if (navInfo.getExperimentMode() == "fc") {
                     scale.slider.setAttribute('min', -10)

@@ -19,7 +19,7 @@ class GeneRequest extends Model {
     public $includeAnnotations;
 
     private static $prefixes = ['gene'];
-    private $table;
+    private $tableModel;
 
     /**
      * The form name is set to be empty, as the request is not placed in a a scope
@@ -87,7 +87,7 @@ class GeneRequest extends Model {
                     break;
                 }
             } else {
-                $prefix = $this->table;
+                $prefix = $this->tableModel;
             }
 
             // Check which columns are available
@@ -195,7 +195,7 @@ class GeneRequest extends Model {
         return $order;
     }
 
-    public function setTable($table) {
-        $this->table = $table;
+    public function setTableModel($tableModel) {
+        $this->tableModel = $tableModel;
     }
 }

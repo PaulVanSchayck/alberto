@@ -214,13 +214,83 @@ return [
         'login' => true,
         'template' => 'roots.php',
         'loader' => 'loadExperiment',
-        'model' => 'app\models\MpProper',
+        'model' => 'app\models\RootGradient',
         'images' => [
-
+            'tmo5' => '.tmo5 .root',
+            'spt' => '.spt .root',
+            'pub25' => '.pub25 .root',
         ],
         'columns' => [
+            [
+                'field' => 'pub25_h',
+                'type' => 'abs',
+                'label' => 'PUB25 High'
+            ],
+            [
+                'field' => 'pub25_m',
+                'type' => 'abs',
+                'label' => 'PUB25 Medium'
+            ],
+            [
+                'field' => 'pub25_l',
+                'type' => 'abs',
+                'label' => 'PUB25 Low'
+            ],
+
+            [
+                'field' => 'spt_h',
+                'type' => 'abs',
+                'label' => 'SPT High'
+            ],
+            [
+                'field' => 'spt_m',
+                'type' => 'abs',
+                'label' => 'SPT Medium'
+            ],
+            [
+                'field' => 'spt_l',
+                'type' => 'abs',
+                'label' => 'SPT Low'
+            ],
+
+            [
+                'field' => 'tmo5_h',
+                'type' => 'abs',
+                'label' => 'TMO5 High'
+            ],
+            [
+                'field' => 'tmo5_m',
+                'type' => 'abs',
+                'label' => 'TMO5 Medium'
+            ],
+            [
+                'field' => 'tmo5_l',
+                'type' => 'abs',
+                'label' => 'TMO5 Low'
+            ],
         ],
         'rules' => [
+            'spt' => [
+                '*' => [
+                    'name' => 'Whole root',
+                    'abs' => 'spt_h',
+                    'fc' => 'no-data'
+                ]
+            ],
+            'tmo5' => [
+                '*' => [
+                    'name' => 'Whole root',
+                    'abs' => 'tmo5_h',
+                    'fc' => 'no-data'
+                ]
+            ],
+            'pub25' => [
+                '*' => [
+                    'name' => 'Whole root',
+                    'abs' => 'pub25_h',
+                    'fc' => 'no-data'
+                ]
+            ],
         ]
     ]
 ];
