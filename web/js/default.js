@@ -162,8 +162,8 @@ function defaultExperiment(experimentName) {
                 r += "<p><span class='label label-primary'>Expression value</span> " + d.abs + "</p>";
             }
 
-            if (navInfo.getExperimentMode() == "fc_spt" && d.fc_spt) {
-                r += "<p><span class='label label-primary'>Spatial FC</span> " + d.fc_spt + "</p>";
+            if (navInfo.getExperimentMode() == "fc" && d.fc) {
+                r += "<p><span class='label label-primary'>FC</span> " + d.fc + "</p>";
             }
 
             r += "<p>Click tissue for actions</p>";

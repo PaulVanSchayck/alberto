@@ -268,27 +268,81 @@ return [
                 'type' => 'abs',
                 'label' => 'TMO5 Low'
             ],
+
+
+            // Fold changes
+
+            [
+                'field' => 'fc_pub25_hm',
+                'type'  => 'fc',
+                'label' => 'FC PUB25 High/Medium'
+            ],
+            [
+                'field' => 'fc_pub25_ml',
+                'type'  => 'fc',
+                'label' => 'FC PUB25 Medium/Low'
+            ],
+            [
+                'field' => 'fc_pub25_hl',
+                'type'  => 'fc',
+                'label' => 'FC PUB25 High/Low'
+            ],
+
+            [
+                'field' => 'fc_spt_hm',
+                'type'  => 'fc',
+                'label' => 'FC SPT High/Medium'
+            ],
+            [
+                'field' => 'fc_spt_ml',
+                'type'  => 'fc',
+                'label' => 'FC SPT Medium/Low'
+            ],
+            [
+                'field' => 'fc_spt_hl',
+                'type'  => 'fc',
+                'label' => 'FC SPT High/Low'
+            ],
+
+            [
+                'field' => 'fc_tmo5_hm',
+                'type'  => 'fc',
+                'label' => 'FC TMO5 High/Medium'
+            ],
+            [
+                'field' => 'fc_tmo5_ml',
+                'type'  => 'fc',
+                'label' => 'FC TMO5 Medium/Low'
+            ],
+            [
+                'field' => 'fc_tmo5_hl',
+                'type'  => 'fc',
+                'label' => 'FC TMO5 High/Low'
+            ],
+
+
+
         ],
         'rules' => [
             'spt' => [
                 '*' => [
                     'name' => 'Whole root',
                     'abs' => 'spt_h',
-                    'fc' => 'no-data'
+                    'fc' => 'fc_spt_hl'
                 ]
             ],
             'tmo5' => [
                 '*' => [
                     'name' => 'Whole root',
                     'abs' => 'tmo5_h',
-                    'fc' => 'no-data'
+                    'fc' => 'fc_tmo5_hl'
                 ]
             ],
             'pub25' => [
                 '*' => [
                     'name' => 'Whole root',
                     'abs' => 'pub25_h',
-                    'fc' => 'no-data'
+                    'fc' => 'fc_pub25_hl'
                 ]
             ],
         ]
