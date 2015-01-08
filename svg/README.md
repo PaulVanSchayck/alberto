@@ -8,8 +8,9 @@ Notes
 
 The following should be noted when making new images:
 
-* The groups with a tissue ID should be the ones setting the fill attribute for all sub groups.
-* Set the width and height of an image to 300px, this is required for the PNG export.
+* The groups with a tissue class should be the ones setting the fill attribute for all sub groups.
+* The top level SVG element should contain proper width and height attributes, this is required for the PNG export.
+* The top level SVG element should not contain any custom namespace (attributes with : in it) for the SVG export to work in IE.
 
 Optimization
 ------------

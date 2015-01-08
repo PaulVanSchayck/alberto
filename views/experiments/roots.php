@@ -8,8 +8,8 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
 <span class="btn-group pull-right">
     <a href="#" class="dropdown-toggle download-drop" data-toggle="dropdown"><span class="glyphicon glyphicon-save"></span></a>
     <ul class="dropdown-menu">
-        <li><a href="#" title="gene - LG" class="download-png">PNG</a></li>
-        <li><a href="#" title="gene - LG" class="download-svg">SVG</a></li>
+        <li><a href="#" title="gene - root" class="download-png">PNG</a></li>
+        <li><a href="#" title="gene - root" class="download-svg">SVG</a></li>
     </ul>
 </span>
 <?php $this->endBlock(); ?>

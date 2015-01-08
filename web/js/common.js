@@ -67,8 +67,8 @@ function saveAsPNG(svg, title) {
         ctx    = can.getContext('2d'),
         loader = new Image();
 
-    can.width = loader.height = 300;
-    can.height = loader.height = 300;
+    can.width = loader.width = parseInt(svg.getAttribute('width'));
+    can.height = loader.height = parseInt(svg.getAttribute('height'));
 
     loader.onload = function() {
         ctx.drawImage( loader, 0, 0 );
