@@ -78,7 +78,7 @@ $this->title = 'AlBERTO';
             <a href="#rootgradient" data-exp="rootgradient" data-toggle="tooltip" data-original-title="FACS gradient of root">Root gradients</a>
         </li>
         <li data-toggle="tab" class="disabled">
-            <a href="#" data-toggle="tooltip" data-original-title="16 cell stage">16 cell stage dissected</a>
+            <a href="#" data-toggle="tooltip" data-original-title="16 cell stage">8 cell stage dissected</a>
         </li>
         <?php endif; ?>
         <li class="pull-right" id="spinner"><img src="/images/spinner.gif" alt="Loading" />Loading...</li>

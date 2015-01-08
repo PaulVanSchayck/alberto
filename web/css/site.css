@@ -203,17 +203,14 @@ div.svg svg g {
 }
 
 /* DataTables */
-table.dataTable thead th.sorting_asc {
-    background-position: top right;
-}
-table.dataTable thead th.sorting_desc {
-    background-position: top right;
-}
-table.dataTable thead th.sorting {
-    background-position: top right;
-}
+table.dataTable thead th.sorting_asc,
+    table.dataTable thead th.sorting_desc,
+        table.dataTable thead th.sorting {
+            background-position: right top 5px;
+        }
+
 table.dataTable thead th {
-    padding: 0 0 2px 0;
+    padding: 5px 0 2px 0;
     min-width: 123px;
 }
 table.dataTable thead input {
@@ -264,10 +261,13 @@ input.inuse::selection {
 #intactTable span.sd-warning {
     color: red;
 }
+
 table.dataTable tr.topHeader th {
-    border-left: 1px solid black;
-    padding-bottom: 5px;
-    text-align: center;
+    background-color: #cfcfcf;
+    color: black;
+    padding: 5px 0 10px 20px;
+    border-right: 5px solid white;
+    border-bottom: 0;
 }
 /* Gene information */
 .gene-information .selected {
