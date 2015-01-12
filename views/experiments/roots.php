@@ -23,12 +23,12 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    TMO5
+                    SPT
                     <?= $this->blocks['download'] ?>
                 </h3>
             </div>
-            <div class="panel-body svg tmo5">
-                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/root-wendrich.svg'); ?>
+            <div class="panel-body svg spt">
+                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/root-wendrich-spt.svg'); ?>
             </div>
         </div>
 
@@ -43,7 +43,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                 </h3>
             </div>
             <div class="panel-body svg pub25">
-                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/root-wendrich.svg'); ?>
+                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/root-wendrich-pub25.svg'); ?>
             </div>
         </div>
 
@@ -53,12 +53,12 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    SPT
+                    TMO5
                     <?= $this->blocks['download'] ?>
                 </h3>
             </div>
-            <div class="panel-body svg spt">
-                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/root-wendrich.svg'); ?>
+            <div class="panel-body svg tmo5">
+                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/root-wendrich-tmo5.svg'); ?>
             </div>
         </div>
 
@@ -246,6 +246,16 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                 </div>
                 <table class="display" id="<?=$experimentName?>-table">
                     <thead>
+                    <tr class="topHeader">
+                        <th colspan="3">General</th>
+                        <th colspan="3">PUB25</th>
+                        <th colspan="3">SPT</th>
+                        <th colspan="3">TMO5</th>
+
+                        <th colspan="3">PUB25 Fold changes</th>
+                        <th colspan="3">SPT Fold changes</th>
+                        <th colspan="3">TMO5 Fold changes</th>
+                    </tr>
                     <tr>
                         <th>AGI</th>
                         <th>Gene</th>

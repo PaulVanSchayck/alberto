@@ -325,6 +325,21 @@ return [
         ],
         'rules' => [
             'spt' => [
+                'high' => [
+                    'name' => 'High',
+                    'abs' => 'spt_h',
+                    'fc' => 'no-data'
+                ],
+                'medium' => [
+                    'name' => 'Medium',
+                    'abs' => 'spt_m',
+                    'fc' => 'fc_spt_ml'
+                ],
+                'low' => [
+                    'name' => 'Low',
+                    'abs' => 'spt_l',
+                    'fc' => 'fc_spt_hl'
+                ],
                 '*' => [
                     'name' => 'Whole root',
                     'abs' => 'spt_h',
@@ -332,6 +347,21 @@ return [
                 ]
             ],
             'tmo5' => [
+                'high' => [
+                    'name' => 'High',
+                    'abs' => 'tmo5_h',
+                    'fc' => 'no-data'
+                ],
+                'medium' => [
+                    'name' => 'Medium',
+                    'abs' => 'tmo5_m',
+                    'fc' => 'fc_tmo5_ml'
+                ],
+                'low' => [
+                    'name' => 'Low',
+                    'abs' => 'tmo5_l',
+                    'fc' => 'fc_tmo5_hl'
+                ],
                 '*' => [
                     'name' => 'Whole root',
                     'abs' => 'tmo5_h',
@@ -339,12 +369,27 @@ return [
                 ]
             ],
             'pub25' => [
+                'high' => [
+                    'name' => 'High',
+                    'abs' => 'pub25_h',
+                    'fc' => 'no-data'
+                ],
+                'medium' => [
+                    'name' => 'Medium',
+                    'abs' => 'pub25_m',
+                    'fc' => 'fc_pub25_ml'
+                ],
+                'low' => [
+                    'name' => 'Low',
+                    'abs' => 'pub25_l',
+                    'fc' => 'fc_pub25_hl'
+                ],
                 '*' => [
                     'name' => 'Whole root',
-                    'abs' => 'pub25_h',
-                    'fc' => 'fc_pub25_hl'
+                    'abs' => 'tmo5_h',
+                    'fc' => 'fc_tmo5_hl'
                 ]
-            ],
+            ]
         ]
     ]
 ];

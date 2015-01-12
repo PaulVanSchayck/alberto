@@ -17,7 +17,10 @@ function defaultExperiment(experimentName) {
             'protoderm',
             'hypophysis',
             'qc',
-            'columella'
+            'columella',
+            'high',
+            'low',
+            'medium'
         ];
 
         var scale = window.alberto.scale(root, function(scale) {
