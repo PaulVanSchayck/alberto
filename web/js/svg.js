@@ -41,6 +41,8 @@ window.alberto.svg = function svg($root, tissues) {
                     }
 
                 })
+                /* Make only the tissue accessible for pointer events and thus the tooltip */
+                .attr('class', tissue + ' pointer-events')
         });
     }
 

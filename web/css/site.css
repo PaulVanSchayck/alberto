@@ -180,10 +180,15 @@ div.svg svg {
     height: 300px;
 }
 
+/* These are two important classes that make only parts of the svg file accessible for mouseover events */
 div.svg svg g {
-    cursor: pointer;
-    pointer-events: all;
+    pointer-events: none;
 }
+div.svg svg g.pointer-events {
+    pointer-events: all;
+    cursor: pointer;
+}
+
 #intact.abs g.warning-sign.abs {
     display: inline;
 }
