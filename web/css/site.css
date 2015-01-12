@@ -180,11 +180,15 @@ div.svg svg {
     height: 300px;
 }
 
-/* These are two important classes that make only parts of the svg file accessible for mouseover events */
+/* These are three important classes that make only parts of the svg file accessible for mouseover events */
 div.svg svg g {
     pointer-events: none;
 }
 div.svg svg g.pointer-events {
+    pointer-events: all;
+    cursor: pointer;
+}
+div.svg svg g.warning-sign {
     pointer-events: all;
     cursor: pointer;
 }
@@ -196,6 +200,9 @@ div.svg svg g.pointer-events {
     display: inline;
 }
 #intact.fc_spt g.warning-sign.fc_spt {
+    display: inline;
+}
+#rootgradient.fc g.warning-sign.fc {
     display: inline;
 }
 

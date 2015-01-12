@@ -4,6 +4,7 @@ function rootExperiment(experimentName, rules, images, columns) {
         var publics = {};
         var root = "#" + experimentName;
         var $root = $(root);
+        var qWarning = 0.05;
 
         var tissues = [
             'high',
@@ -63,7 +64,7 @@ function rootExperiment(experimentName, rules, images, columns) {
         function loadData(data) {
 
             $.each(rules, function (stageId, stage) {
-                var stageData = [], warning = {'abs': false, 'fc': false };
+                var stageData = [], warning = {'fc': false };
 
                 d3.select(root + " " + images[stageId] + " g.warning-sign").classed(warning);
 
@@ -79,11 +80,12 @@ function rootExperiment(experimentName, rules, images, columns) {
                     stageData[j] = {
                         name: s.name,
                         abs: parseRuleField(s.abs, data),
-                        fc: parseRuleField(s.fc, data)
+                        fc: parseRuleField(s.fc, data),
+                        fc_q: parseRuleField(s.fc, data, '_q')
                     };
 
                     warning = {
-                        //'abs': stageData[j].rsd > rsdWarning && !warning.abs ? true : warning.abs
+                        'fc': stageData[j].fc_q > qWarning && !warning.fc ? true : warning.fc
                     };
                 });
 
@@ -155,6 +157,7 @@ function rootExperiment(experimentName, rules, images, columns) {
 
             if (navInfo.getExperimentMode() == "fc" && d.fc) {
                 r += "<p><span class='label label-primary'>FC</span> " + d.fc + "</p>";
+                r += "<p><span class='label label-primary'>FC</span> " + d.fc_q + "</p>";
             }
 
             r += "<p>Click tissue for actions</p>";
