@@ -135,7 +135,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
                 ]);
-                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/Q0990.md'));
+                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/root-gradient.md'));
                 ?>
                 <?php Modal::end(); ?>
             </div>
