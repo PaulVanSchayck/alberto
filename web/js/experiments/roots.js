@@ -157,7 +157,7 @@ function rootExperiment(experimentName, rules, images, columns) {
 
             if (navInfo.getExperimentMode() == "fc" && d.fc) {
                 r += "<p><span class='label label-primary'>FC</span> " + d.fc + "</p>";
-                r += "<p><span class='label label-primary'>FC</span> " + d.fc_q + "</p>";
+                r += "<p><span class='label label-primary'>q-value</span> " + d.fc_q + "</p>";
             }
 
             r += "<p>Click tissue for actions</p>";

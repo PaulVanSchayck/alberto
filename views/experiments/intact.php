@@ -175,9 +175,9 @@ $intact = Yii::$app->params['experiments']['intact'];
                     'id' => 'experimentModal',
                     'header' => '<h4 class="modal-title">Experimental setup</h4>',
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
-                    'size' => Modal::SIZE_DEFAULT
+                    'size' => Modal::SIZE_LARGE
                 ]);?>
-                We aborted genetically modified embryos!
+                <?= \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/intact.md')); ?>
                 <?php Modal::end(); ?>
             </div>
         </div>

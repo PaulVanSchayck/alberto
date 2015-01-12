@@ -26,7 +26,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'AlBERTO</a> <span class="navbar-text">AraBidopsis EmbRyonic Transcriptome brOwser</span> <a>',
+                'brandLabel' => 'AlBERTO</a> <span class="navbar-text">AraBidopsis Embryonic and Root Transcriptome brOwser</span> <a>',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-default',
