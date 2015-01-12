@@ -188,7 +188,7 @@ div.svg svg g.pointer-events {
     pointer-events: all;
     cursor: pointer;
 }
-div.svg svg g.warning-sign {
+div.svg g.warning-sign, div.svg g.warning-sign g{
     pointer-events: all;
     cursor: pointer;
 }

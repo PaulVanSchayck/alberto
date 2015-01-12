@@ -143,7 +143,7 @@ function rootExperiment(experimentName, rules, images, columns) {
         }
 
         function formatWarningTooltip() {
-            return "This tissue has issues"
+            return "A fold change in this gene has a q-value above 0.05"
         }
 
         function formatTooltip(d) {
