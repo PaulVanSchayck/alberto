@@ -14,7 +14,7 @@ function parseRuleField(field, data, postfix) {
         return 'no-data';
     }
 
-    if (data[field]) {
+    if (data[field] !== undefined) {
         return data[field + postfix];
     }
 }

@@ -17,7 +17,7 @@ window.alberto.scale = function scale(root, changeScaleCallback) {
     scale.defined = function(n) {
         if ( n === false ) {
             return "#FFFFFF"
-        } else if( n == 'no-data' ) {
+        } else if( n == 'no-data' || n == 0 ) {
             return "lightgray"
         } else {
             return this(n);

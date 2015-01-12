@@ -130,12 +130,12 @@ function defaultExperiment(experimentName) {
         function updateTableColors(type) {
             table.$table.find("tbody tr.selected td.type_" + type)
                 .css('background-color', function () {
-                    return scale.scale($(this).html())
+                    return scale.scale.defined($(this).html())
                 })
                 .css('color', function () {
                     // Find contrasting color
                     // From: http://ux.stackexchange.com/questions/8297/choosing-high-contrast-text-color-in-relation-to-background-color-dynamically
-                    var c = d3.rgb(scale.scale($(this).html()));
+                    var c = d3.rgb(scale.scale.defined($(this).html()));
 
                     var y = 0.2126 * Math.pow(c.r / 255, 2.2) + 0.7151 * Math.pow(c.g / 255, 2.2) + 0.0721 * Math.pow(c.b / 255, 2.2);
 
