@@ -456,21 +456,18 @@ function intactExperiment(root) {
                             }
                         },
                         'class': 'type_rsd',
-                        visible: true,
                         orderSequence: ['desc', 'asc']
                     });
                     r.push({
                         data: columns[i].field + '_sd',
                         name: columns[i].field + '_sd',
                         'class': 'type_sd',
-                        visible: true,
                         orderSequence: ['desc', 'asc']
                     });
                 } else if (columns[i].type == 'fc_tmp' || columns[i].type == 'fc_spt') {
                     r.push({
                         data: columns[i].field + '_q',
                         name: columns[i].field + '_q',
-                        visible: true,
                         orderSequence: ['desc', 'asc']
                     });
                 }

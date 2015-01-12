@@ -184,8 +184,6 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                             <table class="column-checkboxes">
                                 <tr>
                                     <th><div>Exp</div></th>
-                                    <th><div>%RSD</div></th>
-                                    <th><div>SD</div></th>
                                 </tr>
 
                                 <?php
@@ -195,16 +193,12 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                                     }
                                     echo "<tr class='field'>";
                                     echo "<td><input type='checkbox' id='{$column['field']}'></td>\n";
-                                    echo "<td><input type='checkbox' id='{$column['field']}_rsd'></td>\n";
-                                    echo "<td><input type='checkbox' id='{$column['field']}_sd'></td>\n";
                                     echo "<td><label for='{$column['field']}' class='checkbox-inline'>{$column['label']}</label></td>";
                                     echo "</tr>";
                                 }
                                 ?>
                                 <tr class="all">
                                     <td><input type="checkbox" name="all" /></td>
-                                    <td><input type="checkbox" name="all-rsd" /></td>
-                                    <td><input type="checkbox" name="all-sd" /></td>
                                     <td><b>All</b></td>
                                 </tr>
                             </table>
@@ -238,8 +232,6 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                         </div>
                     </div>
                     <p><b>Exp:</b> Expression</p>
-                    <p><b>%RSD:</b> Relative Standard deviation</p>
-                    <p><b>SD:</b> Standard deviation</p>
                     <p><b>FC:</b> Fold change</p>
                     <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                     <?php Modal::end(); ?>
@@ -252,9 +244,9 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                         <th colspan="3">SPT</th>
                         <th colspan="3">TMO5</th>
 
-                        <th colspan="3">PUB25 Fold changes</th>
-                        <th colspan="3">SPT Fold changes</th>
-                        <th colspan="3">TMO5 Fold changes</th>
+                        <th colspan="6">PUB25 Fold changes</th>
+                        <th colspan="6">SPT Fold changes</th>
+                        <th colspan="6">TMO5 Fold changes</th>
                     </tr>
                     <tr>
                         <th>AGI</th>
@@ -263,6 +255,9 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                         <?php
                         foreach( $experiment['columns'] as $column ) {
                             echo "<th>{$column['label']}</th>\n";
+                            if ( $column['type'] == 'fc' ) {
+                                echo "<th>{$column['label']} Q</th>\n";
+                            }
                         }
                         ?>
                     </tr>
@@ -277,8 +272,8 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
     </div>
 
 <script type="text/javascript">
-    var mpColumns = $.parseJSON('<?= json_encode($config['columns']); ?>');
-    var mpRules = $.parseJSON('<?= json_encode($config['rules']); ?>');
-    var mpImages = $.parseJSON('<?= json_encode($config['images']); ?>');
-    navInfo.registerExperiment(defaultExperiment("<?=$experimentName?>"));
+    var columns = $.parseJSON('<?= json_encode($config['columns']); ?>');
+    var rules = $.parseJSON('<?= json_encode($config['rules']); ?>');
+    var images = $.parseJSON('<?= json_encode($config['images']); ?>');
+    navInfo.registerExperiment(rootExperiment("<?=$experimentName?>", rules, images, columns));
 </script>

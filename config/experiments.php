@@ -340,11 +340,6 @@ return [
                     'abs' => 'spt_l',
                     'fc' => 'fc_spt_hl'
                 ],
-                '*' => [
-                    'name' => 'Whole root',
-                    'abs' => 'spt_h',
-                    'fc' => 'fc_spt_hl'
-                ]
             ],
             'tmo5' => [
                 'high' => [
@@ -362,11 +357,6 @@ return [
                     'abs' => 'tmo5_l',
                     'fc' => 'fc_tmo5_hl'
                 ],
-                '*' => [
-                    'name' => 'Whole root',
-                    'abs' => 'tmo5_h',
-                    'fc' => 'fc_tmo5_hl'
-                ]
             ],
             'pub25' => [
                 'high' => [
@@ -384,11 +374,6 @@ return [
                     'abs' => 'pub25_l',
                     'fc' => 'fc_pub25_hl'
                 ],
-                '*' => [
-                    'name' => 'Whole root',
-                    'abs' => 'tmo5_h',
-                    'fc' => 'fc_tmo5_hl'
-                ]
             ]
         ]
     ]
