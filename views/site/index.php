@@ -64,21 +64,21 @@ $this->title = 'AlBERTO';
         </li>
 
         <li data-toggle="tab">
-            <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Transcriptome of individual cell types">Cell type-specific</a>
+            <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptome of cell type-specific nuclei">Cell type-specific</a>
         </li>
 
         <?php if ( Yii::$app->user->isGuest === false ): ?>
         <li data-toggle="tab">
-            <a href="#mpproper" data-exp="mpproper" data-toggle="tooltip" data-original-title="Inhibition of Monopteros in ground and vascular tissue">Q0990>>bdl</a>
+            <a href="#mpproper" data-exp="mpproper" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS (MP) in ground and vascular tissue">Q0990>>bdl</a>
         </li>
         <li data-toggle="tab">
-            <a href="#mpsuspensor" data-exp="mpsuspensor" data-toggle="tooltip" data-original-title="Inhibition of Monopteros in suspensor">M10101>>bdl</a>
+            <a href="#mpsuspensor" data-exp="mpsuspensor" data-toggle="tooltip" data-original-title="Inhibition of Auxin Response Factors (ARFs) in suspensor">M0107>>bdl</a>
         </li>
         <li data-toggle="tab">
             <a href="#rootgradient" data-exp="rootgradient" data-toggle="tooltip" data-original-title="FACS gradient of root">Root gradients</a>
         </li>
         <li data-toggle="tab" class="disabled">
-            <a href="#" data-toggle="tooltip" data-original-title="16 cell stage">8 cell stage dissected</a>
+            <a href="#" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS (MP) and other Auxin Response Factors (ARFs) in the whole embryo">RPS5A>>bdl</a>
         </li>
         <?php endif; ?>
         <li class="pull-right" id="spinner"><img src="/images/spinner.gif" alt="Loading" />Loading...</li>

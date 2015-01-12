@@ -308,7 +308,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <p><b>Exp:</b> Expression</p>
                 <p><b>%RSD:</b> Relative Standard deviation</p>
                 <p><b>SD:</b> Standard deviation</p>
-                <p><b>FC:</b> Fold change</p>
+                <p><b>FC:</b> Limma log2-based fold change</p>
                 <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                 <?php Modal::end(); ?>
             </div>
@@ -316,9 +316,9 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <thead>
                 <tr class="topHeader">
                     <th colspan="3">General</th>
-                    <th colspan="9">Early Globular Stage</th>
-                    <th colspan="6">Late Globular Stage</th>
-                    <th colspan="3">Heart Stage</th>
+                    <th colspan="9">Early globular stage</th>
+                    <th colspan="6">Late globular stage</th>
+                    <th colspan="3">Heart stage</th>
                     <th colspan="12">Fold changes</th>
                 </tr>
                 <tr>
