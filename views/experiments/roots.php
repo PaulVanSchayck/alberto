@@ -240,12 +240,12 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                     <thead>
                     <tr class="topHeader">
                         <th colspan="3">General</th>
-                        <th colspan="3">PUB25</th>
                         <th colspan="3">SPT</th>
+                        <th colspan="3">PUB25</th>
                         <th colspan="3">TMO5</th>
 
-                        <th colspan="6">PUB25 Fold changes</th>
                         <th colspan="6">SPT Fold changes</th>
+                        <th colspan="6">PUB25 Fold changes</th>
                         <th colspan="6">TMO5 Fold changes</th>
                     </tr>
                     <tr>

@@ -222,22 +222,6 @@ return [
         ],
         'columns' => [
             [
-                'field' => 'pub25_h',
-                'type' => 'abs',
-                'label' => 'PUB25 High'
-            ],
-            [
-                'field' => 'pub25_m',
-                'type' => 'abs',
-                'label' => 'PUB25 Medium'
-            ],
-            [
-                'field' => 'pub25_l',
-                'type' => 'abs',
-                'label' => 'PUB25 Low'
-            ],
-
-            [
                 'field' => 'spt_h',
                 'type' => 'abs',
                 'label' => 'SPT High'
@@ -251,6 +235,22 @@ return [
                 'field' => 'spt_l',
                 'type' => 'abs',
                 'label' => 'SPT Low'
+            ],
+
+            [
+                'field' => 'pub25_h',
+                'type' => 'abs',
+                'label' => 'PUB25 High'
+            ],
+            [
+                'field' => 'pub25_m',
+                'type' => 'abs',
+                'label' => 'PUB25 Medium'
+            ],
+            [
+                'field' => 'pub25_l',
+                'type' => 'abs',
+                'label' => 'PUB25 Low'
             ],
 
             [
@@ -273,51 +273,51 @@ return [
             // Fold changes
 
             [
-                'field' => 'fc_pub25_hm',
-                'type'  => 'fc',
-                'label' => 'FC PUB25 High/Medium'
-            ],
-            [
-                'field' => 'fc_pub25_ml',
-                'type'  => 'fc',
-                'label' => 'FC PUB25 Medium/Low'
-            ],
-            [
-                'field' => 'fc_pub25_hl',
-                'type'  => 'fc',
-                'label' => 'FC PUB25 High/Low'
-            ],
-
-            [
                 'field' => 'fc_spt_hm',
                 'type'  => 'fc',
-                'label' => 'FC SPT High/Medium'
+                'label' => 'FC SPT Medium/High'
             ],
             [
                 'field' => 'fc_spt_ml',
                 'type'  => 'fc',
-                'label' => 'FC SPT Medium/Low'
+                'label' => 'FC SPT Low/Medium'
             ],
             [
                 'field' => 'fc_spt_hl',
                 'type'  => 'fc',
-                'label' => 'FC SPT High/Low'
+                'label' => 'FC SPT Low/High'
+            ],
+
+            [
+                'field' => 'fc_pub25_hm',
+                'type'  => 'fc',
+                'label' => 'FC PUB25 Medium/High'
+            ],
+            [
+                'field' => 'fc_pub25_ml',
+                'type'  => 'fc',
+                'label' => 'FC PUB25 Low/Medium'
+            ],
+            [
+                'field' => 'fc_pub25_hl',
+                'type'  => 'fc',
+                'label' => 'FC PUB25 Low/High'
             ],
 
             [
                 'field' => 'fc_tmo5_hm',
                 'type'  => 'fc',
-                'label' => 'FC TMO5 High/Medium'
+                'label' => 'FC TMO5 Medium/High'
             ],
             [
                 'field' => 'fc_tmo5_ml',
                 'type'  => 'fc',
-                'label' => 'FC TMO5 Medium/Low'
+                'label' => 'FC TMO5 Low/Medium'
             ],
             [
                 'field' => 'fc_tmo5_hl',
                 'type'  => 'fc',
-                'label' => 'FC TMO5 High/Low'
+                'label' => 'FC TMO5 Low/High'
             ],
 
 
@@ -341,23 +341,6 @@ return [
                     'fc' => 'fc_spt_hl'
                 ],
             ],
-            'tmo5' => [
-                'high' => [
-                    'name' => 'High',
-                    'abs' => 'tmo5_h',
-                    'fc' => 'no-data'
-                ],
-                'medium' => [
-                    'name' => 'Medium',
-                    'abs' => 'tmo5_m',
-                    'fc' => 'fc_tmo5_ml'
-                ],
-                'low' => [
-                    'name' => 'Low',
-                    'abs' => 'tmo5_l',
-                    'fc' => 'fc_tmo5_hl'
-                ],
-            ],
             'pub25' => [
                 'high' => [
                     'name' => 'High',
@@ -373,6 +356,23 @@ return [
                     'name' => 'Low',
                     'abs' => 'pub25_l',
                     'fc' => 'fc_pub25_hl'
+                ],
+            ],
+            'tmo5' => [
+                'high' => [
+                    'name' => 'High',
+                    'abs' => 'tmo5_h',
+                    'fc' => 'no-data'
+                ],
+                'medium' => [
+                    'name' => 'Medium',
+                    'abs' => 'tmo5_m',
+                    'fc' => 'fc_tmo5_ml'
+                ],
+                'low' => [
+                    'name' => 'Low',
+                    'abs' => 'tmo5_l',
+                    'fc' => 'fc_tmo5_hl'
                 ],
             ]
         ]
