@@ -80,11 +80,11 @@ window.alberto.scale = function scale(root, changeScaleCallback) {
                 attr = 'min'
             }
 
+            $this.replaceWith('<b class="badge">' + $this.val() + '</b>');
+
             // Refresh slider and the scale through triggering a slide event
             slider.setAttribute(attr, parseInt($this.val())).refresh();
             $root.find(".scale-slider").trigger('slide');
-
-            $this.replaceWith('<b class="badge">' + $this.val() + '</b>');
         });
         $this.replaceWith($input);
         $input.focus()
