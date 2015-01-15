@@ -302,6 +302,10 @@ pre.annotation {
 .scale .mode-abs {
     display: none;
 }
+.scale .tooltip {
+    z-index: 1010;
+}
+
 #intact.abs .scale .mode-abs {
     display: block;
 }
