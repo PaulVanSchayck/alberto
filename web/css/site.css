@@ -306,10 +306,6 @@ pre.annotation {
     z-index: 1010;
 }
 
-#intact.abs .scale .mode-abs {
-    display: block;
-}
-
 /* SVG Dropdown menu */
 .dropdown-menu.actions {
     display: none;
