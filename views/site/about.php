@@ -26,13 +26,26 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>The vector images of the embryos were created by Colette Ten Hove and Kuan-Ju Lu.</p>
 
     <p>
-        The transcriptome data has been obtained by their respective researchers and can be viewed in the experimental
-        setup of the experiment.
+        The transcriptome data has been obtained by their respective researchers and they are shown in the
+        experimental setup of the experiment.
+    </p>
+
+    <h2>Copyright and license</h2>
+
+    <p>
+        The source code of AlBERTO is <a href="https://github.com/PaulVanSchayck/alberto">available on GitHub</a>,
+        copyright of Wageningen University and licensed under the GNU GPL v2 license.
+    </p>
+
+    <p>
+        SVG images are copyright of (c) 2014 Wageningen University and licensed under the
+        <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International
+        License.</a>
     </p>
 
     <h2>Citations</h2>
 
     <p>Please cite the following article when using AlBERTO:</p>
 
-    <p><i>To be written...</i></p>
+    <p><i>To be published</i></p>
 </div>
