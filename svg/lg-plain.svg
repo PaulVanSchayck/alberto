@@ -9,12 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="lg"
    version="1.1"
    inkscape:version="0.91+devel r"
    sodipodi:docname="lg-plain.svg"
-   height="116.45925"
-   width="57.519608">
+   height="300.83426"
+   width="148.58302"
+   class="lg"
+   viewBox="0 0 148 300">
   <defs
      id="defs38120">
     <clipPath
@@ -33,11 +34,10 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.2407734"
-     inkscape:cx="3.8683702"
-     inkscape:cy="29.243687"
+     inkscape:zoom="1.8101934"
+     inkscape:cx="-2.8300314"
+     inkscape:cy="134.86539"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1680"
      inkscape:window-height="998"
@@ -49,7 +49,8 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     showguides="true" />
+     showguides="true"
+     inkscape:current-layer="layer1" />
   <metadata
      id="metadata38123">
     <rdf:RDF>
@@ -58,7 +59,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -66,7 +67,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-305.52624,-345.27282)">
+     transform="matrix(2.5832131,0,0,2.56423,-790.34239,-885.35772)">
     <g
        transform="matrix(1.25,0,0,-1.25,-240.19301,737.56941)"
        id="g20">
@@ -1886,7 +1887,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="translate(12.881554,73.292933)"
+       transform="matrix(1.4106767,0,0,1.4106767,-124.55908,-85.527506)"
        id="g3566"
        class="warning-sign"
        display="none"
@@ -1903,7 +1904,7 @@
         <polygon
            style="fill:#ffffff"
            id="polygon2233"
-           points="93.977,482.877 93.977,482.877 533.902,482.877 313.938,101.892 "
+           points="533.902,482.877 313.938,101.892 93.977,482.877 93.977,482.877 "
            transform="matrix(0.01817366,0,0,0.0170909,336.93404,378.48673)" />
         <path
            id="path2235"

@@ -65,13 +65,14 @@ function saveAsPNG(svg, title) {
     var svgStr =  (new XMLSerializer()).serializeToString(svg),
         can    = document.createElement('canvas'),
         ctx    = can.getContext('2d'),
-        loader = new Image();
+        loader = new Image(),
+        viewBox = (svg.getAttribute('viewBox') || '').match(/-?[\d\.]+/g);
 
-    can.width = loader.width = parseInt(svg.getAttribute('width'));
-    can.height = loader.height = parseInt(svg.getAttribute('height'));
+    loader.width = can.width = viewBox[2];
+    loader.height = can.height = viewBox[3];
 
     loader.onload = function() {
-        ctx.drawImage( loader, 0, 0 );
+        ctx.drawImage( loader, 0, 0, loader.width, loader.height);
 
         try {
             can.toBlob(function(blob) {

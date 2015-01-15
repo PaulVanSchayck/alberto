@@ -10,15 +10,18 @@ The following should be noted when making new images:
 
 * The groups with a tissue class should be the ones setting the fill attribute for all sub groups.
 * The top level SVG element should contain proper width and height attributes, this is required for the PNG export.
+* The height should be 300px, as Safari requires this to position the tooltips properly
+* A viewBox property has to be set, and this is the base for 
 * The top level SVG element should not contain any custom namespace (attributes with : in it) for the SVG export to work in IE.
 
 Optimization
 ------------
 
-The optimized images have been created using the default optimize options of Inkscape
+The optimized images have been created using [svgo](https://github.com/svg/svgo). 
 
-TODO: Do formal optimization using svgo, as we need to remove namespaces as well.
-
+```
+svgo --pretty --disable=removeHiddenElems -f svg/ -o svg/optimized/
+```
 
 Copyright and licence
 ---------------------
