@@ -312,7 +312,7 @@ $intact = Yii::$app->params['experiments']['intact'];
             <table class="display" id="intactTable">
                 <thead>
                 <tr class="topHeader">
-                    <th colspan="3">General</th>
+                    <th colspan="3">Gene information</th>
                     <th colspan="9">Early globular stage</th>
                     <th colspan="6">Late globular stage</th>
                     <th colspan="3">Heart stage</th>

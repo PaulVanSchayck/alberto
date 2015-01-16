@@ -80,7 +80,7 @@ $this->title = 'AlBERTO';
         </li>
 
         <li data-toggle="tab">
-            <a href="#rootgradient" data-exp="rootgradient" data-toggle="tooltip" data-original-title="FACS gradient of root">Root gradients</a>
+            <a href="#rootgradient" data-exp="rootgradient" data-toggle="tooltip" data-original-title="RNAseq data of differentially sorted root cells based on GFP gradient markers">Root gradients</a>
         </li>
 
         <?php endif; ?>

@@ -119,7 +119,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                     <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Relative</button>
                 </div>
 
-                <p class="mode-fc">The 'high' region is taken as nominator for displaying the fold changes.</p>
+                <p class="mode-fc">The 'high' region is taken as base for displaying the fold changes.</p>
             </div>
         </div>
     </div>
@@ -241,7 +241,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                 <table class="display" id="<?=$experimentName?>-table">
                     <thead>
                     <tr class="topHeader">
-                        <th colspan="3">General</th>
+                        <th colspan="3">Gene information</th>
                         <th colspan="3">SPT</th>
                         <th colspan="3">PUB25</th>
                         <th colspan="3">TMO5</th>

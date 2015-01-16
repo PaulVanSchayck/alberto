@@ -333,7 +333,7 @@ return [
                 'medium' => [
                     'name' => 'Medium',
                     'abs' => 'spt_m',
-                    'fc' => 'fc_spt_ml'
+                    'fc' => 'fc_spt_hm'
                 ],
                 'low' => [
                     'name' => 'Low',
@@ -350,7 +350,7 @@ return [
                 'medium' => [
                     'name' => 'Medium',
                     'abs' => 'pub25_m',
-                    'fc' => 'fc_pub25_ml'
+                    'fc' => 'fc_pub25_hm'
                 ],
                 'low' => [
                     'name' => 'Low',
@@ -367,7 +367,7 @@ return [
                 'medium' => [
                     'name' => 'Medium',
                     'abs' => 'tmo5_m',
-                    'fc' => 'fc_tmo5_ml'
+                    'fc' => 'fc_tmo5_hm'
                 ],
                 'low' => [
                     'name' => 'Low',
