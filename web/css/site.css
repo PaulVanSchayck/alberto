@@ -411,7 +411,9 @@ pre.annotation {
 div.caption {
     font-size: 80%;
 }
-
+div.footnotes {
+    font-size: 80%;
+}
 /* Start help */
 #help p {
     font-weight: 300;
