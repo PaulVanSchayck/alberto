@@ -274,5 +274,5 @@ use yii\bootstrap\Modal;
     var mpColumns = $.parseJSON('<?= json_encode($config['columns']); ?>');
     var mpRules = $.parseJSON('<?= json_encode($config['rules']); ?>');
     var mpImages = $.parseJSON('<?= json_encode($config['images']); ?>');
-    navInfo.registerExperiment(defaultExperiment("<?=$experimentName?>"));
+    navInfo.registerExperiment(mpExperiment("<?=$experimentName?>"));
 </script>

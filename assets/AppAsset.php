@@ -23,8 +23,8 @@ class AppAsset extends AssetBundle
         'js/canvas-toBlob.js',
 
         // Experiments
-        'js/experiment.js',
-        'js/default.js',
+        'js/experiments/intact.js',
+        'js/experiments/mp.js',
         'js/experiments/roots.js',
     ];
     public $depends = [

@@ -1,6 +1,6 @@
 
 
-function defaultExperiment(experimentName) {
+function mpExperiment(experimentName) {
 
     return function() {
         var publics = {};
