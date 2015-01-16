@@ -299,9 +299,7 @@ pre.annotation {
 .scale .slider.slider-horizontal {
     width: 75%;
 }
-.scale .mode-abs {
-    display: none;
-}
+
 .scale .tooltip {
     z-index: 1010;
 }
@@ -321,6 +319,14 @@ pre.annotation {
     float: right
 }
 
+/* mode */
+#rootgradient .mode .mode-fc {
+    display: none;
+    margin-top: 20px;
+}
+#rootgradient.fc .mode .mode-fc {
+    display: block;
+}
 /* Column visibility dialog */
 .visibilityModal .checkbox-inline {
     padding-left: 0;

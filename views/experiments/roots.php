@@ -118,6 +118,8 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                     <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Fold change</button>
                     <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Relative</button>
                 </div>
+
+                <p class="mode-fc">The 'high' region is taken as nominator for displaying the fold changes.</p>
             </div>
         </div>
     </div>
