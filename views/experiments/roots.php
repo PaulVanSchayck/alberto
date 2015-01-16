@@ -27,7 +27,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                     <?= $this->blocks['download'] ?>
                 </h3>
             </div>
-            <div class="panel-body svg spt">
+            <div class="panel-body svg spt" data-stage="spt">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/root-wendrich-spt.svg'); ?>
             </div>
         </div>
@@ -42,7 +42,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                     <?= $this->blocks['download'] ?>
                 </h3>
             </div>
-            <div class="panel-body svg pub25">
+            <div class="panel-body svg pub25" data-stage="pub25">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/root-wendrich-pub25.svg'); ?>
             </div>
         </div>
@@ -57,7 +57,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                     <?= $this->blocks['download'] ?>
                 </h3>
             </div>
-            <div class="panel-body svg tmo5">
+            <div class="panel-body svg tmo5" data-stage="tmo5">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/root-wendrich-tmo5.svg'); ?>
             </div>
         </div>

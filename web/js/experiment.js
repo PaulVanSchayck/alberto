@@ -271,7 +271,7 @@ function intactExperiment(root) {
                 $("." + tissue)
                     .on('mouseover', function () {
                         var $g = $(this);
-                        var tissue = $g.attr('class');
+                        var tissue = $g.attr('class').replace(' pointer-events', '');
                         var stage = $g.parents('svg').attr('class');
                         var column;
 
