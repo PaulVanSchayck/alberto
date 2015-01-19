@@ -252,7 +252,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                         <th colspan="6">PUB25 Fold changes</th>
                         <th colspan="6">TMO5 Fold changes</th>
                     </tr>
-                    <tr>
+                    <tr class="headers">
                         <th>AGI</th>
                         <th>Gene</th>
                         <th>Annotation</th>

@@ -5,6 +5,13 @@
 window.alberto.table = function($table, columns, filterColumns, experiment) {
     var lastRequest;
 
+    if ( columns.length != filterColumns.length ||  filterColumns.length != $table.find('tr.headers th').length ) {
+        console.log('AlBERTO error: Number of columns does not match');
+        console.log("Columns in table: " + $table.find('tr.headers th').length);
+        console.log("Columns in filter: " + filterColumns.length);
+        console.log("Columns in datatables: " + columns.length);
+    }
+
     var dt = $table.DataTable({
         serverSide: true,
         stateSave: true,

@@ -318,7 +318,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                     <th colspan="3">Heart stage</th>
                     <th colspan="12">Fold changes</th>
                 </tr>
-                <tr>
+                <tr class="headers">
                     <th>AGI</th>
                     <th>Gene</th>
                     <th>Annotation</th>

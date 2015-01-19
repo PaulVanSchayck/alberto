@@ -249,7 +249,7 @@ use yii\bootstrap\Modal;
                 </div>
                 <table class="display" id="<?=$experimentName?>-table">
                     <thead>
-                    <tr>
+                    <tr class="headers">
                         <th>AGI</th>
                         <th>Gene</th>
                         <th>Annotation</th>
