@@ -5,11 +5,12 @@ function defaultExperiment(experimentName, rules, images, columns) {
         var root = "#" + experimentName;
         var $root = $(root);
         var qWarning = 0.05;
+        var rsdWarning = 50;
 
         var tissues = [
             'suspensor',
-            'inner-upper',
-            'basal-initials'
+            'upper-tier',
+            'lower-tier'
         ];
 
         var scale = window.alberto.scale(root, function(scale) {
@@ -167,6 +168,34 @@ function defaultExperiment(experimentName, rules, images, columns) {
             return r;
         }
 
+        function highlightColumns() {
+
+            $.each(tissues, function (i, tissue) {
+                $("." + tissue)
+                    .on('mouseover', function () {
+                        var $g = $(this);
+                        var tissue = $g.attr('class').replace(' pointer-events', '');
+                        var stage = $g.parents('div.svg').data('stage');
+                        var column;
+
+                        if (rules[stage][tissue]) {
+                            column = rules[stage][tissue][navInfo.getExperimentMode()]
+                        } else {
+                            column = rules[stage]['*'][navInfo.getExperimentMode()]
+                        }
+
+                        var columnIdx = table.dt.column(column + ":name").index();
+
+                        if (columnIdx) {
+                            $(table.dt.column(columnIdx).nodes()).addClass('highlight');
+                        }
+                    })
+                    .on('mouseout', function () {
+                        $(table.dt.cells().nodes()).removeClass('highlight')
+                    })
+            });
+        }
+
         function buildDTColumns(columns) {
             var r = [
                 {data: 'gene_agi', 'class': 'type_ann', name: 'gene_agi'},
@@ -204,6 +233,27 @@ function defaultExperiment(experimentName, rules, images, columns) {
                     'class': 'type_' + columns[i].type,
                     orderSequence: ['desc', 'asc']
                 });
+                if (columns[i].type == 'abs') {
+                    r.push({
+                        data: columns[i].field + '_rsd',
+                        name: columns[i].field + '_rsd',
+                        render: function (data) {
+                            if (data > rsdWarning) {
+                                return "<span class='sd-warning'>" + data.toFixed(1) + " </span>";
+                            } else {
+                                return data.toFixed(1);
+                            }
+                        },
+                        'class': 'type_rsd',
+                        orderSequence: ['desc', 'asc']
+                    });
+                    r.push({
+                        data: columns[i].field + '_sd',
+                        name: columns[i].field + '_sd',
+                        'class': 'type_sd',
+                        orderSequence: ['desc', 'asc']
+                    });
+                }
                 if ( columns[i].type == 'fc') {
                     r.push({
                         data: columns[i].field + '_q',
@@ -214,34 +264,6 @@ function defaultExperiment(experimentName, rules, images, columns) {
             }
 
             return r;
-        }
-
-        function highlightColumns() {
-
-            $.each(tissues, function (i, tissue) {
-                $("." + tissue)
-                    .on('mouseover', function () {
-                        var $g = $(this);
-                        var tissue = $g.attr('class').replace(' pointer-events', '');
-                        var stage = $g.parents('div.svg').data('stage');
-                        var column;
-
-                        if (rules[stage][tissue]) {
-                            column = rules[stage][tissue][navInfo.getExperimentMode()]
-                        } else {
-                            column = rules[stage]['*'][navInfo.getExperimentMode()]
-                        }
-
-                        var columnIdx = table.dt.column(column + ":name").index();
-
-                        if (columnIdx) {
-                            $(table.dt.column(columnIdx).nodes()).addClass('highlight');
-                        }
-                    })
-                    .on('mouseout', function () {
-                        $(table.dt.cells().nodes()).removeClass('highlight')
-                    })
-            });
         }
 
         function buildFilterColumns(columns) {
@@ -265,6 +287,18 @@ function defaultExperiment(experimentName, rules, images, columns) {
 
             for (var i = 0; i < columns.length; i++) {
                 if (columns[i].type == 'abs') {
+                    r.push({
+                        column_number: column_number++,
+                        filter_type: "range_number",
+                        filter_default_label: ["0", "&infin;"],
+                        filter_delay: 500
+                    });
+                    r.push({
+                        column_number: column_number++,
+                        filter_type: "range_number",
+                        filter_default_label: ["0", "100"],
+                        filter_delay: 500
+                    });
                     r.push({
                         column_number: column_number++,
                         filter_type: "range_number",

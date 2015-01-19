@@ -376,5 +376,50 @@ return [
                 ],
             ]
         ]
+    ],
+
+    'eightcell' => [
+        'login' => true,
+        'template' => 'default.php',
+        'model' => 'app\models\EightCell',
+        'images' => [
+            'wt' => '.eight-wt',
+            'mt' => '.eight-rps5a',
+        ],
+        'columns' => [
+            [
+                'field' => 'bdl',
+                'type' => 'abs',
+                'label' => 'RPS5A>>bdl'
+            ],
+            [
+                'field' => 'wt',
+                'type' => 'abs',
+                'label' => 'WT'
+            ],
+
+            // Fold change
+            [
+                'field' => 'fc_bdl_wt',
+                'type' => 'fc',
+                'label' => 'FC RPS5A>>BDL/WT'
+            ]
+        ],
+        'rules' => [
+            'wt' => [
+                '*' => [
+                    'name' => 'Wild type',
+                    'abs' => 'wt',
+                    'fc' => 'no-data'
+                ]
+            ],
+            'mt' => [
+                '*' => [
+                    'name' => 'RPS5A>>bdl',
+                    'abs' => 'bdl',
+                    'fc' => 'fc_bdl_wt'
+                ]
+            ]
+        ]
     ]
 ];

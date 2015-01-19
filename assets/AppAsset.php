@@ -26,6 +26,7 @@ class AppAsset extends AssetBundle
         'js/experiments/intact.js',
         'js/experiments/mp.js',
         'js/experiments/roots.js',
+        'js/experiments/default.js',
     ];
     public $depends = [
         'app\assets\ModernizrAsset',

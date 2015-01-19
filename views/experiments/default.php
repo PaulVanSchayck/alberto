@@ -6,7 +6,7 @@ use yii\bootstrap\Modal;
 ?>
 
 <?php $this->beginBlock('download'); ?>
-<span class="btn-group">
+<span class="btn-group pull-right">
     <a href="#" class="dropdown-toggle download-drop" data-toggle="dropdown"><span class="glyphicon glyphicon-save"></span></a>
     <ul class="dropdown-menu">
         <li><a href="#" title="gene - LG" class="download-png">PNG</a></li>
@@ -19,36 +19,37 @@ use yii\bootstrap\Modal;
     <div class="col-lg-12">
         <p>Click on the embryo for preset filtering actions, or use the table below for setting your own filters.</p>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-3">
 
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    Wild Type
+                    Eight-cell stage
                     <?= $this->blocks['download'] ?>
                 </h3>
             </div>
-            <div class="panel-body row svg">
+            <div data-stage="wt" class="panel-body row svg">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/8-cell-wt.svg'); ?>
             </div>
         </div>
 
     </div>
-    <div class="col-lg-5">
+    <div class="col-lg-3">
 
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    Mutant
+                    Eight-cell stage RPS5A>>bdl
+                    <?= $this->blocks['download'] ?>
                 </h3>
             </div>
-            <div class="panel-body row svg">
+            <div data-stage="mt" class="panel-body row svg">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/8-cell-RPS5A.svg'); ?>
             </div>
         </div>
 
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-4 col-lg-offset-2">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">
@@ -232,13 +233,20 @@ use yii\bootstrap\Modal;
                 </div>
                 <table class="display" id="<?=$experimentName?>-table">
                     <thead>
-                    <tr>
+                    <tr class="headers">
                         <th>AGI</th>
                         <th>Gene</th>
                         <th>Annotation</th>
                         <?php
                         foreach( $config['columns'] as $column ) {
                             echo "<th>{$column['label']}</th>\n";
+
+                            if ( $column['type'] == 'abs' ) {
+                                echo "<th>{$column['label']} %RSD</th>\n";
+                                echo "<th>{$column['label']} SD</th>\n";
+                            } else if ( $column['type'] == 'fc' ) {
+                                echo "<th>{$column['label']} Q</th>\n";
+                            }
                         }
                         ?>
                     </tr>
