@@ -53,4 +53,17 @@
             <img src="/images/start/click-tissue.jpg">
         </div>
     </div>
+
+    <div class="row row-lg-height">
+        <div class="col-lg-7 col-lg-height col-middle">
+            <h3>Switch experiment</h3>
+            <p>
+                A second experiment can be selected. You will not lose your table filtering of your initial
+                experiment.
+            </p>
+        </div>
+        <div class="col-lg-1">
+            <img src="/images/start/switch-experiment.jpg">
+        </div>
+    </div>
 </div>
