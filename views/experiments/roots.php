@@ -235,7 +235,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                             </table>
                         </div>
                     </div>
-                    <p><b>Exp.:</b> Expression (FPKM: Fragments Per Kilobase Per Million Mapped Fragments)</p>
+                    <p><b>Exp.:</b> Expression</p>
                     <p><b>FC:</b> Fold Change (log2) </p>
                     <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                     <?php Modal::end(); ?>
