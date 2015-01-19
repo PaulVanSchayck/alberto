@@ -5,7 +5,6 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    height="300.41156"
@@ -45,33 +44,15 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="3.0834664"
-     inkscape:cx="6.2798524"
-     inkscape:cy="92.76729"
+     inkscape:zoom="1.5417332"
+     inkscape:cx="-143.73419"
+     inkscape:cy="144.44954"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2" />
   <defs
-     id="defs21154">
-    <clipPath
-       id="clipPath12928">
-      <path
-         d="m 315.827,314.168 38,0 0,-150.998 -38,0 0,151 z"
-         id="path12930"
-         inkscape:connector-curvature="0" />
-    </clipPath>
-    <clipPath
-       id="clipPath3574">
-      <use
-         xlink:href="#g3568"
-         id="use3576"
-         width="100%"
-         height="100%"
-         x="0"
-         y="0" />
-    </clipPath>
-  </defs>
+     id="defs21154" />
   <g
      id="layer1"
      transform="matrix(2.76754,0,0,2.76754,0.32343087,0.85328141)">
@@ -80,7 +61,7 @@
       <g
          id="g12932">
         <g
-           clip-path="url(#clipPath12928)"
+           clip-path="none"
            id="g12934"
            transform="matrix(1.25,0,0,-1.25,-401.299,392.836)">
           <g

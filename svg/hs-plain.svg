@@ -18,16 +18,7 @@
    class="hs"
    id="svg2">
   <defs
-     id="defs28526">
-    <clipPath
-       clipPathUnits="userSpaceOnUse"
-       id="clipPath876">
-      <path
-         d="m 679.462,314.399 103.501,0 0,-132.7 -103.501,0 0,132.7 z"
-         id="path878"
-         inkscape:connector-curvature="0" />
-    </clipPath>
-  </defs>
+     id="defs28526" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -36,8 +27,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="66.729707"
-     inkscape:cy="144.04949"
+     inkscape:cx="71.729707"
+     inkscape:cy="151.19235"
      inkscape:document-units="px"
      showgrid="false"
      inkscape:window-width="1680"
@@ -75,7 +66,7 @@
       <g
          id="g880">
         <g
-           clip-path="url(#clipPath876)"
+           clip-path="none"
            id="g882">
           <g
              transform="translate(769.5801,275.0508)"

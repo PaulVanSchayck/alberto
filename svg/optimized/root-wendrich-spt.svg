@@ -1,65 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="275.054" height="297.573" viewBox="0 0 275.05435 297.5726" class="root">
-    <defs>
-        <clipPath id="a">
-            <path d="M0 850.39h566.93V0H0v850.39z"/>
-        </clipPath>
-        <clipPath id="b">
-            <path d="M237.34 702.17h71.31V243.74h-71.31v458.43z"/>
-        </clipPath>
-    </defs>
     <g>
         <g>
-            <g clip-path="url(#a)" transform="matrix(.509 0 0 -.509 -14.823 358.693)">
+            <g>
                 <g>
                     <g>
-                        <g clip-path="url(#b)" transform="matrix(2.15 0 0 1.309 -314.278 -216.628)">
+                        <g>
                             <g class="high" fill="#ef4637">
-                                <path d="M246.2 429.735l59.787.883c-1.107-33.08-3.8-61.51-6.202-84.1-1.626-15.303-2.593-27.73-3.777-36.84-.692-5.324-2.08-9.437-2.792-13.67-1.652-9.818-2.13-17.823-3.857-22.658l-2.612-6.883-1.763-3.195-2.903-2.725-3.78-2.258-3.25-.916-2.786 1.45-2.114 4.2-3.8 9.792c-2.17 6.43-3.655 11.467-4.624 18.147-1.137 7.834-2.913 16.567-4.393 26.344-2.21 14.593-4.262 31.1-6.572 47.108-3.027 20.975-5.654 40.545-6.8 65.57" stroke-width="1.31"/>
+                                <path d="M-5.98 53.926l59.787.882c-1.107-33.08-3.8-61.51-6.202-84.1-1.627-15.303-2.593-27.73-3.777-36.84-.692-5.323-2.08-9.437-2.792-13.67-1.652-9.818-2.13-17.823-3.858-22.658l-2.61-6.882-1.763-3.196-2.903-2.724-3.78-2.258-3.25-.915-2.787 1.45-2.114 4.2-3.798 9.792c-2.17 6.428-3.655 11.466-4.625 18.147C8.41-77.013 6.635-68.28 5.154-58.502c-2.21 14.592-4.26 31.1-6.572 47.108-3.026 20.975-5.653 40.544-6.8 65.57" stroke-width="1.31" transform="matrix(1.094 0 0 -.666 101.094 218.668)"/>
                             </g>
                             <g class="medium" fill="#fec34b">
-                                <path d="M240.51 521.262l64.638.17c.116-14.208.61-35.217.46-57.53-.073-11.045.113-22.35.065-33.742l-61.746-.478c-.122 10.226-.687 19.932-1.068 30.12-.602 16.064-.603 33.012-1.47 45.977-.382 5.706-.408 11.002-.776 15.482" stroke-width=".79"/>
+                                <path d="M-4.19.102l64.638.17c.115-14.207.61-35.217.46-57.53-.073-11.044.113-22.348.064-33.74l-61.745-.48c-.122 10.226-.687 19.932-1.068 30.12-.602 16.064-.604 33.013-1.47 45.977C-3.693-9.675-3.72-4.378-4.087.1" stroke-width=".79" transform="matrix(1.094 0 0 -.666 92.911 121.864)"/>
                             </g>
                             <g class="low" fill="#fee830">
-                                <path d="M237.34 671.42l70.62-.416c.3-26.19-1.247-101.585-1.83-128.473.808-3.246-.442-10.517-.982-21.443l-64.534.06c-.326 12.835-.388 21.345-.668 25.758.42 12.92-.975 39.196-1.363 64.806-.22 14.432-.514 29.987-.62 41.964-.065 7.2-.37 13.128-.623 17.745" stroke-width=".911"/>
+                                <path d="M0-30.75l70.62-.415c.3-26.19-1.247-101.585-1.83-128.473.81-3.248-.44-10.52-.98-21.444l-64.536.06c-.326 12.834-.388 21.345-.668 25.757.42 12.92-.975 39.197-1.363 64.806C1.023-76.026.73-60.47.623-48.494.56-41.295.253-35.367 0-30.75" stroke-width=".911" transform="matrix(1.094 0 0 -.666 84.859 1.312)"/>
                             </g>
                         </g>
                     </g>
                 </g>
                 <g>
-                    <path d="M195.26 702.36c0-9.31-.41-18.72.01-28.01.82-18.32 2.49-38.92 2.46-57.33-.04-32.91 3.37-63.54 4.07-95.94.08-3.62.13-7.26.13-10.93.04-45.05 3.94-89.57 6.8-134.42.7-10.89 1.33-21.8 1.83-32.74 1.41-30.52 8.52-61.8 16.02-91.73 5.92-23.59 10.75-50.24 18.01-73.44 4.67-14.92 5.05-26.28 14.74-38.88 4.8-6.24 8.18-17.76 16.59-18.6 6.74-.66 14.02 2.83 19.89 5.96 7.79 4.15 15.06 18.89 16.24 27.11 2.37 16.4 10.286 34.073 12.786 50.414 7.36 48.12 17.744 96.875 18.284 142.646.12 9.89.17 19.71.16 29.51-.02 26.06-.48 51.93-1.35 78.21-.56 16.87 2.67 34.03 2.67 50.83 0 5.45.08 10.89.23 16.31.74 29.05 3.1 57.74 3.1 86.81v66.89c0 9.01-.6 17.79-.67 26.66" fill="none" stroke="#373535" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M84.624.978c0 4.74-.21 9.528.005 14.257.416 9.325 1.266 19.81 1.25 29.18-.02 16.752 1.717 32.343 2.073 48.835.04 1.842.066 3.695.066 5.563.02 22.93 2.004 45.59 3.46 68.42.357 5.543.677 11.096.932 16.665.717 15.534 4.336 31.456 8.154 46.69 3.013 12.007 5.472 25.572 9.167 37.38 2.377 7.595 2.57 13.377 7.503 19.79 2.443 3.177 4.163 9.04 8.444 9.468 3.43.336 7.137-1.44 10.124-3.033 3.965-2.112 7.665-9.615 8.266-13.8 1.206-8.347 5.236-17.343 6.508-25.66 3.746-24.493 9.032-49.31 9.307-72.607.06-5.034.086-10.032.082-15.02-.01-13.265-.245-26.433-.688-39.81-.286-8.586 1.358-17.32 1.358-25.872 0-2.774.04-5.543.117-8.302.377-14.786 1.578-29.39 1.578-44.186V14.89c0-4.587-.305-9.056-.34-13.57" fill="none" stroke="#373535" stroke-width=".2545" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
                 <g>
-                    <path d="M291.24 243.74h.76v-7.04h-29.33v7.04h28.57z" fill="none" stroke="#373535" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M133.507 234.556h.387v3.583h-14.93v-3.584h14.543z" fill="none" stroke="#373535" stroke-width=".2545" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
                 <g>
-                    <path d="M237.33 702.36v-.08c.01-.03.01-.07.01-.11 1.4-30.7 1.7-120.25 5.33-150.5.49-4.11 1.18-15.05 2.03-30.51 1.9-34.58 4.57-91.74 7.48-145.35 3.44-63.3 7.23-121.65 10.49-132.07" fill="none" stroke="#373535" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M106.05.978v.04c.006.016.006.036.006.057.713 15.626.865 61.207 2.713 76.604.248 2.09.6 7.66 1.032 15.53.967 17.6 2.326 46.694 3.808 73.982 1.75 32.22 3.68 61.92 5.34 67.224" fill="none" stroke="#373535" stroke-width=".2545" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
                 <g>
-                    <path d="M308.67 702.36c0-.07-.01-.13-.01-.2 0-.1-.01-.2-.01-.3-1.36-31.03.97-124.24-2.65-154.39-.45-3.74-.94-13.05-1.48-26.21-1.38-33.21-3.06-90.92-5.06-145.36-2.3-61.9-5.02-119.55-8.22-132.16-.08-.32-.16-.61-.24-.87" fill="none" stroke="#373535" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M142.384.978c0 .036-.005.066-.005.102 0 .05-.006.102-.006.153-.692 15.794.494 63.238-1.35 78.584-.228 1.904-.477 6.642-.752 13.34-.703 16.905-1.558 46.28-2.576 73.99-1.17 31.506-2.555 60.85-4.184 67.27-.04.16-.08.31-.122.44" fill="none" stroke="#373535" stroke-width=".2545" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
                 <g>
-                    <path d="M195.26 702.36l42.08-.19 71.31-.31 38.61-.17" fill="none" stroke="#373535" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M84.624.978l21.42.097 36.296.158 19.652.086" fill="none" stroke="#373535" stroke-width=".2545" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
                 <g>
-                    <path d="M211.063 345.34l43.45.08 47.28.09 43.82.08 223.65.41" fill="none" stroke="#373535" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M92.673 182.81l22.116-.04 24.065-.047 22.304-.04 113.837-.21" fill="none" stroke="#373535" stroke-width=".2545" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
                 <g>
-                    <path d="M201.8 465.39l42.9.08 59.82.1 40.31.07 222.1.39" fill="none" stroke="#373535" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M87.955 121.668l21.836-.04 30.45-.052 20.517-.035 113.05-.198" fill="none" stroke="#373535" stroke-width=".2545" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
                 <g>
-                    <path d="M195.26 661.54l42.07-.08 71.33-.12 258.27-.47" fill="none" stroke="#373535" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M84.624 21.768l21.414.04 36.307.062 131.46.24" fill="none" stroke="#373535" stroke-width=".2545" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
-                <text style="line-height:125%;-inkscape-font-specification:'Sans, Normal';text-align:start" x="377.841" y="-220.798" transform="scale(1 -1)" font-size="36.012" font-family="Sans" letter-spacing="0" word-spacing="0" stroke-width="1.294">
+                <text style="line-height:125%;-inkscape-font-specification:'Sans, Normal';text-align:start" x="377.841" y="-220.798" transform="matrix(.509 0 0 .509 -14.823 358.693)" font-size="36.012" font-family="Sans" letter-spacing="0" word-spacing="0" stroke-width="1.294">
                     <tspan x="377.841" y="-220.798" style="line-height:125%;-inkscape-font-specification:'Sans, Normal';text-align:start" font-size="36.012" font-family="Sans" stroke-width="1.294">
                         High
                     </tspan>
                 </text>
-                <text style="line-height:125%;-inkscape-font-specification:'Sans, Normal';text-align:start" x="375.411" y="-394.747" transform="scale(1 -1)" font-size="36.012" font-family="Sans" letter-spacing="0" word-spacing="0" stroke-width="1.294">
+                <text style="line-height:125%;-inkscape-font-specification:'Sans, Normal';text-align:start" x="375.411" y="-394.747" transform="matrix(.509 0 0 .509 -14.823 358.693)" font-size="36.012" font-family="Sans" letter-spacing="0" word-spacing="0" stroke-width="1.294">
                     <tspan x="375.411" y="-394.747" stroke-width="1.294">
                         Medium
                     </tspan>
                 </text>
-                <text style="line-height:125%;-inkscape-font-specification:'Sans, Normal';text-align:start" x="378.059" y="-558.103" transform="scale(1 -1)" font-size="36.012" font-family="Sans" letter-spacing="0" word-spacing="0" stroke-width="1.294">
+                <text style="line-height:125%;-inkscape-font-specification:'Sans, Normal';text-align:start" x="378.059" y="-558.103" transform="matrix(.509 0 0 .509 -14.823 358.693)" font-size="36.012" font-family="Sans" letter-spacing="0" word-spacing="0" stroke-width="1.294">
                     <tspan x="378.059" y="-558.103" stroke-width="1.294">
                         Low
                     </tspan>
