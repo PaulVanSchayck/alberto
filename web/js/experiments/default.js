@@ -1,4 +1,4 @@
-function rootExperiment(experimentName, rules, images, columns) {
+function defaultExperiment(experimentName, rules, images, columns) {
 
     return function() {
         var publics = {};
@@ -7,9 +7,9 @@ function rootExperiment(experimentName, rules, images, columns) {
         var qWarning = 0.05;
 
         var tissues = [
-            'high',
-            'low',
-            'medium'
+            'suspensor',
+            'inner-upper',
+            'basal-initials'
         ];
 
         var scale = window.alberto.scale(root, function(scale) {
@@ -145,7 +145,7 @@ function rootExperiment(experimentName, rules, images, columns) {
         }
 
         function formatWarningTooltip() {
-            return "A fold change in this root has a q-value above 0.05"
+            return "A fold change in this gene has a q-value above 0.05"
         }
 
         function formatTooltip(d) {

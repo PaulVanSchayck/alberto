@@ -8,8 +8,8 @@ $intact = Yii::$app->params['experiments']['intact'];
     <li class="dropdown-submenu">
         <a tabindex="-1" href="#">Absolute expression</a>
         <ul class="dropdown-menu">
-            <li><a class='highest' href="#">Show genes present in this tissue</a></li>
-            <li><a class='not-expressed' href="#">Show genes not present in this tissue</a></li>
+            <li><a class='highest' href="#">Show highest expressed genes in this tissue</a></li>
+            <li><a class='not-expressed' href="#">Show highest expressed genes [RSD < 50%]</a></li>
         </ul>
     </li>
     <li class="divider"></li>
@@ -17,14 +17,14 @@ $intact = Yii::$app->params['experiments']['intact'];
         <a tabindex="-1" href="#">Fold changes</a>
         <ul class="dropdown-menu">
             <li><a class='enriched' href="#">Show genes enriched in this tissue</a></li>
-            <li><a class='enriched significant' href="#">Show statistically significant genes enriched in this tissue</a></li>
+            <li><a class='enriched significant' href="#">Show genes significantly enriched in this tissue</a></li>
         </ul>
     </li>
 </ul>
 
 <div class="row svg-images">
     <div class="col-lg-12">
-    <p>Click on the embryo for preset filtering actions, or use the table below for setting your own filters.</p>
+    <p>Click on the embryo for preset filtering actions, or use the table below for setting custom filters.</p>
     </div>
     <div class="col-lg-3">
 
@@ -108,10 +108,10 @@ $intact = Yii::$app->params['experiments']['intact'];
                             External tools <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
+                            <li><a href="#" target="_blank" data-template="http://www.arabidopsis.org/servlets/TairObject?type=locus&name=#AGI#">TAIR</a></li>
                             <li><a href="#" target="_blank" data-template="http://bar.utoronto.ca/efp/cgi-bin/efpWeb.cgi?dataSource=Seed&modeInput=Absolute&primaryGene=#AGI#">eFP Seed</a></li>
                             <li><a href="#" target="_blank" data-template="http://bar.utoronto.ca/efp/cgi-bin/efpWeb.cgi?dataSource=Tissue_Specific&modeInput=Absolute&primaryGene=#AGI#">eFP Tissue Specific</a></li>
                             <li><a href="#" target="_blank" data-template="http://bar.utoronto.ca/efp/cgi-bin/efpWeb.cgi?dataSource=Root&modeInput=Absolute&primaryGene=#AGI#">eFP Root</a></li>
-                            <li><a href="#" target="_blank" data-template="http://www.arabidopsis.org/servlets/TairObject?type=locus&name=#AGI#">TAIR</a></li>
                         </ul>
                     </div>
                 </div>
@@ -149,8 +149,8 @@ $intact = Yii::$app->params['experiments']['intact'];
                             Fold changes <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#" data-mode="fc_spt" target="_blank" data-toggle="tooltip"><b>Spatial</b> - A tissue compared to the whole embryo.</a></li>
-                            <li><a href="#" data-mode="fc_tmp" target="_blank"><b>Temporal</b> - A tissue compared to it predecessor in the previous stage</a></li>
+                            <li><a href="#" data-mode="fc_spt" target="_blank" data-toggle="tooltip"><b>Spatial</b> - Compared to the whole embryo</a></li>
+                            <li><a href="#" data-mode="fc_tmp" target="_blank"><b>Temporal</b> - Compared to precursors in previous stages</a></li>
                         </ul>
                     </div>
                     <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Relative</button>
@@ -165,8 +165,8 @@ $intact = Yii::$app->params['experiments']['intact'];
             </div>
             <div class="panel-body">
                 <p>
-                    Nuclear transcriptomic profiles were collected from individual cell types isolated
-                    with help of cell type specific promoters.
+                    Cell type-specific nuclei were isolated from early globular stage, late globular stage and
+                    heart stage Arabidopsis embryos using the INTACT method...
                 </p>
                 <?php Modal::begin([
                     'id' => 'experimentModal',
@@ -221,7 +221,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                         <b>Absolute expression</b>
                         <table class="column-checkboxes">
                             <tr>
-                                <th><div>Exp</div></th>
+                                <th><div>Exp.</div></th>
                                 <th><div>%RSD</div></th>
                                 <th><div>SD</div></th>
                             </tr>
@@ -302,10 +302,10 @@ $intact = Yii::$app->params['experiments']['intact'];
                         </table>
                     </div>
                 </div>
-                <p><b>Exp:</b> Expression</p>
-                <p><b>%RSD:</b> Relative Standard deviation</p>
-                <p><b>SD:</b> Standard deviation</p>
-                <p><b>FC:</b> Limma log2-based fold change</p>
+                <p><b>Exp.:</b> Expression </p>
+                <p><b>%RSD:</b> Relative Standard Deviation</p>
+                <p><b>SD:</b> Standard Deviation</p>
+                <p><b>FC:</b> Fold Change (Limma log2-based)</p>
                 <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                 <?php Modal::end(); ?>
             </div>

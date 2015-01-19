@@ -67,8 +67,8 @@ $this->title = 'AlBERTO';
             <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptome of cell type-specific nuclei">Cell type-specific</a>
         </li>
 
-        <li data-toggle="tab" class="disabled">
-            <a href="#" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS (MP) and other Auxin Response Factors (ARFs) in the whole embryo">RPS5A>>bdl</a>
+        <li data-toggle="tab">
+            <a href="#eightcell" data-exp="eightcell" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS (MP) and other Auxin Response Factors (ARFs) in the whole embryo">RPS5A>>bdl</a>
         </li>
 
         <?php if ( Yii::$app->user->isGuest === false ): ?>
@@ -76,7 +76,7 @@ $this->title = 'AlBERTO';
             <a href="#mpproper" data-exp="mpproper" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS (MP) in ground and vascular tissue">Q0990>>bdl</a>
         </li>
         <li data-toggle="tab">
-            <a href="#mpsuspensor" data-exp="mpsuspensor" data-toggle="tooltip" data-original-title="Inhibition of Auxin Response Factors (ARFs) in suspensor">M0107>>bdl</a>
+            <a href="#mpsuspensor" data-exp="mpsuspensor" data-toggle="tooltip" data-original-title="Inhibition of Auxin Response Factors (ARFs) in suspensor">M0171>>bdl</a>
         </li>
 
         <li data-toggle="tab">
@@ -91,6 +91,7 @@ $this->title = 'AlBERTO';
         <div class="tab-pane active" id="start"></div>
         <div class="tab-pane active" id="help"></div>
         <div class="tab-pane active" id="intact"></div>
+        <div class="tab-pane active" id="eightcell"></div>
         <div class="tab-pane active" id="mpproper"></div>
         <div class="tab-pane active" id="mpsuspensor"></div>
         <div class="tab-pane active" id="rootgradient"></div>

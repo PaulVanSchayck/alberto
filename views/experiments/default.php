@@ -24,20 +24,12 @@ use yii\bootstrap\Modal;
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    Late globular stage
+                    Wild Type
+                    <?= $this->blocks['download'] ?>
                 </h3>
             </div>
-            <div class="panel-body row">
-                <div class="col-lg-6 svg wt">
-                    <span class="svg-label">Wild Type</span>
-                    <?= $this->blocks['download'] ?>
-                    <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?>
-                </div>
-                <div class="col-lg-6 svg mp">
-                    <span class="svg-label">Q0990>>bdl</span>
-                    <?= $this->blocks['download'] ?>
-                    <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?>
-                </div>
+            <div class="panel-body row svg">
+                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/8-cell-wt.svg'); ?>
             </div>
         </div>
 
@@ -47,20 +39,11 @@ use yii\bootstrap\Modal;
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    Heart stage
+                    Mutant
                 </h3>
             </div>
-            <div class="panel-body row">
-                <div class="col-lg-6 svg wt">
-                    <span class="svg-label">Wild Type</span>
-                    <?= $this->blocks['download'] ?>
-                    <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?>
-                </div>
-                <div class="col-lg-6 svg mp">
-                    <span class="svg-label">Q0990>>bdl</span>
-                    <?= $this->blocks['download'] ?>
-                    <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?>
-                </div>
+            <div class="panel-body row svg">
+                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/8-cell-RPS5A.svg'); ?>
             </div>
         </div>
 
@@ -130,7 +113,7 @@ use yii\bootstrap\Modal;
             </div>
             <div class="panel-body">
                 <p>
-                    MONOPTEROS (MP) is inhibited in the inner embryo proper cells of early Q0990>>bdl embryos...
+                    MONOPTEROS (MP) and other auxin response factors (ARFs) are inhibited in early RPS5A>>bdl Arabidopsis embryos...
                 </p>
                 <?php Modal::begin([
                     'id' => 'Q0990-experiment',
@@ -138,7 +121,7 @@ use yii\bootstrap\Modal;
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
                 ]);
-                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/M0171.md'));
+                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/rps5a.md'));
                 ?>
                 <?php Modal::end(); ?>
             </div>
@@ -270,8 +253,8 @@ use yii\bootstrap\Modal;
     </div>
 
 <script type="text/javascript">
-    var mpColumns = $.parseJSON('<?= json_encode($config['columns']); ?>');
-    var mpRules = $.parseJSON('<?= json_encode($config['rules']); ?>');
-    var mpImages = $.parseJSON('<?= json_encode($config['images']); ?>');
-    navInfo.registerExperiment(mpExperiment("<?=$experimentName?>"));
+    var columns = $.parseJSON('<?= json_encode($config['columns']); ?>');
+    var rules = $.parseJSON('<?= json_encode($config['rules']); ?>');
+    var images = $.parseJSON('<?= json_encode($config['images']); ?>');
+    navInfo.registerExperiment(defaultExperiment("<?=$experimentName?>", rules, images, columns));
 </script>

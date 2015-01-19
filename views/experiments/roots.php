@@ -83,6 +83,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="#" target="_blank" data-template="http://www.arabidopsis.org/servlets/TairObject?type=locus&name=#AGI#">TAIR</a></li>
+                            <li><a href="#" target="_blank" data-template="http://bar.utoronto.ca/efp/cgi-bin/efpWeb.cgi?dataSource=Root&modeInput=Absolute&primaryGene=#AGI#">eFP Root</a></li>
                         </ul>
                     </div>
                 </div>
@@ -130,6 +131,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
             </div>
             <div class="panel-body">
                 <p>
+                    "Root stem cell concept" Wendrich J.R., Benfey P.N., Weijers D., 2015 (unpublished).
                 </p>
                 <?php Modal::begin([
                     'id' => 'Q0990-experiment',
@@ -185,7 +187,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                             <b>Absolute expression</b>
                             <table class="column-checkboxes">
                                 <tr>
-                                    <th><div>Exp</div></th>
+                                    <th><div>Exp.</div></th>
                                 </tr>
 
                                 <?php
@@ -233,8 +235,8 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                             </table>
                         </div>
                     </div>
-                    <p><b>Exp:</b> Expression</p>
-                    <p><b>FC:</b> Fold change (log2) </p>
+                    <p><b>Exp.:</b> Expression (FPKM: Fragments Per Kilobase Per Million Mapped Fragments)</p>
+                    <p><b>FC:</b> Fold Change (log2) </p>
                     <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                     <?php Modal::end(); ?>
                 </div>
