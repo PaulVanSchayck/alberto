@@ -103,7 +103,7 @@ function intactExperiment(root) {
                 e.preventDefault();
                 $dropdown.hide();
 
-                var tissue = $($dropdown.data('g')).attr('class');
+                var tissue = $($dropdown.data('g')).attr('class').replace(' pointer-events', '');
                 var stage = $($dropdown.data('g')).parents('svg').attr('class');
                 var column;
 
@@ -121,19 +121,14 @@ function intactExperiment(root) {
                 if ($(this).hasClass('highest')) {
                     navInfo.setExperimentMode('abs');
 
+                    yadcf.exResetAllFilters(table.dt);
+
+                    if ($(this).hasClass('rsd')) {
+                        table.dt.column(columnIdx + 1).visible(true);
+                        yadcf.exFilterColumn(table.dt, [[columnIdx + 1, {to: 50}]], true);
+                    }
+
                     table.dt.order([columnIdx, 'desc']);
-                    yadcf.exResetAllFilters(table.dt);
-                    yadcf.exFilterColumn(table.dt, [[columnIdx, {from: 100}]], true);
-
-                    return false;
-                }
-
-                if ($(this).hasClass('not-expressed')) {
-                    navInfo.setExperimentMode('abs');
-
-                    table.dt.order([columnIdx, 'asc']);
-                    yadcf.exResetAllFilters(table.dt);
-                    yadcf.exFilterColumn(table.dt, [[columnIdx, {to: 32}]], true);
 
                     return false;
                 }
@@ -156,10 +151,14 @@ function intactExperiment(root) {
 
                     yadcf.exFilterColumn(table.dt, filter, true);
 
+                    // Because the column index is changed when the visibility is changed, recalculate
+                    columnIdx = table.dt.column(intactRules[stage][tissue].fc_spt + ":name").index();
                     table.dt.order([columnIdx, 'desc']);
 
                     return false;
                 }
+
+                table.dt.colvis.refresh();
             });
 
             $root.find(".clearfilters").click(function () {
