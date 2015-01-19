@@ -9,7 +9,7 @@ $intact = Yii::$app->params['experiments']['intact'];
         <a tabindex="-1" href="#">Absolute expression</a>
         <ul class="dropdown-menu">
             <li><a class='highest' href="#">Show highest expressed genes in this tissue</a></li>
-            <li><a class='not-expressed' href="#">Show highest expressed genes [RSD < 50%]</a></li>
+            <li><a class='highest rsd' href="#">Show highest expressed genes [RSD < 50%]</a></li>
         </ul>
     </li>
     <li class="divider"></li>
