@@ -131,10 +131,11 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
             </div>
             <div class="panel-body">
                 <p>
-                    "Root stem cell concept" Wendrich J.R., Benfey P.N., Weijers D., 2015 (unpublished).
+                    Cells from Arabidopsis roots expressing a gradient marker emanating from the distal root tip were
+                    sorted based on GFP intensity and separated into three different populations for up to three biological replicates...
                 </p>
                 <?php Modal::begin([
-                    'id' => 'Q0990-experiment',
+                    'id' => $experimentName.'-experiment',
                     'header' => '<h4 class="modal-title">Experimental setup</h4>',
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
