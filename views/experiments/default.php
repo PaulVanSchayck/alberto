@@ -88,7 +88,7 @@ use yii\bootstrap\Modal;
                 <input type="text" class="scale-slider form-control" name="scale" data-slider-min="0" data-slider-max="150" data-slider-step="1" data-slider-value="[32,100]" data-plugin-name="slider" title="slider">
                 <b class="badge">150</b>
                 <div class='checkbox'>
-                    <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications."><input type='checkbox' class="scale-input" >Enable changing scale</label>
+                    <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications."><input type='checkbox' class="scale-input" >Disable auto-scaling</label>
                 </div>
             </div>
         </div>
@@ -170,7 +170,7 @@ use yii\bootstrap\Modal;
                             <b>Absolute expression</b>
                             <table class="column-checkboxes">
                                 <tr>
-                                    <th><div>Exp</div></th>
+                                    <th><div>Exp.</div></th>
                                     <th><div>%RSD</div></th>
                                     <th><div>SD</div></th>
                                 </tr>
@@ -224,10 +224,10 @@ use yii\bootstrap\Modal;
                             </table>
                         </div>
                     </div>
-                    <p><b>Exp:</b> Expression</p>
+                    <p><b>Exp.:</b> Expression</p>
                     <p><b>%RSD:</b> Relative Standard deviation</p>
                     <p><b>SD:</b> Standard deviation</p>
-                    <p><b>FC:</b> Fold change</p>
+                    <p><b>FC:</b> Fold Change (Limma log2-based)</p>
                     <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                     <?php Modal::end(); ?>
                 </div>
