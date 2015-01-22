@@ -265,7 +265,7 @@ input.inuse::selection {
     border: 0;
 }
 
-#intactTable .tooltip-inner {
+table.dataTable .tooltip-inner {
     white-space: pre-wrap;
 }
 
