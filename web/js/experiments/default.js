@@ -46,7 +46,7 @@ function defaultExperiment(experimentName, rules, images, columns) {
             });
 
             // Poor mans method of injecting code into DataTables api
-            table.dt.colvis = colvis($("#Q0990-visibilityModal"), table.dt);
+            table.dt.colvis = colvis($("#" + experimentName + "-visibilityModal"), table.dt);
 
             window.alberto.exportModal($root, table, experimentName);
 

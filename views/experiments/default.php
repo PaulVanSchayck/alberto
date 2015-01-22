@@ -117,7 +117,7 @@ use yii\bootstrap\Modal;
                     MONOPTEROS (MP) and other auxin response factors (ARFs) are inhibited in early RPS5A>>bdl Arabidopsis embryos...
                 </p>
                 <?php Modal::begin([
-                    'id' => 'Q0990-experiment',
+                    'id' => $experimentName . '-experiment',
                     'header' => '<h4 class="modal-title">Experimental setup</h4>',
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
@@ -142,7 +142,7 @@ use yii\bootstrap\Modal;
                     <button class="btn btn-default clearfilters">Clear all filters &raquo;</button>
                     <?= $this->render('/_blocks/export', ['experiment' => 'Q0990']); ?>
                     <?php Modal::begin([
-                        'id' => 'Q0990-visibilityModal',
+                        'id' => $experimentName . '-visibilityModal',
                         'header' => '<h4 class="modal-title">Show / hide columns</h4>',
                         'toggleButton' => ['tag' => 'button', 'label' => 'Show / hide columns &raquo;', 'class' => 'btn btn-default'],
                         'size' => Modal::SIZE_LARGE
