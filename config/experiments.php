@@ -281,49 +281,49 @@ return [
             [
                 'field' => 'fc_spt_hm',
                 'type'  => 'fc',
-                'label' => 'FC SPT Medium/High'
+                'label' => 'SPT Medium/High'
             ],
             [
                 'field' => 'fc_spt_ml',
                 'type'  => 'fc',
-                'label' => 'FC SPT Low/Medium'
+                'label' => 'SPT Low/Medium'
             ],
             [
                 'field' => 'fc_spt_hl',
                 'type'  => 'fc',
-                'label' => 'FC SPT Low/High'
+                'label' => 'SPT Low/High'
             ],
 
             [
                 'field' => 'fc_pub25_hm',
                 'type'  => 'fc',
-                'label' => 'FC PUB25 Medium/High'
+                'label' => 'PUB25 Medium/High'
             ],
             [
                 'field' => 'fc_pub25_ml',
                 'type'  => 'fc',
-                'label' => 'FC PUB25 Low/Medium'
+                'label' => 'PUB25 Low/Medium'
             ],
             [
                 'field' => 'fc_pub25_hl',
                 'type'  => 'fc',
-                'label' => 'FC PUB25 Low/High'
+                'label' => 'PUB25 Low/High'
             ],
 
             [
                 'field' => 'fc_tmo5_hm',
                 'type'  => 'fc',
-                'label' => 'FC TMO5 Medium/High'
+                'label' => 'TMO5 Medium/High'
             ],
             [
                 'field' => 'fc_tmo5_ml',
                 'type'  => 'fc',
-                'label' => 'FC TMO5 Low/Medium'
+                'label' => 'TMO5 Low/Medium'
             ],
             [
                 'field' => 'fc_tmo5_hl',
                 'type'  => 'fc',
-                'label' => 'FC TMO5 Low/High'
+                'label' => 'TMO5 Low/High'
             ],
 
 
