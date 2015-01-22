@@ -30,6 +30,7 @@ use yii\bootstrap\Modal;
             </div>
             <div data-stage="wt" class="panel-body row svg">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/8-cell-wt.svg'); ?>
+                <img src="/images/warning.png" class="warning-sign" alt="Warning Sign" data-toggle="tooltip" />
             </div>
         </div>
 
@@ -45,6 +46,7 @@ use yii\bootstrap\Modal;
             </div>
             <div data-stage="mt" class="panel-body row svg">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/8-cell-RPS5A.svg'); ?>
+                <img src="/images/warning.png" class="warning-sign" alt="Warning Sign" data-toggle="tooltip" />
             </div>
         </div>
 

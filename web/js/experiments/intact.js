@@ -40,16 +40,15 @@ function intactExperiment(root) {
             baseColors = svg.retrieveFillColor(hs);
 
             svg.setupTooltip(eg, formatTooltip);
-            svg.setupWarningTooltip(eg, formatWarningTooltip);
             svg.setupTooltip(lg, formatTooltip);
-            svg.setupWarningTooltip(lg, formatWarningTooltip);
             svg.setupTooltip(hs, formatTooltip);
-            svg.setupWarningTooltip(hs, formatWarningTooltip);
 
             // Poor mans method of injecting code into DataTables api
             table.dt.colvis = colvis($("#visibilityModal"), table.dt);
 
             $("#intact .mode button").tooltip({placement: 'bottom', container: 'body'});
+
+            $("#intact .warning-sign").tooltip({placement: 'right', title: formatWarningTooltip});
 
             $("#intact .gene-information .non-selected").tooltip({placement: 'bottom'});
             $("#intact .scale label").tooltip({placement: 'bottom'});
@@ -214,9 +213,8 @@ function intactExperiment(root) {
         function loadINTACT(data) {
 
             $.each(intactRules, function (stageId, stage) {
-                var stageData = [], warning = {'abs': false, 'fc_spt': false, 'fc_tmp': false};
-
-                d3.select("#intact ." + stageId + " g.warning-sign").classed(warning);
+                var stageData = [],
+                    $warningSign = $("#intact .svg[data-stage=" + stageId + "] img.warning-sign").removeClass('abs fc_spt fc_tmp');
 
                 $.each(tissues, function (j, tissue) {
                     var s;
@@ -238,14 +236,12 @@ function intactExperiment(root) {
                         fc_tmp_q: parseRuleField(s.fc_tmp, data, '_q')
                     };
 
-                    warning = {
-                        'abs': stageData[j].rsd > rsdWarning && !warning.abs ? true : warning.abs,
-                        'fc_spt': stageData[j].fc_spt_q > qWarning && !warning.fc_spt ? true : warning.fc_spt,
-                        'fc_tmp': stageData[j].fc_tmp_q > qWarning && !warning.fc_tmp ? true : warning.fc_tmp
-                    };
+                    $warningSign.addClass(
+                        stageData[j].rsd > rsdWarning ? 'abs' : '' +
+                        stageData[j].fc_spt_q > qWarning ? 'fc_spt' : '' +
+                        stageData[j].fc_tmp_q > qWarning ? 'fc_tmp' : ''
+                    );
                 });
-
-                d3.select("#intact ." + stageId + " g.warning-sign").classed(warning);
 
                 svg.assignData(d3.select("#intact ." + stageId), stageData);
             });

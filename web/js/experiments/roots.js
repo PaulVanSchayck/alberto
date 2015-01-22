@@ -28,7 +28,6 @@ function rootExperiment(experimentName, rules, images, columns) {
             $.each( images, function( name, selector )  {
                 var ele = d3.select(root + " " + selector);
                 svg.setupTooltip(ele, formatTooltip);
-                svg.setupWarningTooltip(ele, formatWarningTooltip);
 
                 if ( ! baseColors ) {
                     baseColors = svg.retrieveFillColor(ele);
@@ -38,6 +37,7 @@ function rootExperiment(experimentName, rules, images, columns) {
             $root.find(".mode button").tooltip({placement: 'bottom', container: 'body'});
 
             $root.find(".gene-information .non-selected").tooltip({placement: 'bottom'});
+            $root.find(".warning-sign").tooltip({placement: 'right', title: formatWarningTooltip});
             $root.find(".scale label").tooltip({placement: 'bottom'});
 
             $root.find(".mode button").click(function () {
@@ -66,9 +66,8 @@ function rootExperiment(experimentName, rules, images, columns) {
         function loadData(data) {
 
             $.each(rules, function (stageId, stage) {
-                var stageData = [], warning = {'fc': false };
-
-                d3.select(root + " " + images[stageId] + " g.warning-sign").classed(warning);
+                var stageData = [],
+                    $warningSign = $root.find(".svg[data-stage=" + stageId + "] img.warning-sign").removeClass('fc');
 
                 $.each(tissues, function (j, tissue) {
                     var s;
@@ -86,12 +85,10 @@ function rootExperiment(experimentName, rules, images, columns) {
                         fc_q: parseRuleField(s.fc, data, '_q')
                     };
 
-                    warning = {
-                        'fc': stageData[j].fc_q > qWarning && !warning.fc ? true : warning.fc
-                    };
+                    $warningSign.addClass(
+                        stageData[j].fc_q > qWarning ? 'fc' : ''
+                    );
                 });
-
-                d3.select(root + " " + images[stageId] + " g.warning-sign").classed(warning);
 
                 svg.assignData(d3.select(root + " " + images[stageId]), stageData);
             });

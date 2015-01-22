@@ -46,26 +46,6 @@ window.alberto.svg = function svg($root, tissues) {
         });
     }
 
-    function setupWarningTooltip(ele, warningCallback) {
-        var tip = d3.tip()
-            .attr('class', 'd3-tip')
-            .direction('e')
-            .offset([0, 20])
-            .html(function () {
-                return warningCallback()
-            });
-
-        ele.select('g.warning-sign')
-            .on('mouseover', function (d, i) {
-                tip.show(d, i);
-            })
-            .on('mouseout', function (d, i) {
-                tip.hide(d, i);
-            });
-
-        ele.call(tip);
-    }
-
     function assignData(ele, data) {
 
         $.each(tissues, function (i, tissue) {
@@ -87,7 +67,6 @@ window.alberto.svg = function svg($root, tissues) {
     }
 
     return {
-        setupWarningTooltip: setupWarningTooltip,
         setupTooltip: setupTooltip,
         retrieveFillColor: retrieveFillColor,
         assignData: assignData

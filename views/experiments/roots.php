@@ -32,6 +32,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
             </div>
             <div class="panel-body svg spt" data-stage="spt">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/root-wendrich-spt.svg'); ?>
+                <img src="/images/warning.png" class="warning-sign" alt="Warning Sign" data-toggle="tooltip" />
             </div>
         </div>
 
@@ -47,6 +48,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
             </div>
             <div class="panel-body svg pub25" data-stage="pub25">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/root-wendrich-pub25.svg'); ?>
+                <img src="/images/warning.png" class="warning-sign" alt="Warning Sign" data-toggle="tooltip" />
             </div>
         </div>
 
@@ -62,6 +64,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
             </div>
             <div class="panel-body svg tmo5" data-stage="tmo5">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/root-wendrich-tmo5.svg'); ?>
+                <img src="/images/warning.png" class="warning-sign" alt="Warning Sign" data-toggle="tooltip" />
             </div>
         </div>
 

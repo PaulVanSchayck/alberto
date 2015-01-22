@@ -41,8 +41,9 @@ $intact = Yii::$app->params['experiments']['intact'];
                     </span>
                 </h3>
             </div>
-            <div class="panel-body svg">
+            <div data-stage="eg" class="panel-body svg">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/eg-plain.svg'); ?>
+                <img src="/images/warning.png" class="warning-sign" alt="Warning Sign" data-toggle="tooltip" />
             </div>
         </div>
 
@@ -62,8 +63,9 @@ $intact = Yii::$app->params['experiments']['intact'];
                     </span>
                 </h3>
             </div>
-            <div class="panel-body svg">
+            <div data-stage="lg" class="panel-body svg">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/lg-plain.svg'); ?>
+                <img src="/images/warning.png" class="warning-sign" alt="Warning Sign" data-toggle="tooltip" />
             </div>
         </div>
 
@@ -83,8 +85,9 @@ $intact = Yii::$app->params['experiments']['intact'];
                     </span>
                 </h3>
             </div>
-            <div class="panel-body svg">
+            <div data-stage="hs" class="panel-body svg">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs-plain.svg'); ?>
+                <img src="/images/warning.png" class="warning-sign" alt="Warning Sign" data-toggle="tooltip" />
             </div>
         </div>
 

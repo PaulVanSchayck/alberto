@@ -17,10 +17,7 @@ function mpExperiment(experimentName) {
             'protoderm',
             'hypophysis',
             'qc',
-            'columella',
-            'high',
-            'low',
-            'medium'
+            'columella'
         ];
 
         var scale = window.alberto.scale(root, function(scale) {
@@ -39,7 +36,6 @@ function mpExperiment(experimentName) {
             $.each( mpImages, function( name, selector )  {
                 var ele = d3.select(root + " " + selector);
                 svg.setupTooltip(ele, formatTooltip);
-                svg.setupWarningTooltip(ele, formatWarningTooltip);
 
                 if ( ! baseColors ) {
                     baseColors = svg.retrieveFillColor(ele);
@@ -47,7 +43,6 @@ function mpExperiment(experimentName) {
             });
 
             $root.find(".mode button").tooltip({placement: 'bottom', container: 'body'});
-
             $root.find(".gene-information .non-selected").tooltip({placement: 'bottom'});
             $root.find(".scale label").tooltip({placement: 'bottom'});
 
@@ -75,9 +70,7 @@ function mpExperiment(experimentName) {
         function loadData(data) {
 
             $.each(mpRules, function (stageId, stage) {
-                var stageData = [], warning = {'abs': false, 'fc': false };
-
-                d3.select(root + " " + mpImages[stageId] + " g.warning-sign").classed(warning);
+                var stageData = [];
 
                 $.each(tissues, function (j, tissue) {
                     var s;
@@ -94,12 +87,7 @@ function mpExperiment(experimentName) {
                         fc: parseRuleField(s.fc, data)
                     };
 
-                    warning = {
-                        //'abs': stageData[j].rsd > rsdWarning && !warning.abs ? true : warning.abs
-                    };
                 });
-
-                d3.select(root + " " + mpImages[stageId] + " g.warning-sign").classed(warning);
 
                 svg.assignData(d3.select(root + " " + mpImages[stageId]), stageData);
             });
@@ -150,10 +138,6 @@ function mpExperiment(experimentName) {
         function highlightActiveMode(mode) {
             $root.find(".mode button").removeClass('btn-primary');
             $root.find(".mode button[data-mode=" + mode + "]").addClass('btn-primary');
-        }
-
-        function formatWarningTooltip() {
-            return "This tissue has issues"
         }
 
         function formatTooltip(d) {
