@@ -394,14 +394,14 @@ return [
         ],
         'columns' => [
             [
-                'field' => 'bdl',
-                'type' => 'abs',
-                'label' => 'RPS5A>>bdl'
-            ],
-            [
                 'field' => 'wt',
                 'type' => 'abs',
                 'label' => 'Wild-type'
+            ],
+            [
+                'field' => 'bdl',
+                'type' => 'abs',
+                'label' => 'RPS5A>>bdl'
             ],
 
             // Fold change
