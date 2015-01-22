@@ -17,6 +17,23 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
 </span>
 <?php $this->endBlock(); ?>
 
+<ul class="dropdown-menu actions" role="menu">
+    <li class="dropdown-submenu">
+        <a tabindex="-1" href="#">Absolute expression</a>
+        <ul class="dropdown-menu">
+            <li><a class='highest' href="#">Show highest expressed genes in this region</a></li>
+        </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-submenu">
+        <a tabindex="-1" href="#">Gradients</a>
+        <ul class="dropdown-menu">
+            <li><a class='gradient' href="#">Show genes with an upward gradient [q-value < 0.05]</a></li>
+            <li><a class='gradient down' href="#">Show genes with a downward gradient [q-value < 0.05]</a></li>
+        </ul>
+    </li>
+</ul>
+
 <div class="row svg-images">
     <div class="col-lg-12">
         <p>Click on the root for preset filtering actions, or use the table below for setting your own filters.</p>

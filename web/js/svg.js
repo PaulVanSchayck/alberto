@@ -4,6 +4,28 @@
 
 window.alberto.svg = function svg($root, tissues) {
 
+    function actionDropdown() {
+        var $dropdown = $root.find('.dropdown-menu.actions');
+        $('div.svg svg g').click(function (e) {
+
+            $dropdown
+                .fadeIn()
+                .offset({left: e.pageX, top: e.pageY});
+
+            $dropdown.data('g', this);
+
+            $(document).one('mouseup', function (e) {
+                if (!$dropdown.is(e.target) && $dropdown.has(e.target).length === 0) {
+                    $dropdown.hide();
+                }
+            });
+
+            event.stopPropagation();
+        });
+
+        return $dropdown;
+    }
+
     function setupTooltip(ele, formatCallback) {
         var tip = d3.tip()
             .attr('class', 'd3-tip')
@@ -67,6 +89,7 @@ window.alberto.svg = function svg($root, tissues) {
     }
 
     return {
+        actionDropdown: actionDropdown,
         setupTooltip: setupTooltip,
         retrieveFillColor: retrieveFillColor,
         assignData: assignData

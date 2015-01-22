@@ -60,6 +60,65 @@ function rootExperiment(experimentName, rules, images, columns) {
 
             highlightColumns();
 
+            $dropdown = svg.actionDropdown();
+
+            $dropdown.find('a').click(function (e) {
+                e.preventDefault();
+                $dropdown.hide();
+
+                var tissue = $($dropdown.data('g')).attr('class').replace(' pointer-events', '');
+                var stage = $($dropdown.data('g')).parents('div').data('stage');
+                var column;
+
+                if (rules[stage][tissue]) {
+                    column = rules[stage][tissue].abs
+                } else {
+                    column = rules[stage]['*'].abs
+                }
+                var columnIdx = table.dt.column(column + ":name").index();
+
+                if (columnIdx == undefined) {
+                    return false;
+                }
+
+                if ($(this).hasClass('highest')) {
+                    navInfo.setExperimentMode('abs');
+
+                    yadcf.exResetAllFilters(table.dt, true);
+
+                    table.dt.order([columnIdx, 'desc']).draw();
+
+                    return false;
+                }
+
+                if ($(this).hasClass('gradient')) {
+                    navInfo.setExperimentMode('fc');
+
+                    yadcf.exResetAllFilters(table.dt, true);
+
+                    table.dt.column('fc_' + stage + '_hl_q:name').visible(true);
+                    table.dt.column('fc_' + stage + '_ml_q:name').visible(true);
+
+                    var direction = {from: 0.001};
+                    if ($(this).hasClass('down')) {
+                        direction =  {to: -0.001}
+                    }
+
+                    var filter = [
+                        [table.dt.column('fc_' + stage + '_hl:name').index(), direction],
+                        [table.dt.column('fc_' + stage + '_hl_q:name').index(), {to: 0.05}],
+                        [table.dt.column('fc_' + stage + '_ml:name').index(), direction],
+                        [table.dt.column('fc_' + stage + '_ml_q:name').index(), {to: 0.05}]
+                    ];
+
+                    yadcf.exFilterColumn(table.dt, filter, true);
+
+                    return false;
+                }
+
+                table.dt.colvis.refresh();
+            });
+
             $(window).trigger('experiment.loaded');
         }
 

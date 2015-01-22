@@ -80,23 +80,7 @@ function intactExperiment(root) {
 
             $(window).trigger('experiment.loaded');
 
-            var $dropdown = $('.dropdown-menu.actions');
-            $('div.svg svg g').click(function (e) {
-
-                $dropdown
-                    .fadeIn()
-                    .offset({left: e.pageX, top: e.pageY});
-
-                $dropdown.data('g', this);
-
-                $(document).one('mouseup', function (e) {
-                    if (!$dropdown.is(e.target) && $dropdown.has(e.target).length === 0) {
-                        $dropdown.hide();
-                    }
-                });
-
-                event.stopPropagation();
-            });
+            $dropdown = svg.actionDropdown();
 
             $dropdown.find('a').click(function (e) {
                 e.preventDefault();
@@ -127,7 +111,7 @@ function intactExperiment(root) {
                         yadcf.exFilterColumn(table.dt, [[columnIdx + 1, {to: 50}]], true);
                     }
 
-                    table.dt.order([columnIdx, 'desc']);
+                    table.dt.order([columnIdx, 'desc']).draw();
 
                     return false;
                 }
@@ -152,7 +136,7 @@ function intactExperiment(root) {
 
                     // Because the column index is changed when the visibility is changed, recalculate
                     columnIdx = table.dt.column(intactRules[stage][tissue].fc_spt + ":name").index();
-                    table.dt.order([columnIdx, 'desc']);
+                    table.dt.order([columnIdx, 'desc']).draw();
 
                     return false;
                 }
