@@ -269,7 +269,7 @@ input.inuse::selection {
     white-space: pre-wrap;
 }
 
-#intactTable span.sd-warning {
+table.dataTable span.sd-warning, table.dataTable span.q-warning {
     color: red;
 }
 

@@ -56,7 +56,7 @@ function mpExperiment(experimentName) {
             });
 
             // Poor mans method of injecting code into DataTables api
-            table.dt.colvis = colvis($("#Q0990-visibilityModal"), table.dt);
+            table.dt.colvis = colvis($("#" + experimentName + "-visibilityModal"), table.dt);
 
             window.alberto.exportModal($root, table, 'mpproper');
 

@@ -2,6 +2,9 @@
 use yii\bootstrap\Modal;
 
 $experiment = Yii::$app->params['experiments']['rootgradient'];
+
+/* @var $config [] */
+/* @var $experimentName String */
 ?>
 
 <?php $this->beginBlock('download'); ?>
@@ -261,7 +264,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                         foreach( $experiment['columns'] as $column ) {
                             echo "<th>{$column['label']}</th>\n";
                             if ( $column['type'] == 'fc' ) {
-                                echo "<th>{$column['label']} Q</th>\n";
+                                echo "<th>{$column['label']} q</th>\n";
                             }
                         }
                         ?>

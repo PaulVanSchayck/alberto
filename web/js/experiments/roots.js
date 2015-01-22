@@ -208,6 +208,13 @@ function rootExperiment(experimentName, rules, images, columns) {
                     r.push({
                         data: columns[i].field + '_q',
                         name: columns[i].field + '_q',
+                        render: function (data) {
+                            if (data > qWarning) {
+                                return "<span class='q-warning'>" + data + " </span>";
+                            } else {
+                                return data;
+                            }
+                        },
                         orderSequence: ['desc', 'asc']
                     });
                 }
