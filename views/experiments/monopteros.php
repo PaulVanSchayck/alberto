@@ -133,7 +133,7 @@ use yii\bootstrap\Modal;
                     MONOPTEROS (MP) is inhibited in the inner embryo proper cells of early Q0990>>bdl embryos...
                 </p>
                 <?php Modal::begin([
-                    'id' => 'Q0990-experiment',
+                    'id' => $experimentName . '-experiment',
                     'header' => '<h4 class="modal-title">Experimental setup</h4>',
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
@@ -158,14 +158,14 @@ use yii\bootstrap\Modal;
                     <button class="btn btn-default clearfilters">Clear all filters &raquo;</button>
                     <?= $this->render('/_blocks/export', ['experiment' => 'Q0990']); ?>
                     <?php Modal::begin([
-                        'id' => 'Q0990-visibilityModal',
+                        'id' => $experimentName . '-visibilityModal',
                         'header' => '<h4 class="modal-title">Show / hide columns</h4>',
                         'toggleButton' => ['tag' => 'button', 'label' => 'Show / hide columns &raquo;', 'class' => 'btn btn-default'],
                         'size' => Modal::SIZE_LARGE
                     ]);?>
                     <div class="row visibilityModal">
                         <div class="col-lg-2 columns">
-                            <b>General columns</b>
+                            <b>Gene information</b>
                             <table class="column-checkboxes">
                                 <tr>
                                     <th>&nbsp;</th>
@@ -179,37 +179,6 @@ use yii\bootstrap\Modal;
                                     <td><input type="checkbox" id="gene.annotation"></td>
                                     <td><label class="checkbox-inline" for="gene.gene">Annotation</label>
                                     </td></tr>
-                            </table>
-                        </div>
-
-                        <div class="col-lg-3 columns">
-                            <b>Absolute expression</b>
-                            <table class="column-checkboxes">
-                                <tr>
-                                    <th><div>Exp</div></th>
-                                    <th><div>%RSD</div></th>
-                                    <th><div>SD</div></th>
-                                </tr>
-
-                                <?php
-                                foreach( $config['columns'] as $column ) {
-                                    if ( $column['type'] != 'abs' ) {
-                                        continue;
-                                    }
-                                    echo "<tr class='field'>";
-                                    echo "<td><input type='checkbox' id='{$column['field']}'></td>\n";
-                                    echo "<td><input type='checkbox' id='{$column['field']}_rsd'></td>\n";
-                                    echo "<td><input type='checkbox' id='{$column['field']}_sd'></td>\n";
-                                    echo "<td><label for='{$column['field']}' class='checkbox-inline'>{$column['label']}</label></td>";
-                                    echo "</tr>";
-                                }
-                                ?>
-                                <tr class="all">
-                                    <td><input type="checkbox" name="all" /></td>
-                                    <td><input type="checkbox" name="all-rsd" /></td>
-                                    <td><input type="checkbox" name="all-sd" /></td>
-                                    <td><b>All</b></td>
-                                </tr>
                             </table>
                         </div>
 
@@ -240,9 +209,6 @@ use yii\bootstrap\Modal;
                             </table>
                         </div>
                     </div>
-                    <p><b>Exp:</b> Expression</p>
-                    <p><b>%RSD:</b> Relative Standard deviation</p>
-                    <p><b>SD:</b> Standard deviation</p>
                     <p><b>FC:</b> Fold change</p>
                     <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                     <?php Modal::end(); ?>

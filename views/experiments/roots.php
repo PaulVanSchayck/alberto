@@ -160,14 +160,14 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                     <button class="btn btn-default clearfilters">Clear all filters &raquo;</button>
                     <?= $this->render('/_blocks/export', ['experiment' => 'Q0990']); ?>
                     <?php Modal::begin([
-                        'id' => 'Q0990-visibilityModal',
+                        'id' => $experimentName . '-visibilityModal',
                         'header' => '<h4 class="modal-title">Show / hide columns</h4>',
                         'toggleButton' => ['tag' => 'button', 'label' => 'Show / hide columns &raquo;', 'class' => 'btn btn-default'],
                         'size' => Modal::SIZE_LARGE
                     ]);?>
                     <div class="row visibilityModal">
                         <div class="col-lg-2 columns">
-                            <b>General columns</b>
+                            <b>Gene information</b>
                             <table class="column-checkboxes">
                                 <tr>
                                     <th>&nbsp;</th>
@@ -236,7 +236,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                             </table>
                         </div>
                     </div>
-                    <p><b>Exp.:</b> Expression</p>
+                    <p><b>Exp.:</b> Expression value (mean)</p>
                     <p><b>FC:</b> Fold Change (log2) </p>
                     <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                     <?php Modal::end(); ?>

@@ -149,7 +149,7 @@ use yii\bootstrap\Modal;
                     ]);?>
                     <div class="row visibilityModal">
                         <div class="col-lg-2 columns">
-                            <b>General columns</b>
+                            <b>Gene information</b>
                             <table class="column-checkboxes">
                                 <tr>
                                     <th>&nbsp;</th>
@@ -224,9 +224,9 @@ use yii\bootstrap\Modal;
                             </table>
                         </div>
                     </div>
-                    <p><b>Exp.:</b> Expression</p>
-                    <p><b>%RSD:</b> Relative Standard deviation</p>
-                    <p><b>SD:</b> Standard deviation</p>
+                    <p><b>Exp.:</b> Expression (mean)</p>
+                    <p><b>%RSD:</b> Relative Standard Deviation</p>
+                    <p><b>SD:</b> Standard Deviation</p>
                     <p><b>FC:</b> Fold Change (Limma log2-based)</p>
                     <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                     <?php Modal::end(); ?>
