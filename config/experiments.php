@@ -68,6 +68,12 @@ return [
                 'label' => 'Vascular/Embryo LG'
             ],
 
+            [
+                'field' => 'fc_qc_hs_embryo_lg',
+                'type' => 'fc_spt',
+                'label' => 'QC HS/Embryo LG'
+            ],
+
             // Temporal fold changes
             [
                 'field' => 'fc_vascular_lg_vascular_eg',
@@ -136,15 +142,15 @@ return [
                 'qc' => [
                     'name' => 'QC',
                     'abs' => 'qc_hs',
-                    'fc_spt' => 'no-data',
+                    'fc_spt' => 'fc_qc_hs_embryo_lg',
                     'fc_tmp' => 'fc_qc_hs_suspensor_eg'
                 ],
 
                 '*' => [
                     'name' => 'Whole embryo',
                     'abs' => 'no-data',
-                    'fc_spt' => 'no-data',
-                    'fc_tmp' => 'no-data'
+                    'fc_spt' => false,
+                    'fc_tmp' => false
                 ]
             ]
         ]
