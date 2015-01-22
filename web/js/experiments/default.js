@@ -362,8 +362,8 @@ function defaultExperiment(experimentName, rules, images, columns) {
                 scale.setFcMode(true)
             } else if (navInfo.getExperimentMode() == "abs") {
                 scale.slider.setAttribute('min', 0)
-                    .setAttribute('max', 200)
-                    .setValue([0, 100])
+                    .setAttribute('max', 1000)
+                    .setValue([0, 300])
                     .refresh();
 
                 scale.scale.domain([0, 100])

@@ -56,7 +56,7 @@ $this->title = 'AlBERTO';
 
     <ul class="nav nav-tabs" id="experiments" role="tablist">
         <li data-toggle="tab">
-            <a href="#start" data-exp="start" data-toggle="tooltip" data-original-title="Start here"><span class="glyphicon glyphicon-home"></span></a>
+            <a href="#start" data-exp="start" data-toggle="tooltip" data-original-title="Start"><span class="glyphicon glyphicon-home"></span></a>
         </li>
 
         <li data-toggle="tab">
@@ -64,19 +64,19 @@ $this->title = 'AlBERTO';
         </li>
 
         <li data-toggle="tab">
-            <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptome of cell type-specific nuclei">Cell type-specific</a>
+            <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific</a>
         </li>
 
         <li data-toggle="tab">
-            <a href="#eightcell" data-exp="eightcell" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS (MP) and other Auxin Response Factors (ARFs) in the whole embryo">RPS5A>>bdl</a>
+            <a href="#eightcell" data-exp="eightcell" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS and other auxin response factors in the whole octant embryo">RPS5A>>bdl</a>
         </li>
 
         <?php if ( Yii::$app->user->isGuest === false ): ?>
         <li data-toggle="tab">
-            <a href="#mpproper" data-exp="mpproper" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS (MP) in ground and vascular tissue">Q0990>>bdl</a>
+            <a href="#mpproper" data-exp="mpproper" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS in ground and vascular tissue in the early embryo">Q0990>>bdl</a>
         </li>
         <li data-toggle="tab">
-            <a href="#mpsuspensor" data-exp="mpsuspensor" data-toggle="tooltip" data-original-title="Inhibition of Auxin Response Factors (ARFs) in suspensor">M0171>>bdl</a>
+            <a href="#mpsuspensor" data-exp="mpsuspensor" data-toggle="tooltip" data-original-title="Inhibition of auxin response factors in suspensor in the globular embryo">M0171>>bdl</a>
         </li>
 
         <li data-toggle="tab">

@@ -103,6 +103,7 @@ CREATE TABLE intact  (
 	fc_qc_hs_suspensor_eg FLOAT,
 	fc_qc_hs_suspensor_eg_q FLOAT,
 	fc_qc_hs_embryo_lg FLOAT,
+
  	PRIMARY KEY agi (gene_agi)
 ) ENGINE=MyISAM;
 

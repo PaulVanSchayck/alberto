@@ -27,7 +27,7 @@ use yii\bootstrap\Modal;
             </label>
         </p>
 
-        <p>The export is limited to 2000 genes. If you would like to view more genes in an export, you're
+        <p>The export is limited to 2000 genes. If you would like to view more genes in an export, you are
             recommended to download the full dataset and perform the filtering yourself.</p>
 
         <p>
@@ -36,7 +36,7 @@ use yii\bootstrap\Modal;
             </label>
         </p>
 
-        <p>The annotations increase the download size of the export significantly</p>
+        <p>The annotations increase the download size of the export significantly.</p>
 
         <p><button class="btn btn-primary export">Export &raquo;</button></p>
     </div>

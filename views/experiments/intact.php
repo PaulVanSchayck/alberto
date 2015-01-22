@@ -14,10 +14,10 @@ $intact = Yii::$app->params['experiments']['intact'];
     </li>
     <li class="divider"></li>
     <li class="dropdown-submenu">
-        <a tabindex="-1" href="#">Fold changes</a>
+        <a tabindex="-1" href="#">Spatial fold change</a>
         <ul class="dropdown-menu">
             <li><a class='enriched' href="#">Show genes enriched in this tissue</a></li>
-            <li><a class='enriched significant' href="#">Show genes significantly enriched in this tissue</a></li>
+            <li><a class='enriched significant' href="#">Show genes significantly enriched</a></li>
         </ul>
     </li>
 </ul>
@@ -143,9 +143,9 @@ $intact = Yii::$app->params['experiments']['intact'];
             </div>
             <div class="panel-body mode">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default" data-mode='abs' data-toggle="tooltip" title="View the absolute expression of genes.">Absolute</button>
+                    <button type="button" class="btn btn-default" data-mode='abs' data-toggle="tooltip" title="View absolute gene expression.">Absolute</button>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"  title="View spatio-temporal fold changes of genes.">
                             Fold changes <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
@@ -153,7 +153,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                             <li><a href="#" data-mode="fc_tmp" target="_blank"><b>Temporal</b> - Compared to precursors in previous stages</a></li>
                         </ul>
                     </div>
-                    <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Relative</button>
+                    <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold change of a gene relative to another gene.">Relative</button>
                 </div>
             </div>
         </div>
@@ -166,7 +166,7 @@ $intact = Yii::$app->params['experiments']['intact'];
             <div class="panel-body">
                 <p>
                     Cell type-specific nuclei were isolated from early globular stage, late globular stage and
-                    heart stage Arabidopsis embryos using the INTACT method...
+                    heart stage Arabidopsis embryos...
                 </p>
                 <?php Modal::begin([
                     'id' => 'experimentModal',
@@ -200,7 +200,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 ]);?>
                 <div class="row visibilityModal">
                     <div class="col-lg-2 columns">
-                        <b>General columns</b>
+                        <b>Gene information</b>
                         <table class="column-checkboxes">
                             <tr>
                                 <th>&nbsp;</th>
@@ -302,7 +302,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                         </table>
                     </div>
                 </div>
-                <p><b>Exp.:</b> Expression </p>
+                <p><b>Exp.:</b> Expression value (mean) </p>
                 <p><b>%RSD:</b> Relative Standard Deviation</p>
                 <p><b>SD:</b> Standard Deviation</p>
                 <p><b>FC:</b> Fold Change (Limma log2-based)</p>
@@ -331,7 +331,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                         } else if ( $column['type'] == 'fc_tmp' ) {
                             echo "<th>{$column['label']} Q</th>\n";
                         } else if ( $column['type'] == 'fc_spt' ) {
-                            echo "<th>{$column['label']} Q</th>\n";
+                            echo "<th>{$column['label']} q</th>\n";
                         }
                     }
                     ?>

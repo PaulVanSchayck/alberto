@@ -375,7 +375,7 @@ function intactExperiment(root) {
                 scale.setFcMode(true);
             } else if (navInfo.getExperimentMode() == "abs") {
                 scale.slider.setAttribute('min', 0)
-                    .setAttribute('max', 200)
+                    .setAttribute('max', 400)
                     .setValue([32, 100])
                     .refresh();
 

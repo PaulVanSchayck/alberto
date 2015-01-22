@@ -132,7 +132,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
             <div class="panel-body">
                 <p>
                     Cells from Arabidopsis roots expressing a gradient marker emanating from the distal root tip were
-                    sorted based on GFP intensity and separated into three different populations for up to three biological replicates...
+                    sorted based on GFP intensity...
                 </p>
                 <?php Modal::begin([
                     'id' => $experimentName.'-experiment',

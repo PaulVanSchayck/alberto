@@ -55,34 +55,34 @@ return [
             [
                 'field' => 'fc_vascular_eg_embryo_eg',
                 'type' => 'fc_spt',
-                'label' => 'FC Vascular/Embryo EG'
+                'label' => 'Vascular/Embryo EG'
             ],
             [
                 'field' => 'fc_suspensor_eg_embryo_eg',
                 'type' => 'fc_spt',
-                'label' => 'FC Suspensor/Embryo EG'
+                'label' => 'Suspensor/Embryo EG'
             ],
             [
                 'field' => 'fc_vascular_lg_embryo_lg',
                 'type' => 'fc_spt',
-                'label' => 'FC Vascular/Embryo LG'
+                'label' => 'Vascular/Embryo LG'
             ],
 
             // Temporal fold changes
             [
                 'field' => 'fc_vascular_lg_vascular_eg',
                 'type' => 'fc_tmp',
-                'label' => 'FC Vascular LG/Vascular EG'
+                'label' => 'Vascular LG/Vascular EG'
             ],
             [
                 'field' => 'fc_embryo_lg_embryo_eg',
                 'type' => 'fc_tmp',
-                'label' => 'FC Embryo LG/Embryo EG'
+                'label' => 'Embryo LG/Embryo EG'
             ],
             [
                 'field' => 'fc_qc_hs_suspensor_eg',
                 'type' => 'fc_tmp',
-                'label' => 'FC QC HS / Suspensor EG'
+                'label' => 'QC HS / Suspensor EG'
             ],
         ],
 
@@ -395,14 +395,14 @@ return [
             [
                 'field' => 'wt',
                 'type' => 'abs',
-                'label' => 'WT'
+                'label' => 'Wild-type'
             ],
 
             // Fold change
             [
                 'field' => 'fc_bdl_wt',
                 'type' => 'fc',
-                'label' => 'FC RPS5A>>BDL/WT'
+                'label' => 'RPS5A>>bdl/Wild type'
             ]
         ],
         'rules' => [

@@ -9,10 +9,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        The AraBidopsis EmbRyonic Transcriptome brOwser (AlBERTO) is a feature rich web-based tool which gives
-        researcher insight in complex transcriptomic data. It paints diagrammatic representation of
-        (parts of) <i>Arabidopsis thaliana</i> with relevant transcriptomic data. Additionally, you can filter
-        and export this data.
+        The AraBidopsis Embryonic and Root Transcriptome brOwser (AlBERTO) is a feature rich web-based tool which gives
+        researchers insight into complex spatio-temporal transcriptomic data in <i>Arabidopsis thaliana</i>. By using diagrammatic
+        representations of different tissues and cell types relevant transcriptomic data can be displayed, filtered and exported.
     </p>
 
     <h2>Help</h2>
@@ -23,12 +22,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>AlBERTO was programmed by Paul van Schayck.</p>
 
-    <p>The vector images of the embryos were created by Colette Ten Hove and Kuan-Ju Lu.</p>
-
-    <p>
-        The transcriptome data has been obtained by their respective researchers and they are shown in the
-        experimental setup of the experiment.
-    </p>
+    <p>The vector images of embryos were created by Colette Ten Hove and Kuan-Ju Lu while the vector images of roots
+        were created by Jos R. Wendrich.</p>
 
     <h2>Copyright and license</h2>
 

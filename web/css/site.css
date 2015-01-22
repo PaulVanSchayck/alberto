@@ -275,6 +275,7 @@ input.inuse::selection {
 
 table.dataTable tr.topHeader th {
     background-color: #cfcfcf;
+    font-size: 11px;
     color: black;
     padding: 10px 0 7px 15px;
     border-right: 5px solid white;
@@ -351,11 +352,9 @@ pre.annotation {
 }
 .visibilityModal {
     font-size: 85%;
+    margin-bottom: 20px;
 }
 
-.visibilityModal p:first-of-type {
-    margin-top: 20px;
-}
 
 /* Bootstrap dropdown submenu */
 
@@ -455,11 +454,11 @@ div.footnotes {
     margin: 0 0;
 }
 .experiments .experiment a {
-    border: 1px solid black;
+    border: 1px solid #2ec300;
     border-radius: 5px;
-    box-shadow: 5px 5px 2px #888888;
     display: block;
     text-align: center;
+    margin-top: 30px;
 }
 .experiments .experiment img {
     vertical-align: top;

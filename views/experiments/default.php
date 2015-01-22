@@ -24,7 +24,7 @@ use yii\bootstrap\Modal;
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    Eight-cell stage
+                    Octant stage (Wild-type)
                     <?= $this->blocks['download'] ?>
                 </h3>
             </div>
@@ -39,7 +39,7 @@ use yii\bootstrap\Modal;
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    Eight-cell stage RPS5A>>bdl
+                    Octant stage (RPS5A>>bdl)
                     <?= $this->blocks['download'] ?>
                 </h3>
             </div>
@@ -245,7 +245,7 @@ use yii\bootstrap\Modal;
                                 echo "<th>{$column['label']} %RSD</th>\n";
                                 echo "<th>{$column['label']} SD</th>\n";
                             } else if ( $column['type'] == 'fc' ) {
-                                echo "<th>{$column['label']} Q</th>\n";
+                                echo "<th>{$column['label']} q</th>\n";
                             }
                         }
                         ?>
