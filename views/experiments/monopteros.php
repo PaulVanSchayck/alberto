@@ -116,9 +116,7 @@ use yii\bootstrap\Modal;
             </div>
             <div class="panel-body mode">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default" data-mode='abs' data-toggle="tooltip" title="View the absolute expression of genes.">Absolute</button>
-                    <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Fold change</button>
-                    <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold changes of a gene compared to another gene.">Relative</button>
+                    <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View fold changes of genes.">Fold change</button>
                 </div>
             </div>
         </div>
