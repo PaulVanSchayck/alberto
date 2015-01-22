@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "bower-asset/bootstrap",
-            "version": "v3.3.1",
+            "version": "v3.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "9a7e365c2c4360335d25246dac11afb1f577210a"
+                "reference": "bcf7dd38b5ab180256e2e4fb5da0369551b3f082"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/9a7e365c2c4360335d25246dac11afb1f577210a",
-                "reference": "9a7e365c2c4360335d25246dac11afb1f577210a",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/bcf7dd38b5ab180256e2e4fb5da0369551b3f082",
+                "reference": "bcf7dd38b5ab180256e2e4fb5da0369551b3f082",
                 "shasum": ""
             },
             "require": {
@@ -237,16 +237,16 @@
         },
         {
             "name": "bower-asset/jquery.inputmask",
-            "version": "3.1.55",
+            "version": "3.1.57",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
-                "reference": "d90a0d180495635e8dd97a770e7ab8b3c4ee6d53"
+                "reference": "d180082aa1ba98c85f85b2c4eebbfa195fd25613"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/d90a0d180495635e8dd97a770e7ab8b3c4ee6d53",
-                "reference": "d90a0d180495635e8dd97a770e7ab8b3c4ee6d53",
+                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/d180082aa1ba98c85f85b2c4eebbfa195fd25613",
+                "reference": "d180082aa1ba98c85f85b2c4eebbfa195fd25613",
                 "shasum": ""
             },
             "require": {
@@ -462,16 +462,16 @@
         },
         {
             "name": "kartik-v/yii2-krajee-base",
-            "version": "v1.7.0",
+            "version": "v1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-krajee-base.git",
-                "reference": "bf88606ff2faeb8b1471b8739a4c7d5d0c7bbe27"
+                "reference": "c6eb0ccafa100c7e14a8635c653f9875faa1c61c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/bf88606ff2faeb8b1471b8739a4c7d5d0c7bbe27",
-                "reference": "bf88606ff2faeb8b1471b8739a4c7d5d0c7bbe27",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/c6eb0ccafa100c7e14a8635c653f9875faa1c61c",
+                "reference": "c6eb0ccafa100c7e14a8635c653f9875faa1c61c",
                 "shasum": ""
             },
             "require": {
@@ -504,7 +504,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-01-12 11:23:28"
+            "time": "2015-01-21 18:03:16"
         },
         {
             "name": "kartik-v/yii2-slider",
