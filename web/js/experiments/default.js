@@ -83,6 +83,8 @@ function defaultExperiment(experimentName, rules, images, columns) {
                     stageData[j] = {
                         name: s.name,
                         abs: parseRuleField(s.abs, data),
+                        sd: parseRuleField(s.abs, data, '_sd'),
+                        rsd: parseRuleField(s.abs, data, '_rsd'),
                         fc: parseRuleField(s.fc, data),
                         fc_q: parseRuleField(s.fc, data, '_q')
                     };
@@ -156,11 +158,17 @@ function defaultExperiment(experimentName, rules, images, columns) {
 
             if (navInfo.getExperimentMode() == "abs") {
                 r += "<p><span class='label label-primary'>Expression value</span> " + d.abs + "</p>";
+                r += "<p class='sd'><span class='label label-primary'>Standard Deviation</span> " + d.sd + "</p>";
+
+                warning = d.rsd > rsdWarning ? 'warning' : '';
+                r += "<p class='sd " + warning + "'><span class='label label-primary'>%RSD</span> " + (d.rsd.toFixed ? d.rsd.toFixed(1) + "%" : d.rsd) + "</p>";
             }
 
             if (navInfo.getExperimentMode() == "fc" && d.fc) {
                 r += "<p><span class='label label-primary'>FC</span> " + d.fc + "</p>";
-                r += "<p><span class='label label-primary'>q-value</span> " + d.fc_q + "</p>";
+
+                warning = d.fc_q > qWarning ? 'warning' : '';
+                r += "<p class='q " + warning + "'><span class='label label-primary'>q-value</span> " + d.fc_q + "</p>";
             }
 
             r += "<p>Click tissue for actions</p>";
