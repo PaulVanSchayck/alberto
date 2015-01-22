@@ -9,6 +9,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-contact">
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <h2>General inquiries</h2>
     <p>Please contact Prof. dr. Dolf Weijers for any inquiries.</p>
 
     <p>
@@ -17,7 +18,11 @@ $this->params['breadcrumbs'][] = $this->title;
            Laboratory of Biochemistry
         </a>
     </p>
-    <p><strong>Telephone:</strong> 0317-482868</p>
+    <p><strong>Telephone:</strong> (+31) (0) 317 482868</p>
     <p><strong>E-mail:</strong> <a href="mailto:dolf.weijers@wur.nl">dolf.weijers@wur.nl</a></p>
+
+    <h2>Reporting problems</h2>
+
+    <p>Report your problem <a href="https://github.com/PaulVanSchayck/alberto/issues/new">directly on GitHub</a> (preferably) or by e-mail.</p>
 
 </div>

@@ -18,6 +18,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>The <a href="<?=\yii\helpers\Url::to(['site/index']); ?>#nav-help">quick start guide</a> can help you with getting to know the basic features of the browser.</p>
 
+    <h2>Reporting problems</h2>
+
+    <p>View the <a href="<?=\yii\helpers\Url::to(['site/contact']);?>">contact page</a>.</p>
+
     <h2>Authors</h2>
 
     <p>AlBERTO was programmed by Paul van Schayck.</p>
