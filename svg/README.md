@@ -24,7 +24,7 @@ Optimization
 The optimized images have been created using [svgo](https://github.com/svg/svgo). 
 
 ```
-svgo --pretty --disable=removeHiddenElems -f svg/ -o svg/optimized/
+svgo --pretty -f svg/ -o svg/optimized/
 ```
 
 Copyright and licence
