@@ -146,9 +146,9 @@ $intact = Yii::$app->params['experiments']['intact'];
             </div>
             <div class="panel-body mode">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default" data-mode='abs' data-toggle="tooltip" title="View absolute gene expression.">Absolute</button>
+                    <button type="button" class="btn btn-default" data-mode='abs' data-toggle="tooltip" title="View absolute gene expression">Absolute</button>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"  title="View spatio-temporal fold changes of genes.">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"  title="View spatio-temporal fold changes of genes">
                             Fold changes <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
@@ -156,7 +156,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                             <li><a href="#" data-mode="fc_tmp" target="_blank"><b>Temporal</b> - Compared to precursors in previous stages</a></li>
                         </ul>
                     </div>
-                    <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold change of a gene relative to another gene.">Relative</button>
+                    <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold change of a gene relative to another gene">Relative</button>
                 </div>
             </div>
         </div>

@@ -119,7 +119,7 @@ use yii\bootstrap\Modal;
             </div>
             <div class="panel-body mode">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View fold changes of genes.">Fold change</button>
+                    <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View fold changes of genes">Fold change</button>
                 </div>
             </div>
         </div>
