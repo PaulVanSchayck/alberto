@@ -20,7 +20,7 @@ window.alberto.svg = function svg($root, tissues) {
                 }
             });
 
-            event.stopPropagation();
+            e.stopPropagation();
         });
 
         return $dropdown;
