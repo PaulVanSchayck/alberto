@@ -461,7 +461,7 @@ div.footnotes {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
     padding: 0;
     text-align: center;
-    min-height: 245px;
+    min-height: 265px;
 }
 .experiments .experiment-description {
     background-color: #F6F6F6;
@@ -470,12 +470,16 @@ div.footnotes {
     padding: 5px;
     border-radius: 4px;
     font-size: 80%;
-    min-height: 110px
+    min-height: 130px
+}
+.experiments .experiment-description p {
+    display: block;
 }
 .experiments .experiment img {
     width: 80%;
     max-width: 150px;
 }
+
 .experiments .experiment a {
     font-weight: bold;
 }

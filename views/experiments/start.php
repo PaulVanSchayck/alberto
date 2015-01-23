@@ -7,7 +7,7 @@
 
 <div class="container experiments">
     <div class="row">
-        <div class="alert alert-success col-lg-2">
+        <div class="alert alert-info col-lg-2">
             <h4>Welcome</h4>
             This is the AraBidopsis Embryonic and Root Transcriptome brOwser (AlBERTO). You can directly start by entering a gene and
             selecting an experiment or by viewing the <a href="/index.php#nav-help" onclick="navInfo.setExperiment('help')">quick start guide</a>.
@@ -18,7 +18,7 @@
             </a>
             <div class="experiment-description">
                 <h4><a href="/index.php#nav-intact" onclick="navInfo.setExperiment('intact')">Cell type-specific</a></h4>
-                <p>Transcriptome of individual cell types</p>
+                <p>Cell type-specific nuclei of the early embryo</p>
             </div>
         </div>
 
@@ -29,7 +29,7 @@
             </a>
             <div class="experiment-description">
                 <h4><a href="/index.php#nav-rootgradient" onclick="navInfo.setExperiment('rootgradient')">Root gradients</a></h4>
-                <p>FACS gradient of root</p>
+                <p>Differentially sorted root cells</p>
             </div>
         </div>
 
@@ -40,7 +40,7 @@
             </a>
             <div class="experiment-description">
                 <h4><a href="/index.php#nav-eightcell" onclick="navInfo.setExperiment('eightcell')">RPS5A>>bdl</a></h4>
-                <p>Inhibition of MONOPTEROS in the octant embryo</p>
+                <p>Inhibition of auxin response factors in the octant embryo</p>
             </div>
         </div>
 
