@@ -1,6 +1,6 @@
 
 
-function mpExperiment(experimentName) {
+function mpExperiment(experimentName,  rules, images, columns) {
 
     return function() {
         var publics = {};
@@ -17,7 +17,8 @@ function mpExperiment(experimentName) {
             'protoderm',
             'hypophysis',
             'qc',
-            'columella'
+            'columella',
+            'unspecified'
         ];
 
         var scale = window.alberto.scale(root, function(scale) {
@@ -27,13 +28,13 @@ function mpExperiment(experimentName) {
                 updateTableColors(navInfo.getExperimentMode());
             }
         });
-        var table = window.alberto.table($("#" + experimentName + "-table"), buildDTColumns(mpColumns), buildFilterColumns(mpColumns), experimentName);
+        var table = window.alberto.table($("#" + experimentName + "-table"), buildDTColumns(columns), buildFilterColumns(columns), experimentName);
         var svg = window.alberto.svg($root, tissues);
         var baseColors;
 
         function load() {
             // SVG images
-            $.each( mpImages, function( name, selector )  {
+            $.each( images, function( name, selector )  {
                 var ele = d3.select(root + " " + selector);
                 svg.setupTooltip(ele, formatTooltip);
 
@@ -53,7 +54,7 @@ function mpExperiment(experimentName) {
             // Poor mans method of injecting code into DataTables api
             table.dt.colvis = colvis($("#" + experimentName + "-visibilityModal"), table.dt);
 
-            window.alberto.exportModal($root, table, 'mpproper');
+            window.alberto.exportModal($root, table, experimentName);
 
             // If no mode is selected, set the absolute expression mode
             if (!navInfo.getExperimentMode()) {
@@ -69,7 +70,7 @@ function mpExperiment(experimentName) {
 
         function loadData(data) {
 
-            $.each(mpRules, function (stageId, stage) {
+            $.each(rules, function (stageId, stage) {
                 var stageData = [];
 
                 $.each(tissues, function (j, tissue) {
@@ -89,7 +90,7 @@ function mpExperiment(experimentName) {
 
                 });
 
-                svg.assignData(d3.select(root + " " + mpImages[stageId]), stageData);
+                svg.assignData(d3.select(root + " " + images[stageId]), stageData);
             });
 
             updateColors(scale.scale);

@@ -319,7 +319,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                     <th colspan="9">Early globular stage</th>
                     <th colspan="6">Late globular stage</th>
                     <th colspan="3">Heart stage</th>
-                    <th colspan="12">Fold changes</th>
+                    <th colspan="14">Fold changes</th>
                 </tr>
                 <tr class="headers">
                     <th>AGI</th>

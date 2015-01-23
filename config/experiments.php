@@ -162,10 +162,8 @@ return [
         'loader' => 'loadExperiment',
         'model' => 'app\models\MpProper',
         'images' => [
-            'wtlg' => '.wt .lg',
-            'mplg' => '.mp .lg',
-            'wths' => '.wt .hs',
-            'mphs' => '.mp .hs'
+            'mpgl' => '.eg-lg .embryo',
+            'mphs' => '.hs .embryo',
         ],
         'columns' => [
             [
@@ -185,32 +183,18 @@ return [
             ],
         ],
         'rules' => [
-            'wtlg' => [
+            'mpgl' => [
                 '*' => [
                     'name' => 'Whole embryo',
                     'abs' => 'c1',
                     'fc' => 'no-data'
                 ]
             ],
-            'mplg' => [
+            'mphs' => [
                 '*' => [
                     'name' => 'Whole embryo',
                     'abs' => 'e1',
                     'fc' => 'fc1'
-                ]
-            ],
-            'wths' => [
-                '*' => [
-                    'name' => 'Whole embryo',
-                    'abs' => 'no-data',
-                    'fc' => 'no-data'
-                ]
-            ],
-            'mphs' => [
-                '*' => [
-                    'name' => 'Whole embryo',
-                    'abs' => 'no-data',
-                    'fc' => 'no-data'
                 ]
             ]
         ]
