@@ -17,6 +17,7 @@ The following should be noted when making new images:
   bigger there by making the viewBox bigger 
 * Remove any clipPaths from being used. This will mess up IE when they remain.
 * The top level SVG element should not contain any custom namespace (attributes with : in it) for the SVG export to work in IE.
+* Tissues should be grouped in a <g> with a class specified. This <g> should control the fill color
 
 Optimization
 ------------
