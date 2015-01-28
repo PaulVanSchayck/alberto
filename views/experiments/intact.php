@@ -9,7 +9,7 @@ $intact = Yii::$app->params['experiments']['intact'];
         <a tabindex="-1" href="#">Absolute expression</a>
         <ul class="dropdown-menu">
             <li><a class='highest' href="#">Show highest expressed genes in this tissue</a></li>
-            <li><a class='highest rsd' href="#">Show highest expressed genes [RSD < 50%]</a></li>
+            <li><a class='highest rsd' href="#">Show highest expressed genes with RSD < 50%</a></li>
         </ul>
     </li>
     <li class="divider"></li>
@@ -17,7 +17,7 @@ $intact = Yii::$app->params['experiments']['intact'];
         <a tabindex="-1" href="#">Spatial fold change</a>
         <ul class="dropdown-menu">
             <li><a class='enriched' href="#">Show genes enriched in this tissue</a></li>
-            <li><a class='enriched significant' href="#">Show genes significantly enriched</a></li>
+            <li><a class='enriched significant' href="#">Show genes enriched with q-value < 0.05</a></li>
         </ul>
     </li>
 </ul>
@@ -134,7 +134,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <input type="text" class="scale-slider form-control" name="scale" data-slider-min="0" data-slider-max="150" data-slider-step="1" data-slider-value="[32,100]" data-plugin-name="slider" title="slider">
                 <b class="badge">150</b>
                 <div class='checkbox'>
-                    <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications."><input type='checkbox' class="scale-input" >Disable auto scaling</label>
+                    <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications"><input type='checkbox' class="scale-input" >Disable auto scaling</label>
                 </div>
             </div>
         </div>
@@ -148,7 +148,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <div class="btn-group">
                     <button type="button" class="btn btn-default" data-mode='abs' data-toggle="tooltip" title="View absolute gene expression">Absolute</button>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"  title="View spatio-temporal fold changes of genes">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"  title="View spatio-temporal fold changes">
                             Fold changes <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">

@@ -276,7 +276,7 @@ table.dataTable tr.topHeader th {
     background-color: #cfcfcf;
     font-size: 11px;
     color: black;
-    padding: 10px 0 7px 15px;
+    padding: 10px 0 8px 15px;
     border-right: 5px solid white;
     border-bottom: 0;
 }

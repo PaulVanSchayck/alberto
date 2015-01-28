@@ -126,7 +126,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                 <input type="text" class="scale-slider form-control" name="scale" data-slider-min="0" data-slider-max="150" data-slider-step="1" data-slider-value="[32,100]" data-plugin-name="slider" title="slider">
                 <b class="badge">150</b>
                 <div class='checkbox'>
-                    <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications."><input type='checkbox' class="scale-input" >Enable changing scale</label>
+                    <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications"><input type='checkbox' class="scale-input" >Enable changing scale</label>
                 </div>
             </div>
         </div>
@@ -139,7 +139,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
             <div class="panel-body mode">
                 <div class="btn-group">
                     <button type="button" class="btn btn-default" data-mode='abs' data-toggle="tooltip" title="View absolute gene expression">Absolute</button>
-                    <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View fold changes of genes">Fold change</button>
+                    <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View fold changes">Fold change</button>
                     <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold change of a gene relative to another gene">Relative</button>
                 </div>
 

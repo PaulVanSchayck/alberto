@@ -392,13 +392,13 @@ return [
             [
                 'field' => 'fc_bdl_wt',
                 'type' => 'fc',
-                'label' => 'RPS5A>>bdl/Wild type'
+                'label' => 'RPS5A>>bdl/Wild-type'
             ]
         ],
         'rules' => [
             'wt' => [
                 '*' => [
-                    'name' => 'Wild type',
+                    'name' => 'Wild-type',
                     'abs' => 'wt',
                     'fc' => 'no-data'
                 ]
