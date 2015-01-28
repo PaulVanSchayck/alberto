@@ -156,45 +156,38 @@ return [
         ]
     ],
 
-    'mpproper' => [
+    'q0990' => [
         'login' => true,
         'template' => 'monopteros.php',
         'loader' => 'loadExperiment',
-        'model' => 'app\models\MpProper',
+        'model' => 'app\models\q0990',
         'images' => [
             'mpgl' => '.eg-lg .embryo',
             'mphs' => '.hs .embryo',
         ],
         'columns' => [
             [
-                'field' => 'c1',
-                'type' => 'abs',
-                'label' => 'C1'
-            ],
-            [
-                'field' => 'e1',
-                'type' => 'abs',
-                'label' => 'E1'
-            ],
-            [
-                'field' => 'fc1',
+                'field' => 'fc_day3',
                 'type' => 'fc',
-                'label' => 'FC1'
+                'label' => '3 days'
+            ],
+            [
+                'field' => 'fc_day6',
+                'type' => 'fc',
+                'label' => '6 days'
             ],
         ],
         'rules' => [
             'mpgl' => [
                 '*' => [
                     'name' => 'Whole embryo',
-                    'abs' => 'c1',
-                    'fc' => 'no-data'
+                    'fc' => 'fc_day3'
                 ]
             ],
             'mphs' => [
                 '*' => [
                     'name' => 'Whole embryo',
-                    'abs' => 'e1',
-                    'fc' => 'fc1'
+                    'fc' => 'fc_day6'
                 ]
             ]
         ]

@@ -132,6 +132,10 @@ use yii\bootstrap\Modal;
     </div>
 </div>
 
+<div class="alert alert-danger" role="alert">
+    This dataset does not contain all genes, but only those with a q-value below 5%.
+</div>
+
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-info">
@@ -205,9 +209,11 @@ use yii\bootstrap\Modal;
                         <th>AGI</th>
                         <th>Gene</th>
                         <th>Annotation</th>
+                        <th>Splice variant</th>
                         <?php
                         foreach( $config['columns'] as $column ) {
                             echo "<th>{$column['label']}</th>\n";
+                            echo "<th>{$column['label']} q</th>\n";
                         }
                         ?>
                     </tr>

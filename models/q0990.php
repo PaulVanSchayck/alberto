@@ -5,11 +5,11 @@ namespace app\models;
 use Yii;
 use yii\db\ActiveRecord;
 
-class MpProper extends ActiveRecord {
+class q0990 extends ActiveRecord {
 
     public static function tableName()
     {
-        return 'mpproper';
+        return 'q0990';
     }
 
     public function getGene()

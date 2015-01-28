@@ -18,7 +18,8 @@ function mpExperiment(experimentName,  rules, images, columns) {
             'hypophysis',
             'qc',
             'columella',
-            'unspecified'
+            'unspecified',
+            'primordia'
         ];
 
         var scale = window.alberto.scale(root, function(scale) {
@@ -186,7 +187,8 @@ function mpExperiment(experimentName,  rules, images, columns) {
                     name: 'gene.annotation',
                     visible: true,
                     'class': 'type_ann'
-                }
+                },
+                {data: 'splice', 'class': 'type_ann', name: 'splice'}
             ];
 
             for (var i = 0; i < columns.length; i++) {
@@ -194,6 +196,11 @@ function mpExperiment(experimentName,  rules, images, columns) {
                     data: columns[i].field,
                     name: columns[i].field,
                     'class': 'type_' + columns[i].type,
+                    orderSequence: ['desc', 'asc']
+                });
+                r.push({
+                    data: columns[i].field + '_q',
+                    name: columns[i].field + '_q',
                     orderSequence: ['desc', 'asc']
                 });
             }
@@ -217,18 +224,23 @@ function mpExperiment(experimentName,  rules, images, columns) {
                     column_number: column_number++,
                     filter_type: "text",
                     filter_delay: 500
+                },
+                {
+                    column_number: column_number++,
+                    filter_type: "text",
+                    filter_delay: 500
                 }
+
             ];
 
             for (var i = 0; i < columns.length; i++) {
-                if (columns[i].type == 'abs') {
+                if ( columns[i].type == 'fc') {
                     r.push({
                         column_number: column_number++,
                         filter_type: "range_number",
                         filter_default_label: ["0", "&infin;"],
                         filter_delay: 500
                     });
-                } else if ( columns[i].type == 'fc') {
                     r.push({
                         column_number: column_number++,
                         filter_type: "range_number",
