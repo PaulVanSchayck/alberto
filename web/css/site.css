@@ -447,7 +447,10 @@ div.footnotes {
 }
 
 /* Start */
-
+.alert-welcome {
+    background-color: #97BEF4;
+    color: #0A5CCE;
+}
 .container.experiments {
     width: 100%;
     margin: 0 0;
@@ -456,12 +459,17 @@ div.footnotes {
     display: block;
     margin: 10px;
     margin-top: 0;
-    border: 1px solid #E6E6E6;
+    border: 1px solid #aeaeae;
     border-radius: 4px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
     padding: 0;
     text-align: center;
-    min-height: 265px;
+    max-width: 180px;
+}
+@media(max-width:767px){
+    .experiments .experiment {
+        max-width: none;
+    }
 }
 .experiments .experiment-description {
     background-color: #F6F6F6;

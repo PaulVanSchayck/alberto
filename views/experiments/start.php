@@ -7,25 +7,24 @@
 
 <div class="container experiments">
     <div class="row">
-        <div class="alert alert-info col-lg-2">
+        <div class="alert alert-welcome col-lg-2">
             <h4>Welcome</h4>
             This is the AraBidopsis Embryonic and Root Transcriptome brOwser (AlBERTO). You can directly start by entering a gene and
-            selecting an experiment or by viewing the <a href="/index.php#nav-help" onclick="navInfo.setExperiment('help')">quick start guide</a>.
+            selecting an experiment or by viewing the <a href="#" onclick="event.preventDefault();navInfo.setExperiment('help')">quick start guide</a>.
         </div>
-        <div class="col-lg-1 experiment">
-            <a href="/index.php#nav-intact" onclick="navInfo.setExperiment('intact')">
+        <div class="col-lg-2 experiment">
+            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('intact')">
                 <img src="images/start/intact.png">
             </a>
             <div class="experiment-description">
-                <h4><a href="/index.php#nav-intact" onclick="navInfo.setExperiment('intact')">Cell type-specific</a></h4>
+                <h4><a href="/index.php#nav-intact" onclick="event.preventDefault();navInfo.setExperiment('intact')">Cell type-specific</a></h4>
                 <p>Cell type-specific nuclei of the early embryo</p>
             </div>
         </div>
 
-        <div class="col-lg-1 experiment" data-toggle="tooltip">
-            <a href="/index.php#nav-rootgradient" onclick="navInfo.setExperiment('rootgradient')">
+        <div class="col-lg-2 experiment" data-toggle="tooltip">
+            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('rootgradient')">
                 <img src="images/start/root.jpg">
-                <span></span>
             </a>
             <div class="experiment-description">
                 <h4><a href="/index.php#nav-rootgradient" onclick="navInfo.setExperiment('rootgradient')">Root gradients</a></h4>
@@ -33,10 +32,9 @@
             </div>
         </div>
 
-        <div class="col-lg-1 experiment" data-toggle="tooltip">
-            <a href="/index.php#nav-eightcell" onclick="navInfo.setExperiment('eightcell')">
+        <div class="col-lg-2 experiment" data-toggle="tooltip">
+            <a href="#" onclick="event.preventDefault();.setExperiment('eightcell')">
                 <img src="images/start/rps5a.png">
-                <span></span>
             </a>
             <div class="experiment-description">
                 <h4><a href="/index.php#nav-eightcell" onclick="navInfo.setExperiment('eightcell')">RPS5A>>bdl</a></h4>
@@ -48,5 +46,4 @@
 </div>
 
 <script type="application/javascript">
-    $("#start div.experiment").tooltip({'placement': 'bottom'});
 </script>
