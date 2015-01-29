@@ -160,10 +160,19 @@ return [
         'login' => true,
         'template' => 'monopteros.php',
         'loader' => 'loadExperiment',
+        'experimentalSetup' => 'Q0990.md',
         'model' => 'app\models\q0990',
         'images' => [
-            'mpgl' => '.eg-lg .embryo',
-            'mphs' => '.hs .embryo',
+            'mpgl' => [
+                'selector' => '.mpgl .embryo',
+                'file' => 'eg_lg_Q0990.svg',
+                'label' => 'Globular stage (Q0990>>bdl)'
+            ],
+            'mphs' => [
+                'selector' => '.mphs .embryo',
+                'file' => 'hs_Q0990.svg',
+                'label' => 'Heart stage (Q0990>>bdl)'
+            ]
         ],
         'columns' => [
             [
@@ -188,6 +197,36 @@ return [
                 '*' => [
                     'name' => 'Whole embryo',
                     'fc' => 'fc_day6'
+                ]
+            ]
+        ]
+    ],
+
+    'm0171' => [
+        'login' => true,
+        'template' => 'monopteros.php',
+        'loader' => 'loadExperiment',
+        'experimentalSetup' => 'M0171.md',
+        'model' => 'app\models\m0171',
+        'images' => [
+            'mpgl' => [
+                'selector' => '.mpgl .embryo',
+                'file' => 'eg_lg_M0171.svg',
+                'label' => 'Globular stage (M0171>>bdl)'
+            ]
+        ],
+        'columns' => [
+            [
+                'field' => 'fc_day3',
+                'type' => 'fc',
+                'label' => '3 days'
+            ],
+        ],
+        'rules' => [
+            'mpgl' => [
+                '*' => [
+                    'name' => 'Whole embryo',
+                    'fc' => 'fc_day3'
                 ]
             ]
         ]

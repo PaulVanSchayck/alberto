@@ -35,8 +35,8 @@ function mpExperiment(experimentName,  rules, images, columns) {
 
         function load() {
             // SVG images
-            $.each( images, function( name, selector )  {
-                var ele = d3.select(root + " " + selector);
+            $.each( images, function( name, image )  {
+                var ele = d3.select(root + " " + image.selector);
                 svg.setupTooltip(ele, formatTooltip);
 
                 if ( ! baseColors ) {
@@ -91,7 +91,7 @@ function mpExperiment(experimentName,  rules, images, columns) {
 
                 });
 
-                svg.assignData(d3.select(root + " " + images[stageId]), stageData);
+                svg.assignData(d3.select(root + " " + images[stageId].selector), stageData);
             });
 
             updateColors(scale.scale);

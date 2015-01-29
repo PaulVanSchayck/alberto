@@ -19,38 +19,27 @@ use yii\bootstrap\Modal;
     <div class="col-lg-12">
         <p>Click on the embryo for preset filtering actions, or use the table below for setting your own filters.</p>
     </div>
-    <div class="col-lg-3">
 
-        <div class="panel panel-success">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    Globular stage (Q0990>>bdl)
-                    <?= $this->blocks['download'] ?>
-                </h3>
+    <?php foreach( $config['images'] as $stage => $image ): ?>
+        <div class="col-lg-3">
 
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <?= $image['label'] ?>
+                        <?= $this->blocks['download'] ?>
+                    </h3>
+
+                </div>
+                <div class="panel-body row svg <?=$stage?>" data-stage="<?=$stage?>">
+                    <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/' . $image['file']); ?>
+                </div>
             </div>
-            <div class="panel-body row svg eg-lg" data-stage="eg-lg">
-                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/eg_lg_Q0990.svg'); ?>
-            </div>
+
         </div>
+    <?php endforeach ?>
 
-    </div>
-    <div class="col-lg-3">
-
-        <div class="panel panel-success">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    Heart stage (Q0990>>bdl)
-                    <?= $this->blocks['download'] ?>
-                </h3>
-            </div>
-            <div class="panel-body row svg hs">
-                <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/hs_Q0990.svg'); ?>
-            </div>
-        </div>
-
-    </div>
-    <div class="col-lg-3">
+    <div class="col-lg-3 col-lg-offset-<?= ( 12 - 3 - count($config['images']) * 3 )?>">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">
@@ -124,7 +113,7 @@ use yii\bootstrap\Modal;
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
                 ]);
-                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/M0171.md'));
+                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/' . $config['experimentalSetup']));
                 ?>
                 <?php Modal::end(); ?>
             </div>
