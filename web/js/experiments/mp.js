@@ -66,6 +66,42 @@ function mpExperiment(experimentName,  rules, images, columns) {
                 yadcf.exResetAllFilters(table.dt);
             });
 
+            $dropdown = svg.actionDropdown();
+
+            $dropdown.find('a').click(function (e) {
+                e.preventDefault();
+                $dropdown.hide();
+
+                var stage = $($dropdown.data('g')).parents('div').data('stage');
+                var column;
+
+                column = rules[stage]['*'].fc;
+
+                var columnIdx = table.dt.column(column + ":name").index();
+
+                if (columnIdx == undefined) {
+                    return false;
+                }
+
+                yadcf.exResetAllFilters(table.dt, true);
+
+                // Show q-value column
+                table.dt.column(columnIdx + 1).visible(true);
+
+                if ($(this).hasClass('up')) {
+                    yadcf.exFilterColumn(table.dt, [[columnIdx, {from: 1}]], true);
+                    table.dt.order([columnIdx, 'desc']);
+                }
+
+                if ($(this).hasClass('down')) {
+                    yadcf.exFilterColumn(table.dt, [[columnIdx, {from: 0.001, to: 1}]], true);
+                    table.dt.order([columnIdx, 'asc']);
+                }
+
+                return false;
+
+            });
+
             $(window).trigger('experiment.loaded');
         }
 
