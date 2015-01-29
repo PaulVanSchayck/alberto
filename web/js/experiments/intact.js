@@ -221,9 +221,9 @@ function intactExperiment(root) {
                     };
 
                     $warningSign.addClass(
-                        stageData[j].rsd > rsdWarning ? 'abs' : '' +
-                        stageData[j].fc_spt_q > qWarning ? 'fc_spt' : '' +
-                        stageData[j].fc_tmp_q > qWarning ? 'fc_tmp' : ''
+                        (stageData[j].rsd > rsdWarning ? 'abs ' : '') +
+                        (stageData[j].fc_spt_q > qWarning ? 'fc_spt ' : '') +
+                        (stageData[j].fc_tmp_q > qWarning ? 'fc_tmp ' : '')
                     );
                 });
 

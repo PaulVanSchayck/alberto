@@ -89,8 +89,8 @@ function defaultExperiment(experimentName, rules, images, columns, scales) {
                     };
 
                     $warningSign.addClass(
-                        stageData[j].rsd > rsdWarning ? 'abs' : '' +
-                        stageData[j].fc_q > qWarning ? 'fc' : ''
+                        (stageData[j].rsd > rsdWarning ? 'abs ' : '') +
+                        (stageData[j].fc_q > qWarning ? 'fc ' : '')
                     );
                 });
 
@@ -146,7 +146,11 @@ function defaultExperiment(experimentName, rules, images, columns, scales) {
         }
 
         function formatWarningTooltip() {
-            return "A fold change in this gene has a q-value above 0.05"
+            if (navInfo.getExperimentMode() == 'abs') {
+                return 'A tissue in this embryo has a relative standard deviation above 50%'
+            } else {
+                return 'A fold change in this embryo has a q-value above 0.05'
+            }
         }
 
         function formatTooltip(d) {
