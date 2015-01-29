@@ -30,15 +30,17 @@ $(document).ready(function(){
 
         if ( navInfo.getGene() == false ) {
             navInfo.getExperimentObj().unShowGene();
+            $('#gene').typeahead('val', '');
             $('.at-input input')
-                .val("")
                 .removeClass('loaded');
             return false;
         }
 
         $('.at-input input')
+            // Work arround for that typeahead upon first load is loaded after this.
             .val(navInfo.getGene())
             .addClass('loaded');
+        $('#gene').typeahead('val', navInfo.getGene());
 
         // Only show a gene, if the table is available, and this is not requested as a silent gene change
         if ( navInfo.getExperimentObj() && !silent) {
@@ -92,14 +94,14 @@ $(document).ready(function(){
     });
 
     $('.at-input .show-gene').on('click', function(e) {
-        e.preventDefault();
-        if ( $('.at-input input').val() != "" ) {
-            navInfo.setGene($('.at-input input').val())
+        var val = $('#gene').typeahead('val');
+
+        if ( val != "" ) {
+            navInfo.setGene(val)
         }
     });
 
     $('.at-input .unshow-gene').on('click', function(e) {
-        e.preventDefault();
         navInfo.setGene(false)
     });
 

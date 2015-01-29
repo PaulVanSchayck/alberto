@@ -27,8 +27,11 @@ class AppAsset extends AssetBundle
         'js/experiments/mp.js',
         'js/experiments/roots.js',
         'js/experiments/default.js',
+        'js/experiments/start.js',
     ];
+
     public $depends = [
+        'yii\web\YiiAsset',
         'app\assets\ModernizrAsset',
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',

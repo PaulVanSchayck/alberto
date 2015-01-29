@@ -453,7 +453,7 @@ div.footnotes {
 }
 .container.experiments {
     width: 100%;
-    margin: 0 0;
+    margin: 20px 0;
 }
 .experiments .experiment {
     display: block;

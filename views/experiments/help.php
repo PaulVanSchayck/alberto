@@ -83,3 +83,7 @@
         </div>
     </div>
 </div>
+
+<script type="application/javascript">
+    navInfo.registerExperiment(noExperiment());
+</script>

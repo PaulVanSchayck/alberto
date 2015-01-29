@@ -1,11 +1,13 @@
 
-<h2></h2>
 
-<div class="row">
-
-</div>
 
 <div class="container experiments">
+    <div class="row" >
+        <div id="select-experiment" style="display: none;" class="alert alert-warning">
+            Select an experiment <img width="100" src="/images/arrow.png" alt="See above" />
+        </div>
+    </div>
+
     <div class="row">
         <div class="alert alert-welcome col-lg-2">
             <h4>Welcome</h4>
@@ -46,4 +48,5 @@
 </div>
 
 <script type="application/javascript">
+    navInfo.registerExperiment(noExperiment());
 </script>
