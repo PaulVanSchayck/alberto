@@ -403,6 +403,7 @@ return [
     'eightcell' => [
         'login' => true,
         'template' => 'default.php',
+        'experimentalSetup' => 'rps5a.md',
         'model' => 'app\models\EightCell',
         'images' => [
             'wt' => '.eight-wt',
