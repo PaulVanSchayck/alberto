@@ -169,11 +169,13 @@ function intactExperiment(root) {
                 });
         }
 
-        function updateColors(colorScale, useIndex) {
+        function updateColors(colorScale, useBaseColors) {
             $.each(tissues, function (i, tissue) {
                 d3.selectAll('#intact .' + tissue).transition().duration(1000).attr('fill', function (d) {
-                    if (!useIndex && d) {
-
+                    if ( useBaseColors ) {
+                        return baseColors[i]
+                    }
+                    if (d) {
                         if (navInfo.getExperimentMode() == 'fc_spt') {
                             return colorScale.defined(d.fc_spt)
                         } else if (navInfo.getExperimentMode() == 'fc_tmp') {

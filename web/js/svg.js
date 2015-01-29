@@ -82,10 +82,12 @@ window.alberto.svg = function svg($root, tissues) {
         $.each(tissues, function (i, tissue) {
             if (!ele.select('.' + tissue).empty()) {
                 color[i] = ele.select('.' + tissue).attr('fill');
+            } else {
+                color[i] = 'white'
             }
         });
 
-        return d3.scale.ordinal().range(color);
+        return color;
     }
 
     return {

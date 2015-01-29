@@ -153,10 +153,13 @@ function rootExperiment(experimentName, rules, images, columns) {
             updateColors(scale.scale);
         }
 
-        function updateColors(colorScale, useIndex) {
+        function updateColors(colorScale, useBaseColors) {
             $.each(tissues, function (i, tissue) {
                 d3.selectAll(root + ' .' + tissue).transition().duration(1000).attr('fill', function (d) {
-                    if (!useIndex && d) {
+                    if ( useBaseColors ) {
+                        return baseColors[i]
+                    }
+                    if (d) {
                         if (navInfo.getExperimentMode() == 'fc') {
                             return colorScale.defined(d.fc)
                         } else if (navInfo.getExperimentMode() == 'abs') {
