@@ -177,9 +177,11 @@ var navInfo = {
     },
 
     setExperimentMode: function(mode) {
-        this.experiments[this.getExperiment()].mode = mode;
+        if ( this.experiments[this.getExperiment()].mode != mode ) {
+            this.experiments[this.getExperiment()].mode = mode;
 
-        this.experiments[this.getExperiment()].obj.modeChanged()
+            this.experiments[this.getExperiment()].obj.modeChanged()
+        }
     },
 
     setFromHash: function() {
