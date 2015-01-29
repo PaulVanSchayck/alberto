@@ -98,9 +98,6 @@ window.alberto.table = function($table, columns, filterColumns, experiment) {
 
         // This seriously improves performance to do this only once, see the false as second argument to visible()
         dt.columns.adjust();
-
-        // Refresh column visibility dialog
-        dt.colvis.refresh();
     }
 
     function getLastRequest() {

@@ -23,23 +23,22 @@ function colvis(modal, table){
         table.columns.adjust();
     });
 
+    // Refresh checkboxes when modal is shown
+    modal.on('show.bs.modal', function() {
+        modal.find('input').each(function(i, input) {
+            var $input = $(input);
+            var visible = table.column($input.attr('id') + ":name").visible();
+
+            if ( visible === true ) {
+                $input.prop('checked', true)
+            } else {
+                $input.prop('checked', false)
+            }
+        })
+    });
+
     return {
         modal: modal,
-        table: table,
-
-        refresh: function () {
-            var table = this.table;
-
-            this.modal.find('input').each(function(i, input) {
-                var $input = $(input);
-                var visible = table.column($input.attr('id') + ":name").visible();
-
-                if ( visible === true ) {
-                    $input.prop('checked', true)
-                } else {
-                    $input.prop('checked', false)
-                }
-            })
-        }
+        table: table
     };
 }

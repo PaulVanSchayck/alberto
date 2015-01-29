@@ -115,8 +115,6 @@ function rootExperiment(experimentName, rules, images, columns) {
 
                     return false;
                 }
-
-                table.dt.colvis.refresh();
             });
 
             $(window).trigger('experiment.loaded');

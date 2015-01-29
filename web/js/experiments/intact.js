@@ -140,8 +140,6 @@ function intactExperiment(root) {
 
                     return false;
                 }
-
-                table.dt.colvis.refresh();
             });
 
             $root.find(".clearfilters").click(function () {
