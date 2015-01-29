@@ -1,4 +1,4 @@
-function defaultExperiment(experimentName, rules, images, columns) {
+function defaultExperiment(experimentName, rules, images, columns, scales) {
 
     return function() {
         var publics = {};
@@ -365,21 +365,21 @@ function defaultExperiment(experimentName, rules, images, columns) {
 
         function modeChanged() {
             if (navInfo.getExperimentMode() == "fc") {
-                scale.slider.setAttribute('min', -10)
-                    .setAttribute('max', 10)
-                    .setValue([-5, 5])
+                scale.slider.setAttribute('min', scales.fc.max[0])
+                    .setAttribute('max', scales.fc.max[1])
+                    .setValue([scales.fc.default[0], scales.fc.default[1]])
                     .refresh();
 
-                scale.scale.domain([-5, 0, 0, 5])
+                scale.scale.domain([scales.fc.default[0], 0, 0, scales.fc.default[1]])
                     .range(["blue", "lightgray", "lightgray", "red"]);
                 scale.setFcMode(true)
             } else if (navInfo.getExperimentMode() == "abs") {
-                scale.slider.setAttribute('min', 0)
-                    .setAttribute('max', 1000)
-                    .setValue([0, 300])
+                scale.slider.setAttribute('min', scales.abs.max[0])
+                    .setAttribute('max', scales.abs.max[1])
+                    .setValue([scales.abs.default[0], scales.abs.default[1]])
                     .refresh();
 
-                scale.scale.domain([0, 100])
+                scale.scale.domain([scales.abs.default[0], scales.abs.default[1]])
                     .range(["yellow", "red"]);
                 scale.setFcMode(false)
             }

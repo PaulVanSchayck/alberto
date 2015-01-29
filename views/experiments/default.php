@@ -269,5 +269,6 @@ use yii\bootstrap\Modal;
     var columns = $.parseJSON('<?= json_encode($config['columns']); ?>');
     var rules = $.parseJSON('<?= json_encode($config['rules']); ?>');
     var images = $.parseJSON('<?= json_encode($config['images']); ?>');
-    navInfo.registerExperiment(defaultExperiment("<?=$experimentName?>", rules, images, columns));
+    var scales = $.parseJSON('<?= json_encode($config['scales']); ?>');
+    navInfo.registerExperiment(defaultExperiment("<?=$experimentName?>", rules, images, columns, scales));
 </script>

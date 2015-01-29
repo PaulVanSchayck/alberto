@@ -408,6 +408,16 @@ return [
             'wt' => '.eight-wt',
             'mt' => '.eight-rps5a',
         ],
+        'scales' => [
+            'fc' => [
+                'default' => [-5,5],
+                'max' => [-10,10]
+            ],
+            'abs' => [
+                'default' => [0,300],
+                'max' => [0,1000]
+            ]
+        ],
         'columns' => [
             [
                 'field' => 'wt',
