@@ -73,7 +73,7 @@ $(document).ready(function(){
         $('a[data-exp="' + navInfo.getExperiment() + '"]').tab('show');
 
         // Only filter a gene when the experiment is changed when the gene set for the experiment differs from the currently set gene
-        if ( navInfo.getExperimentObj() && navInfo.getExperimentGene() != navInfo.getGene() ) {
+        if ( navInfo.getExperimentObj() && navInfo.getGene() && navInfo.getExperimentGene() != navInfo.getGene() ) {
             navInfo.getExperimentObj().filterGene(navInfo.getGene());
         }
 
