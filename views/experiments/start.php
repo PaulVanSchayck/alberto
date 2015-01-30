@@ -19,8 +19,38 @@
                 <img src="images/start/intact.png">
             </a>
             <div class="experiment-description">
-                <h4><a href="/index.php#nav-intact" onclick="event.preventDefault();navInfo.setExperiment('intact')">Cell type-specific</a></h4>
-                <p>Cell type-specific nuclei of the early embryo</p>
+                <h4><a href="#t" onclick="event.preventDefault();navInfo.setExperiment('intact')">Cell type-specific</a></h4>
+                <p>Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo</p>
+            </div>
+        </div>
+
+        <div class="col-lg-2 experiment" data-toggle="tooltip">
+            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('eightcell')">
+                <img src="images/start/rps5a.png">
+            </a>
+            <div class="experiment-description">
+                <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('eightcell')">RPS5A>>bdl</a></h4>
+                <p>Inhibition of MONOPTEROS and other auxin response factors in the whole octant embryo</p>
+            </div>
+        </div>
+
+        <div class="col-lg-2 experiment" data-toggle="tooltip">
+            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('q0990')">
+                <img src="images/start/q0990.png">
+            </a>
+            <div class="experiment-description">
+                <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('q0990')">Q0990>>bdl</a></h4>
+                <p>Inhibition of MONOPTEROS in ground and vascular tissue in the early embryo</p>
+            </div>
+        </div>
+
+        <div class="col-lg-2 experiment" data-toggle="tooltip">
+            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('m0171')">
+                <img src="images/start/m0171.png">
+            </a>
+            <div class="experiment-description">
+                <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('m0171')">M0171>>bdl</a></h4>
+                <p>Inhibition of auxin response factors in the suspensor in the globular embryo</p>
             </div>
         </div>
 
@@ -29,18 +59,8 @@
                 <img src="images/start/root.jpg">
             </a>
             <div class="experiment-description">
-                <h4><a href="/index.php#nav-rootgradient" onclick="navInfo.setExperiment('rootgradient')">Root gradients</a></h4>
-                <p>Differentially sorted root cells</p>
-            </div>
-        </div>
-
-        <div class="col-lg-2 experiment" data-toggle="tooltip">
-            <a href="#" onclick="event.preventDefault();.setExperiment('eightcell')">
-                <img src="images/start/rps5a.png">
-            </a>
-            <div class="experiment-description">
-                <h4><a href="/index.php#nav-eightcell" onclick="navInfo.setExperiment('eightcell')">RPS5A>>bdl</a></h4>
-                <p>Inhibition of auxin response factors in the octant embryo</p>
+                <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('rootgradient')">Root gradients</a></h4>
+                <p>RNAseq data of differentially sorted root cells based on GFP gradient markers</p>
             </div>
         </div>
 
