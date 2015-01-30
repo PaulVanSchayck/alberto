@@ -285,7 +285,7 @@ function rootExperiment(experimentName, rules, images, columns) {
         function highlightColumns() {
 
             $.each(tissues, function (i, tissue) {
-                $("." + tissue)
+                $root.find("." + tissue)
                     .on('mouseover', function () {
                         var $g = $(this);
                         var tissue = $g.attr('class').replace(' pointer-events', '');
