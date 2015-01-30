@@ -247,7 +247,7 @@ function intactExperiment(root) {
         function highlightColumns() {
 
             $.each(tissues, function (i, tissue) {
-                $root("." + tissue)
+                $root.find("." + tissue)
                     .on('mouseover', function () {
                         var $g = $(this);
                         var tissue = $g.attr('class').replace(' pointer-events', '');
