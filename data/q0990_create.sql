@@ -26,7 +26,7 @@ CREATE TABLE q0990 (
  	PRIMARY KEY agi (gene_agi, splice)
 ) ENGINE=MyISAM;
 
-LOAD DATA LOCAL INFILE 'Q0990_edit_combined_FINAL.csv'
+LOAD DATA LOCAL INFILE 'Q0990_edit_combined_FINAL_log2.csv'
   INTO TABLE q0990
   IGNORE 1 LINES;
 

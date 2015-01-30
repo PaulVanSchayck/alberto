@@ -199,7 +199,7 @@ use yii\bootstrap\Modal;
                             </table>
                         </div>
                     </div>
-                    <p><b>FC:</b> Fold Change</p>
+                    <p><b>FC:</b> Fold Change (log2)</p>
                     <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                     <?php Modal::end(); ?>
                 </div>

@@ -94,7 +94,7 @@ function mpExperiment(experimentName,  rules, images, columns) {
                 }
 
                 if ($(this).hasClass('down')) {
-                    yadcf.exFilterColumn(table.dt, [[columnIdx, {from: 0.001, to: 1}]], true);
+                    yadcf.exFilterColumn(table.dt, [[columnIdx, {to: 0}]], true);
                     table.dt.order([columnIdx, 'asc']);
                 }
 
@@ -224,7 +224,6 @@ function mpExperiment(experimentName,  rules, images, columns) {
                         }
                     },
                     name: 'gene.annotation',
-                    visible: true,
                     'class': 'type_ann'
                 },
                 {data: 'splice', 'class': 'type_ann', name: 'splice'}
@@ -240,6 +239,7 @@ function mpExperiment(experimentName,  rules, images, columns) {
                 r.push({
                     data: columns[i].field + '_q',
                     name: columns[i].field + '_q',
+                    'class': 'type_' + columns[i].type,
                     orderSequence: ['desc', 'asc']
                 });
             }
@@ -325,7 +325,7 @@ function mpExperiment(experimentName,  rules, images, columns) {
                     .setValue([-5, 5])
                     .refresh();
 
-                scale.scale.domain([-5, -1, 1, 5])
+                scale.scale.domain([-5, 0, 0, 5])
                     .range(["blue", "lightgray", "lightgray", "red"]);
                 scale.setFcMode(true)
             } else if (navInfo.getExperimentMode() == "abs") {

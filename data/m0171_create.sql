@@ -16,7 +16,7 @@ CREATE TABLE m0171 (
  	PRIMARY KEY agi (gene_agi, splice)
 ) ENGINE=MyISAM;
 
-LOAD DATA LOCAL INFILE 'M171-3days_edit_database_FINAL.csv'
+LOAD DATA LOCAL INFILE 'M171-3days_edit_database_FINAL_log2.csv'
   INTO TABLE m0171
   IGNORE 1 LINES;
 
