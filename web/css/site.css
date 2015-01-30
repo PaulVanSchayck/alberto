@@ -320,9 +320,11 @@ pre.annotation {
 }
 
 /* mode */
+.mode-note {
+    margin-top: 20px;
+}
 #rootgradient .mode .mode-fc {
     display: none;
-    margin-top: 20px;
 }
 #rootgradient.fc .mode .mode-fc {
     display: block;

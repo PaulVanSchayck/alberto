@@ -105,7 +105,7 @@ use yii\bootstrap\Modal;
                 <div class="btn-group">
                     <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View fold changes of genes">Fold change</button>
                 </div>
-                <p>Fold changes are calculated with the wild-type embryo as the base.</p>
+                <p class="mode-note">Fold changes are calculated with the wild-type embryo as the base.</p>
             </div>
         </div>
     </div>
