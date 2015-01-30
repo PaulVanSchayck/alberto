@@ -155,8 +155,8 @@ return [
                 '*' => [
                     'name' => 'Whole embryo',
                     'abs' => 'no-data',
-                    'fc_spt' => false,
-                    'fc_tmp' => false
+                    'fc_spt' => 'no-data',
+                    'fc_tmp' => 'no-data'
                 ]
             ]
         ]
