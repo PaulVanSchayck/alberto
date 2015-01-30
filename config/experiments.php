@@ -166,7 +166,11 @@ return [
         'login' => true,
         'template' => 'monopteros.php',
         'loader' => 'loadExperiment',
-        'experimentalSetup' => 'Q0990.md',
+        'experimentalSetup' => [
+            'note' => 'MONOPTEROS (MP) is inhibited in the inner embryo proper cells of early Q0990>>bdl embryos...',
+            'file' => 'Q0990.md'
+        ],
+        'note' => 'This dataset only contains differentially expressed genes (FC > 0.58 or FC < -0.58) with a q-value below 0.05.',
         'model' => 'app\models\q0990',
         'images' => [
             'mpgl' => [
@@ -212,7 +216,11 @@ return [
         'login' => true,
         'template' => 'monopteros.php',
         'loader' => 'loadExperiment',
-        'experimentalSetup' => 'M0171.md',
+        'experimentalSetup' => [
+            'note' => 'Auxin response factors (ARFs) are inhibited in the suspensor cells of early M0171>>bdl Arabidopsis embryos...',
+            'file' => 'M0171.md'
+        ],
+        'note' => 'This dataset only contains differentially expressed genes (FC > 0.58 or FC < -0.58) with a q-value below 0.055.',
         'model' => 'app\models\m0171',
         'images' => [
             'mpgl' => [
@@ -409,7 +417,10 @@ return [
     'eightcell' => [
         'login' => true,
         'template' => 'default.php',
-        'experimentalSetup' => 'rps5a.md',
+        'experimentalSetup' => [
+            'note' => 'MONOPTEROS (MP) and other auxin response factors (ARFs) are inhibited in early RPS5A>>bdl Arabidopsis embryos...',
+            'file' => 'rps5a.md'
+        ],
         'model' => 'app\models\EightCell',
         'images' => [
             'wt' => '.eight-wt',

@@ -116,7 +116,7 @@ use yii\bootstrap\Modal;
             </div>
             <div class="panel-body">
                 <p>
-                    MONOPTEROS (MP) is inhibited in the inner embryo proper cells of early Q0990>>bdl embryos...
+                    <?= $config['experimentalSetup']['note'] ?>
                 </p>
                 <?php Modal::begin([
                     'id' => $experimentName . '-experiment',
@@ -124,7 +124,7 @@ use yii\bootstrap\Modal;
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
                 ]);
-                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/' . $config['experimentalSetup']));
+                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/' . $config['experimentalSetup']['file']));
                 ?>
                 <?php Modal::end(); ?>
             </div>
@@ -133,7 +133,7 @@ use yii\bootstrap\Modal;
 </div>
 
 <div class="alert alert-danger" role="alert">
-    This dataset only contains differentially expressed genes (FC > 1.5 or FC < 0.66) with a q-value below 5%.
+    <?= $config['note'] ?>
 </div>
 
 <div class="row">
