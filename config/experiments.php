@@ -101,6 +101,12 @@ return [
                     'fc_spt' => 'fc_suspensor_eg_embryo_eg',
                     'fc_tmp' => false
                 ],
+                'hypophysis' => [
+                    'name' => 'Hypophysis',
+                    'abs' => 'suspensor_eg',
+                    'fc_spt' => 'fc_suspensor_eg_embryo_eg',
+                    'fc_tmp' => false
+                ],
                 'vascular-initials' => [
                     'name' => 'Vascular initials',
                     'abs' => 'vascular_eg',
