@@ -34,6 +34,8 @@ window.alberto.table = function($table, columns, filterColumns, experiment) {
                     delete d.columns[i].search.regex;
                 }
 
+                d.relativeGene = $("#gene-relative").typeahead('val');
+
                 // Store the build request for export purposes
                 lastRequest = d;
             }

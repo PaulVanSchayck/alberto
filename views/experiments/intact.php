@@ -1,5 +1,8 @@
 <?php
+use kartik\typeahead\Typeahead;
 use yii\bootstrap\Modal;
+use yii\helpers\Url;
+use yii\web\JsExpression;
 
 $intact = Yii::$app->params['experiments']['intact'];
 ?>
@@ -158,6 +161,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                     </div>
                     <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold change of a gene relative to another gene">Relative</button>
                 </div>
+                <input type="text" id="gene-relative" class="form-control" name="gene-relative" placeholder="AT1G01010 or WOX" data-krajee-typeahead="typeahead_7864e59a">
             </div>
         </div>
     </div>
@@ -331,6 +335,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                         if ( $column['type'] == 'abs' ) {
                             echo "<th>{$column['label']} %RSD</th>\n";
                             echo "<th>{$column['label']} SD</th>\n";
+                            echo "<th>{$column['label']} Relative</th>\n";
                         } else if ( $column['type'] == 'fc_tmp' ) {
                             echo "<th>{$column['label']} Q</th>\n";
                         } else if ( $column['type'] == 'fc_spt' ) {

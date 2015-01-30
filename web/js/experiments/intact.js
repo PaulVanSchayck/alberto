@@ -71,6 +71,27 @@ function intactExperiment(root) {
                 navInfo.setExperimentMode($a.data('mode'));
             });
 
+            var gene_data_1 = new Bloodhound({"datumTokenizer":Bloodhound.tokenizers.obj.whitespace('agi'),"queryTokenizer":Bloodhound.tokenizers.whitespace,"limit":10,"remote":{"url":"/index.php?r=gene%2Fautocomplete&q=%QUERY","ajax":{"beforeSend":function(){jQuery("#gene-relative").addClass('loading');},"complete":function(){jQuery("#gene-relative").removeClass('loading');}}}});
+
+            gene_data_1.initialize();
+
+            $("#gene-relative").typeahead(
+                {"highlight":true},
+                [
+                    {
+                        "templates":{
+                            "empty":"<p>Unable to find a matching gene.</p>",
+                            "suggestion": function(o){ return '<p>'+o.agi+' '+o.gene+'</p>'; }
+                        },
+                        "displayKey": "agi",
+                        "name":"gene_data_1",
+                        "source":gene_data_1.ttAdapter()
+                    }
+                ]
+            ).on('typeahead:selected', function(event, selection) {
+                table.dt.draw()
+            });
+
             // If no mode is selected, set the absolute expression mode
             if (!navInfo.getExperimentMode()) {
                 $root.find(".mode button").first().click();
@@ -180,6 +201,8 @@ function intactExperiment(root) {
                             return colorScale.defined(d.fc_spt)
                         } else if (navInfo.getExperimentMode() == 'fc_tmp') {
                             return colorScale.defined(d.fc_tmp)
+                        } else if (navInfo.getExperimentMode() == 'rel') {
+                            return colorScale.defined(d.rel)
                         } else {
                             return colorScale.defined(d.abs)
                         }
@@ -214,6 +237,7 @@ function intactExperiment(root) {
                         abs: parseRuleField(s.abs, data),
                         sd: parseRuleField(s.abs, data, '_sd'),
                         rsd: parseRuleField(s.abs, data, '_rsd'),
+                        rel: parseRuleField(s.abs, data, '_rel'),
                         fc_spt: parseRuleField(s.fc_spt, data),
                         fc_spt_q: parseRuleField(s.fc_spt, data, '_q'),
                         fc_tmp: parseRuleField(s.fc_tmp, data),
@@ -372,6 +396,15 @@ function intactExperiment(root) {
                 scale.scale.domain([-5, -1, 1, 5])
                     .range(["blue", "lightgray", "lightgray", "red"]);
                 scale.setFcMode(true)
+            } else if (navInfo.getExperimentMode() == "rel") {
+                scale.slider.setAttribute('min', -10)
+                    .setAttribute('max', 10)
+                    .setValue([-5, 5])
+                    .refresh();
+
+                scale.scale.domain([-5, 0, 0, 5])
+                    .range(["blue", "lightgray", "lightgray", "red"]);
+                scale.setFcMode(true)
             }
 
             $("#intact").removeClass('abs fc_spt fc_tmp').addClass(navInfo.getExperimentMode());
@@ -444,6 +477,12 @@ function intactExperiment(root) {
                         'class': 'type_sd',
                         orderSequence: ['desc', 'asc']
                     });
+                    r.push({
+                        data: columns[i].field + '_rel',
+                        name: columns[i].field + '_rel',
+                        'class': 'type_rel',
+                        orderSequence: ['desc', 'asc']
+                    });
                 } else if (columns[i].type == 'fc_tmp' || columns[i].type == 'fc_spt') {
                     r.push({
                         data: columns[i].field + '_q',
@@ -494,6 +533,12 @@ function intactExperiment(root) {
                         column_number: column_number++,
                         filter_type: "range_number",
                         filter_default_label: ["0", "100"],
+                        filter_delay: 500
+                    });
+                    r.push({
+                        column_number: column_number++,
+                        filter_type: "range_number",
+                        filter_default_label: ["0", "&infin;"],
                         filter_delay: 500
                     });
                     r.push({

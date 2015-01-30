@@ -7,45 +7,37 @@ use yii\db\ActiveRecord;
 
 class Intact extends ActiveRecord {
 
-    private $relativeGene;
+    public $experiment = 'intact';
 
     public static function tableName()
     {
         return 'intact';
     }
 
-    public function getRelativeFields()
+    /**
+     * @param $columns
+     * @return array
+     */
+    public static function buildRelativeFields($columns)
     {
-        $intact = Yii::$app->params['experiments']['intact'];
-
         $fields = [];
 
-        foreach ( $intact['columns'] as $column ) {
+        foreach ( $columns as $column ) {
             if ( $column['type'] == 'abs' ) {
-                $fields[] = $column['field'];
+                $fields[] = $column['field'] . '_rel';
             }
         }
 
-        return [];
+        return $fields;
     }
 
-    public function setRelativeGene($gene)
+    public function attributes()
     {
-        $this->relativeGene = $gene;
-    }
+        $attributes = parent::attributes();
 
-    public function getRelativeField($name)
-    {
-        return $this->$name;
-    }
+        $columns = Yii::$app->params['experiments'][$this->experiment]['columns'];
 
-    public function __get($name)
-    {
-        if ( array_search($name, $this->getRelativeFields()) ) {
-            return $this->getRelativeField($name);
-        } else {
-            return parent::__get($name);
-        }
+        return array_merge($attributes, static::buildRelativeFields($columns));
     }
 
     public function getGene()

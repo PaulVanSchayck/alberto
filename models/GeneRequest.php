@@ -17,6 +17,7 @@ class GeneRequest extends Model {
     public $columns;
     public $order;
     public $includeAnnotations;
+    public $relativeGene;
 
     private static $prefixes = ['gene'];
     private $tableModel;
@@ -42,6 +43,7 @@ class GeneRequest extends Model {
             ['columns', 'validateColumns'],
             ['order', 'validateOrder'],
             ['includeAnnotations', 'boolean'],
+            ['relativeGene', 'string']
         ];
     }
 
@@ -90,9 +92,10 @@ class GeneRequest extends Model {
                 $prefix = $this->tableModel;
             }
 
-            // Check which columns are available
+            // Check which columns (real and virtual, hence attributes()) are available
             $class = 'app\\models\\' . ucwords($prefix);
-            $columnNames =  $class::getTableSchema()->columnNames;
+            $model = new $class;
+            $columnNames = $model->attributes();
 
             if ( ! in_array($name,$columnNames) ) {
                 $this->addError($attribute, "Column " . $column['data'] . " is not a valid column");
@@ -155,8 +158,14 @@ class GeneRequest extends Model {
     {
         $columns = [];
 
+        // Check which columns are available
+        $class = 'app\\models\\' . ucwords($this->tableModel);
+        $inTable = array_keys($class::getTableSchema()->columns);
+
         foreach( $this->columns as $column ) {
-            $columns[] = $column['data'];
+            if ( in_array($column['data'], $inTable) ) {
+                $columns[] = $column['data'];
+            }
         }
 
         return $columns;
@@ -166,13 +175,45 @@ class GeneRequest extends Model {
     {
         $columns = [];
 
+        // Check which columns are available
+        $class = 'app\\models\\' . ucwords($this->tableModel);
+        $inTable = array_keys($class::getTableSchema()->columns);
+
         foreach( $this->columns as $column ) {
-            if ( $column['visible'] == 'true' ) {
+            if ( $column['visible'] == 'true'  && in_array($column['data'], $inTable) ) {
                 $columns[] = $column['data'];
             }
         }
 
         return $columns;
+    }
+
+    /**
+     * @param $columns
+     * @param $model \yii\db\ActiveRecord
+     * @return array
+     */
+    public function getRelativeFields($columns, $model)
+    {
+        $baseGene = $model::findOne(['gene_agi' => $this->relativeGene]);
+
+        $fields = [];
+
+
+        foreach ( $columns as $column ) {
+            if ( $column['type'] == 'abs' ) {
+
+                if ( $baseGene == null ){
+                    $base = 0;
+                } else {
+                    $base = $baseGene->getAttribute($column['field']);
+                }
+
+                $fields[$column['field'] . '_rel'] = 'ROUND( LOG2( ' . $column['field'] . ' / ' . $base .' ), 5)';
+            }
+        }
+
+        return $fields;
     }
 
 
