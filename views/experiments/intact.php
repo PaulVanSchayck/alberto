@@ -16,8 +16,8 @@ $intact = Yii::$app->params['experiments']['intact'];
     <li class="dropdown-submenu">
         <a tabindex="-1" href="#">Spatial fold change</a>
         <ul class="dropdown-menu">
-            <li><a class='enriched' href="#">Show genes enriched in this tissue</a></li>
-            <li><a class='enriched significant' href="#">Show genes enriched with q-value < 0.05</a></li>
+            <li><a class='enriched' href="#">Show enriched genes in this tissue</a></li>
+            <li><a class='enriched significant' href="#">Show enriched genes with q-value < 0.05</a></li>
         </ul>
     </li>
 </ul>

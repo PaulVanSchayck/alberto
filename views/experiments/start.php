@@ -4,7 +4,7 @@
 <div class="container experiments">
     <div class="row" >
         <div id="select-experiment" style="display: none;" class="alert alert-warning">
-            Select an experiment <img width="100" src="/images/arrow.png" alt="See above" />
+            Select an experiment in the tabs above
         </div>
     </div>
 

@@ -5,6 +5,16 @@ use yii\bootstrap\Modal;
 /* @var $experimentName String */
 ?>
 
+<ul class="dropdown-menu actions" role="menu">
+    <li class="dropdown-submenu">
+        <a tabindex="-1" href="#">Fold change</a>
+        <ul class="dropdown-menu">
+            <li><a class='up' href="#">Show genes up-regulated in the mutant [q-value < 0.05]</a></li>
+            <li><a class='down' href="#">Show genes down-regulated in the mutant [q-value < 0.05]</a></li>
+        </ul>
+    </li>
+</ul>
+
 <?php $this->beginBlock('download'); ?>
 <span class="btn-group pull-right">
     <a href="#" class="dropdown-toggle download-drop" data-toggle="dropdown"><span class="glyphicon glyphicon-save"></span></a>

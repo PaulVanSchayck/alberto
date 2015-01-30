@@ -9,8 +9,8 @@ use yii\bootstrap\Modal;
     <li class="dropdown-submenu">
         <a tabindex="-1" href="#">Fold change</a>
         <ul class="dropdown-menu">
-            <li><a class='up' href="#">Show genes up regulated</a></li>
-            <li><a class='down' href="#">Show genes down regulated</a></li>
+            <li><a class='up' href="#">Show genes up-regulated in the mutant</a></li>
+            <li><a class='down' href="#">Show genes down-regulated in the mutant</a></li>
         </ul>
     </li>
 </ul>
@@ -105,6 +105,7 @@ use yii\bootstrap\Modal;
                 <div class="btn-group">
                     <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View fold changes of genes">Fold change</button>
                 </div>
+                <p>Fold changes are calculated with the wild-type embryo as the base.</p>
             </div>
         </div>
     </div>
@@ -132,7 +133,7 @@ use yii\bootstrap\Modal;
 </div>
 
 <div class="alert alert-danger" role="alert">
-    This dataset does not contain all genes, but only those with a q-value below 5%.
+    This dataset only contains differentially expressed genes (FC > 1.5 or FC < 0.66) with a q-value below 5%.
 </div>
 
 <div class="row">
@@ -198,7 +199,7 @@ use yii\bootstrap\Modal;
                             </table>
                         </div>
                     </div>
-                    <p><b>FC:</b> Fold change</p>
+                    <p><b>FC:</b> Fold Change</p>
                     <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                     <?php Modal::end(); ?>
                 </div>

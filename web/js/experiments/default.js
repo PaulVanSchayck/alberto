@@ -61,6 +61,50 @@ function defaultExperiment(experimentName, rules, images, columns, scales) {
 
             highlightColumns();
 
+            $dropdown = svg.actionDropdown();
+
+            $dropdown.find('a').click(function (e) {
+                e.preventDefault();
+                $dropdown.hide();
+
+                var column;
+
+                // TODO: this is a hack, with a hard code stage
+                column = rules['mt']['*'].fc;
+
+                var columnIdx = table.dt.column(column + ":name").index();
+
+                if (columnIdx == undefined) {
+                    return false;
+                }
+
+                navInfo.setExperimentMode('fc');
+
+                yadcf.exResetAllFilters(table.dt, true);
+
+                // Show q-value column
+                table.dt.column(columnIdx + 1).visible(true);
+
+                var filter = [
+                    [columnIdx + 1, {to: 0.05}]
+                ];
+
+                if ($(this).hasClass('up')) {
+                    filter.push([columnIdx, {from: 0}]);
+                    table.dt.order([columnIdx, 'desc']);
+                }
+
+                if ($(this).hasClass('down')) {
+                    filter.push([columnIdx, {to: 0}]);
+                    table.dt.order([columnIdx, 'asc']);
+                }
+
+                yadcf.exFilterColumn(table.dt, filter, true);
+
+                return false;
+
+            });
+
             $(window).trigger('experiment.loaded');
         }
 

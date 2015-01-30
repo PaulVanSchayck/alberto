@@ -178,12 +178,12 @@ return [
             [
                 'field' => 'fc_day3',
                 'type' => 'fc',
-                'label' => '3 days'
+                'label' => 'Q0990>>bdl/Wild-type Globular'
             ],
             [
                 'field' => 'fc_day6',
                 'type' => 'fc',
-                'label' => '6 days'
+                'label' => 'Q0990>>bdl/Wild-type HS'
             ],
         ],
         'rules' => [
@@ -219,7 +219,7 @@ return [
             [
                 'field' => 'fc_day3',
                 'type' => 'fc',
-                'label' => '3 days'
+                'label' => 'M0171>>bdl/Wild-type Globular'
             ],
         ],
         'rules' => [

@@ -76,7 +76,7 @@ $this->title = 'AlBERTO';
             <a href="#q0990" data-exp="q0990" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS in ground and vascular tissue in the early embryo">Q0990>>bdl</a>
         </li>
         <li data-toggle="tab">
-            <a href="#m0171" data-exp="m0171" data-toggle="tooltip" data-original-title="Inhibition of auxin response factors in suspensor in the globular embryo">M0171>>bdl</a>
+            <a href="#m0171" data-exp="m0171" data-toggle="tooltip" data-original-title="Inhibition of auxin response factors in the suspensor in the globular embryo">M0171>>bdl</a>
         </li>
 
         <li data-toggle="tab">

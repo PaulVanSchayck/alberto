@@ -124,7 +124,7 @@ function intactExperiment(root) {
                     yadcf.exResetAllFilters(table.dt, true);
 
                     var filter = [
-                        [columnIdx, {from: 2}]
+                        [columnIdx, {from: 1}]
                     ];
 
                     if ($(this).hasClass('significant')) {
