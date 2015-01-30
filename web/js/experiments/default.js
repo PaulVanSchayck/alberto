@@ -67,36 +67,52 @@ function defaultExperiment(experimentName, rules, images, columns, scales) {
                 e.preventDefault();
                 $dropdown.hide();
 
-                var column;
-
-                // TODO: this is a hack, with a hard code stage
-                column = rules['mt']['*'].fc;
-
-                var columnIdx = table.dt.column(column + ":name").index();
-
-                if (columnIdx == undefined) {
-                    return false;
-                }
-
-                navInfo.setExperimentMode('fc');
+                var column,
+                    columnIdx,
+                    filter = [],
+                    $this = $(this);
 
                 yadcf.exResetAllFilters(table.dt, true);
 
-                // Show q-value column
-                table.dt.column(columnIdx + 1).visible(true);
+                if ( $this.hasClass('highest') ) {
+                    var stage = $($dropdown.data('g')).parents('div').data('stage');
+                    column = rules[stage]['*'].abs;
+                    columnIdx = table.dt.column(column + ":name").index();
 
-                var filter = [
-                    [columnIdx + 1, {to: 0.05}]
-                ];
+                    navInfo.setExperimentMode('abs');
 
-                if ($(this).hasClass('up')) {
-                    filter.push([columnIdx, {from: 0}]);
-                    table.dt.order([columnIdx, 'desc']);
+                    table.dt.order([columnIdx, 'desc']).draw();
+
+                    // Show rsd column
+                    table.dt.column(columnIdx + 1).visible(true);
+
+                    if ( $this.hasClass('rsd') ) {
+                        filter.push([columnIdx + 1, {to: 50}]);
+                    }
                 }
 
-                if ($(this).hasClass('down')) {
-                    filter.push([columnIdx, {to: 0}]);
-                    table.dt.order([columnIdx, 'asc']);
+                if ( $this.hasClass('fc') ) {
+                    column = rules['mt']['*'].fc;
+                    columnIdx = table.dt.column(column + ":name").index();
+
+                    navInfo.setExperimentMode('fc');
+
+                    // Show q-value column
+                    table.dt.column(columnIdx + 1).visible(true);
+
+                    filter = [
+                        [columnIdx + 1, {to: 0.05}]
+                    ];
+
+                    if ($this.hasClass('up')) {
+                        filter.push([columnIdx, {from: 0}]);
+                        table.dt.order([columnIdx, 'desc']);
+                    }
+
+                    if ($this.hasClass('down')) {
+                        filter.push([columnIdx, {to: 0}]);
+                        table.dt.order([columnIdx, 'asc']);
+                    }
                 }
 
                 yadcf.exFilterColumn(table.dt, filter, true);

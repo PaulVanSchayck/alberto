@@ -7,10 +7,18 @@ use yii\bootstrap\Modal;
 
 <ul class="dropdown-menu actions" role="menu">
     <li class="dropdown-submenu">
+        <a tabindex="-1" href="#">Absolute expression</a>
+        <ul class="dropdown-menu">
+            <li><a class='highest' href="#">Show highest expressed genes in this embryo</a></li>
+            <li><a class='highest rsd' href="#">Show highest expressed genes with RSD < 50%</a></li>
+        </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-submenu">
         <a tabindex="-1" href="#">Fold change</a>
         <ul class="dropdown-menu">
-            <li><a class='up' href="#">Show genes up-regulated in the mutant [q-value < 0.05]</a></li>
-            <li><a class='down' href="#">Show genes down-regulated in the mutant [q-value < 0.05]</a></li>
+            <li><a class='fc up' href="#">Show genes up-regulated in the mutant [q-value < 0.05]</a></li>
+            <li><a class='fc down' href="#">Show genes down-regulated in the mutant [q-value < 0.05]</a></li>
         </ul>
     </li>
 </ul>
