@@ -88,7 +88,7 @@ return [
             [
                 'field' => 'fc_qc_hs_suspensor_eg',
                 'type' => 'fc_tmp',
-                'label' => 'QC HS / Suspensor EG'
+                'label' => 'QC HS/Suspensor EG'
             ],
         ],
 
