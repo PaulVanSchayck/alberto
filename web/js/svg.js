@@ -14,15 +14,15 @@ window.alberto.svg = function svg($root, tissues) {
 
             $dropdown.data('g', this);
 
-            $(document).on('mouseup', function (e) {
-                if (!$dropdown.is(e.target) && $dropdown.has(e.target).length === 0) {
-                    $dropdown.hide();
-                    $(document).off('mouseup')
-                }
-            });
-
             e.stopPropagation();
         });
+
+        $(document).on('mouseup', function (e) {
+            if (!$dropdown.is(e.target) && $dropdown.has(e.target).length === 0) {
+                $dropdown.hide();
+            }
+        });
+
 
         return $dropdown;
     }
