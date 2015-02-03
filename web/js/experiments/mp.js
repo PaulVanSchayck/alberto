@@ -102,7 +102,37 @@ function mpExperiment(experimentName,  rules, images, columns) {
 
             });
 
+            highlightColumns();
+
             $(window).trigger('experiment.loaded');
+        }
+
+        function highlightColumns() {
+
+            $.each(tissues, function (i, tissue) {
+                $root.find("." + tissue)
+                    .on('mouseover', function () {
+                        var $g = $(this);
+                        var tissue = $g.attr('class').replace(' pointer-events', '');
+                        var stage = $g.parents('div.svg').data('stage');
+                        var column;
+
+                        if (rules[stage][tissue]) {
+                            column = rules[stage][tissue][navInfo.getExperimentMode()]
+                        } else {
+                            column = rules[stage]['*'][navInfo.getExperimentMode()]
+                        }
+
+                        var columnIdx = table.dt.column(column + ":name").index();
+
+                        if (columnIdx) {
+                            $(table.dt.column(columnIdx).nodes()).addClass('highlight');
+                        }
+                    })
+                    .on('mouseout', function () {
+                        $(table.dt.cells().nodes()).removeClass('highlight')
+                    })
+            });
         }
 
         function loadData(data) {
