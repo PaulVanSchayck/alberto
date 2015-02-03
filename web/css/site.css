@@ -177,7 +177,8 @@ div.svg .svg-label {
 }
 
 div.svg svg {
-    height: 300px;
+    max-height: 300px;
+    max-width: 100%;
 }
 
 /* These are two important classes that make only parts of the svg file accessible for mouseover events */
