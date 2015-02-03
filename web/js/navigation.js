@@ -6,15 +6,13 @@ window.alberto = {};
 
 $(document).ready(function(){
 
-    /* Show or hide spinner */
-    var $loading = $('#spinner').hide();
-
+    /* Show or hide spinners */
     $(document)
         .ajaxStart(function () {
-            $loading.show();
+            $(".spinner").show();
         })
         .ajaxStop(function () {
-            $loading.hide();
+            $(".spinner").hide();
         });
 
     $("#experiments a").tooltip({'placement': 'bottom'});
@@ -93,7 +91,7 @@ $(document).ready(function(){
         $(this).removeClass('loaded');
     });
 
-    $('.at-input .show-gene').on('click', function(e) {
+    $('.at-input .show-gene').on('click', function() {
         var val = $('#gene').typeahead('val');
 
         if ( val != "" ) {
@@ -101,7 +99,7 @@ $(document).ready(function(){
         }
     });
 
-    $('.at-input .unshow-gene').on('click', function(e) {
+    $('.at-input .unshow-gene').on('click', function() {
         navInfo.setGene(false)
     });
 

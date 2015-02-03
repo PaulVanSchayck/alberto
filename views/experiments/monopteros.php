@@ -145,6 +145,7 @@ use yii\bootstrap\Modal;
             <div class="panel-body">
                 <p class="table-text">Click on a row to view the profile of a gene. Use the fields to filter the table.</p>
                 <div class="table-tools">
+                    <div class="spinner spinner-table"><img src="/images/spinner.gif" alt="Loading" />Loading...</div>
                     <button class="btn btn-default clearfilters">Clear all filters &raquo;</button>
                     <?= $this->render('/_blocks/export', ['experiment' => $experimentName]); ?>
                     <?php Modal::begin([

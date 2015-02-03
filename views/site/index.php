@@ -84,7 +84,7 @@ $this->title = 'AlBERTO';
         </li>
 
         <?php endif; ?>
-        <li class="pull-right" id="spinner"><img src="/images/spinner.gif" alt="Loading" />Loading...</li>
+        <li class="pull-right spinner"><img src="/images/spinner.gif" alt="Loading" />Loading...</li>
     </ul>
 
     <div class="tab-content">

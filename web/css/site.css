@@ -209,10 +209,15 @@ div.svg img.warning-sign {
     color: inherit;
 }
 
-#spinner {
+.spinner {
     display: none;
 }
-
+.spinner-table {
+    float: left;
+    display: none;
+    margin-right: 5px;
+    margin-top: 5px;
+}
 /* DataTables */
 table.dataTable thead th.sorting_asc,
     table.dataTable thead th.sorting_desc,
