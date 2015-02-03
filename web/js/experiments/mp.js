@@ -89,7 +89,7 @@ function mpExperiment(experimentName,  rules, images, columns) {
                 table.dt.column(columnIdx + 1).visible(true);
 
                 if ($(this).hasClass('up')) {
-                    yadcf.exFilterColumn(table.dt, [[columnIdx, {from: 1}]], true);
+                    yadcf.exFilterColumn(table.dt, [[columnIdx, {from: 0}]], true);
                     table.dt.order([columnIdx, 'desc']);
                 }
 

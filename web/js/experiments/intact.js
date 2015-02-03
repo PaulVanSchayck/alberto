@@ -90,6 +90,10 @@ function intactExperiment(root) {
                 var stage = $($dropdown.data('g')).parents('svg').attr('class');
                 var column;
 
+                //if ( tissue == '' || stage == '' ) {
+                //    return false;
+                //}
+
                 if (intactRules[stage][tissue]) {
                     column = intactRules[stage][tissue].abs
                 } else {
