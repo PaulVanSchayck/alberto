@@ -67,11 +67,11 @@ $this->title = 'AlBERTO';
             <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific</a>
         </li>
 
+        <?php if ( Yii::$app->user->isGuest === false ): ?>
         <li data-toggle="tab">
             <a href="#eightcell" data-exp="eightcell" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS and other auxin response factors in the whole octant embryo">RPS5A>>bdl</a>
         </li>
 
-        <?php if ( Yii::$app->user->isGuest === false ): ?>
         <li data-toggle="tab">
             <a href="#q0990" data-exp="q0990" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS in ground and vascular tissue in the early embryo">Q0990>>bdl</a>
         </li>

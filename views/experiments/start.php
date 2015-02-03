@@ -24,6 +24,7 @@
             </div>
         </div>
 
+        <?php if ( Yii::$app->user->isGuest === false ): ?>
         <div class="col-lg-2 experiment" data-toggle="tooltip">
             <a href="#" onclick="event.preventDefault();navInfo.setExperiment('eightcell')">
                 <img src="images/start/rps5a.png">
@@ -63,6 +64,7 @@
                 <p>RNAseq data of differentially sorted root cells based on GFP gradient markers</p>
             </div>
         </div>
+        <?php endif ?>
 
     </div>
 </div>
