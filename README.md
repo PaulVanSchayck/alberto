@@ -86,7 +86,7 @@ Refer to the `data/README.md`
 Author
 ------
 
-AlBERTO has been written by Paul van Schayck
+AlBERTO has been programmed by Paul van Schayck with feedback from Joakim Palovaara.
 
 
 Copyright and licence

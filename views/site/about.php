@@ -25,9 +25,15 @@ $this->params['breadcrumbs'][] = $this->title;
         View the <a href="<?=\yii\helpers\Url::to(['site/contact']);?>">contact page</a> for contact details.
     </p>
 
+    <h2>Annotations</h2>
+
+    <p>The annotations have been generated from
+        <a href="http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/18.0.0/tairg.asp">MBNI</a>
+        custom CDF files. Specifically of aragene10st_At_TAIRG.</p>
+
     <h2>Authors</h2>
 
-    <p>AlBERTO was programmed by Paul van Schayck.</p>
+    <p>AlBERTO was programmed by Paul van Schayck with feedback from Joakim Palovaara.</p>
 
     <p>The vector images of embryos were created by Colette Ten Hove and Kuan-Ju Lu while the vector images of roots
         were created by Jos R. Wendrich.</p>
