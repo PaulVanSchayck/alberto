@@ -109,31 +109,19 @@ class GeneController extends Controller {
 
         if( $GeneRequest->load(Yii::$app->request->post()) && $GeneRequest->validate()) {
 
-            $dataProvider = new ActiveDataProvider([
-                'query' => $model::find()
-                    ->select($GeneRequest->getVisibleColumns())
-                    ->joinWith('gene')
-                    ->filterWhere($GeneRequest->getFilter())
-                    ->orderBy($GeneRequest->getOrder()),
-                'pagination' => new Scroller([
-                    'pageSize' => $GeneRequest->length,
-                    'offset' => 0,
-                    'draw' => 0
-                ])
-            ]);
-
-            if ( $GeneRequest->includeAnnotations ) {
-                $extraFields = ['gene'];
-            } else {
-                $extraFields = [];
-            }
-
-            $serializer = new Serializer(['extraFields' => $extraFields]);
+            $data = $model::find()
+                ->select($GeneRequest->getVisibleColumns())
+                // Custom join as joinWith() does not respect the columns in select()
+                ->join('LEFT JOIN','gene', '`intact`.`gene_agi` = `gene`.`agi`')
+                ->filterWhere($GeneRequest->getFilter())
+                ->orderBy($GeneRequest->getOrder())
+                ->limit($GeneRequest->length)
+                ->asArray();
 
             Yii::$app->response->formatters['csv'] = 'app\components\CsvResponseFormatter';
             Yii::$app->response->format = 'csv';
 
-            return $serializer->serialize($dataProvider);
+            return $data;
         } else {
             return $GeneRequest->getErrors();
         }

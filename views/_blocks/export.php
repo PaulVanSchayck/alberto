@@ -22,13 +22,10 @@ use yii\bootstrap\Modal;
         <p>
             <label>Maximum number of genes:
                 <b class="badge">0</b>
-                <input type="text" class="form-control ngenes" data-slider-min="0" data-slider-max="2000" data-slider-step="1" data-slider-value="1000" data-plugin-name="slider" title="Maximum number of genes">
-                <b class="badge">2000</b>
+                <input type="text" class="form-control ngenes" data-slider-min="0" data-slider-max="30000" data-slider-step="1" data-slider-value="5000" data-plugin-name="slider" title="Maximum number of genes">
+                <b class="badge">30000</b>
             </label>
         </p>
-
-        <p>The export is limited to 2000 genes. If you would like to view more genes in an export, you are
-            recommended to download the full dataset and perform the filtering yourself.</p>
 
         <p>
             <label>Include annotations:

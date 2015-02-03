@@ -3,6 +3,7 @@
 namespace app\components;
 
 use yii\base\Component;
+use yii\db\ActiveQuery;
 use yii\web\Response;
 use yii\web\ResponseFormatterInterface;
 
@@ -21,22 +22,34 @@ class CsvResponseFormatter extends Component implements ResponseFormatterInterfa
      */
     public function format($response)
     {
+        $output = "";
+
         $response->setDownloadHeaders('alberto-export.csv', 'text/csv; charset=utf-8');
 
         // The status code, even upon error should be OK. This may be considered a hack
         $response->setStatusCode(200);
 
-        if ( ! $this->is_multi_array($response->data) ) {
+        if ( ! $response->data instanceof ActiveQuery ) {
             $output = "Error while exporting, please contact administrators \r\n";
         } else {
-            $output = $this->csv_implode(array_keys($response->data[0])) . "\r\n";
 
-            foreach ($response->data as $data) {
-                // Remove trailing separator, add line ending
-                $output .= substr($this->csv_implode($data), 0, -1) . "\r\n";
+            $first = true;
+            // Go batchwise through the data, to reduce the load on memory
+            foreach( $response->data->batch(1000) as $rows ) {
+                if ( $first ) {
+                    $output = $this->csv_implode(array_keys($rows[0])) . "\r\n";
+                    $first = false;
+                }
+
+                foreach ($rows as $row) {
+                    // Remove trailing separator, add line ending
+                    $output .= substr($this->csv_implode($row), 0, -1) . "\r\n";
+                }
             }
+
         }
 
+        // TODO: Make this a stream, to improve time required
         $response->content = $output;
     }
 
@@ -66,7 +79,7 @@ class CsvResponseFormatter extends Component implements ResponseFormatterInterfa
      * @param $arr
      * @return string
      */
-    private function csv_implode($arr) {
+    public function csv_implode($arr) {
         $r = "";
 
         foreach( $arr as $v ) {
