@@ -122,7 +122,8 @@ function mpExperiment(experimentName,  rules, images, columns) {
                     stageData[j] = {
                         name: s.name,
                         abs: parseRuleField(s.abs, data),
-                        fc: parseRuleField(s.fc, data)
+                        fc: parseRuleField(s.fc, data),
+                        fc_q: parseRuleField(s.fc, data, '_q')
                     };
 
                 });
@@ -192,6 +193,7 @@ function mpExperiment(experimentName,  rules, images, columns) {
 
             if (navInfo.getExperimentMode() == "fc" && d.fc) {
                 r += "<p><span class='label label-primary'>FC</span> " + d.fc + "</p>";
+                r += "<p><span class='label label-primary'>q-value</span> " + d.fc_q + "</p>";
             }
 
             r += "<p>Click tissue for actions</p>";
