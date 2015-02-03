@@ -6,7 +6,7 @@ window.alberto.svg = function svg($root, tissues) {
 
     function actionDropdown() {
         var $dropdown = $root.find('.dropdown-menu.actions');
-        $('div.svg svg g').click(function (e) {
+        $root.find('div.svg svg g').click(function (e) {
 
             $dropdown
                 .fadeIn()

@@ -66,7 +66,7 @@ function mpExperiment(experimentName,  rules, images, columns) {
                 yadcf.exResetAllFilters(table.dt);
             });
 
-            $dropdown = svg.actionDropdown();
+            var $dropdown = svg.actionDropdown();
 
             $dropdown.find('a').click(function (e) {
                 e.preventDefault();

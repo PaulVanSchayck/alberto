@@ -55,7 +55,7 @@ window.alberto.table = function($table, columns, filterColumns, experiment) {
     yadcf.init(dt, filterColumns);
 
     dt.on( 'search.dt', function () {
-        $(".filter_column input")
+        $table.find(".filter_column input")
             .removeClass('filtered')
             .each(function() {
                 if( $(this).val() != '' ) {

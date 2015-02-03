@@ -60,7 +60,7 @@ function rootExperiment(experimentName, rules, images, columns) {
 
             highlightColumns();
 
-            $dropdown = svg.actionDropdown();
+            var $dropdown = svg.actionDropdown();
 
             $dropdown.find('a').click(function (e) {
                 e.preventDefault();
