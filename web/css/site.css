@@ -453,6 +453,9 @@ div.footnotes {
     background-color: #97BEF4;
     color: #0A5CCE;
 }
+.alert-welcome a {
+    color: blue;
+}
 .container.experiments {
     width: 100%;
     margin: 20px 0;
