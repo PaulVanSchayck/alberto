@@ -96,8 +96,8 @@ function rootExperiment(experimentName, rules, images, columns) {
 
                     yadcf.exResetAllFilters(table.dt, true);
 
-                    table.dt.column('fc_' + stage + '_hl_q:name').visible(true);
                     table.dt.column('fc_' + stage + '_ml_q:name').visible(true);
+                    table.dt.column('fc_' + stage + '_hm_q:name').visible(true);
 
                     var direction = {from: 0.001};
                     if ($(this).hasClass('down')) {
@@ -105,8 +105,8 @@ function rootExperiment(experimentName, rules, images, columns) {
                     }
 
                     var filter = [
-                        [table.dt.column('fc_' + stage + '_hl:name').index(), direction],
-                        [table.dt.column('fc_' + stage + '_hl_q:name').index(), {to: 0.05}],
+                        [table.dt.column('fc_' + stage + '_hm:name').index(), direction],
+                        [table.dt.column('fc_' + stage + '_hm_q:name').index(), {to: 0.05}],
                         [table.dt.column('fc_' + stage + '_ml:name').index(), direction],
                         [table.dt.column('fc_' + stage + '_ml_q:name').index(), {to: 0.05}]
                     ];
