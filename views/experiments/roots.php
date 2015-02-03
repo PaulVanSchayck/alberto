@@ -126,7 +126,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                 <input type="text" class="scale-slider form-control" name="scale" data-slider-min="0" data-slider-max="150" data-slider-step="1" data-slider-value="[32,100]" data-plugin-name="slider" title="slider">
                 <b class="badge">150</b>
                 <div class='checkbox'>
-                    <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications"><input type='checkbox' class="scale-input" >Enable changing scale</label>
+                    <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications"><input type='checkbox' class="scale-input" >Disable auto scaling</label>
                 </div>
             </div>
         </div>
