@@ -248,7 +248,7 @@ use yii\bootstrap\Modal;
                             </table>
                         </div>
                     </div>
-                    <p><b>Exp.:</b> Expression (mean)</p>
+                    <p><b>Exp.:</b> Expression value (mean)</p>
                     <p><b>%RSD:</b> Relative Standard Deviation</p>
                     <p><b>SD:</b> Standard Deviation</p>
                     <p><b>FC:</b> Fold Change (Limma log2-based)</p>
