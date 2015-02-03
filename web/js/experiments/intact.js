@@ -123,7 +123,11 @@ function intactExperiment(root) {
                 if ($(this).hasClass('enriched')) {
                     navInfo.setExperimentMode('fc_spt');
 
-                    columnIdx = table.dt.column(intactRules[stage][tissue].fc_spt + ":name").index();
+                    columnIdx = table.dt.column(column.fc_spt + ":name").index();
+
+                    if (columnIdx == undefined) {
+                        return false;
+                    }
 
                     yadcf.exResetAllFilters(table.dt, true);
 
