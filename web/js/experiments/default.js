@@ -86,9 +86,7 @@ function defaultExperiment(experimentName, rules, images, columns, scales) {
                     // Show rsd column
                     table.dt.column(columnIdx + 1).visible(true);
 
-                    if ( $this.hasClass('rsd') ) {
-                        filter.push([columnIdx + 1, {to: 50}]);
-                    }
+                    filter.push([columnIdx + 1, {to: 50}]);
                 }
 
                 if ( $this.hasClass('fc') ) {

@@ -9,7 +9,6 @@ use yii\bootstrap\Modal;
     <li class="dropdown-submenu">
         <a tabindex="-1" href="#">Absolute expression</a>
         <ul class="dropdown-menu">
-            <li><a class='highest' href="#">Show highest expressed genes in this embryo</a></li>
             <li><a class='highest rsd' href="#">Show highest expressed genes with RSD < 50%</a></li>
         </ul>
     </li>
