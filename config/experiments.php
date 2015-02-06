@@ -170,7 +170,7 @@ return [
             'note' => 'MONOPTEROS (MP) is inhibited in the inner embryo proper cells of early Q0990>>bdl embryos...',
             'file' => 'Q0990.md'
         ],
-        'note' => 'This dataset only contains differentially expressed genes (FC > 0.58 or FC < -0.58) with a q-value below 0.05.',
+        'note' => 'This dataset only contains significant differentially expressed genes (see experimental setup).',
         'model' => 'app\models\q0990',
         'images' => [
             'mpgl' => [
@@ -220,7 +220,7 @@ return [
             'note' => 'Auxin response factors (ARFs) are inhibited in the suspensor cells of early M0171>>bdl Arabidopsis embryos...',
             'file' => 'M0171.md'
         ],
-        'note' => 'This dataset only contains differentially expressed genes (FC > 0.58 or FC < -0.58) with a q-value below 0.055.',
+        'note' => 'This dataset only contains significant differentially expressed genes (see experimental setup).',
         'model' => 'app\models\m0171',
         'images' => [
             'mpgl' => [
