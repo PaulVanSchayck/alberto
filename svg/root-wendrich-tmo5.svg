@@ -34,9 +34,9 @@
      inkscape:window-height="998"
      id="namedview4"
      showgrid="false"
-     inkscape:zoom="4.7096662"
-     inkscape:cx="111.52437"
-     inkscape:cy="77.116141"
+     inkscape:zoom="1.1774166"
+     inkscape:cx="-11.25089"
+     inkscape:cy="19.157595"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -139,7 +139,7 @@
          id="tspan7177"
          x="372.42447"
          y="-242.95776"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.01206589px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.29431307px">High</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.01206589px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.29431307px">Proximal</tspan></text>
 <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.01206589px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.29431307px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -152,7 +152,7 @@
          sodipodi:role="line"
          id="tspan7197"
          x="367.66138"
-         y="-435.40308">Medium</tspan></text>
+         y="-435.40308">Medial</tspan></text>
 <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.01206589px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.29431307px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -165,5 +165,5 @@
          sodipodi:role="line"
          id="tspan7217"
          x="379.63995"
-         y="-594.09979">Low</tspan></text>
+         y="-594.09979">Distal</tspan></text>
 </g></svg>

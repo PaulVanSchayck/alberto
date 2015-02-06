@@ -10,7 +10,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
-   inkscape:version="0.48.5 r"
+   inkscape:version="0.91 r"
    xml:space="preserve"
    width="271.60471"
    height="300"
@@ -35,8 +35,8 @@
      id="namedview4"
      showgrid="false"
      inkscape:zoom="2.6533333"
-     inkscape:cx="135.80235"
-     inkscape:cy="165.07538"
+     inkscape:cx="72.674209"
+     inkscape:cy="119.84925"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -145,7 +145,7 @@
          id="tspan7177"
          x="373.78101"
          y="-182.44057"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.32369995px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.30551338px">High</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.32369995px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.30551338px">Proximal</tspan></text>
 <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.32369995px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.30551338px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -157,7 +157,7 @@
          sodipodi:role="line"
          id="tspan7197"
          x="372.50586"
-         y="-288.3223">Medium</tspan></text>
+         y="-288.3223">Medial</tspan></text>
 <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.32369995px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.30551338px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -169,5 +169,5 @@
          sodipodi:role="line"
          id="tspan7217"
          x="376.35336"
-         y="-381.3382">Low</tspan></text>
+         y="-381.3382">Distal</tspan></text>
 </g></svg>

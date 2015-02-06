@@ -45,17 +45,17 @@
         </g>
         <text style="line-height:125%;-inkscape-font-specification:'Sans, Normal';text-align:start" x="372.424" y="-242.958" transform="matrix(.508 0 0 .508 .486 358.46)" font-size="36.012" font-family="Sans" letter-spacing="0" word-spacing="0" stroke-width="1.294">
             <tspan x="372.424" y="-242.958" style="line-height:125%;-inkscape-font-specification:'Sans, Normal';text-align:start" font-size="36.012" font-family="Sans" stroke-width="1.294">
-                High
+                Proximal
             </tspan>
         </text>
         <text style="line-height:125%;-inkscape-font-specification:'Sans, Normal';text-align:start" x="367.661" y="-435.403" transform="matrix(.508 0 0 .508 .486 358.46)" font-size="36.012" font-family="Sans" letter-spacing="0" word-spacing="0" stroke-width="1.294">
             <tspan x="367.661" y="-435.403" stroke-width="1.294">
-                Medium
+                Medial
             </tspan>
         </text>
         <text style="line-height:125%;-inkscape-font-specification:'Sans, Normal';text-align:start" x="379.64" y="-594.1" transform="matrix(.508 0 0 .508 .486 358.46)" font-size="36.012" font-family="Sans" letter-spacing="0" word-spacing="0" stroke-width="1.294">
             <tspan x="379.64" y="-594.1" stroke-width="1.294">
-                Low
+                Distal
             </tspan>
         </text>
     </g>

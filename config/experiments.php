@@ -260,49 +260,49 @@ return [
             [
                 'field' => 'spt_h',
                 'type' => 'abs',
-                'label' => 'SPT High'
+                'label' => 'SPT Proximal'
             ],
             [
                 'field' => 'spt_m',
                 'type' => 'abs',
-                'label' => 'SPT Medium'
+                'label' => 'SPT Medial'
             ],
             [
                 'field' => 'spt_l',
                 'type' => 'abs',
-                'label' => 'SPT Low'
+                'label' => 'SPT Distal'
             ],
 
             [
                 'field' => 'pub25_h',
                 'type' => 'abs',
-                'label' => 'PUB25 High'
+                'label' => 'PUB25 Proximal'
             ],
             [
                 'field' => 'pub25_m',
                 'type' => 'abs',
-                'label' => 'PUB25 Medium'
+                'label' => 'PUB25 Medial'
             ],
             [
                 'field' => 'pub25_l',
                 'type' => 'abs',
-                'label' => 'PUB25 Low'
+                'label' => 'PUB25 Distal'
             ],
 
             [
                 'field' => 'tmo5_h',
                 'type' => 'abs',
-                'label' => 'TMO5 High'
+                'label' => 'TMO5 Proximal'
             ],
             [
                 'field' => 'tmo5_m',
                 'type' => 'abs',
-                'label' => 'TMO5 Medium'
+                'label' => 'TMO5 Medial'
             ],
             [
                 'field' => 'tmo5_l',
                 'type' => 'abs',
-                'label' => 'TMO5 Low'
+                'label' => 'TMO5 Distal'
             ],
 
 
@@ -311,49 +311,49 @@ return [
             [
                 'field' => 'fc_spt_hm',
                 'type'  => 'fc',
-                'label' => 'SPT Medium/High'
+                'label' => 'SPT Medial/Proximal'
             ],
             [
                 'field' => 'fc_spt_ml',
                 'type'  => 'fc',
-                'label' => 'SPT Low/Medium'
+                'label' => 'SPT Distal/Medial'
             ],
             [
                 'field' => 'fc_spt_hl',
                 'type'  => 'fc',
-                'label' => 'SPT Low/High'
+                'label' => 'SPT Distal/Proximal'
             ],
 
             [
                 'field' => 'fc_pub25_hm',
                 'type'  => 'fc',
-                'label' => 'PUB25 Medium/High'
+                'label' => 'PUB25 Medial/Proximal'
             ],
             [
                 'field' => 'fc_pub25_ml',
                 'type'  => 'fc',
-                'label' => 'PUB25 Low/Medium'
+                'label' => 'PUB25 Distal/Medial'
             ],
             [
                 'field' => 'fc_pub25_hl',
                 'type'  => 'fc',
-                'label' => 'PUB25 Low/High'
+                'label' => 'PUB25 Distal/Proximal'
             ],
 
             [
                 'field' => 'fc_tmo5_hm',
                 'type'  => 'fc',
-                'label' => 'TMO5 Medium/High'
+                'label' => 'TMO5 Medial/Proximal'
             ],
             [
                 'field' => 'fc_tmo5_ml',
                 'type'  => 'fc',
-                'label' => 'TMO5 Low/Medium'
+                'label' => 'TMO5 Distal/Medial'
             ],
             [
                 'field' => 'fc_tmo5_hl',
                 'type'  => 'fc',
-                'label' => 'TMO5 Low/High'
+                'label' => 'TMO5 Distal/Proximal'
             ],
 
 
