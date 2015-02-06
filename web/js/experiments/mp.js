@@ -271,7 +271,7 @@ function mpExperiment(experimentName,  rules, images, columns) {
                 r.push({
                     data: columns[i].field + '_q',
                     name: columns[i].field + '_q',
-                    'class': 'type_' + columns[i].type,
+                    'class': 'type_' + columns[i].type + '_q',
                     orderSequence: ['desc', 'asc']
                 });
             }
