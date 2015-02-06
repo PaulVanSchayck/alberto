@@ -28,7 +28,7 @@ function intactExperiment(root) {
                 updateColors(scale);
                 updateTableColors(navInfo.getExperimentMode());
             }
-        });
+        }, [-1,1]);
         var svg = window.alberto.svg($root, tissues);
 
         function loadExperiment() {

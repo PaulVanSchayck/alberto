@@ -19,7 +19,7 @@ function defaultExperiment(experimentName, rules, images, columns, scales) {
                 updateColors(scale);
                 updateTableColors(navInfo.getExperimentMode());
             }
-        });
+        }, [-1,1]);
         var table = window.alberto.table($("#" + experimentName + "-table"), buildDTColumns(columns), buildFilterColumns(columns), experimentName);
         var svg = window.alberto.svg($root, tissues);
         var baseColors;

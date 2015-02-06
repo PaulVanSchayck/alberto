@@ -28,7 +28,7 @@ function mpExperiment(experimentName,  rules, images, columns) {
                 updateColors(scale);
                 updateTableColors(navInfo.getExperimentMode());
             }
-        });
+        }, [0,0]);
         var table = window.alberto.table($("#" + experimentName + "-table"), buildDTColumns(columns), buildFilterColumns(columns), experimentName);
         var svg = window.alberto.svg($root, tissues);
         var baseColors;

@@ -2,7 +2,7 @@
  * Functions for controlling the scale and the slider associated with it
  */
 
-window.alberto.scale = function scale(root, changeScaleCallback) {
+window.alberto.scale = function scale(root, changeScaleCallback, fcBase) {
     var scale = d3.scale.linear();
     var fcMode = false;
 
@@ -32,16 +32,16 @@ window.alberto.scale = function scale(root, changeScaleCallback) {
                 var val = eval('[' +  slider.getValue() + ']');
 
                 // Prevent the scale from going beyond its limits
-                if ( val[0] > -2 ) {
-                    slider.setValue([-2, val[1]]);
+                if ( val[0] > fcBase[0] - 1 ) {
+                    slider.setValue([fcBase[0] - 1, val[1]]);
                     return
                 }
-                if ( val[1] < 2 ) {
-                    slider.setValue([val[0], 2]);
+                if ( val[1] < fcBase[1] + 1 ) {
+                    slider.setValue([val[0], fcBase[1] + 1]);
                     return
                 }
 
-                domain = [ val[0], -1, 1, val[1]]
+                domain = [ val[0], fcBase[0], fcBase[1], val[1]]
             } else {
                 domain = eval('[' + slider.getValue() + ']');
             }
