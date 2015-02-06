@@ -309,7 +309,15 @@ pre.annotation {
 .scale .tooltip {
     z-index: 1010;
 }
-
+.scale .mode-abs, .scale .mode-fc {
+    display: none;
+}
+.abs .scale .mode-abs {
+    display: block;
+}
+.fc .scale .mode-fc, .fc_tmp .scale .mode-fc, .fc_spt .scale .mode-fc {
+    display: block;
+}
 /* SVG Dropdown menu */
 .dropdown-menu.actions {
     display: none;
