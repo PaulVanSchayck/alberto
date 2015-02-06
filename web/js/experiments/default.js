@@ -435,7 +435,7 @@ function defaultExperiment(experimentName, rules, images, columns, scales) {
                     .setValue([scales.fc.default[0], scales.fc.default[1]])
                     .refresh();
 
-                scale.scale.domain([scales.fc.default[0], 0, 0, scales.fc.default[1]])
+                scale.scale.domain([scales.fc.default[0], -1, 1, scales.fc.default[1]])
                     .range(["blue", "lightgray", "lightgray", "red"]);
                 scale.setFcMode(true)
             } else if (navInfo.getExperimentMode() == "abs") {
