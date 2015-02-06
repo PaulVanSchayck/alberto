@@ -93,7 +93,7 @@ use yii\bootstrap\Modal;
                 <div class='checkbox'>
                     <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications"><input type='checkbox' class="scale-input" >Disable auto scaling</label>
                 </div>
-                <p class="unit mode-fc"><span class="label label-primary">unit</span> Fold change (log2)</p>
+                <p class="unit mode-fc"><span class="label label-primary">Unit</span> Log2 fold change</p>
             </div>
         </div>
     </div>

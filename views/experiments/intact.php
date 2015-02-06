@@ -136,8 +136,8 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <div class='checkbox'>
                     <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications"><input type='checkbox' class="scale-input" >Disable auto scaling</label>
                 </div>
-                <p class="unit mode-abs"><span class="label label-primary">unit</span> Signal intensity (normalized)</p>
-                <p class="unit mode-fc"><span class="label label-primary">unit</span> Fold change (Limma log2 based)</p>
+                <p class="unit mode-abs"><span class="label label-primary">Unit</span> Signal intensity (normalized)</p>
+                <p class="unit mode-fc"><span class="label label-primary">Unit</span> Limma log2-based fold change</p>
             </div>
         </div>
     </div>
