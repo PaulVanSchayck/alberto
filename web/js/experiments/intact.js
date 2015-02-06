@@ -88,27 +88,24 @@ function intactExperiment(root) {
 
                 var tissue = $($dropdown.data('g')).attr('class').replace(' pointer-events', '');
                 var stage = $($dropdown.data('g')).parents('svg').attr('class');
-                var column;
-
-                //if ( tissue == '' || stage == '' ) {
-                //    return false;
-                //}
+                var column, columnIdx;
 
                 if (intactRules[stage][tissue]) {
-                    column = intactRules[stage][tissue].abs
+                    column = intactRules[stage][tissue]
                 } else {
-                    column = intactRules[stage]['*'].abs
-                }
-                var columnIdx = table.dt.column(column + ":name").index();
-
-                if (columnIdx == undefined) {
-                    return false;
+                    column = intactRules[stage]['*']
                 }
 
                 if ($(this).hasClass('highest')) {
                     navInfo.setExperimentMode('abs');
 
                     yadcf.exResetAllFilters(table.dt);
+
+                    columnIdx = table.dt.column(column.abs + ":name").index();
+
+                    if (columnIdx == undefined) {
+                        return false;
+                    }
 
                     if ($(this).hasClass('rsd')) {
                         table.dt.column(columnIdx + 1).visible(true);
