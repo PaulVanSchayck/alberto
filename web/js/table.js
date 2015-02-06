@@ -54,18 +54,7 @@ window.alberto.table = function($table, columns, filterColumns, experiment) {
     // Setup YADCF filters
     yadcf.init(dt, filterColumns);
 
-    dt.on( 'search.dt', function () {
-        $table.find(".filter_column input")
-            .removeClass('filtered')
-            .each(function() {
-                if( $(this).val() != '' ) {
-                    $(this).addClass('filtered');
-                }
-        });
-
-        return true;
-    });
-
+    // Make tooltips for datatables columns
     dt.on( 'draw.dt', function(){
         $table.find('span[data-toggle=tooltip]').tooltip({'placement': 'bottom'});
     } );
