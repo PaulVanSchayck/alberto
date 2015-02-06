@@ -112,7 +112,7 @@ class GeneController extends Controller {
             $data = $model::find()
                 ->select($GeneRequest->getVisibleColumns())
                 // Custom join as joinWith() does not respect the columns in select()
-                ->join('LEFT JOIN','gene', '`intact`.`gene_agi` = `gene`.`agi`')
+                ->join('LEFT JOIN','gene', '`gene_agi` = `gene`.`agi`')
                 ->filterWhere($GeneRequest->getFilter())
                 ->orderBy($GeneRequest->getOrder())
                 ->limit($GeneRequest->length)
