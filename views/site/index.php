@@ -66,11 +66,12 @@ $this->title = 'AlBERTO';
             <a href="#help" data-exp="help" data-toggle="tooltip" data-original-title="Quick Start Guide"><span class="glyphicon glyphicon-question-sign"></span></a>
         </li>
 
+        <?php if ( Yii::$app->user->isGuest === false ): ?>
+
         <li data-toggle="tab">
             <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific</a>
         </li>
 
-        <?php if ( Yii::$app->user->isGuest === false ): ?>
         <li data-toggle="tab">
             <a href="#eightcell" data-exp="eightcell" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS and other auxin response factors in the whole octant embryo">RPS5A>>bdl</a>
         </li>
