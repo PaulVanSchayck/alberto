@@ -404,16 +404,20 @@ function defaultExperiment(experimentName, rules, images, columns, scales) {
 
         function filterGene(gene) {
             yadcf.exResetAllFilters(table.dt, true);
-            yadcf.exFilterColumn(table.dt, [[0, gene]], true);
 
             table.dt.one('draw.dt', function () {
-                if (table.dt.data().length > 0) {
-                    table.$table.find("tbody tr:eq(0)").addClass("selected");
-                    showGene(gene);
-                } else {
-                    $("#no-results").show();
-                    unShowGene();
-                }
+                yadcf.exFilterColumn(table.dt, [[0, gene]], true);
+
+                table.dt.one('draw.dt', function() {
+
+                    if (table.dt.data().length > 0) {
+                        table.$table.find("tbody tr:eq(0)").addClass("selected");
+                        showGene(gene);
+                    } else {
+                        $("#no-results").show();
+                        unShowGene();
+                    }
+                });
             });
         }
 
