@@ -250,7 +250,7 @@ function mpExperiment(experimentName,  rules, images, columns) {
                     data: 'gene.annotation',
                     render: function (data) {
                         if (data) {
-                            return "<span class='gene-tooltip' data-toggle='tooltip' title='" + data + "'>" + data.substr(0, 10) + " </span>";
+                            return "<span class='gene-tooltip' data-toggle='tooltip' title='" + data + "'>" + data.substr(0, 20) + " </span>";
                         } else {
                             return "";
                         }
