@@ -154,6 +154,9 @@ a.desc:after {
     }
 }
 
+.top .logo {
+    width: 80px;
+}
 /*****************************************************/
 .at-input {
     margin-bottom: 20px;
@@ -318,6 +321,10 @@ pre.annotation {
 .fc .scale .mode-fc, .fc_tmp .scale .mode-fc, .fc_spt .scale .mode-fc {
     display: block;
 }
+.unit {
+    margin: 0;
+}
+
 /* SVG Dropdown menu */
 .dropdown-menu.actions {
     display: none;

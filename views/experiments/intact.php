@@ -123,7 +123,7 @@ $intact = Yii::$app->params['experiments']['intact'];
     </div>
 </div>
 
-<div class="row">
+<div class="row tools">
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">

@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>AlBERTO was programmed by Paul van Schayck with feedback from Joakim Palovaara.</p>
 
     <p>The vector images of embryos were created by Colette Ten Hove and Kuan-Ju Lu while the vector images of roots
-        were created by Jos R. Wendrich.</p>
+        were created by Jos R. Wendrich. The logo was designed by Bert de Rybel.</p>
 
     <h2>Copyright and license</h2>
 

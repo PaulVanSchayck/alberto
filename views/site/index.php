@@ -16,10 +16,10 @@ $this->title = 'AlBERTO';
         The download feature is not completely supported in your browser. Please use a modern version of either Chrome or Firefox.
     </div>
 
-    <p>Enter an AGI or gene name, select an experiment and press show.</p>
+    <div class="row top">
 
-    <div class="row">
         <div class="col-lg-6">
+            <p>Enter an AGI or gene name, select an experiment and press show.</p>
             <div class="input-group at-input">
                 <span class="input-group-addon danger">Gene</span>
                 <?php
@@ -47,6 +47,9 @@ $this->title = 'AlBERTO';
                     <button type="button" class="btn btn-default btn-warning unshow-gene"><span class="glyphicon glyphicon-remove"></span></button>
                 </span>
             </div>
+        </div>
+        <div class="col-lg-1 col-lg-offset-5">
+            <a href="<?=Url::to(['/site/index'])?>"><img src="/images/logo/logo1.png" class="logo" alt="Logo"/></a>
         </div>
     </div>
 
