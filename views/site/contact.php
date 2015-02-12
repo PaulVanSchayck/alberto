@@ -3,7 +3,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Contact';
+$this->title = 'AlBERTO - Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">

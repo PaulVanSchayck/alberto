@@ -4,7 +4,7 @@ use kartik\typeahead\Typeahead;
 use yii\helpers\Url;
 use yii\web\JsExpression;
 
-$this->title = 'AlBERTO';
+$this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
 ?>
 <div class="site-index">
 
