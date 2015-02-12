@@ -14,6 +14,9 @@
             This is the AraBidopsis Embryonic and Root Transcriptome brOwser (AlBERTO). You can directly start by entering a gene and
             selecting an experiment or by viewing the <a href="#" onclick="event.preventDefault();navInfo.setExperiment('help')">quick start guide</a>.
         </div>
+
+        <?php if ( Yii::$app->user->isGuest === false ): ?>
+
         <div class="col-lg-2 experiment">
             <a href="#" onclick="event.preventDefault();navInfo.setExperiment('intact')">
                 <img src="images/start/intact.png">
@@ -24,7 +27,6 @@
             </div>
         </div>
 
-        <?php if ( Yii::$app->user->isGuest === false ): ?>
         <div class="col-lg-2 experiment" data-toggle="tooltip">
             <a href="#" onclick="event.preventDefault();navInfo.setExperiment('eightcell')">
                 <img src="images/start/rps5a.png">
