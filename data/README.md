@@ -19,9 +19,15 @@ mysql --local-infile -p -U alberto < annotation_create_import.sql
 
 This creates both the table, and imports the data. The file `annotation_create_import.sql` can be found in this repository.
 
-
-INTACT data
+Data format
 -----------
+
+- Uppercase of AGi
+- Remove any AGI not in main list
+- ...
+
+Cell-type specific data
+-----------------------
 
 ```
 mysql --local-infile -p -U alberto < ~/alberto/data/intact_create.sql

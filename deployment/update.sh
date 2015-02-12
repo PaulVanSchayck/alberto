@@ -34,11 +34,11 @@ $rep/yii asset $rep/deployment/assets.php $rep/config/assets-prod.php
 
 # Update files using FTP
 echo "FTP Password:"
-lftp -u agarhosting agarhosting.nl <<EOF
+lftp -u albertod albertodb.org <<EOF
 set cmd:fail-exit true;
 set ftp:ssl-allow no;
 set ftp:list-options -a;
-mirror -veR --exclude web/index.php --exclude config/db.php --exclude web/assets --exclude .git --exclude runtime --exclude .idea --exclude config/db.php $rep/. alberto/.;
+mirror -veR --exclude web/index.php --exclude config/db.php --exclude web/assets --exclude .git --exclude runtime --exclude .idea --exclude config/db.php $rep/. httpdocs/.;
 bye;
 EOF
 
