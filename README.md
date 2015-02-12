@@ -3,6 +3,8 @@ AlBERTO
 
 AraBidopsis EmbRyonic Transcriptome brOwser 
 
+**Online version:** http://www.albertodb.org
+
 DIRECTORY STRUCTURE
 -------------------
 
