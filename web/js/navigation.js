@@ -67,7 +67,7 @@ $(document).ready(function(){
 
         if ( $content.is(':empty') ) {
             // ajax load of tab
-            $content.load("/index.php?r=site/tab&exp=" + exp);
+            $content.load("/site/tab/" + exp);
         }
 
         $('a[data-exp="' + navInfo.getExperiment() + '"]').tab('show');

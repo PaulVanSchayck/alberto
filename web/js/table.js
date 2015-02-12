@@ -21,7 +21,7 @@ window.alberto.table = function($table, columns, filterColumns, experiment) {
             return false;
         },
         ajax: {
-            url: "/index.php?r=gene/index&exp=" + experiment ,
+            url: "/gene/" + experiment ,
             method: "post",
             dataSrc: "data",
             data: function(d) {

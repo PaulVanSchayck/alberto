@@ -41,6 +41,17 @@ $config = [
         'assetManager' => [
             'bundles' => require(__DIR__ . '/' . (YII_ENV_DEV ? 'assets-dev.php' : 'assets-prod.php')),
         ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'enableStrictParsing' => false,
+            'showScriptName' => false,
+            'rules' => [
+                'site/tab/<exp:.+>' => 'site/tab',
+                'gene/autocomplete/<q:.+>' => 'gene/autocomplete',
+                'gene/<exp:.+>' => 'gene/index',
+                'gene/export/<exp:.+>' => 'gene/export',
+            ]
+        ]
     ],
     'params' => $params,
 ];

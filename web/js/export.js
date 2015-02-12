@@ -38,7 +38,7 @@ window.alberto.exportModal = function($root, table, experiment) {
         inputs += '<input name="' + yii.getCsrfParam() + '" value="' + yii.getCsrfToken() + '" type="hidden">';
 
         // send request
-        $('<form action="/index.php?r=gene/export&exp='+experiment+'" method="post">' + inputs + '</form>')
+        $('<form action="/gene/export/'+experiment+'" method="post">' + inputs + '</form>')
             .appendTo('body').submit().remove();
     });
 };
