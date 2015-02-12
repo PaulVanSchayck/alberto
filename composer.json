@@ -15,7 +15,7 @@
         "yiisoft/yii2": "2.0.*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "bower-asset/datatables": "1.10.*",
+        "bower-asset/datatables": "1.10.4",
         "bower-asset/datatables-scroller" : "1.2.*",
         "bower-asset/d3": "3.4.*",
         "bower-asset/d3-tip": "v0.6.5",
