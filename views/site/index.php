@@ -48,14 +48,15 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
                 </span>
             </div>
         </div>
-        <div class="col-lg-1 col-lg-offset-5">
+        <div id="no-results" style="visibility:hidden" class="col-lg-5 alert alert-danger" role="alert">
+            No results for this gene were found in this experiment.
+        </div>
+        <div class="col-lg-1">
             <a href="<?=Url::to(['/site/index'])?>"><img src="/images/logo/logo1.png" class="logo" alt="Logo"/></a>
         </div>
     </div>
 
-    <div id="no-results" style="display:none" class="alert alert-danger" role="alert">
-        No results for this gene were found in this experiment.
-    </div>
+
 
     <ul class="nav nav-tabs" id="experiments" role="tablist">
         <li data-toggle="tab">

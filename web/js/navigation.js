@@ -24,7 +24,7 @@ $(document).ready(function(){
     });
 
     $(window).on('alberto.gene.changed', function(e, silent) {
-        $("#no-results").hide();
+        geneFound();
 
         if ( navInfo.getGene() == false ) {
             navInfo.getExperimentObj().unShowGene();
@@ -60,7 +60,7 @@ $(document).ready(function(){
     });
 
     $(window).on('alberto.experiment.changed', function() {
-        $("#no-results").hide();
+        geneFound();
 
         var exp = navInfo.getExperiment(),
             $content = $("#" + exp);

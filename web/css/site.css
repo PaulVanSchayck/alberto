@@ -161,6 +161,9 @@ a.desc:after {
 .at-input {
     margin-bottom: 20px;
 }
+#no-results {
+    margin-top: 14px;
+}
 
 #gene.loaded {
     color: darkgreen !important;

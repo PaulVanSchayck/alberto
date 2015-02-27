@@ -336,7 +336,7 @@ function mpExperiment(experimentName,  rules, images, columns) {
                         table.$table.find("tbody tr:eq(0)").addClass("selected");
                         showGene(gene);
                     } else {
-                        $("#no-results").show();
+                        noGeneFound();
                         unShowGene();
                     }
                 });

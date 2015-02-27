@@ -86,3 +86,19 @@ function saveAsPNG(svg, title) {
 
     loader.src = 'data:image/svg+xml,' + encodeURIComponent( svgStr );
 }
+
+jQuery.fn.visible = function() {
+    return this.css('visibility', 'visible');
+};
+
+jQuery.fn.invisible = function() {
+    return this.css('visibility', 'hidden');
+};
+
+function noGeneFound() {
+    $("#no-results").visible();
+}
+
+function geneFound() {
+    $("#no-results").invisible();
+}
