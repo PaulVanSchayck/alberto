@@ -14,12 +14,9 @@ window.alberto.table = function($table, columns, filterColumns, experiment) {
 
     var dt = $table.DataTable({
         serverSide: true,
-        stateSave: true,
+        stateSave: false,
         // experiment.loaded is responsible for loading the table
         deferLoading: 0,
-        stateLoadCallback: function () {
-            return false;
-        },
         ajax: {
             url: "/gene/" + experiment ,
             method: "post",
@@ -43,7 +40,8 @@ window.alberto.table = function($table, columns, filterColumns, experiment) {
         scrollY: 500,
         scrollX: "100%",
         processing: true,
-        scroller: {
+        oScroller: {
+            rowHeight: 31,
             loadingIndicator: true
         },
         infoCallback: function( settings, start, end, max, total, pre ) {

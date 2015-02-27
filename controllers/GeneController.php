@@ -76,6 +76,7 @@ class GeneController extends Controller {
 
             return $serializer->serialize($dataProvider);
         } else {
+            Yii::$app->getResponse()->setStatusCode(400);
             return $GeneRequest->getErrors();
         }
     }
