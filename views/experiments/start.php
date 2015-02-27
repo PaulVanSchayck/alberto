@@ -19,7 +19,7 @@
 
         <div class="col-lg-2 experiment">
             <a href="#" onclick="event.preventDefault();navInfo.setExperiment('intact')">
-                <img src="images/start/intact.png">
+                <img src="/images/start/intact.png">
             </a>
             <div class="experiment-description">
                 <h4><a href="#t" onclick="event.preventDefault();navInfo.setExperiment('intact')">Cell type-specific</a></h4>
@@ -29,7 +29,7 @@
 
         <div class="col-lg-2 experiment" data-toggle="tooltip">
             <a href="#" onclick="event.preventDefault();navInfo.setExperiment('eightcell')">
-                <img src="images/start/rps5a.png">
+                <img src="/images/start/rps5a.png">
             </a>
             <div class="experiment-description">
                 <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('eightcell')">RPS5A>>bdl</a></h4>
@@ -39,7 +39,7 @@
 
         <div class="col-lg-2 experiment" data-toggle="tooltip">
             <a href="#" onclick="event.preventDefault();navInfo.setExperiment('q0990')">
-                <img src="images/start/q0990.png">
+                <img src="/images/start/q0990.png">
             </a>
             <div class="experiment-description">
                 <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('q0990')">Q0990>>bdl</a></h4>
@@ -49,7 +49,7 @@
 
         <div class="col-lg-2 experiment" data-toggle="tooltip">
             <a href="#" onclick="event.preventDefault();navInfo.setExperiment('m0171')">
-                <img src="images/start/m0171.png">
+                <img src="/images/start/m0171.png">
             </a>
             <div class="experiment-description">
                 <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('m0171')">M0171>>bdl</a></h4>
@@ -59,7 +59,7 @@
 
         <div class="col-lg-2 experiment" data-toggle="tooltip">
             <a href="#" onclick="event.preventDefault();navInfo.setExperiment('rootgradient')">
-                <img src="images/start/root.jpg">
+                <img src="/images/start/root.jpg">
             </a>
             <div class="experiment-description">
                 <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('rootgradient')">Root gradients</a></h4>
