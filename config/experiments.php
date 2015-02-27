@@ -364,7 +364,7 @@ return [
                 'high' => [
                     'name' => 'High',
                     'abs' => 'spt_h',
-                    'fc' => 'no-data'
+                    'fc' => false
                 ],
                 'medium' => [
                     'name' => 'Medium',
@@ -381,7 +381,7 @@ return [
                 'high' => [
                     'name' => 'High',
                     'abs' => 'pub25_h',
-                    'fc' => 'no-data'
+                    'fc' => false
                 ],
                 'medium' => [
                     'name' => 'Medium',
@@ -398,7 +398,7 @@ return [
                 'high' => [
                     'name' => 'High',
                     'abs' => 'tmo5_h',
-                    'fc' => 'no-data'
+                    'fc' => false
                 ],
                 'medium' => [
                     'name' => 'Medium',
@@ -453,14 +453,14 @@ return [
                 'field' => 'fc_bdl_wt',
                 'type' => 'fc',
                 'label' => 'RPS5A>>bdl/Wild-type'
-            ]
+            ],
         ],
         'rules' => [
             'wt' => [
                 '*' => [
                     'name' => 'Wild-type',
                     'abs' => 'wt',
-                    'fc' => 'no-data'
+                    'fc' => false
                 ]
             ],
             'mt' => [
