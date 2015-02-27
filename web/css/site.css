@@ -435,6 +435,11 @@ div.caption {
 div.footnotes {
     font-size: 80%;
 }
+@media (max-width: 1280px) {
+    .modal img {
+        width: 100%;
+    }
+}
 /* Start help */
 #help p {
     font-weight: 300;
