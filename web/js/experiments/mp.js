@@ -327,11 +327,13 @@ function mpExperiment(experimentName,  rules, images, columns) {
         function filterGene(gene) {
             yadcf.exResetAllFilters(table.dt, true);
 
+            $root.css('opacity', 0.2);
+
             table.dt.one('draw.dt', function () {
                 yadcf.exFilterColumn(table.dt, [[0, gene]], true);
 
                 table.dt.one('draw.dt', function() {
-
+                    $root.css('opacity', 1);
                     if (table.dt.data().length > 0) {
                         table.$table.find("tbody tr:eq(0)").addClass("selected");
                         showGene(gene);
