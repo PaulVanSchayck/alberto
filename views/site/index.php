@@ -28,7 +28,7 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
                     'id' => 'gene',
                     'useHandleBars' => false,
                     'options' => ['placeholder' => 'AT1G01010 or WOX'],
-                    'pluginOptions' => ['highlight' => true],
+                    'pluginOptions' => ['highlight' => true, 'autoselect' => true],
                     'dataset' => [
                         [
                             'remote' => Url::to(['gene/autocomplete']) . '/%QUERY',
