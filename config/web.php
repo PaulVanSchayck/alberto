@@ -48,7 +48,7 @@ $config = [
             'rules' => [
                 'site/tab/<exp:.+>' => 'site/tab',
                 'gene/autocomplete/<q:.+>' => 'gene/autocomplete',
-                'gene/<exp:.+>' => 'gene/index',
+                'gene/data/<exp:.+>' => 'gene/data',
                 'gene/export/<exp:.+>' => 'gene/export',
             ]
         ]

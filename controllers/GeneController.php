@@ -32,7 +32,7 @@ class GeneController extends Controller {
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'autocomplete', 'export'],
+                        'actions' => ['data', 'autocomplete', 'export'],
                         'allow' => true,
                     ],
                 ],
@@ -40,7 +40,7 @@ class GeneController extends Controller {
         ];
     }
 
-    function actionIndex($exp)
+    function actionData($exp)
     {
         $experiments = Yii::$app->params['experiments'];
 

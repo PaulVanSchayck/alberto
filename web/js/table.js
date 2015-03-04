@@ -18,7 +18,7 @@ window.alberto.table = function($table, columns, filterColumns, experiment) {
         // experiment.loaded is responsible for loading the table
         deferLoading: 0,
         ajax: {
-            url: "/gene/" + experiment ,
+            url: "/gene/data/" + experiment ,
             method: "post",
             dataSrc: "data",
             data: function(d) {
