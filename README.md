@@ -15,7 +15,6 @@ DIRECTORY STRUCTURE
       mail/               contains view files for e-mails
       models/             contains model classes
       runtime/            contains files generated during runtime
-      tests/              contains various tests for the basic application
       vendor/             contains dependent 3rd-party packages
       views/              contains view files for the Web application
       web/                contains the entry script and Web resources
@@ -88,6 +87,17 @@ Refer to the `data/README.md`
 ### Users
 
 Copy the file `config/users.sample.php` to `config/users.php` and fill it.
+
+Deployment
+----------
+In `deployment/update.sh` a simple deployment scrips is included which will first compress and
+minify all JS and CSS files and then perform a lftp mirror. For this uglifyjs and cleancss are
+required. These are node.js packages. Install through:
+
+```
+sudo npm install uglify-js -g
+sudo npm install clean-css -g
+```
 
 Author
 ------
