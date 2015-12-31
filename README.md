@@ -47,7 +47,7 @@ at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 You need to install the composer-asset-plugin that Yii2 requires:
 
 ~~~
-php composer.phar global require "fxp/composer-asset-plugin:1.0.0-beta2"
+php composer.phar global require "fxp/composer-asset-plugin:1.1.*"
 ~~~
 
 Then install the dependencies as they are specified in the composer.lock file:
