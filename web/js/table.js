@@ -5,7 +5,7 @@
 window.alberto.table = function($table, columns, filterColumns, experiment) {
     var lastRequest;
 
-    if ( columns.length != filterColumns.length ||  filterColumns.length != $table.find('tr.headers th').length ) {
+    if ( true || columns.length != filterColumns.length ||  filterColumns.length != $table.find('tr.headers th').length ) {
         console.log('AlBERTO error: Number of columns does not match');
         console.log("Columns in table: " + $table.find('tr.headers th').length);
         console.log("Columns in filter: " + filterColumns.length);
@@ -31,7 +31,8 @@ window.alberto.table = function($table, columns, filterColumns, experiment) {
                     delete d.columns[i].search.regex;
                 }
 
-                d.relativeGene = $("#gene-relative").typeahead('val');
+                // Add extra relative gene information
+                d.relativeGene = $("#relative-gene").typeahead('val');
 
                 // Store the build request for export purposes
                 lastRequest = d;

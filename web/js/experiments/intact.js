@@ -71,27 +71,6 @@ function intactExperiment(root) {
                 navInfo.setExperimentMode($a.data('mode'));
             });
 
-            var gene_data_1 = new Bloodhound({"datumTokenizer":Bloodhound.tokenizers.obj.whitespace('agi'),"queryTokenizer":Bloodhound.tokenizers.whitespace,"limit":10,"remote":{"url":"/index.php?r=gene%2Fautocomplete&q=%QUERY","ajax":{"beforeSend":function(){jQuery("#gene-relative").addClass('loading');},"complete":function(){jQuery("#gene-relative").removeClass('loading');}}}});
-
-            gene_data_1.initialize();
-
-            $("#gene-relative").typeahead(
-                {"highlight":true},
-                [
-                    {
-                        "templates":{
-                            "empty":"<p>Unable to find a matching gene.</p>",
-                            "suggestion": function(o){ return '<p>'+o.agi+' '+o.gene+'</p>'; }
-                        },
-                        "displayKey": "agi",
-                        "name":"gene_data_1",
-                        "source":gene_data_1.ttAdapter()
-                    }
-                ]
-            ).on('typeahead:selected', function(event, selection) {
-                table.dt.draw()
-            });
-
             // If no mode is selected, set the absolute expression mode
             if (!navInfo.getExperimentMode()) {
                 $root.find(".mode button").first().click();
@@ -412,6 +391,8 @@ function intactExperiment(root) {
                     .setAttribute('max', 10)
                     .setValue([-5, 5])
                     .refresh();
+
+                $root.find('.relative').append($("#relative-input").show());
 
                 scale.scale.domain([-5, 0, 0, 5])
                     .range(["blue", "lightgray", "lightgray", "red"]);

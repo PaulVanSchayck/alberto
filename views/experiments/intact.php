@@ -141,6 +141,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 </div>
                 <p class="unit mode-abs"><span class="label label-primary">Unit</span> Signal intensity (normalized)</p>
                 <p class="unit mode-fc"><span class="label label-primary">Unit</span> Limma log2-based fold change</p>
+                <p class="unit mode-rel"><span class="label label-primary">Unit</span> log2 fold change</p>
             </div>
         </div>
     </div>
@@ -163,7 +164,10 @@ $intact = Yii::$app->params['experiments']['intact'];
                     </div>
                     <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold change of a gene relative to another gene">Relative</button>
                 </div>
-                <input type="text" id="gene-relative" class="form-control" name="gene-relative" placeholder="AT1G01010 or WOX" data-krajee-typeahead="typeahead_7864e59a">
+
+                <div class="relative">
+
+                </div>
             </div>
         </div>
     </div>
@@ -322,9 +326,9 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <thead>
                 <tr class="topHeader">
                     <th colspan="3">Gene information</th>
-                    <th colspan="9">Early globular stage</th>
-                    <th colspan="6">Late globular stage</th>
-                    <th colspan="3">Heart stage</th>
+                    <th colspan="12">Early globular stage</th>
+                    <th colspan="8">Late globular stage</th>
+                    <th colspan="4">Heart stage</th>
                     <th colspan="14">Fold changes</th>
                 </tr>
                 <tr class="headers">

@@ -453,6 +453,17 @@ function defaultExperiment(experimentName, rules, images, columns, scales) {
                 scale.scale.domain([scales.abs.default[0], scales.abs.default[1]])
                     .range(["yellow", "red"]);
                 scale.setFcMode(false)
+            } else if (navInfo.getExperimentMode() == "rel") {
+                scale.slider.setAttribute('min', -10)
+                    .setAttribute('max', 10)
+                    .setValue([-5, 5])
+                    .refresh();
+
+                $root.find('.relative').append($("#relative-input").show());
+
+                scale.scale.domain([-5, 0, 0, 5])
+                    .range(["blue", "lightgray", "lightgray", "red"]);
+                scale.setFcMode(true)
             }
 
             $root.removeClass('abs fc').addClass(navInfo.getExperimentMode());

@@ -103,6 +103,12 @@ $(document).ready(function(){
         navInfo.setGene(false)
     });
 
+    // Handle gene inpout from the relative selection
+    $('#relative-input input').on('typeahead:selected', function(event, selection) {
+        navInfo.getExperimentObj().reloadTable();
+    });
+
+
     $(".tab-content").on('click','.download-svg', function(e) {
         e.preventDefault();
         saveAsSVG($(this).parents('.panel').find('svg')[0],$(this).attr('title').replace('gene',navInfo.getGene()));

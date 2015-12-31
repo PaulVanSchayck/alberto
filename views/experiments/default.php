@@ -129,6 +129,9 @@ use yii\bootstrap\Modal;
                     <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View fold changes">Fold change</button>
                     <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold change of a gene relative to another gene">Relative</button>
                 </div>
+                <div class="relative">
+
+                </div>
             </div>
         </div>
     </div>

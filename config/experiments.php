@@ -167,9 +167,9 @@ return [
                 '*' => [
                     'name' => 'Whole embryo',
                     'abs' => 'no-data',
+                    'rel' => 'no-data',
                     'fc_spt' => 'no-data',
-                    'fc_tmp' => 'no-data',
-                    'rel' => 'no-data'
+                    'fc_tmp' => 'no-data'
                 ]
             ]
         ]

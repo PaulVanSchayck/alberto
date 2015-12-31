@@ -315,13 +315,16 @@ pre.annotation {
 .scale .tooltip {
     z-index: 1010;
 }
-.scale .mode-abs, .scale .mode-fc {
+.scale .mode-abs, .scale .mode-fc, .scale .mode-rel {
     display: none;
 }
 .abs .scale .mode-abs {
     display: block;
 }
 .fc .scale .mode-fc, .fc_tmp .scale .mode-fc, .fc_spt .scale .mode-fc {
+    display: block;
+}
+.rel .scale .mode-rel {
     display: block;
 }
 .unit {
@@ -353,13 +356,10 @@ pre.annotation {
 #rootgradient.fc .mode .mode-fc {
     display: block;
 }
-#intact .twitter-typeahead {
-    display: none;
+#relative-input {
     margin-top: 20px;
 }
-.mode-fc_spt .twitter-typeahead, .mode-fc_tmp .twitter-typeahead {
-    display: block;
-}
+
 /* Column visibility dialog */
 .visibilityModal .checkbox-inline {
     padding-left: 0;

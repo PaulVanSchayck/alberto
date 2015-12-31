@@ -16,6 +16,33 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
         The download feature is not completely supported in your browser. Please use a modern version of either Chrome or Firefox.
     </div>
 
+    <div id="relative-input" style="display:none">
+        <p>Enter an AGI or gene name to be used a relative source gene.</p>
+        <div class="input-group">
+            <span class="input-group-addon danger">Gene</span>
+            <?php
+            echo Typeahead::widget([
+                'name' => 'relative-gene',
+                'id' => 'relative-gene',
+                'useHandleBars' => false,
+                'options' => ['placeholder' => 'AT1G01010 or WOX'],
+                'pluginOptions' => ['highlight' => true, 'autoselect' => true],
+                'dataset' => [
+                    [
+                        'remote' => Url::to(['gene/autocomplete']) . '/%QUERY',
+                        'limit' => 10,
+                        'templates' => [
+                            'empty' => '<p>Unable to find a matching gene.</p>',
+                            'suggestion' => new JsExpression("function(o){ return '<p>'+o.agi+' '+o.gene+'</p>'; }")
+                        ],
+                        'displayKey' => 'agi'
+                    ]
+                ]
+            ]);
+            ?>
+        </div>
+    </div>
+
     <div class="row top">
 
         <div class="col-lg-6">
