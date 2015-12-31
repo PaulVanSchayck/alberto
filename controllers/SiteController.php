@@ -101,12 +101,14 @@ class SiteController extends Controller
             return "No access";
         }
 
-        $experimentalSetupFile = Yii::getAlias('@app') . '/experimentalsetup/' . $experiments[$exp]['experimentalSetup']['file'];
+        if (isset($experiments[$exp]['experimentalSetup']) ) {
+            $experimentalSetupFile = Yii::getAlias('@app') . '/experimentalsetup/' . $experiments[$exp]['experimentalSetup']['file'];
 
-        if ( file_exists($experimentalSetupFile) ) {
-            $experiments[$exp]['experimentalSetup']['contents'] = file_get_contents($experimentalSetupFile);
-        } else {
-            $experiments[$exp]['experimentalSetup']['contents'] = "Could not load experimental setup file: " . $experiments[$exp]['experimentalSetup']['file'];
+            if (file_exists($experimentalSetupFile)) {
+                $experiments[$exp]['experimentalSetup']['contents'] = file_get_contents($experimentalSetupFile);
+            } else {
+                $experiments[$exp]['experimentalSetup']['contents'] = "Could not load experimental setup file: " . $experiments[$exp]['experimentalSetup']['file'];
+            }
         }
 
         return $this->renderPartial('/experiments/' . $experiments[$exp]['template'], [
