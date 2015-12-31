@@ -353,6 +353,13 @@ pre.annotation {
 #rootgradient.fc .mode .mode-fc {
     display: block;
 }
+#intact .twitter-typeahead {
+    display: none;
+    margin-top: 20px;
+}
+.mode-fc_spt .twitter-typeahead, .mode-fc_tmp .twitter-typeahead {
+    display: block;
+}
 /* Column visibility dialog */
 .visibilityModal .checkbox-inline {
     padding-left: 0;

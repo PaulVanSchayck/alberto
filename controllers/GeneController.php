@@ -63,7 +63,7 @@ class GeneController extends Controller {
             $dataProvider = new ActiveDataProvider([
                 'query' => $model::find()
                     ->select($GeneRequest->getColumns())
-                    //->addSelect(['LOG2(`suspensor_eg` / 10) AS rel'])
+                    ->addSelect($GeneRequest->getRelativeFields($experiments[$exp]['columns'], $model))
                     ->joinWith('gene')
                     ->filterWhere($GeneRequest->getFilter())
                     // The next line filters any genes where there is no corresponding gene

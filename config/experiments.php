@@ -102,18 +102,21 @@ return [
                 'suspensor' => [
                     'name' => 'Suspensor',
                     'abs' => 'suspensor_eg',
+                    'rel' => 'suspensor_eg_rel',
                     'fc_spt' => 'fc_suspensor_eg_embryo_eg',
                     'fc_tmp' => false
                 ],
                 'hypophysis' => [
                     'name' => 'Hypophysis',
                     'abs' => 'suspensor_eg',
+                    'rel' => 'suspensor_eg_rel',
                     'fc_spt' => 'fc_suspensor_eg_embryo_eg',
                     'fc_tmp' => false
                 ],
                 'vascular-initials' => [
                     'name' => 'Vascular initials',
                     'abs' => 'vascular_eg',
+                    'rel' => 'vascular_eg_rel',
                     'fc_spt' => 'fc_vascular_eg_embryo_eg',
                     'fc_tmp' => false
                 ],
@@ -121,6 +124,7 @@ return [
                 '*' => [
                     'name' => 'Whole embryo',
                     'abs' => 'embryo_eg',
+                    'rel' => 'embryo_eg_rel',
                     'fc_spt' => false,
                     'fc_tmp' => false
                 ]
@@ -130,12 +134,14 @@ return [
                 'vascular' => [
                     'name' => 'Vascular',
                     'abs' => 'vascular_lg',
+                    'rel' => 'vascular_lg_rel',
                     'fc_spt' => 'fc_vascular_lg_embryo_lg',
                     'fc_tmp' => 'fc_vascular_lg_vascular_eg'
                 ],
                 'vascular-initials' => [
                     'name' => 'Vascular',
                     'abs' => 'vascular_lg',
+                    'rel' => 'vascular_lg_rel',
                     'fc_spt' => 'fc_vascular_lg_embryo_lg',
                     'fc_tmp' => 'fc_vascular_lg_vascular_eg'
                 ],
@@ -143,6 +149,7 @@ return [
                 '*' => [
                     'name' => 'Whole embryo',
                     'abs' => 'embryo_lg',
+                    'rel' => 'embryo_lg_rel',
                     'fc_spt' => false,
                     'fc_tmp' => 'fc_embryo_lg_embryo_eg'
                 ]
@@ -152,6 +159,7 @@ return [
                 'qc' => [
                     'name' => 'QC',
                     'abs' => 'qc_hs',
+                    'rel' => 'qc_hs_rel',
                     'fc_spt' => 'fc_qc_hs_embryo_lg',
                     'fc_tmp' => 'fc_qc_hs_suspensor_eg'
                 ],
@@ -160,7 +168,8 @@ return [
                     'name' => 'Whole embryo',
                     'abs' => 'no-data',
                     'fc_spt' => 'no-data',
-                    'fc_tmp' => 'no-data'
+                    'fc_tmp' => 'no-data',
+                    'rel' => 'no-data'
                 ]
             ]
         ]
