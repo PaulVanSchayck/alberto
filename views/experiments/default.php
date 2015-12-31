@@ -147,7 +147,7 @@ use yii\bootstrap\Modal;
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
                 ]);
-                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/' . $config['experimentalSetup']['file']));
+                echo \Michelf\MarkdownExtra::defaultTransform($config['experimentalSetup']['contents']);
                 ?>
                 <?php Modal::end(); ?>
             </div>

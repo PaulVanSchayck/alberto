@@ -156,8 +156,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
             </div>
             <div class="panel-body">
                 <p>
-                    Cells from Arabidopsis roots expressing a gradient marker emanating from the distal root tip were
-                    sorted based on GFP intensity...
+                    <?= $config['experimentalSetup']['note'] ?>
                 </p>
                 <?php Modal::begin([
                     'id' => $experimentName.'-experiment',
@@ -165,7 +164,7 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
                 ]);
-                echo \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/root-gradient.md'));
+                echo \Michelf\MarkdownExtra::defaultTransform($config['experimentalSetup']['contents']);
                 ?>
                 <?php Modal::end(); ?>
             </div>

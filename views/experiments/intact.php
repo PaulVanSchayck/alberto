@@ -170,8 +170,7 @@ $intact = Yii::$app->params['experiments']['intact'];
             </div>
             <div class="panel-body">
                 <p>
-                    Cell type-specific nuclei were isolated from early globular stage, late globular stage and
-                    heart stage Arabidopsis embryos...
+                    <?= $config['experimentalSetup']['note'] ?>
                 </p>
                 <?php Modal::begin([
                     'id' => 'experimentModal',
@@ -179,7 +178,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
                 ]);?>
-                <?= \Michelf\MarkdownExtra::defaultTransform(file_get_contents(Yii::getAlias('@app') . '/experimentalsetup/intact.md')); ?>
+                <?= \Michelf\MarkdownExtra::defaultTransform($config['experimentalSetup']['contents']); ?>
                 <?php Modal::end(); ?>
             </div>
         </div>

@@ -16,6 +16,10 @@ return [
         'login' => true,
         'template' => 'intact.php',
         'loader' => 'loadExperiment',
+        'experimentalSetup' => [
+            'note' => 'Cell type-specific nuclei were isolated from early globular stage, late globular stage and heart stage Arabidopsis embryos...',
+            'file' => 'intact.md'
+        ],
         'model' => 'app\models\Intact',
         'columns' => [
 
@@ -251,6 +255,10 @@ return [
         'template' => 'roots.php',
         'loader' => 'loadExperiment',
         'model' => 'app\models\RootGradient',
+        'experimentalSetup' => [
+            'note' => 'Cells from Arabidopsis roots expressing a gradient marker emanating from the distal root tip were sorted based on GFP intensity...',
+            'file' => 'root-gradient.md'
+        ],
         'images' => [
             'tmo5' => '.tmo5 .root',
             'spt' => '.spt .root',
