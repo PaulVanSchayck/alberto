@@ -403,7 +403,7 @@ function intactExperiment(root) {
                 scale.setFcMode(true)
             }
 
-            $("#intact").removeClass('abs fc_spt fc_tmp').addClass(navInfo.getExperimentMode());
+            $("#intact").removeClass('abs fc_spt fc_tmp rel').addClass(navInfo.getExperimentMode());
             highlightActiveMode(navInfo.getExperimentMode());
 
             table.showColumnType(navInfo.getExperimentMode());

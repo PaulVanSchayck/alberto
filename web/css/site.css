@@ -315,7 +315,7 @@ pre.annotation {
 .scale .tooltip {
     z-index: 1010;
 }
-.scale .mode-abs, .scale .mode-fc, .scale .mode-rel {
+.scale .mode-abs, .scale .mode-fc, .scale .mode-rel, .scale .mode-rel {
     display: none;
 }
 .abs .scale .mode-abs {
@@ -359,7 +359,12 @@ pre.annotation {
 #relative-input {
     margin-top: 20px;
 }
-
+.relative {
+    display: none;
+}
+.rel .relative {
+    display: block;
+}
 /* Column visibility dialog */
 .visibilityModal .checkbox-inline {
     padding-left: 0;
