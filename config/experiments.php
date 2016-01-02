@@ -111,7 +111,7 @@ return [
                     'abs' => 'suspensor_eg',
                     'rel' => 'suspensor_eg_rel',
                     'fc_spt' => 'fc_suspensor_eg_embryo_eg',
-                    'fc_tmp' => false
+                    'fc_tmp' => false,
                 ],
                 'vascular-initials' => [
                     'name' => 'Vascular initials',
@@ -136,14 +136,20 @@ return [
                     'abs' => 'vascular_lg',
                     'rel' => 'vascular_lg_rel',
                     'fc_spt' => 'fc_vascular_lg_embryo_lg',
-                    'fc_tmp' => 'fc_vascular_lg_vascular_eg'
+                    'fc_tmp' => 'fc_vascular_lg_vascular_eg',
+                    'highlight' => [
+                        'fc_tmp' => '.eg .vascular-initials'
+                    ],
                 ],
                 'vascular-initials' => [
                     'name' => 'Vascular',
                     'abs' => 'vascular_lg',
                     'rel' => 'vascular_lg_rel',
                     'fc_spt' => 'fc_vascular_lg_embryo_lg',
-                    'fc_tmp' => 'fc_vascular_lg_vascular_eg'
+                    'fc_tmp' => 'fc_vascular_lg_vascular_eg',
+                    'highlight' => [
+                        'fc_tmp' => '.eg .vascular-initials'
+                    ],
                 ],
 
                 '*' => [
@@ -151,7 +157,10 @@ return [
                     'abs' => 'embryo_lg',
                     'rel' => 'embryo_lg_rel',
                     'fc_spt' => false,
-                    'fc_tmp' => 'fc_embryo_lg_embryo_eg'
+                    'fc_tmp' => 'fc_embryo_lg_embryo_eg',
+                    'highlight' => [
+                        'fc_tmp' => '.eg'
+                    ],
                 ]
             ],
 
@@ -161,7 +170,10 @@ return [
                     'abs' => 'qc_hs',
                     'rel' => 'qc_hs_rel',
                     'fc_spt' => 'fc_qc_hs_embryo_lg',
-                    'fc_tmp' => 'fc_qc_hs_suspensor_eg'
+                    'fc_tmp' => 'fc_qc_hs_suspensor_eg',
+                    'highlight' => [
+                        'fc_tmp' => '.eg .suspensor'
+                    ],
                 ],
 
                 '*' => [

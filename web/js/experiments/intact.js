@@ -260,21 +260,26 @@ function intactExperiment(root) {
                         var $g = $(this);
                         var tissue = $g.attr('class').replace(' pointer-events', '');
                         var stage = $g.parents('svg').attr('class');
-                        var column;
+                        var column, highlight;
+                        var tissueRules = intactRules[stage][tissue] ? intactRules[stage][tissue] : intactRules[stage]['*'];
 
-                        if (intactRules[stage][tissue]) {
-                            column = intactRules[stage][tissue][navInfo.getExperimentMode()]
-                        } else {
-                            column = intactRules[stage]['*'][navInfo.getExperimentMode()]
-                        }
+                        column = tissueRules[navInfo.getExperimentMode()];
                         var columnIdx = table.dt.column(column + ":name").index();
 
                         if (columnIdx) {
                             $(table.dt.column(columnIdx).nodes()).addClass('highlight');
                         }
+
+                        // Extra highlight
+                        if (tissueRules.highlight && tissueRules.highlight[navInfo.getExperimentMode()]) {
+                                  d3.select(tissueRules.highlight[navInfo.getExperimentMode()])
+                                      .classed('highlight', true)
+                                      .transition().style('opacity', 0.5);
+                        }
                     })
                     .on('mouseout', function () {
-                        $(table.dt.cells().nodes()).removeClass('highlight')
+                        $(table.dt.cells().nodes()).removeClass('highlight');
+                        d3.select(".highlight").classed('highlight', false).transition().style('opacity', 1);
                     })
             });
         }

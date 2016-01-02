@@ -204,6 +204,10 @@ div.svg img.warning-sign {
     width: 50px;
 }
 
+div.svg svg.highlight g, div.svg svg g.highlight {
+    fill: grey;
+}
+
 .tab-content > div.abs img.warning-sign.abs,
 .tab-content > div.fc img.warning-sign.fc,
 .tab-content > div.fc_tmp img.warning-sign.fc_tmp,
