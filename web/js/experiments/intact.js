@@ -300,6 +300,10 @@ function intactExperiment(root) {
                 r += "<p class='sd " + warning + "'><span class='label label-primary'>%RSD</span> " + (d.rsd.toFixed ? d.rsd.toFixed(1) + "%" : d.rsd) + "</p>";
             }
 
+            if (navInfo.getExperimentMode() == "rel") {
+                r += "<p><span class='label label-primary'>Expression value</span> " + d.rel + "</p>";
+            }
+
             if (navInfo.getExperimentMode() == "fc_spt" && d.fc_spt) {
                 warning = d.fc_spt_q > qWarning ? 'warning' : '';
                 r += "<p><span class='label label-primary'>Spatial FC</span> " + d.fc_spt + "</p>";
