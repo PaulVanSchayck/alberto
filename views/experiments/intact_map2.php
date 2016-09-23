@@ -363,8 +363,8 @@ $intact = Yii::$app->params['experiments']['intact_map2'];
 </div>
 
 <script type="text/javascript">
-    var intactColumns = $.parseJSON('<?= json_encode($intact['columns']); ?>');
-    var intactRules = $.parseJSON('<?= json_encode($intact['rules']); ?>');
+    var columns = $.parseJSON('<?= json_encode($intact['columns']); ?>');
+    var rules = $.parseJSON('<?= json_encode($intact['rules']); ?>');
     var images = $.parseJSON('<?= json_encode($config['images']); ?>');
-    navInfo.registerExperiment(intactExperiment("intact_map2", images));
+    navInfo.registerExperiment(intactExperiment("intact_map2", rules, images, columns));
 </script>

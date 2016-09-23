@@ -322,7 +322,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                 <?php Modal::end(); ?>
             </div>
-            <table class="display" id="intactTable">
+            <table class="display" id="intact-table">
                 <thead>
                 <tr class="topHeader">
                     <th colspan="3">Gene information</th>
@@ -360,7 +360,8 @@ $intact = Yii::$app->params['experiments']['intact'];
 </div>
 
 <script type="text/javascript">
-    var intactColumns = $.parseJSON('<?= json_encode($intact['columns']); ?>');
-    var intactRules = $.parseJSON('<?= json_encode($intact['rules']); ?>');
-    navInfo.registerExperiment(intactExperiment("#intact"));
+    var columns = $.parseJSON('<?= json_encode($intact['columns']); ?>');
+    var rules = $.parseJSON('<?= json_encode($intact['rules']); ?>');
+    var images = $.parseJSON('<?= json_encode($config['images']); ?>');
+    navInfo.registerExperiment(intactExperiment("intact", rules, images, columns));
 </script>

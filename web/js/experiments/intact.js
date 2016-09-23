@@ -1,5 +1,5 @@
 
-function intactExperiment(experimentName, images) {
+function intactExperiment(experimentName, rules, images, columns) {
 
     return function() {
         var tissues = [
@@ -16,7 +16,7 @@ function intactExperiment(experimentName, images) {
             'columella'
         ];
 
-        var table = window.alberto.table($("#" + experimentName + "-table"), buildDTColumns(intactColumns), buildFilterColumns(intactColumns), experimentName);
+        var table = window.alberto.table($("#" + experimentName + "-table"), buildDTColumns(columns), buildFilterColumns(columns), experimentName);
         var root = "#" + experimentName;
         var baseColors;
 
@@ -90,10 +90,10 @@ function intactExperiment(experimentName, images) {
                 var stage = $($dropdown.data('g')).parents('svg').attr('class');
                 var column, columnIdx;
 
-                if (intactRules[stage][tissue]) {
-                    column = intactRules[stage][tissue]
+                if (rules[stage][tissue]) {
+                    column = rules[stage][tissue]
                 } else {
-                    column = intactRules[stage]['*']
+                    column = rules[stage]['*']
                 }
 
                 if ($(this).hasClass('highest')) {
@@ -140,7 +140,7 @@ function intactExperiment(experimentName, images) {
                     yadcf.exFilterColumn(table.dt, filter, true);
 
                     // Because the column index is changed when the visibility is changed, recalculate
-                    columnIdx = table.dt.column(intactRules[stage][tissue].fc_spt + ":name").index();
+                    columnIdx = table.dt.column(rules[stage][tissue].fc_spt + ":name").index();
                     table.dt.order([columnIdx, 'desc']).draw();
 
                     return false;
@@ -203,7 +203,7 @@ function intactExperiment(experimentName, images) {
 
         function loadINTACT(data) {
 
-            $.each(intactRules, function (stageId, stage) {
+            $.each(rules, function (stageId, stage) {
                 var stageData = [],
                     $warningSign = $root.find(".svg[data-stage=" + stageId + "] img.warning-sign").removeClass('abs fc_spt fc_tmp');
 
@@ -261,7 +261,7 @@ function intactExperiment(experimentName, images) {
                         var tissue = $g.attr('class').replace(' pointer-events', '');
                         var stage = $g.parents('svg').attr('class');
                         var column, highlight;
-                        var tissueRules = intactRules[stage][tissue] ? intactRules[stage][tissue] : intactRules[stage]['*'];
+                        var tissueRules = rules[stage][tissue] ? rules[stage][tissue] : rules[stage]['*'];
 
                         column = tissueRules[navInfo.getExperimentMode()];
                         var columnIdx = table.dt.column(column + ":name").index();

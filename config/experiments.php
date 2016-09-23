@@ -21,6 +21,11 @@ return [
             'file' => 'intact.md'
         ],
         'model' => 'app\models\Intact',
+        'images' => [
+            'eg' => '.eg',
+            'lg' => '.lg',
+            'hs' => '.hs'
+        ],
         'columns' => [
 
             // Absolute expression
