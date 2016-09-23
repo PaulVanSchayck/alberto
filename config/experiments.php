@@ -166,7 +166,7 @@ return [
 
             'hs' => [
                 'qc' => [
-                    'name' => 'QC',
+                    'name' => 'QC precursor',
                     'abs' => 'qc_hs',
                     'rel' => 'qc_hs_rel',
                     'fc_spt' => 'fc_qc_hs_embryo_lg',
@@ -182,6 +182,313 @@ return [
                     'rel' => 'no-data',
                     'fc_spt' => 'no-data',
                     'fc_tmp' => 'no-data'
+                ]
+            ]
+        ]
+    ],
+
+    'intact_map2' => [
+        'login' => true,
+        'template' => 'intact_map2.php',
+        'loader' => 'loadExperiment',
+        'experimentalSetup' => [
+            'note' => 'Cell type-specific nuclei were isolated from early globular stage, late globular stage and heart stage Arabidopsis embryos...',
+            'file' => 'intact.md'
+        ],
+        'model' => 'app\models\Intact_map2',
+        'images' => [
+            '16C' => '.wt-16C',
+            'eg' => '.eg',
+            'lg' => '.lg',
+        ],
+        'columns' => [
+
+            // Absolute expression
+            [
+                'field' => 'nILT_16C',
+                'type' => 'abs',
+                'label' => 'Inner Lower Tier 16C'
+            ],
+            [
+                'field' => 'nEMB_16C',
+                'type' => 'abs',
+                'label' => 'Embryo 16C'
+            ],
+            [
+                'field' => 'nVSC_EG',
+                'type' => 'abs',
+                'label' => 'Vascular EG'
+            ],
+            [
+                'field' => 'nGSC_EG',
+                'type' => 'abs',
+                'label' => 'Ground EG'
+            ],
+            [
+                'field' => 'nSUS_EG',
+                'type' => 'abs',
+                'label' => 'Suspensor EG'
+            ],
+            [
+                'field' => 'nEMB_EG',
+                'type' => 'abs',
+                'label' => 'Embryo EG'
+            ],
+
+            [
+                'field' => 'nVSC_LG',
+                'type' => 'abs',
+                'label' => 'Vascular LG'
+            ],
+
+            [
+                'field' => 'nGSC_LG',
+                'type' => 'abs',
+                'label' => 'Ground LG'
+            ],
+
+            [
+                'field' => 'nSUS_LG',
+                'type' => 'abs',
+                'label' => 'Suspensor LG'
+            ],
+
+            [
+                'field' => 'nQC_LG',
+                'type' => 'abs',
+                'label' => 'QC LG'
+            ],
+
+            [
+                'field' => 'nEMB_LG',
+                'type' => 'abs',
+                'label' => 'Embryo LG'
+            ],
+
+            // Spatial fold changes
+            [
+                'field' => 'FC_nILT_16C_vs_nEMB_16C',
+                'type' => 'fc_spt',
+                'label' => 'ILT/Embryo 16C'
+            ],
+            [
+                'field' => 'FC_nVSC_EG_vs_nEMB_EG',
+                'type' => 'fc_spt',
+                'label' => 'Vascular/Embryo EG'
+            ],
+            [
+                'field' => 'FC_nGSC_EG_vs_nEMB_EG',
+                'type' => 'fc_spt',
+                'label' => 'Ground/Embryo EG'
+            ],
+
+            [
+                'field' => 'FC_nSUS_EG_vs_nEMB_EG',
+                'type' => 'fc_spt',
+                'label' => 'Suspensor/Embryo EG'
+            ],
+
+            [
+                'field' => 'FC_nVSC_LG_vs_nEMB_LG',
+                'type' => 'fc_spt',
+                'label' => 'Vascular/Embryo LG'
+            ],
+            [
+                'field' => 'FC_nGSC_LG_vs_nEMB_LG',
+                'type' => 'fc_spt',
+                'label' => 'Ground/Embryo LG'
+            ],
+            [
+                'field' => 'FC_nSUS_LG_vs_nEMB_LG',
+                'type' => 'fc_spt',
+                'label' => 'Suspensor/Embryo LG'
+            ],
+
+            [
+                'field' => 'FC_nQC_LG_vs_nEMB_LG',
+                'type' => 'fc_spt',
+                'label' => 'QC/Embryo LG'
+            ],
+
+
+            // Temporal fold changes
+            [
+                'field' => 'FC_nEMB_EG_vs_nEMB_16C',
+                'type' => 'fc_tmp',
+                'label' => 'Embryo EG/Embryo 16C'
+            ],
+            [
+                'field' => 'FC_nEMB_LG_vs_nEMB_EG',
+                'type' => 'fc_tmp',
+                'label' => 'Embryo LG/Embryo EG'
+            ],
+            [
+                'field' => 'FC_nVSC_EG_vs_nILT_16C',
+                'type' => 'fc_tmp',
+                'label' => 'Vascular EG/Inner Lower Tier 16C'
+            ],
+
+            [
+                'field' => 'FC_nVSC_LG_vs_nVSC_EG',
+                'type' => 'fc_tmp',
+                'label' => 'Vascular LG/Vascular EG'
+            ],
+            [
+                'field' => 'FC_nGSC_EG_vs_nILT_16C',
+                'type' => 'fc_tmp',
+                'label' => 'Ground EG/Inner Lower Tier 16C'
+            ],
+            [
+                'field' => 'FC_nGSC_LG_vs_nGSC_EG',
+                'type' => 'fc_tmp',
+                'label' => 'Ground LG/Ground EG'
+            ],
+
+            [
+                'field' => 'FC_nSUS_LG_vs_nSUS_EG',
+                'type' => 'fc_tmp',
+                'label' => 'Suspensor LG/Suspensor EG'
+            ]
+        ],
+
+        // Rules for setting colors
+        'rules' => [
+            'wt-16C' => [
+                'inner-lower-tier' => [
+                    'name' => 'Inner Lower Tier',
+                    'abs' => 'nILT_16C',
+                    'rel' => 'nILT_16C_rel',
+                    'fc_spt' => 'FC_nILT_16C_vs_nEMB_16C',
+                    'fc_tmp' => false
+                ],
+                '*' => [
+                    'name' => 'Whole embryo',
+                    'abs' => 'nEMB_16C',
+                    'rel' => 'nEMB_16C_rel',
+                    'fc_spt' => false,
+                    'fc_tmp' => false
+                ]
+            ],
+
+            'eg' => [
+                'suspensor' => [
+                    'name' => 'Suspensor',
+                    'abs' => 'nSUS_EG',
+                    'rel' => 'nSUS_EG_rel',
+                    'fc_spt' => 'FC_nSUS_EG_vs_nEMB_EG',
+                    'fc_tmp' =>  'FC_nEMB_EG_vs_nEMB_16C',
+                    'highlight' => [
+                        'fc_tmp' => '.wt-16C'
+                    ],
+
+                ],
+                'vascular-initials' => [
+                    'name' => 'Vascular initials',
+                    'abs' => 'nVSC_EG',
+                    'rel' => 'nVSC_EG_rel',
+                    'fc_spt' => 'FC_nVSC_EG_vs_nEMB_EG',
+                    'fc_tmp' => 'FC_nVSC_EG_vs_nILT_16C',
+                    'highlight' => [
+                        'fc_tmp' => '.wt-16C .inner-lower-tier'
+                    ],
+                ],
+
+                'ground-initials' => [
+                    'name' => 'Ground tissue initials',
+                    'abs' => 'nGSC_EG',
+                    'rel' => 'nGSC_EG_rel',
+                    'fc_spt' => 'FC_nGSC_EG_vs_nEMB_EG',
+                    'fc_tmp' => 'FC_nGSC_EG_vs_nILT_16C',
+                    'highlight' => [
+                        'fc_tmp' => '.wt-16C .inner-lower-tier'
+                    ],
+                ],
+
+                '*' => [
+                    'name' => 'Whole embryo',
+                    'abs' => 'nEMB_EG',
+                    'rel' => 'nEMB_EG_rel',
+                    'fc_spt' => false,
+                    'fc_tmp' => 'FC_nEMB_EG_vs_nEMB_16C',
+                    'highlight' => [
+                        'fc_tmp' => '.wt-16C'
+                    ],
+                ]
+            ],
+
+            'lg' => [
+                'vascular' => [
+                    'name' => 'Vascular',
+                    'abs' => 'nVSC_LG',
+                    'rel' => 'nVSC_LG_rel',
+                    'fc_spt' => 'FC_nVSC_LG_vs_nEMB_LG',
+                    'fc_tmp' => 'FC_nVSC_LG_vs_nVSC_EG',
+                    'highlight' => [
+                        'fc_tmp' => '.eg .vascular-initials'
+                    ],
+
+                ],
+                'vascular-initials' => [
+                    'name' => 'Vascular',
+                    'abs' => 'nVSC_LG',
+                    'rel' => 'nVSC_LG_rel',
+                    'fc_spt' => 'FC_nVSC_LG_vs_nEMB_LG',
+                    'fc_tmp' => 'FC_nVSC_LG_vs_nVSC_EG',
+                    'highlight' => [
+                        'fc_tmp' => '.eg .vascular-initials'
+                    ],
+
+                ],
+                'ground-initials' => [
+                    'name' => 'Ground tissue initials',
+                    'abs' => 'nGSC_LG',
+                    'rel' => 'nGSC_LG_rel',
+                    'fc_spt' => 'FC_nGSC_LG_vs_nEMB_LG',
+                    'fc_tmp' => 'FC_nGSC_LG_vs_nGSC_EG',
+                    'highlight' => [
+                        'fc_tmp' => '.eg .ground-initials'
+                    ],
+                ],
+                'ground' => [
+                    'name' => 'Ground tissue',
+                    'abs' => 'nGSC_LG',
+                    'rel' => 'nGSC_LG_rel',
+                    'fc_spt' => 'FC_nGSC_LG_vs_nEMB_LG',
+                    'fc_tmp' => 'FC_nGSC_LG_vs_nGSC_EG',
+                    'highlight' => [
+                        'fc_tmp' => '.eg .ground-initials'
+                    ],
+                ],
+                'qc' => [
+                    'name' => 'QC precursor',
+                    'abs' => 'nQC_LG',
+                    'rel' => 'nQC_LG_rel',
+                    'fc_spt' => 'FC_nQC_LG_vs_nEMB_LG',
+                    'fc_tmp' => 'FC_nEMB_LG_vs_nEMB_EG',
+                    'highlight' => [
+                        'fc_tmp' => '.eg'
+                    ]
+                ],
+                'suspensor' => [
+                    'name' => 'Suspensor',
+                    'abs' => 'nSUS_LG',
+                    'rel' => 'nSUS_LG_rel',
+                    'fc_spt' => 'FC_nSUS_LG_vs_nEMB_LG',
+                    'fc_tmp' => 'FC_nSUS_LG_vs_nSUS_EG',
+                    'highlight' => [
+                        'fc_tmp' => '.eg .suspensor'
+                    ],
+                ],
+
+                '*' => [
+                    'name' => 'Whole embryo',
+                    'abs' => 'nEMB_LG',
+                    'rel' => 'nEMB_LG_rel',
+                    'fc_spt' => false,
+                    'fc_tmp' => 'FC_nEMB_LG_vs_nEMB_EG',
+                    'highlight' => [
+                        'fc_tmp' => '.eg'
+                    ]
                 ]
             ]
         ]

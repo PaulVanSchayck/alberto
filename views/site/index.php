@@ -17,7 +17,7 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
     </div>
 
     <div id="relative-input" style="display:none">
-        <p>Enter an AGI or gene name to be used a relative source gene.</p>
+        <p>Enter an AGI or gene name to obtain normalized expression values relative to this gene.</p>
         <div class="input-group">
             <span class="input-group-addon danger">Gene</span>
             <?php
@@ -101,6 +101,10 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
         </li>
 
         <li data-toggle="tab">
+            <a href="#intact_map2" data-exp="intact_map2" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific</a>
+        </li>
+
+        <li data-toggle="tab">
             <a href="#eightcell" data-exp="eightcell" data-toggle="tooltip" data-original-title="Inhibition of MONOPTEROS and other auxin response factors in the whole octant embryo">RPS5A>>bdl</a>
         </li>
 
@@ -123,6 +127,7 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
         <div class="tab-pane active" id="start"></div>
         <div class="tab-pane active" id="help"></div>
         <div class="tab-pane active" id="intact"></div>
+        <div class="tab-pane active" id="intact_map2"></div>
         <div class="tab-pane active" id="eightcell"></div>
         <div class="tab-pane active" id="q0990"></div>
         <div class="tab-pane active" id="m0171"></div>

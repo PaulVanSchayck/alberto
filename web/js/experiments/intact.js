@@ -1,8 +1,9 @@
 
-function intactExperiment(root) {
+function intactExperiment(experimentName, images) {
 
     return function() {
         var tissues = [
+            'inner-lower-tier',
             'suspensor',
             'vascular-initials',
             'vascular',
@@ -15,7 +16,8 @@ function intactExperiment(root) {
             'columella'
         ];
 
-        var table = window.alberto.table($("#intactTable"), buildDTColumns(intactColumns), buildFilterColumns(intactColumns), 'intact');
+        var table = window.alberto.table($("#" + experimentName + "-table"), buildDTColumns(intactColumns), buildFilterColumns(intactColumns), experimentName);
+        var root = "#" + experimentName;
         var baseColors;
 
         var rsdWarning = 50;
@@ -33,27 +35,25 @@ function intactExperiment(root) {
 
         function loadExperiment() {
             // SVG images
-            var lg = d3.select('#intact .lg');
-            var eg = d3.select('#intact .eg');
-            var hs = d3.select('#intact .hs');
+            $.each( images, function( name, selector )  {
+                var ele = d3.select(root + " " + selector);
+                svg.setupTooltip(ele, formatTooltip);
+            });
 
-            baseColors = svg.retrieveFillColor(hs);
-
-            svg.setupTooltip(eg, formatTooltip);
-            svg.setupTooltip(lg, formatTooltip);
-            svg.setupTooltip(hs, formatTooltip);
+            // TODO: This does not retrieve basecolor for all tissues
+            baseColors = svg.retrieveFillColor(d3.select(root + " .lg"));
 
             // Poor mans method of injecting code into DataTables api
             table.dt.colvis = colvis($("#visibilityModal"), table.dt);
 
-            $("#intact .mode button").tooltip({placement: 'bottom', container: 'body'});
+            $root.find(".mode button").tooltip({placement: 'bottom', container: 'body'});
 
-            $("#intact .warning-sign").tooltip({placement: 'right', title: formatWarningTooltip});
+            $root.find(".warning-sign").tooltip({placement: 'right', title: formatWarningTooltip});
 
-            $("#intact .gene-information .non-selected").tooltip({placement: 'bottom'});
-            $("#intact .scale label").tooltip({placement: 'bottom'});
+            $root.find(".gene-information .non-selected").tooltip({placement: 'bottom'});
+            $root.find(".scale label").tooltip({placement: 'bottom'});
 
-            $("#intact .mode button").click(function () {
+            $root.find(".mode button").click(function () {
                 var $this = $(this);
 
                 if ($this.hasClass('dropdown-toggle')) {
@@ -64,7 +64,7 @@ function intactExperiment(root) {
                 navInfo.setExperimentMode($(this).data('mode'));
             });
 
-            $("#intact .mode button.dropdown-toggle").parent().find('a').on('click', function (e) {
+            $root.find(".mode button.dropdown-toggle").parent().find('a').on('click', function (e) {
                 var $a = $(this);
                 e.preventDefault();
 
@@ -76,7 +76,7 @@ function intactExperiment(root) {
                 $root.find(".mode button").first().click();
             }
 
-            window.alberto.exportModal($root, table, 'intact');
+            window.alberto.exportModal($root, table, experimentName);
 
             $(window).trigger('experiment.loaded');
 
@@ -155,7 +155,7 @@ function intactExperiment(root) {
         }
 
         function updateTableColors(type) {
-            $("#intactTable tbody tr.selected td.type_" + type)
+            table.$table.find("tbody tr.selected td.type_" + type)
                 .css('background-color', function () {
                     return scale.scale($(this).html())
                 })
@@ -176,7 +176,7 @@ function intactExperiment(root) {
 
         function updateColors(colorScale, useBaseColors) {
             $.each(tissues, function (i, tissue) {
-                d3.selectAll('#intact .' + tissue).transition().duration(1000).attr('fill', function (d) {
+                d3.selectAll(root + ' .' + tissue).transition().duration(1000).attr('fill', function (d) {
                     if ( useBaseColors ) {
                         return baseColors[i]
                     }
@@ -205,7 +205,7 @@ function intactExperiment(root) {
 
             $.each(intactRules, function (stageId, stage) {
                 var stageData = [],
-                    $warningSign = $("#intact .svg[data-stage=" + stageId + "] img.warning-sign").removeClass('abs fc_spt fc_tmp');
+                    $warningSign = $root.find(".svg[data-stage=" + stageId + "] img.warning-sign").removeClass('abs fc_spt fc_tmp');
 
                 $.each(tissues, function (j, tissue) {
                     var s;
@@ -235,7 +235,7 @@ function intactExperiment(root) {
                     );
                 });
 
-                svg.assignData(d3.select("#intact ." + stageId), stageData);
+                svg.assignData(d3.select(root + " ." + stageId), stageData);
             });
 
             updateColors(scale.scale);
@@ -379,11 +379,11 @@ function intactExperiment(root) {
                 scale.setFcMode(true);
             } else if (navInfo.getExperimentMode() == "abs") {
                 scale.slider.setAttribute('min', 0)
-                    .setAttribute('max', 400)
-                    .setValue([32, 100])
+                    .setAttribute('max', 200)
+                    .setValue([8, 75])
                     .refresh();
 
-                scale.scale.domain([32, 100])
+                scale.scale.domain([8, 75])
                     .range(["yellow", "red"]);
                 scale.setFcMode(false);
             } else if (navInfo.getExperimentMode() == "fc_tmp") {
@@ -408,7 +408,7 @@ function intactExperiment(root) {
                 scale.setFcMode(true)
             }
 
-            $("#intact").removeClass('abs fc_spt fc_tmp rel').addClass(navInfo.getExperimentMode());
+            $root.removeClass('abs fc_spt fc_tmp rel').addClass(navInfo.getExperimentMode());
             highlightActiveMode(navInfo.getExperimentMode());
 
             table.showColumnType(navInfo.getExperimentMode());
