@@ -30,72 +30,72 @@ return [
 
             // Absolute expression
             [
-                'field' => 'suspensor_eg',
+                'field' => 'nSUS_EG',
                 'type' => 'abs',
                 'label' => 'Suspensor EG'
             ],
             [
-                'field' => 'vascular_eg',
+                'field' => 'nVSC_EG',
                 'type' => 'abs',
                 'label' => 'Vascular EG'
             ],
             [
-                'field' => 'embryo_eg',
+                'field' => 'nEMB_EG',
                 'type' => 'abs',
                 'label' => 'Embryo EG'
             ],
             [
-                'field' => 'vascular_lg',
+                'field' => 'nVSC_LG',
                 'type' => 'abs',
                 'label' => 'Vascular LG'
             ],
             [
-                'field' => 'embryo_lg',
+                'field' => 'nEMB_LG',
                 'type' => 'abs',
                 'label' => 'Embryo LG'
             ],
             [
-                'field' => 'qc_hs',
+                'field' => 'nQC_TR_EH',
                 'type' => 'abs',
                 'label' => 'QC HS'
             ],
 
             // Spatial fold changes
             [
-                'field' => 'fc_vascular_eg_embryo_eg',
+                'field' => 'FC_nVSC_EG_vs_nEMB_EG',
                 'type' => 'fc_spt',
                 'label' => 'Vascular/Embryo EG'
             ],
             [
-                'field' => 'fc_suspensor_eg_embryo_eg',
+                'field' => 'FC_nSUS_EG_vs_nEMB_EG',
                 'type' => 'fc_spt',
                 'label' => 'Suspensor/Embryo EG'
             ],
             [
-                'field' => 'fc_vascular_lg_embryo_lg',
+                'field' => 'FC_nVSC_LG_vs_nEMB_LG',
                 'type' => 'fc_spt',
                 'label' => 'Vascular/Embryo LG'
             ],
 
             [
-                'field' => 'fc_qc_hs_embryo_lg',
+                'field' => 'FC_nQC_TR_EH_vs_nEMB_LG',
                 'type' => 'fc_spt',
                 'label' => 'QC HS/Embryo LG'
             ],
 
             // Temporal fold changes
             [
-                'field' => 'fc_vascular_lg_vascular_eg',
+                'field' => 'FC_nVSC_LG_vs_nVSC_EG',
                 'type' => 'fc_tmp',
                 'label' => 'Vascular LG/Vascular EG'
             ],
             [
-                'field' => 'fc_embryo_lg_embryo_eg',
+                'field' => 'FC_nEMB_LG_vs_nEMB_EG',
                 'type' => 'fc_tmp',
                 'label' => 'Embryo LG/Embryo EG'
             ],
             [
-                'field' => 'fc_qc_hs_suspensor_eg',
+                'field' => 'FC_nQC_TR_EH_vs_nSUS_EG',
                 'type' => 'fc_tmp',
                 'label' => 'QC HS/Suspensor EG'
             ],
@@ -106,30 +106,30 @@ return [
             'eg' => [
                 'suspensor' => [
                     'name' => 'Suspensor',
-                    'abs' => 'suspensor_eg',
-                    'rel' => 'suspensor_eg_rel',
-                    'fc_spt' => 'fc_suspensor_eg_embryo_eg',
+                    'abs' => 'nSUS_EG',
+                    'rel' => 'nSUS_EG_rel',
+                    'fc_spt' => 'FC_nSUS_EG_vs_nEMB_EG',
                     'fc_tmp' => false
                 ],
                 'hypophysis' => [
                     'name' => 'Hypophysis',
-                    'abs' => 'suspensor_eg',
-                    'rel' => 'suspensor_eg_rel',
-                    'fc_spt' => 'fc_suspensor_eg_embryo_eg',
+                    'abs' => 'nSUS_EG',
+                    'rel' => 'nSUS_EG_rel',
+                    'fc_spt' => 'FC_nSUS_EG_vs_nEMB_EG',
                     'fc_tmp' => false,
                 ],
                 'vascular-initials' => [
                     'name' => 'Vascular initials',
-                    'abs' => 'vascular_eg',
-                    'rel' => 'vascular_eg_rel',
-                    'fc_spt' => 'fc_vascular_eg_embryo_eg',
+                    'abs' => 'nVSC_EG',
+                    'rel' => 'nVSC_EG_rel',
+                    'fc_spt' => 'FC_nVSC_EG_vs_nEMB_EG',
                     'fc_tmp' => false
                 ],
 
                 '*' => [
                     'name' => 'Whole embryo',
-                    'abs' => 'embryo_eg',
-                    'rel' => 'embryo_eg_rel',
+                    'abs' => 'nEMB_EG',
+                    'rel' => 'nEMB_EG_rel',
                     'fc_spt' => false,
                     'fc_tmp' => false
                 ]
@@ -138,20 +138,20 @@ return [
             'lg' => [
                 'vascular' => [
                     'name' => 'Vascular',
-                    'abs' => 'vascular_lg',
-                    'rel' => 'vascular_lg_rel',
-                    'fc_spt' => 'fc_vascular_lg_embryo_lg',
-                    'fc_tmp' => 'fc_vascular_lg_vascular_eg',
+                    'abs' => 'nVSC_LG',
+                    'rel' => 'nVSC_LG_rel',
+                    'fc_spt' => 'FC_nVSC_LG_vs_nEMB_LG',
+                    'fc_tmp' => 'FC_nVSC_LG_vs_nVSC_EG',
                     'highlight' => [
                         'fc_tmp' => '.eg .vascular-initials'
                     ],
                 ],
                 'vascular-initials' => [
                     'name' => 'Vascular',
-                    'abs' => 'vascular_lg',
-                    'rel' => 'vascular_lg_rel',
-                    'fc_spt' => 'fc_vascular_lg_embryo_lg',
-                    'fc_tmp' => 'fc_vascular_lg_vascular_eg',
+                    'abs' => 'nVSC_LG',
+                    'rel' => 'nVSC_LG_rel',
+                    'fc_spt' => 'FC_nVSC_LG_vs_nEMB_LG',
+                    'fc_tmp' => 'FC_nVSC_LG_vs_nVSC_EG',
                     'highlight' => [
                         'fc_tmp' => '.eg .vascular-initials'
                     ],
@@ -159,10 +159,10 @@ return [
 
                 '*' => [
                     'name' => 'Whole embryo',
-                    'abs' => 'embryo_lg',
-                    'rel' => 'embryo_lg_rel',
+                    'abs' => 'nEMB_LG',
+                    'rel' => 'nEMB_LG_rel',
                     'fc_spt' => false,
-                    'fc_tmp' => 'fc_embryo_lg_embryo_eg',
+                    'fc_tmp' => 'FC_nEMB_LG_vs_nEMB_EG',
                     'highlight' => [
                         'fc_tmp' => '.eg'
                     ],
@@ -172,10 +172,10 @@ return [
             'hs' => [
                 'qc' => [
                     'name' => 'QC precursor',
-                    'abs' => 'qc_hs',
-                    'rel' => 'qc_hs_rel',
-                    'fc_spt' => 'fc_qc_hs_embryo_lg',
-                    'fc_tmp' => 'fc_qc_hs_suspensor_eg',
+                    'abs' => 'nQC_TR_EH',
+                    'rel' => 'nQC_TR_EH_rel',
+                    'fc_spt' => 'FC_nQC_TR_EH_vs_nEMB_LG',
+                    'fc_tmp' => 'FC_nQC_TR_EH_vs_nSUS_EG',
                     'highlight' => [
                         'fc_tmp' => '.eg .suspensor'
                     ],
