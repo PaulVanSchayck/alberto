@@ -27,16 +27,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h2>Annotations</h2>
 
-    <p>The annotations have been generated from
-        <a href="http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/18.0.0/tairg.asp">MBNI</a>
-        custom CDF files. Specifically of aragene10st_At_TAIRG.</p>
+    <p>The annotations have been generated using
+        <a href="http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/18.0.0/tairg.asp">
+            MBNI CustomCDF version 18.0.0 (aragene10st_At_TAIRG);
+        </a>
+    </p>
 
     <h2>Authors</h2>
 
     <p>AlBERTO was programmed by Paul van Schayck with feedback from Joakim Palovaara.</p>
 
-    <p>The vector images of embryos were created by Colette Ten Hove and Kuan-Ju Lu while the vector images of roots
-        were created by Jos R. Wendrich. The logo was designed by Bert de Rybel.</p>
+    <p>The vector images of embryos were created by Colette ten Hove and Kuan-Ju Lu while the vector images of roots
+        were created by Jos Wendrich. The logo was designed by Bert de Rybel.</p>
 
     <h2>Copyright and license</h2>
 
