@@ -385,7 +385,16 @@ return [
                     'highlight' => [
                         'fc_tmp' => '.wt-16C'
                     ],
-
+                ],
+                'hypophysis' => [
+                    'name' => 'Suspensor',
+                    'abs' => 'nSUS_EG',
+                    'rel' => 'nSUS_EG_rel',
+                    'fc_spt' => 'FC_nSUS_EG_vs_nEMB_EG',
+                    'fc_tmp' =>  'FC_nEMB_EG_vs_nEMB_16C',
+                    'highlight' => [
+                        'fc_tmp' => '.wt-16C'
+                    ],
                 ],
                 'vascular-initials' => [
                     'name' => 'Vascular initials',
