@@ -198,7 +198,7 @@ return [
         'loader' => 'loadExperiment',
         'experimentalSetup' => [
             'note' => 'Cell type-specific nuclei were isolated from early globular stage, late globular stage and heart stage Arabidopsis embryos...',
-            'file' => 'intact.md'
+            'file' => 'intact_map2.md'
         ],
         'model' => 'app\models\Intact_map2',
         'images' => [

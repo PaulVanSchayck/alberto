@@ -184,7 +184,7 @@ $intact = Yii::$app->params['experiments']['intact_map2'];
                     <?= $config['experimentalSetup']['note'] ?>
                 </p>
                 <?php Modal::begin([
-                    'id' => 'experimentModal',
+                    'id' => $experimentName . '-experimentModal',
                     'header' => '<h4 class="modal-title">Experimental setup</h4>',
                     'toggleButton' => ['tag' => 'button', 'label' => 'Read more...', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE
