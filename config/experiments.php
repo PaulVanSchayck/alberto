@@ -26,6 +26,12 @@ return [
             'lg' => '.lg',
             'hs' => '.hs'
         ],
+        'scales' => [
+            'abs' => [
+                'default' => [4,75],
+                'max' => [0,200]
+            ]
+        ],
         'columns' => [
 
             // Absolute expression
@@ -205,6 +211,12 @@ return [
             '16C' => '.wt-16C',
             'eg' => '.eg',
             'lg' => '.lg',
+        ],
+        'scales' => [
+            'abs' => [
+                'default' => [8,75],
+                'max' => [0,200]
+            ]
         ],
         'columns' => [
 

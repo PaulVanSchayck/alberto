@@ -1,5 +1,5 @@
 
-function intactExperiment(experimentName, rules, images, columns) {
+function intactExperiment(experimentName, rules, images, columns, scales) {
 
     return function() {
         var tissues = [
@@ -379,11 +379,11 @@ function intactExperiment(experimentName, rules, images, columns) {
                 scale.setFcMode(true);
             } else if (navInfo.getExperimentMode() == "abs") {
                 scale.slider.setAttribute('min', 0)
-                    .setAttribute('max', 200)
-                    .setValue([8, 75])
+                    .setAttribute('max', scales.abs.max[1])
+                    .setValue([scales.abs.default[0], scales.abs.default[1]])
                     .refresh();
 
-                scale.scale.domain([8, 75])
+                scale.scale.domain([scales.abs.default[0], scales.abs.default[1]])
                     .range(["yellow", "red"]);
                 scale.setFcMode(false);
             } else if (navInfo.getExperimentMode() == "fc_tmp") {

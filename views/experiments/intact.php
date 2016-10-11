@@ -134,7 +134,7 @@ $intact = Yii::$app->params['experiments']['intact'];
             </div>
             <div class="panel-body scale">
                 <b class="badge">0</b>
-                <input type="text" class="scale-slider form-control" name="scale" data-slider-min="0" data-slider-max="150" data-slider-step="1" data-slider-value="[32,100]" data-plugin-name="slider" title="slider">
+                <input type="text" class="scale-slider form-control" name="scale" data-slider-min="0" data-slider-max="200" data-slider-step="1" data-slider-value="[4,75]" data-plugin-name="slider" title="slider">
                 <b class="badge">150</b>
                 <div class='checkbox'>
                     <label class='checkbox-inline' data-toggle="tooltip" title="The default scale setting should be sufficient for most applications"><input type='checkbox' class="scale-input" >Disable auto scaling</label>
@@ -363,5 +363,6 @@ $intact = Yii::$app->params['experiments']['intact'];
     var columns = $.parseJSON('<?= json_encode($intact['columns']); ?>');
     var rules = $.parseJSON('<?= json_encode($intact['rules']); ?>');
     var images = $.parseJSON('<?= json_encode($config['images']); ?>');
-    navInfo.registerExperiment(intactExperiment("intact", rules, images, columns));
+    var scales = $.parseJSON('<?= json_encode($config['scales']); ?>');
+    navInfo.registerExperiment(intactExperiment("intact", rules, images, columns, scales));
 </script>
