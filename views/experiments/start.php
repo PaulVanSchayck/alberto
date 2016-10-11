@@ -22,7 +22,17 @@
                 <img src="/images/start/intact.png">
             </a>
             <div class="experiment-description">
-                <h4><a href="#t" onclick="event.preventDefault();navInfo.setExperiment('intact')">Cell type-specific</a></h4>
+                <h4><a href="#t" onclick="event.preventDefault();navInfo.setExperiment('intact')">Cell type-specific Map1</a></h4>
+                <p>Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo</p>
+            </div>
+        </div>
+
+        <div class="col-lg-2 experiment">
+            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('intact')">
+                <img src="/images/start/intact.png">
+            </a>
+            <div class="experiment-description">
+                <h4><a href="#t" onclick="event.preventDefault();navInfo.setExperiment('intact')">Cell type-specific Map2</a></h4>
                 <p>Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo</p>
             </div>
         </div>
