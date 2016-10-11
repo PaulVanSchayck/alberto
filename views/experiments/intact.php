@@ -141,7 +141,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 </div>
                 <p class="unit mode-abs"><span class="label label-primary">Unit</span> Signal intensity (normalized)</p>
                 <p class="unit mode-fc"><span class="label label-primary">Unit</span> Limma log2-based fold change</p>
-                <p class="unit mode-rel"><span class="label label-primary">Unit</span> log2 fold change</p>
+                <p class="unit mode-rel"><span class="label label-primary">Unit</span> log2 normalized expression value</p>
             </div>
         </div>
     </div>
@@ -162,7 +162,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                             <li><a href="#" data-mode="fc_tmp" target="_blank"><b>Temporal</b> - Compared to precursors in previous stages</a></li>
                         </ul>
                     </div>
-                    <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold change of a gene relative to another gene">Relative</button>
+                    <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="Obtain normalized expression values relative to a gene">Relative</button>
                 </div>
 
                 <div class="relative">
