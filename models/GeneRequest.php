@@ -175,6 +175,12 @@ class GeneRequest extends Model {
     {
         $columns = [];
 
+        // Filter annotations
+        if ( $this->includeAnnotations ) {
+            $columns[] = 'gene.gene';
+            $columns[] = 'gene.annotation';
+        }
+
         // Check which columns are available
         $class = 'app\\models\\' . ucwords($this->tableModel);
         $inTable = array_keys($class::getTableSchema()->columns);
@@ -183,13 +189,6 @@ class GeneRequest extends Model {
             if ( $column['visible'] == 'true'  && in_array($column['data'], $inTable) ) {
                 $columns[] = $column['data'];
             }
-        }
-
-        // Filter annotations
-        if ( ! $this->includeAnnotations ) {
-            $columns = array_filter($columns, function ($a) {
-                return !(strpos($a, 'gene.') !== false);
-            });
         }
 
         return $columns;
