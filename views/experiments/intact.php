@@ -206,7 +206,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <button class="btn btn-default clearfilters">Clear all filters &raquo;</button>
                 <?= $this->render('/_blocks/export', ['experiment' => 'intact']); ?>
                 <?php Modal::begin([
-                    'id' => 'visibilityModal',
+                    'id' => $experimentName . '-visibilityModal',
                     'header' => '<h4 class="modal-title">Show / hide columns</h4>',
                     'toggleButton' => ['tag' => 'button', 'label' => 'Show / hide columns &raquo;', 'class' => 'btn btn-default'],
                     'size' => Modal::SIZE_LARGE

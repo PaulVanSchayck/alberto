@@ -44,7 +44,7 @@ function intactExperiment(experimentName, rules, images, columns) {
             baseColors = svg.retrieveFillColor(d3.select(root + " .lg"));
 
             // Poor mans method of injecting code into DataTables api
-            table.dt.colvis = colvis($("#visibilityModal"), table.dt);
+            table.dt.colvis = colvis($("#" + experimentName + "-visibilityModal"), table.dt);
 
             $root.find(".mode button").tooltip({placement: 'bottom', container: 'body'});
 
