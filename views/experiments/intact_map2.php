@@ -44,7 +44,7 @@ $intact = Yii::$app->params['experiments']['intact_map2'];
                     </span>
                 </h3>
             </div>
-            <div data-stage="16-cell" class="panel-body svg">
+            <div data-stage="wt-16C" class="panel-body svg">
                 <?= file_get_contents(Yii::getAlias('@app') . '/svg/optimized/16-cell.svg'); ?>
                 <img src="/images/warning.png" class="warning-sign" alt="Warning Sign" data-toggle="tooltip" />
             </div>
