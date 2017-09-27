@@ -97,11 +97,11 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
         <?php if ( Yii::$app->user->isGuest === false ): ?>
 
         <li data-toggle="tab">
-            <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific Map1</a>
+            <a href="#intact_map2" data-exp="intact_map2" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific</a>
         </li>
 
         <li data-toggle="tab">
-            <a href="#intact_map2" data-exp="intact_map2" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific Map2</a>
+            <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific (test)</a>
         </li>
 
         <li data-toggle="tab">
