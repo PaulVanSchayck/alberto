@@ -525,7 +525,7 @@ return [
         'template' => 'monopteros.php',
         'loader' => 'loadExperiment',
         'experimentalSetup' => [
-            'note' => 'ARFs are inhibited in the inner embryo proper cells of early Q0990>>bdl embryos...',
+            'note' => 'MONOPTEROS (MP) is inhibited in the inner embryo proper cells of early Q0990>>bdl embryos...',
             'file' => 'Q0990.md'
         ],
         'note' => 'This dataset only contains significant differentially expressed genes (see experimental setup).',
