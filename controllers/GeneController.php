@@ -56,7 +56,7 @@ class GeneController extends Controller {
         }
 
         $GeneRequest = new GeneRequest();
-        $GeneRequest->setTableModel($model::tableName());
+        $GeneRequest->setTableModel($model::className());
 
         if( $GeneRequest->load(Yii::$app->request->post()) && $GeneRequest->validate()) {
 
@@ -106,7 +106,7 @@ class GeneController extends Controller {
         }
 
         $GeneRequest = new GeneRequest();
-        $GeneRequest->setTableModel($model::tableName());
+        $GeneRequest->setTableModel($model::className());
 
         if( $GeneRequest->load(Yii::$app->request->post()) && $GeneRequest->validate()) {
 

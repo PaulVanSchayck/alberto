@@ -88,12 +88,14 @@ class GeneRequest extends Model {
                     $this->addError($attribute, "Unknown prefix `$prefix`");
                     break;
                 }
+
+                $class = 'app\\models\\' . ucwords($prefix);
             } else {
-                $prefix = $this->tableModel;
+                $class = $this->tableModel;
             }
 
             // Check which columns (real and virtual, hence attributes()) are available
-            $class = 'app\\models\\' . ucwords($prefix);
+
             $model = new $class;
             $columnNames = $model->attributes();
 
@@ -159,7 +161,7 @@ class GeneRequest extends Model {
         $columns = [];
 
         // Check which columns are available
-        $class = 'app\\models\\' . ucwords($this->tableModel);
+        $class = $this->tableModel;
         $inTable = array_keys($class::getTableSchema()->columns);
 
         foreach( $this->columns as $column ) {
@@ -182,7 +184,7 @@ class GeneRequest extends Model {
         }
 
         // Check which columns are available
-        $class = 'app\\models\\' . ucwords($this->tableModel);
+        $class = $this->tableModel;
         $inTable = array_keys($class::getTableSchema()->columns);
 
         foreach( $this->columns as $column ) {
