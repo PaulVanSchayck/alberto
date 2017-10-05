@@ -15,6 +15,25 @@
             selecting an experiment or by viewing the <a href="#" onclick="event.preventDefault();navInfo.setExperiment('help')">quick start guide</a>.
         </div>
 
+        <div class="col-lg-2 experiment" data-toggle="tooltip">
+            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('q0990')">
+                <img src="/images/start/q0990.png">
+            </a>
+            <div class="experiment-description">
+                <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('q0990')">Q0990>>bdl</a></h4>
+                <p>Inhibition of MONOPTEROS in ground and vascular tissue in the early embryo</p>
+            </div>
+        </div>
+
+        <div class="col-lg-2 experiment" data-toggle="tooltip">
+            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('rootgradient')">
+                <img src="/images/start/root.jpg">
+            </a>
+            <div class="experiment-description">
+                <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('rootgradient')">Root gradients</a></h4>
+                <p>RNAseq data of differentially sorted root cells based on GFP gradient markers</p>
+            </div>
+        </div>
         <?php if ( Yii::$app->user->isGuest === false ): ?>
 
         <div class="col-lg-2 experiment">
@@ -47,15 +66,7 @@
             </div>
         </div>
 
-        <div class="col-lg-2 experiment" data-toggle="tooltip">
-            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('q0990')">
-                <img src="/images/start/q0990.png">
-            </a>
-            <div class="experiment-description">
-                <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('q0990')">Q0990>>bdl</a></h4>
-                <p>Inhibition of MONOPTEROS in ground and vascular tissue in the early embryo</p>
-            </div>
-        </div>
+
 
         <div class="col-lg-2 experiment" data-toggle="tooltip">
             <a href="#" onclick="event.preventDefault();navInfo.setExperiment('m0171')">
@@ -67,15 +78,7 @@
             </div>
         </div>
 
-        <div class="col-lg-2 experiment" data-toggle="tooltip">
-            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('rootgradient')">
-                <img src="/images/start/root.jpg">
-            </a>
-            <div class="experiment-description">
-                <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('rootgradient')">Root gradients</a></h4>
-                <p>RNAseq data of differentially sorted root cells based on GFP gradient markers</p>
-            </div>
-        </div>
+
         <?php endif ?>
 
     </div>
