@@ -379,6 +379,9 @@ pre.annotation {
 .visibilityModal table.column-checkboxes {
     margin-top: 40px;
 }
+.visibilityModal table.column-checkboxes td {
+    min-width: 20px;
+}
 .visibilityModal th {
     padding-bottom: 5px;
     height: 20px;
