@@ -5,9 +5,9 @@ namespace app\models;
 use Yii;
 use yii\db\ActiveRecord;
 
-class Intact extends ActiveRecord {
+class Atlas_test extends ActiveRecord {
 
-    public $experiment = 'intact';
+    public $experiment = 'atlas_test';
 
     public static function tableName()
     {

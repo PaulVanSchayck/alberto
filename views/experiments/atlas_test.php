@@ -4,7 +4,7 @@ use yii\bootstrap\Modal;
 use yii\helpers\Url;
 use yii\web\JsExpression;
 
-$intact = Yii::$app->params['experiments']['intact'];
+$atlas_test = Yii::$app->params['experiments']['atlas_test'];
 ?>
 
 <ul class="dropdown-menu actions" role="menu">
@@ -204,7 +204,7 @@ $intact = Yii::$app->params['experiments']['intact'];
             <div class="table-tools">
                 <div class="spinner spinner-table"><img src="/images/spinner.gif" alt="Loading" />Loading...</div>
                 <button class="btn btn-default clearfilters">Clear all filters &raquo;</button>
-                <?= $this->render('/_blocks/export', ['experiment' => 'intact']); ?>
+                <?= $this->render('/_blocks/export', ['experiment' => 'atlas_test']); ?>
                 <?php Modal::begin([
                     'id' => $experimentName . '-visibilityModal',
                     'header' => '<h4 class="modal-title">Show / hide columns</h4>',
@@ -240,7 +240,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                             </tr>
 
                             <?php
-                            foreach( $intact['columns'] as $column ) {
+                            foreach($atlas_test['columns'] as $column ) {
                                 if ( $column['type'] != 'abs' ) {
                                     continue;
                                 }
@@ -269,7 +269,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                                 <th><div>q-value</div></th>
                             </tr>
                             <?php
-                            foreach( $intact['columns'] as $column ) {
+                            foreach($atlas_test['columns'] as $column ) {
                                 if ( $column['type'] != 'fc_spt' ) {
                                     continue;
                                 }
@@ -296,7 +296,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                                 <th><div>q-value</div></th>
                             </tr>
                             <?php
-                            foreach( $intact['columns'] as $column ) {
+                            foreach($atlas_test['columns'] as $column ) {
                                 if ( $column['type'] != 'fc_tmp' ) {
                                     continue;
                                 }
@@ -322,7 +322,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                 <p><b>q-value:</b> The False Discovery Rate (FDR) analogue of the p-value. The q-value of an individual hypothesis test is the minimum FDR at which the test may be called significant.</p>
                 <?php Modal::end(); ?>
             </div>
-            <table class="display" id="intact-table">
+            <table class="display" id="atlas_test-table">
                 <thead>
                 <tr class="topHeader">
                     <th colspan="3">Gene information</th>
@@ -336,7 +336,7 @@ $intact = Yii::$app->params['experiments']['intact'];
                     <th>Gene</th>
                     <th>Annotation</th>
                     <?php
-                    foreach( $intact['columns'] as $column ) {
+                    foreach($atlas_test['columns'] as $column ) {
                         echo "<th>{$column['label']}</th>\n";
                         if ( $column['type'] == 'abs' ) {
                             echo "<th>{$column['label']} %RSD</th>\n";
@@ -360,9 +360,9 @@ $intact = Yii::$app->params['experiments']['intact'];
 </div>
 
 <script type="text/javascript">
-    var columns = $.parseJSON('<?= json_encode($intact['columns']); ?>');
-    var rules = $.parseJSON('<?= json_encode($intact['rules']); ?>');
+    var columns = $.parseJSON('<?= json_encode($atlas_test['columns']); ?>');
+    var rules = $.parseJSON('<?= json_encode($atlas_test['rules']); ?>');
     var images = $.parseJSON('<?= json_encode($config['images']); ?>');
     var scales = $.parseJSON('<?= json_encode($config['scales']); ?>');
-    navInfo.registerExperiment(intactExperiment("intact", rules, images, columns, scales));
+    navInfo.registerExperiment(intactExperiment("atlas_test", rules, images, columns, scales));
 </script>

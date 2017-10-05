@@ -4,7 +4,7 @@ use yii\bootstrap\Modal;
 use yii\helpers\Url;
 use yii\web\JsExpression;
 
-$intact = Yii::$app->params['experiments']['intact_map2'];
+$atlas = Yii::$app->params['experiments']['atlas'];
 ?>
 
 <ul class="dropdown-menu actions" role="menu">
@@ -207,7 +207,7 @@ $intact = Yii::$app->params['experiments']['intact_map2'];
             <div class="table-tools">
                 <div class="spinner spinner-table"><img src="/images/spinner.gif" alt="Loading" />Loading...</div>
                 <button class="btn btn-default clearfilters">Clear all filters &raquo;</button>
-                <?= $this->render('/_blocks/export', ['experiment' => 'intact_map2']); ?>
+                <?= $this->render('/_blocks/export', ['experiment' => 'atlas']); ?>
                 <?php Modal::begin([
                     'id' => $experimentName .'-visibilityModal',
                     'header' => '<h4 class="modal-title">Show / hide columns</h4>',
@@ -243,7 +243,7 @@ $intact = Yii::$app->params['experiments']['intact_map2'];
                             </tr>
 
                             <?php
-                            foreach( $intact['columns'] as $column ) {
+                            foreach($atlas['columns'] as $column ) {
                                 if ( $column['type'] != 'abs' ) {
                                     continue;
                                 }
@@ -272,7 +272,7 @@ $intact = Yii::$app->params['experiments']['intact_map2'];
                                 <th><div>q-value</div></th>
                             </tr>
                             <?php
-                            foreach( $intact['columns'] as $column ) {
+                            foreach($atlas['columns'] as $column ) {
                                 if ( $column['type'] != 'fc_spt' ) {
                                     continue;
                                 }
@@ -299,7 +299,7 @@ $intact = Yii::$app->params['experiments']['intact_map2'];
                                 <th><div>q-value</div></th>
                             </tr>
                             <?php
-                            foreach( $intact['columns'] as $column ) {
+                            foreach($atlas['columns'] as $column ) {
                                 if ( $column['type'] != 'fc_tmp' ) {
                                     continue;
                                 }
@@ -339,7 +339,7 @@ $intact = Yii::$app->params['experiments']['intact_map2'];
                     <th>Gene</th>
                     <th>Annotation</th>
                     <?php
-                    foreach( $intact['columns'] as $column ) {
+                    foreach($atlas['columns'] as $column ) {
                         echo "<th>{$column['label']}</th>\n";
                         if ( $column['type'] == 'abs' ) {
                             echo "<th>{$column['label']} %RSD</th>\n";
@@ -363,9 +363,9 @@ $intact = Yii::$app->params['experiments']['intact_map2'];
 </div>
 
 <script type="text/javascript">
-    var columns = $.parseJSON('<?= json_encode($intact['columns']); ?>');
-    var rules = $.parseJSON('<?= json_encode($intact['rules']); ?>');
+    var columns = $.parseJSON('<?= json_encode($atlas['columns']); ?>');
+    var rules = $.parseJSON('<?= json_encode($atlas['rules']); ?>');
     var images = $.parseJSON('<?= json_encode($config['images']); ?>');
     var scales = $.parseJSON('<?= json_encode($config['scales']); ?>');
-    navInfo.registerExperiment(intactExperiment("intact_map2", rules, images, columns, scales));
+    navInfo.registerExperiment(intactExperiment("atlas", rules, images, columns, scales));
 </script>

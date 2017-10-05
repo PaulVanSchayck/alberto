@@ -12,15 +12,15 @@ return [
         'loader' => 'loadStart'
     ],
 
-    'intact' => [
+    'atlas_test' => [
         'login' => true,
-        'template' => 'intact.php',
+        'template' => 'atlas_test.php',
         'loader' => 'loadExperiment',
         'experimentalSetup' => [
             'note' => 'Cell type-specific nuclei were isolated from early globular stage, late globular stage and heart stage Arabidopsis embryos...',
-            'file' => 'intact.md'
+            'file' => 'atlas.md'
         ],
-        'model' => 'app\models\Intact',
+        'model' => 'app\models\Atlas_test',
         'images' => [
             'eg' => '.eg',
             'lg' => '.lg',
@@ -198,15 +198,15 @@ return [
         ]
     ],
 
-    'intact_map2' => [
+    'atlas' => [
         'login' => true,
-        'template' => 'intact_map2.php',
+        'template' => 'atlas.php',
         'loader' => 'loadExperiment',
         'experimentalSetup' => [
             'note' => 'Cell type-specific nuclei were isolated from early globular stage, late globular stage and heart stage Arabidopsis embryos...',
-            'file' => 'intact_map2.md'
+            'file' => 'atlas.md'
         ],
-        'model' => 'app\models\Intact_map2',
+        'model' => 'app\models\Atlas',
         'images' => [
             '16C' => '.wt-16C',
             'eg' => '.eg',
@@ -605,7 +605,7 @@ return [
     ],
 
     'rootgradient' => [
-        'login' => true,
+        'login' => false,
         'template' => 'roots.php',
         'loader' => 'loadExperiment',
         'model' => 'app\models\RootGradient',

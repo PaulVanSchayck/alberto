@@ -18,21 +18,21 @@
         <?php if ( Yii::$app->user->isGuest === false ): ?>
 
         <div class="col-lg-2 experiment">
-            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('intact_map2')">
+            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('atlas')">
                 <img src="/images/start/intact.png">
             </a>
             <div class="experiment-description">
-                <h4><a href="#t" onclick="event.preventDefault();navInfo.setExperiment('intact')">Cell type-specific</a></h4>
+                <h4><a href="#t" onclick="event.preventDefault();navInfo.setExperiment('atlas_')">Cell type-specific</a></h4>
                 <p>Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo</p>
             </div>
         </div>
 
         <div class="col-lg-2 experiment">
-            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('intact')">
+            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('atlas_test')">
                 <img src="/images/start/intact.png">
             </a>
             <div class="experiment-description">
-                <h4><a href="#t" onclick="event.preventDefault();navInfo.setExperiment('intact')">Cell type-specific (test)</a></h4>
+                <h4><a href="#t" onclick="event.preventDefault();navInfo.setExperiment('atlas_test')">Cell type-specific (test)</a></h4>
                 <p>Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo</p>
             </div>
         </div>

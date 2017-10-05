@@ -97,11 +97,11 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
         <?php if ( Yii::$app->user->isGuest === false ): ?>
 
         <li data-toggle="tab">
-            <a href="#intact_map2" data-exp="intact_map2" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific</a>
+            <a href="#atlas" data-exp="atlas" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific</a>
         </li>
 
         <li data-toggle="tab">
-            <a href="#intact" data-exp="intact" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific (test)</a>
+            <a href="#atlas_test" data-exp="atlas_test" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific (test)</a>
         </li>
 
         <li data-toggle="tab">
@@ -126,8 +126,8 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
     <div class="tab-content">
         <div class="tab-pane active" id="start"></div>
         <div class="tab-pane active" id="help"></div>
-        <div class="tab-pane active" id="intact"></div>
-        <div class="tab-pane active" id="intact_map2"></div>
+        <div class="tab-pane active" id="atlas"></div>
+        <div class="tab-pane active" id="atlas_test"></div>
         <div class="tab-pane active" id="eightcell"></div>
         <div class="tab-pane active" id="q0990"></div>
         <div class="tab-pane active" id="m0171"></div>
