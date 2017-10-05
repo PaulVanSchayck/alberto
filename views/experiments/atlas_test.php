@@ -1,8 +1,5 @@
 <?php
-use kartik\typeahead\Typeahead;
 use yii\bootstrap\Modal;
-use yii\helpers\Url;
-use yii\web\JsExpression;
 
 $atlas_test = Yii::$app->params['experiments']['atlas_test'];
 ?>
@@ -225,7 +222,7 @@ $atlas_test = Yii::$app->params['experiments']['atlas_test'];
                             </tr>
                             <tr class='field'>
                                 <td><input type="checkbox" id="gene.annotation"></td>
-                                <td><label class="checkbox-inline" for="gene.gene">Annotation</label>
+                                <td><label class="checkbox-inline" for="gene.annotation">Annotation</label>
                                 </td></tr>
                         </table>
                     </div>

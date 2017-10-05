@@ -18,7 +18,7 @@ return [
         'loader' => 'loadExperiment',
         'experimentalSetup' => [
             'note' => 'Cell type-specific nuclei were isolated from early globular stage, late globular stage and heart stage Arabidopsis embryos...',
-            'file' => 'atlas.md'
+            'file' => 'atlas_test.md'
         ],
         'model' => 'app\models\Atlas_test',
         'images' => [
@@ -521,11 +521,11 @@ return [
     ],
 
     'q0990' => [
-        'login' => true,
+        'login' => false,
         'template' => 'monopteros.php',
         'loader' => 'loadExperiment',
         'experimentalSetup' => [
-            'note' => 'MONOPTEROS (MP) is inhibited in the inner embryo proper cells of early Q0990>>bdl embryos...',
+            'note' => 'ARFs are inhibited in the inner embryo proper cells of early Q0990>>bdl embryos...',
             'file' => 'Q0990.md'
         ],
         'note' => 'This dataset only contains significant differentially expressed genes (see experimental setup).',

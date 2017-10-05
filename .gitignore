@@ -27,4 +27,4 @@ phpunit.phar
 /phpunit.xml
 
 # Experimental setup
-/experimentalsetup/*
+#/experimentalsetup/*
