@@ -142,7 +142,6 @@ $experiment = Yii::$app->params['experiments']['rootgradient'];
                 <div class="btn-group">
                     <button type="button" class="btn btn-default" data-mode='abs' data-toggle="tooltip" title="View absolute gene expression">Absolute</button>
                     <button type="button" class="btn btn-default" data-mode='fc' data-toggle="tooltip" title="View fold changes">Fold change</button>
-                    <button type="button" class="btn btn-default" data-mode='rel' data-toggle="tooltip" title="View the fold change of a gene relative to another gene">Relative</button>
                 </div>
 
                 <p class="mode-note mode-fc">The 'proximal' region is taken as base for displaying the fold changes.</p>
