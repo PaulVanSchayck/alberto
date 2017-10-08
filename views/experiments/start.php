@@ -21,7 +21,7 @@
             </a>
             <div class="experiment-description">
                 <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('q0990')">Q0990>>bdl</a></h4>
-                <p>Inhibition of MONOPTEROS in ground and vascular tissue in the early embryo</p>
+                <p>Inhibition of ARF activity in ground and vascular tissue in the early embryo</p>
             </div>
         </div>
 
