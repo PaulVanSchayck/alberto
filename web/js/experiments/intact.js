@@ -272,7 +272,7 @@ function intactExperiment(experimentName, rules, images, columns, scales) {
 
                         // Extra highlight
                         if (tissueRules.highlight && tissueRules.highlight[navInfo.getExperimentMode()]) {
-                                  d3.select(tissueRules.highlight[navInfo.getExperimentMode()])
+                                  d3.select(root + ' ' + tissueRules.highlight[navInfo.getExperimentMode()])
                                       .classed('highlight', true)
                                       .transition().style('opacity', 0.5);
                         }
