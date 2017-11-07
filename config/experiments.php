@@ -17,7 +17,7 @@ return [
         'template' => 'atlas_test.php',
         'loader' => 'loadExperiment',
         'experimentalSetup' => [
-            'note' => 'Cell type-specific nuclei were isolated from early globular stage, late globular stage and heart stage Arabidopsis embryos...',
+            'note' => 'Cell type-specific nuclei were isolated from early globular stage, late globular stage and early heart stage Arabidopsis embryos...',
             'file' => 'atlas_test.md'
         ],
         'model' => 'app\models\Atlas_test',
@@ -203,7 +203,7 @@ return [
         'template' => 'atlas.php',
         'loader' => 'loadExperiment',
         'experimentalSetup' => [
-            'note' => 'Cell type-specific nuclei were isolated from early globular stage, late globular stage and heart stage Arabidopsis embryos...',
+            'note' => 'Cell type-specific nuclei were isolated from 16-cell stage, early globular stage and late globular stage Arabidopsis embryos...',
             'file' => 'atlas.md'
         ],
         'model' => 'app\models\Atlas',

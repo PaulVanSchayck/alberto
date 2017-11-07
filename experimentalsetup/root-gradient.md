@@ -13,4 +13,4 @@ Proc. Natl. Acad. Sci. USA
 
 Gene Expression Omnibus (GEO): [GSE98097](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98097)
 
-[^Iyer-Pascuzzi and Benfey, 2010]: Iyer-Pascuzzi A.S. and Benfey P.N. 2010. Fluorescent-Acticated Cell Sorting in Plant Decelopmental Biology. Methods in Molecular Biology
+[^Iyer-Pascuzzi and Benfey, 2010]: Iyer-Pascuzzi A.S. and Benfey P.N. 2010. Fluorescent-Acticated Cell Sorting in Plant Decelopmental Biology. Methods in Molecular Biology, 114, E8922-E8929

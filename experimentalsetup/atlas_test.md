@@ -1,4 +1,4 @@
-- Cell type-specific nuclei were isolated from early globular stage, late globular stage and heart stage Arabidopsis 
+- Cell type-specific nuclei were isolated from early globular stage, late globular stage and early heart stage Arabidopsis 
   embryos using the INTACT method[^Deal and Henikoff 2010].
 - Plants were grown under at a constant temperature of 22° under long-day conditions (16 hours light/8 hours dark).
 - RNA samples representing up to four biological replicates were extracted and >500 pg of total RNA was amplified and 
