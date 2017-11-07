@@ -20,7 +20,7 @@
                 <img src="/images/start/intact.png">
             </a>
             <div class="experiment-description">
-                <h4><a href="#t" onclick="event.preventDefault();navInfo.setExperiment('atlas')">Cell type-specific</a></h4>
+                <h4><a href="#" onclick="event.preventDefault();navInfo.setExperiment('atlas')">Cell type-specific</a></h4>
                 <p>Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo</p>
             </div>
         </div>

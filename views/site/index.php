@@ -95,6 +95,10 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
         </li>
 
         <li data-toggle="tab">
+            <a href="#atlas" data-exp="atlas" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific</a>
+        </li>
+
+        <li data-toggle="tab">
             <a href="#q0990" data-exp="q0990" data-toggle="tooltip" data-original-title="Inhibition of ARF activity in ground and vascular tissue in the early embryo">Q0990>>bdl</a>
         </li>
 
@@ -103,10 +107,6 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
         </li>
 
         <?php if ( Yii::$app->user->isGuest === false ): ?>
-
-        <li data-toggle="tab">
-            <a href="#atlas" data-exp="atlas" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific</a>
-        </li>
 
         <li data-toggle="tab">
             <a href="#atlas_test" data-exp="atlas_test" data-toggle="tooltip" data-original-title="Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo">Cell type-specific (test)</a>
