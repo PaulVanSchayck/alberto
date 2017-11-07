@@ -1,4 +1,4 @@
-Palovaara, J., Shunsuke, S., Wendrich, J.R., van ’t Wout Hofland, N., van Schayck, P., Hater, F., Mutte, S., 
+Palovaara, J., Shunsuke, S., Wendrich, J.R., van ’t Wout Hofland, N., van Schayck, J.P., Hater, F., Mutte, S., 
 Sjollerma, J., Boekschoten, M., Hooiveld, G.J., Weijers, D. (2017). Transcriptome dynamics revealed by a gene 
 expression atlas of the early Arabidopsis embryo. Nature Plants 3, 894–904 (2017)
 
