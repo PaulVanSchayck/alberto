@@ -199,7 +199,7 @@ return [
     ],
 
     'atlas' => [
-        'login' => true,
+        'login' => false,
         'template' => 'atlas.php',
         'loader' => 'loadExperiment',
         'experimentalSetup' => [

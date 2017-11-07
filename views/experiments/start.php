@@ -15,6 +15,16 @@
             selecting an experiment or by viewing the <a href="#" onclick="event.preventDefault();navInfo.setExperiment('help')">quick start guide</a>.
         </div>
 
+        <div class="col-lg-2 experiment">
+            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('atlas')">
+                <img src="/images/start/intact.png">
+            </a>
+            <div class="experiment-description">
+                <h4><a href="#t" onclick="event.preventDefault();navInfo.setExperiment('atlas')">Cell type-specific</a></h4>
+                <p>Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo</p>
+            </div>
+        </div>
+
         <div class="col-lg-2 experiment" data-toggle="tooltip">
             <a href="#" onclick="event.preventDefault();navInfo.setExperiment('q0990')">
                 <img src="/images/start/q0990.png">
@@ -35,16 +45,6 @@
             </div>
         </div>
         <?php if ( Yii::$app->user->isGuest === false ): ?>
-
-        <div class="col-lg-2 experiment">
-            <a href="#" onclick="event.preventDefault();navInfo.setExperiment('atlas')">
-                <img src="/images/start/intact.png">
-            </a>
-            <div class="experiment-description">
-                <h4><a href="#t" onclick="event.preventDefault();navInfo.setExperiment('atlas_')">Cell type-specific</a></h4>
-                <p>Spatio-temporal transcriptomes of cell type-specific nuclei in the early embryo</p>
-            </div>
-        </div>
 
         <div class="col-lg-2 experiment">
             <a href="#" onclick="event.preventDefault();navInfo.setExperiment('atlas_test')">
