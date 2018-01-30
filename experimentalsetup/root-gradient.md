@@ -1,6 +1,6 @@
 Wendrich, J.R., Möller, B.K., Li, S., Saiga, S., Sozzani, R., Benfey, P.N., De Rybel, B., and Weijers, D. 
 (2017). A framework for gradual progression of cell ontogeny in the Arabidopsis root meristem. 
-Proc. Natl. Acad. Sci. USA
+Proc. Natl. Acad. Sci. USA, 114, E8922-E8929
 
 [https://doi.org/10.1073/pnas.1707400114](https://doi.org/10.1073/pnas.1707400114)
 
