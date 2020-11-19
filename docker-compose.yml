@@ -1,0 +1,34 @@
+version: '3.1'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    environment:
+      YII_ENV: dev
+    ports:
+      - 80:8080
+    volumes:
+      - ".:/opt/app"
+    depends_on: [ docker-host ]
+    networks:
+       default:
+          aliases:
+            - web.local
+  db:
+    image: mysql:5.7
+    hostname: db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - db_base:/var/lib/mysql
+  docker-host:
+    image: qoomon/docker-host
+    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
+    restart: on-failure
+
+volumes:
+  db_base:
