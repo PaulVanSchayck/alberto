@@ -1,5 +1,5 @@
 {
-    "name": "PaulVanSchayck/alberto",
+    "name": "paulvanschayck/alberto",
     "description": "AraBidopsis EmbRyonic Transcriptome brOwser",
     "keywords": ["Arabidopsis", "Embryonic", "Transcriptome", "Browser"],
     "homepage": "http://www.wageningenur.nl/en/Expertise-Services/Chair-groups/Agrotechnology-and-Food-Sciences/Laboratory-of-Biochemistry/Research/Plant-Development.htm",
@@ -11,7 +11,7 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=7.3.0",
         "yiisoft/yii2": "2.0.*",
         "yiisoft/yii2-bootstrap": "*",
         "bower-asset/datatables": "1.10.4",
@@ -59,6 +59,10 @@
                     "reference": "master"
                 }
             }
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
     ],
     "extra": {
@@ -73,10 +77,6 @@
             "generateCookieValidationKey": [
                 "config/web.php"
             ]
-        },
-        "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
         }
     }
 }
