@@ -38,7 +38,7 @@ lftp -u albertod albertodb.org <<EOF
 set cmd:fail-exit true;
 set ftp:ssl-allow no;
 set ftp:list-options -a;
-mirror -veR --exclude web/index.php --exclude data --exclude config/users.php --exclude config/db.php --exclude web/assets --exclude .git --exclude runtime --exclude .idea --exclude config/db.php $rep/. httpdocs/.;
+mirror -veR --exclude web/index.php --exclude ^\data/ --exclude config/users.php --exclude config/db.php --exclude web/assets --exclude .git --exclude runtime --exclude .idea --exclude config/db.php $rep/. httpdocs/.;
 bye;
 EOF
 

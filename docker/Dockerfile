@@ -18,6 +18,7 @@ RUN apt-get update \
 	    libmcrypt-dev \
 	    unzip \
 	    ghostscript \
+	    lftp \
     && rm -rf /var/lib/apt/lists/*
 
 # Install the PHP extensions we need
