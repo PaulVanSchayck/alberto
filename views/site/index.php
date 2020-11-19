@@ -29,7 +29,10 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
                 'pluginOptions' => ['highlight' => true, 'autoselect' => true],
                 'dataset' => [
                     [
-                        'remote' => Url::to(['gene/autocomplete']) . '/%QUERY',
+                        'remote' => [
+                            'url' => Url::to(['gene/autocomplete']) . '/%QUERY',
+                            'wildcard' => '%QUERY'
+                        ],
                         'limit' => 10,
                         'templates' => [
                             'empty' => '<p>Unable to find a matching gene.</p>',
@@ -58,7 +61,10 @@ $this->title = 'AlBERTO - AraBidopsis Embryonic and Root Transcriptome brOwser';
                     'pluginOptions' => ['highlight' => true, 'autoselect' => true],
                     'dataset' => [
                         [
-                            'remote' => Url::to(['gene/autocomplete']) . '/%QUERY',
+                            'remote' => [
+                                'url' => Url::to(['gene/autocomplete']) . '/%QUERY',
+                                'wildcard' => '%QUERY'
+                            ],
                             'limit' => 10,
                             'templates' => [
                                 'empty' => '<p>Unable to find a matching gene.</p>',
