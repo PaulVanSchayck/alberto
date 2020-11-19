@@ -4,7 +4,7 @@
  */
 
 // In the console environment, some path aliases may not exist. Please define these:
-Yii::setAlias('@webroot','/home/paul/alberto/web');
+Yii::setAlias('@webroot','/opt/app/web');
 Yii::setAlias('@web', '/');
 
 return [

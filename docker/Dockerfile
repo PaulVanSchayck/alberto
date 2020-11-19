@@ -56,6 +56,14 @@ RUN chown -R www-data:www-data /var/www
 RUN curl -fSL https://getcomposer.org/download/1.10.5/composer.phar -o /usr/bin/composer \
 	&& chmod +x /usr/bin/composer
 
+# Node
+RUN curl -sL https://deb.nodesource.com/setup_15.x | bash - \
+    && apt-get install -y nodejs
+
+# Uglify-JS and clean-css
+RUN npm install -g uglify-js \
+    && npm install -g clean-css-cli
+
 # DB base
 ADD data/ /opt/
 
