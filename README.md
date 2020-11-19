@@ -73,9 +73,9 @@ Copy the file `config/db.sample.php` to `config/db.php` and fill it with real da
 ```php
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=alberto',
+    'dsn' => 'mysql:host=db;dbname=alberto',
     'username' => 'root',
-    'password' => '1234',
+    'password' => '',
     'charset' => 'utf8',
 ];
 ```

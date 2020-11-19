@@ -10,14 +10,6 @@ cd /opt/app || exit
 # Install composer dependencies
 composer install
 
-# Run yii2 deployment tool
-./deployment/init --env=dev --overwrite=yes
-
-if [[ $? -gt 0  ]]; then
-    echo "Yii2 deployment tool failed. Check for errors."
-    exit 1;
-fi
-
 # Install DB if does not exist yet
 mysql -h db -u root -e 'use alberto' > /dev/null 2>&1
 if [[ $? -gt 0  ]]; then
@@ -25,9 +17,14 @@ if [[ $? -gt 0  ]]; then
     mysql -h db -u root -e "CREATE SCHEMA IF NOT EXISTS alberto DEFAULT CHARACTER SET utf8 ;"
 
     # Load base database
-    mysql -h db -D alberto < /opt/annotation_create_import.sql
-    mysql -h db -D alberto < /opt/intact.sql
-
+    mysql -h db -u root -D alberto < /opt/annotation_create_import.sql
+    mysql -h db -u root -D alberto < /opt/intact_create.sql
+    mysql -h db -u root -D alberto < /opt/eightcell_create.sql
+    mysql -h db -u root -D alberto < /opt/intact_map2_create.sql
+    mysql -h db -u root -D alberto < /opt/m0171_create.sql
+    mysql -h db -u root -D alberto < /opt/mpproper_create.sql
+    mysql -h db -u root -D alberto < /opt/q0990.sql
+    mysql -h db -u root -D alberto < /opt/wendrich_roots.sql
 fi
 
 # Start Apache2 in background
