@@ -11,7 +11,7 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "php": ">=7.3.0",
+        "php": ">=8.3.0",
         "yiisoft/yii2": "2.0.*",
         "yiisoft/yii2-bootstrap": "*",
         "bower-asset/datatables": "1.10.4",
@@ -21,14 +21,18 @@
         "kartik-v/yii2-slider": "1.3.*",
         "kartik-v/yii2-widget-typeahead": "1.0.*",
         "vedmack/yadcf": "0.8.7",
-        "eligrey/FileSaver.js": "1.0",
-        "michelf/php-markdown": "1.4.*"
+        "eligrey/filesaver.js": "1.0",
+        "michelf/php-markdown": "2.0.*"
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "2.0.*"
+        "yiisoft/yii2-debug": "2.0.*",
+        "matthiasmullie/minify": "1.3.*"
     },
     "config": {
-        "process-timeout": 1800
+        "process-timeout": 1800,
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
     },
     "scripts": {
         "post-create-project-cmd": [
@@ -51,7 +55,7 @@
         {
             "type": "package",
             "package": {
-                "name": "eligrey/FileSaver.js",
+                "name": "eligrey/filesaver.js",
                 "version": "1.0",
                 "source": {
                     "url": "https://github.com/eligrey/FileSaver.js.git",

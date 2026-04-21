@@ -95,8 +95,8 @@ minify all JS and CSS files and then perform a lftp mirror. For this uglifyjs an
 required. These are node.js packages. Install through:
 
 ```
-sudo npm install uglify-js -g
-sudo npm install clean-css -g
+npm install uglify-js -g
+npm install clean-css -g
 ```
 
 Author

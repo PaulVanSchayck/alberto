@@ -1,4 +1,4 @@
-FROM php:7.3-apache-buster
+FROM php:8.3-apache-bullseye
 
 # Install some base packages
 RUN apt-get update \
@@ -22,7 +22,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Install the PHP extensions we need
-RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
+RUN docker-php-ext-configure gd \
     && docker-php-ext-install gd pdo_mysql intl xsl zip bcmath
 
 # Install imagick
@@ -30,11 +30,11 @@ RUN pecl install imagick \
     && docker-php-ext-enable imagick
 
 # See changelog at https://pecl.php.net/package-changelog.php?package=xdebug
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug \
-    && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-    && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-    && echo "xdebug.remote_host=docker-host" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+#RUN pecl install xdebug \
+#    && docker-php-ext-enable xdebug \
+#    && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+#    && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+#    && echo "xdebug.remote_host=docker-host" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Enable mod_rewrite
 RUN a2enmod rewrite
@@ -54,16 +54,8 @@ RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
 RUN chown -R www-data:www-data /var/www
 
 # Composer
-RUN curl -fSL https://getcomposer.org/download/1.10.5/composer.phar -o /usr/bin/composer \
+RUN curl -fSL https://getcomposer.org/download/2.9.7/composer.phar -o /usr/bin/composer \
 	&& chmod +x /usr/bin/composer
-
-# Node
-RUN curl -sL https://deb.nodesource.com/setup_15.x | bash - \
-    && apt-get install -y nodejs
-
-# Uglify-JS and clean-css
-RUN npm install -g uglify-js \
-    && npm install -g clean-css-cli
 
 # DB base
 ADD data/ /opt/

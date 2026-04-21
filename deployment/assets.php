@@ -9,9 +9,9 @@ Yii::setAlias('@web', '/');
 
 return [
     // Adjust command/callback for JavaScript files compressing:
-    'jsCompressor' => 'uglifyjs {from} -o {to}',
+    'jsCompressor' => './minifyjs.php {from} {to}',
     // Adjust command/callback for CSS files compressing:
-    'cssCompressor' => 'cleancss {from} -o {to}',
+    'cssCompressor' => './minifycss.php {from} {to}',
     // The list of asset bundles to compress:
     'bundles' => [
          'app\assets\AppAsset',
